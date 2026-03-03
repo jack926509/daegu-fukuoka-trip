@@ -419,6 +419,174 @@ body{
 .tip-body b{color:var(--ink);}
 
 /* ═══════════════════════════════════════
+   SCROLL PROGRESS BAR
+═══════════════════════════════════════ */
+#progress-bar{
+  position:fixed;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--d1) 0%,var(--d2) 50%,var(--d3) 100%);
+  transform-origin:left;transform:scaleX(0);
+  z-index:500;pointer-events:none;
+  transition:transform .08s linear;
+}
+
+/* ═══════════════════════════════════════
+   DAY OVERVIEW CARDS (in hero)
+═══════════════════════════════════════ */
+.day-overview{
+  display:flex;gap:8px;margin-top:24px;
+}
+@media(max-width:640px){.day-overview{flex-direction:column;}}
+.day-ov-card{
+  flex:1;display:flex;align-items:center;gap:10px;
+  padding:11px 14px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  text-decoration:none;
+  transition:background .18s,transform .18s;
+  cursor:pointer;
+}
+.day-ov-card:hover{background:rgba(255,255,255,.11);transform:translateY(-1px);}
+.dov-num{
+  font-family:'Noto Serif TC',serif;
+  font-size:26px;font-weight:900;line-height:1;flex-shrink:0;letter-spacing:-2px;
+}
+.d1-card .dov-num{color:rgba(192,98,42,.55);}
+.d2-card .dov-num{color:rgba(42,100,150,.55);}
+.d3-card .dov-num{color:rgba(58,125,68,.55);}
+.dov-info{flex:1;min-width:0;}
+.dov-date{
+  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;
+  color:rgba(245,239,227,.38);margin-bottom:2px;
+}
+.dov-title{font-size:12px;font-weight:700;color:var(--sand);margin-bottom:2px;}
+.dov-sub{font-size:10px;color:rgba(245,239,227,.43);line-height:1.4;}
+.dov-arrow{color:rgba(245,239,227,.25);font-size:14px;flex-shrink:0;}
+
+/* ═══════════════════════════════════════
+   BUDGET SUMMARY
+═══════════════════════════════════════ */
+.budget-summary{
+  background:var(--white);border:1px solid var(--border);
+  margin-bottom:28px;overflow:hidden;
+}
+.bud-header{
+  display:flex;align-items:center;
+  padding:13px 20px 12px;border-bottom:1px solid var(--border);
+}
+.bud-header-title{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:600;}
+.bud-header-note{
+  margin-left:auto;
+  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;
+  color:var(--muted);
+}
+.bud-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:1px;background:var(--border);
+}
+.bud-item{background:var(--sand);padding:12px 16px;}
+.bud-item.bud-total{background:var(--ink);}
+.bud-label{
+  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--muted);margin-bottom:4px;
+}
+.bud-total .bud-label{color:rgba(245,239,227,.4);}
+.bud-val{font-size:13px;font-weight:700;color:var(--ink);line-height:1.5;}
+.bud-total .bud-val{color:var(--gold);font-size:14px;}
+
+/* ═══════════════════════════════════════
+   STICKY FILTER BAR
+═══════════════════════════════════════ */
+.filter-bar{
+  display:flex;flex-wrap:wrap;align-items:center;gap:5px;
+  padding:10px 16px;margin-bottom:24px;
+  background:var(--white);border:1px solid var(--border);
+  border-left:none;border-right:none;
+  position:sticky;top:calc(var(--nav-h) + 0px);z-index:100;
+  box-shadow:0 2px 8px rgba(28,23,20,.06);
+}
+@media(max-width:899px){.filter-bar{top:0;}}
+.filter-label{
+  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;
+  color:var(--muted);text-transform:uppercase;margin-right:3px;flex-shrink:0;
+}
+.filter-btn{
+  padding:4px 11px;
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;
+  border:1px solid var(--border);background:transparent;
+  color:var(--muted);cursor:pointer;transition:all .14s;
+}
+.filter-btn:hover{background:var(--sand);color:var(--ink);}
+.filter-btn.active{background:var(--ink);color:var(--sand);border-color:var(--ink);}
+.event.filtered-out,.transit-row.filtered-out{display:none!important;}
+
+/* ═══════════════════════════════════════
+   BACK TO TOP BUTTON
+═══════════════════════════════════════ */
+#back-to-top{
+  position:fixed;right:18px;
+  bottom:calc(var(--bottom-h) + 14px + env(safe-area-inset-bottom));
+  width:38px;height:38px;
+  background:var(--ink);color:var(--sand);
+  border:1px solid rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;cursor:pointer;
+  opacity:0;pointer-events:none;
+  transition:opacity .22s,transform .22s;
+  transform:translateY(8px);z-index:150;
+}
+#back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
+@media(min-width:900px){#back-to-top{bottom:22px;}}
+
+/* ═══════════════════════════════════════
+   COLLAPSIBLE EVENT CARDS
+═══════════════════════════════════════ */
+.ev-top{cursor:pointer;user-select:none;}
+.ev-toggle-icon{
+  display:inline-block;margin-left:5px;font-size:9px;
+  color:var(--muted);transition:transform .18s;vertical-align:middle;
+  flex-shrink:0;
+}
+.ev-card.collapsed .ev-toggle-icon{transform:rotate(-90deg);}
+.ev-card.collapsed .ev-desc,
+.ev-card.collapsed .tags{display:none;}
+
+/* ═══════════════════════════════════════
+   CARD REVEAL ANIMATION
+═══════════════════════════════════════ */
+.reveal{
+  opacity:0;transform:translateY(12px);
+  transition:opacity .38s ease,transform .38s ease;
+}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ═══════════════════════════════════════
+   ACTIVE NAV ENHANCEMENTS
+═══════════════════════════════════════ */
+.desktop-nav-links a.nav-active{
+  background:rgba(255,255,255,.07);
+  opacity:1!important;
+}
+.mob-tab{opacity:.5;}
+.mob-tab.d1,.mob-tab.d2,.mob-tab.d3,.mob-tab.info{opacity:.5;}
+.mob-tab.nav-active{opacity:1!important;background:rgba(255,255,255,.07);}
+.sidebar-link.nav-active{
+  background:var(--sand);color:var(--ink);font-weight:600;
+}
+
+/* ═══════════════════════════════════════
+   PRINT STYLES
+═══════════════════════════════════════ */
+@media print{
+  .desktop-header,.sidebar,.mobile-bottom-nav,.filter-bar,
+  #back-to-top,#progress-bar,.guide-voice{display:none!important;}
+  .page-body,.main-content{display:block!important;padding:0!important;}
+  .hero{padding:16px!important;break-after:avoid;}
+  .day-section{break-before:page;}
+  .ev-card,.ticket-card,.tip-card{break-inside:avoid;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+
+/* ═══════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════ */
 footer{
@@ -430,6 +598,9 @@ footer{
 </style>
 </head>
 <body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="progress-bar"></div>
 
 <!-- ════════════════════════
   DESKTOP TOP NAV
@@ -500,6 +671,37 @@ footer{
     <div class="chip"><b>✈</b> FUK 16:20 → TPE 17:50</div>
     <div class="chip"><b>🌡</b> 22–27°C 短袖+薄外套</div>
   </div>
+
+  <!-- DAY OVERVIEW QUICK JUMP -->
+  <div class="day-overview">
+    <a class="day-ov-card d1-card" href="#day1">
+      <div class="dov-num">01</div>
+      <div class="dov-info">
+        <div class="dov-date">5月16日（六）</div>
+        <div class="dov-title">大邱 → 福岡</div>
+        <div class="dov-sub">近代胡同・排骨燉・宵夜一蘭</div>
+      </div>
+      <span class="dov-arrow">›</span>
+    </a>
+    <a class="day-ov-card d2-card" href="#day2">
+      <div class="dov-num">02</div>
+      <div class="dov-info">
+        <div class="dov-date">5月17日（日）</div>
+        <div class="dov-title">門司港懷舊散步</div>
+        <div class="dov-sub">紅磚倉庫・海底隧道・牛腸鍋</div>
+      </div>
+      <span class="dov-arrow">›</span>
+    </a>
+    <a class="day-ov-card d3-card" href="#day3">
+      <div class="dov-num">03</div>
+      <div class="dov-info">
+        <div class="dov-date">5月18日（一）</div>
+        <div class="dov-title">太宰府 · 回台灣</div>
+        <div class="dov-sub">天滿宮・水炊鍋・天神最終掃貨</div>
+      </div>
+      <span class="dov-arrow">›</span>
+    </a>
+  </div>
 </div>
 
 <!-- WEATHER -->
@@ -543,6 +745,47 @@ footer{
     </div>
     <div class="wc-tip">💡 五月福岡梅雨前夕，降雨機率不高但建議帶傘。門司港海風較強，多帶一件薄外套。太宰府神社步道多，穿舒適走路鞋。</div>
   </div>
+</div>
+
+<!-- ════════════════ BUDGET SUMMARY ════════════════ -->
+<div class="budget-summary">
+  <div class="bud-header">
+    <div class="bud-header-title">💰 預估費用快覽（2人）</div>
+    <div class="bud-header-note">不含住宿・僅供參考</div>
+  </div>
+  <div class="bud-grid">
+    <div class="bud-item">
+      <div class="bud-label">大邱交通</div>
+      <div class="bud-val">₩17,000–18,000</div>
+    </div>
+    <div class="bud-item">
+      <div class="bud-label">JR 門司港往返</div>
+      <div class="bud-val">¥5,280（2人）</div>
+    </div>
+    <div class="bud-item">
+      <div class="bud-label">福岡票券</div>
+      <div class="bud-val">¥4,900–5,540</div>
+    </div>
+    <div class="bud-item">
+      <div class="bud-label">3日餐飲</div>
+      <div class="bud-val">¥20,000–28,000</div>
+    </div>
+    <div class="bud-item bud-total">
+      <div class="bud-label">日幣合計</div>
+      <div class="bud-val">¥30,000–39,000<br>+ ₩17,000</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ FILTER BAR ════════════════ -->
+<div class="filter-bar" id="filterBar">
+  <span class="filter-label">篩選行程：</span>
+  <button class="filter-btn active" data-filter="all">全部</button>
+  <button class="filter-btn" data-filter="food">🍽 美食</button>
+  <button class="filter-btn" data-filter="sight">🏛 景點</button>
+  <button class="filter-btn" data-filter="transport">✈ 交通</button>
+  <button class="filter-btn" data-filter="shop">🛍 購物</button>
+  <button class="filter-btn" data-filter="night">🌙 宵夜</button>
 </div>
 
 <!-- ════════════════ DAY 1 ════════════════ -->
@@ -1193,10 +1436,132 @@ footer{
   </a>
 </nav>
 
+<!-- BACK TO TOP -->
+<button id="back-to-top" aria-label="回到頂部">↑</button>
+
 <footer>
   大邱 × 福岡 三天兩夜私房行程 · 2025.5.16–18<br>
   資深導遊規劃版 · 每個時間點都精算過
 </footer>
 
+<script>
+(function () {
+
+  /* ─── Scroll progress bar ─────────────────────────────── */
+  var prog = document.getElementById('progress-bar');
+  function updProg() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.transform = h > 0 ? 'scaleX(' + (window.scrollY / h) + ')' : 'scaleX(0)';
+  }
+
+  /* ─── Back to top ─────────────────────────────────────── */
+  var btt = document.getElementById('back-to-top');
+  btt.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ─── Unified scroll listener ─────────────────────────── */
+  window.addEventListener('scroll', function () {
+    updProg();
+    btt.classList.toggle('visible', window.scrollY > 320);
+  }, { passive: true });
+  updProg();
+
+  /* ─── Active nav via IntersectionObserver ─────────────── */
+  var sideLinks  = document.querySelectorAll('.sidebar-link');
+  var mobTabs    = document.querySelectorAll('.mob-tab');
+  var topLinks   = document.querySelectorAll('.desktop-nav-links a');
+
+  var ioNav = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        var id = e.target.id;
+        [].forEach.call([].concat(
+          [].slice.call(sideLinks),
+          [].slice.call(mobTabs),
+          [].slice.call(topLinks)
+        ), function (a) {
+          var match = a.getAttribute('href') === '#' + id;
+          a.classList.toggle('nav-active', match);
+        });
+      }
+    });
+  }, { rootMargin: '-12% 0px -62% 0px' });
+
+  document.querySelectorAll('.day-section, .ticket-section, .tips-section')
+    .forEach(function (s) { ioNav.observe(s); });
+
+  /* ─── Card reveal on scroll ───────────────────────────── */
+  var ioReveal = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        ioReveal.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.04 });
+
+  document.querySelectorAll('.ev-card, .ticket-card, .tip-card, .weather-city, .budget-summary')
+    .forEach(function (el) {
+      el.classList.add('reveal');
+      ioReveal.observe(el);
+    });
+
+  /* ─── Collapsible event cards ─────────────────────────── */
+  document.querySelectorAll('.ev-card').forEach(function (card) {
+    var title = card.querySelector('.ev-title');
+    if (title) {
+      var icon = document.createElement('span');
+      icon.className = 'ev-toggle-icon';
+      icon.setAttribute('aria-hidden', 'true');
+      icon.textContent = ' ▾';
+      title.appendChild(icon);
+    }
+    var top = card.querySelector('.ev-top');
+    if (top) {
+      top.addEventListener('click', function () {
+        card.classList.toggle('collapsed');
+      });
+    }
+  });
+
+  /* ─── Event type filter bar ───────────────────────────── */
+  var allEvents   = document.querySelectorAll('.event');
+  var allTransits = document.querySelectorAll('.transit-row');
+
+  /* Auto-tag each event from its ev-type CSS class */
+  allEvents.forEach(function (ev) {
+    var t = ev.querySelector('.ev-type');
+    if (!t) return;
+    var c = t.className;
+    if      (c.indexOf('type-food')      !== -1) ev.dataset.type = 'food';
+    else if (c.indexOf('type-night')     !== -1) ev.dataset.type = 'night';
+    else if (c.indexOf('type-sight')     !== -1) ev.dataset.type = 'sight';
+    else if (c.indexOf('type-transport') !== -1 ||
+             c.indexOf('type-hotel')     !== -1) ev.dataset.type = 'transport';
+    else if (c.indexOf('type-shop')      !== -1) ev.dataset.type = 'shop';
+    else                                          ev.dataset.type = 'other';
+  });
+
+  document.querySelectorAll('.filter-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.filter-btn').forEach(function (b) {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      var f = btn.dataset.filter;
+
+      allEvents.forEach(function (ev) {
+        ev.classList.toggle('filtered-out', f !== 'all' && ev.dataset.type !== f);
+      });
+      /* Hide transit pills when a type filter is active */
+      allTransits.forEach(function (tr) {
+        tr.classList.toggle('filtered-out', f !== 'all');
+      });
+    });
+  });
+
+})();
+</script>
 </body>
 </html>
