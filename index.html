@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>大邱 × 福岡 私房行程｜2025.5.16–18</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   RESET & VARS
+═══════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --sand:#f5efe3;
+  --cream:#faf6ee;
+  --ink:#1c1714;
+  --muted:#7c7167;
+  --border:#e0d6c4;
+  --d1:#c0622a;
+  --d2:#2a6496;
+  --d3:#3a7d44;
+  --gold:#b8860b;
+  --warn:#b33a1a;
+  --tip:#2a5e8a;
+  --white:#ffffff;
+  --nav-h:56px;
+  --bottom-h:64px;
+}
+html{scroll-behavior:smooth;font-size:15px}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Noto Sans TC',sans-serif;
+  line-height:1.8;
+  min-height:100vh;
+}
+
+/* ═══════════════════════════════════════
+   LAYOUT: DESKTOP SIDE NAV + MOBILE BOTTOM
+═══════════════════════════════════════ */
+
+/* === Desktop layout === */
+@media(min-width:900px){
+  body{display:flex;flex-direction:column;}
+  .desktop-header{
+    display:block;
+    position:sticky;top:0;z-index:200;
+    background:var(--ink);
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .desktop-nav{
+    max-width:1400px;margin:0 auto;
+    display:flex;align-items:center;
+    padding:0 32px;
+    height:var(--nav-h);
+    gap:0;
+  }
+  .desktop-logo{
+    font-family:'Noto Serif TC',serif;
+    font-size:14px;font-weight:900;
+    color:var(--sand);letter-spacing:1px;
+    margin-right:32px;white-space:nowrap;
+    padding-right:32px;
+    border-right:1px solid rgba(255,255,255,.1);
+  }
+  .desktop-nav-links{display:flex;gap:0;overflow-x:auto;}
+  .desktop-nav-links a{
+    padding:0 20px;
+    height:var(--nav-h);
+    display:flex;align-items:center;
+    font-family:'DM Mono',monospace;
+    font-size:10px;letter-spacing:2px;text-transform:uppercase;
+    color:rgba(245,239,227,.4);text-decoration:none;
+    border-bottom:2px solid transparent;
+    transition:all .2s;white-space:nowrap;
+  }
+  .desktop-nav-links a:hover{color:rgba(245,239,227,.8);}
+  .desktop-nav-links a.d1{color:var(--d1);border-bottom-color:var(--d1);}
+  .desktop-nav-links a.d2{color:var(--d2);border-bottom-color:var(--d2);}
+  .desktop-nav-links a.d3{color:var(--d3);border-bottom-color:var(--d3);}
+  .desktop-nav-links a.info{color:var(--gold);border-bottom-color:var(--gold);}
+
+  .page-body{
+    display:flex;
+    max-width:1400px;
+    margin:0 auto;
+    width:100%;
+    flex:1;
+  }
+  .sidebar{
+    display:flex;flex-direction:column;
+    width:240px;flex-shrink:0;
+    position:sticky;top:var(--nav-h);
+    height:calc(100vh - var(--nav-h));
+    overflow-y:auto;
+    background:var(--white);
+    border-right:1px solid var(--border);
+    padding:28px 0;
+    scrollbar-width:thin;
+  }
+  .sidebar-section{margin-bottom:28px;}
+  .sidebar-label{
+    font-family:'DM Mono',monospace;
+    font-size:9px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--muted);padding:0 20px;margin-bottom:8px;
+  }
+  .sidebar-link{
+    display:flex;align-items:center;gap:10px;
+    padding:9px 20px;font-size:13px;
+    color:var(--muted);text-decoration:none;
+    transition:all .15s;border-left:2px solid transparent;
+  }
+  .sidebar-link:hover{background:var(--sand);color:var(--ink);}
+  .sidebar-link.active{
+    background:var(--sand);
+    color:var(--ink);font-weight:600;
+  }
+  .sidebar-link.d1{border-left-color:var(--d1);}
+  .sidebar-link.d2{border-left-color:var(--d2);}
+  .sidebar-link.d3{border-left-color:var(--d3);}
+  .sidebar-link .dot{
+    width:6px;height:6px;border-radius:50%;flex-shrink:0;
+  }
+  .dot-d1{background:var(--d1);}
+  .dot-d2{background:var(--d2);}
+  .dot-d3{background:var(--d3);}
+  .dot-g{background:var(--gold);}
+
+  .main-content{flex:1;min-width:0;padding:40px 48px 80px;}
+  .mobile-bottom-nav{display:none;}
+  .hero{padding:56px 48px 48px;}
+}
+
+/* === Mobile layout === */
+@media(max-width:899px){
+  .desktop-header{display:none;}
+  .sidebar{display:none;}
+  .page-body{display:block;}
+  .main-content{
+    padding:20px 16px calc(var(--bottom-h) + 20px + env(safe-area-inset-bottom));
+  }
+  .hero{padding:40px 20px 36px;}
+
+  /* Mobile bottom tab bar */
+  .mobile-bottom-nav{
+    position:fixed;bottom:0;left:0;right:0;
+    height:calc(var(--bottom-h) + env(safe-area-inset-bottom));
+    background:var(--ink);
+    border-top:1px solid rgba(255,255,255,.08);
+    display:flex;
+    z-index:200;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .mob-tab{
+    flex:1;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:3px;
+    text-decoration:none;
+    color:rgba(245,239,227,.4);
+    font-family:'DM Mono',monospace;
+    font-size:9px;letter-spacing:.5px;
+    padding:8px 4px;
+    transition:color .15s;
+    border-top:2px solid transparent;
+    margin-top:-1px;
+  }
+  .mob-tab .tab-icon{font-size:18px;}
+  .mob-tab.d1{color:var(--d1);border-top-color:var(--d1);}
+  .mob-tab.d2{color:var(--d2);border-top-color:var(--d2);}
+  .mob-tab.d3{color:var(--d3);border-top-color:var(--d3);}
+  .mob-tab.info{color:var(--gold);border-top-color:var(--gold);}
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero{
+  background:var(--ink);color:var(--sand);
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 80% at 90% 50%,rgba(42,100,150,.2) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 60% at 5% 80%,rgba(192,98,42,.15) 0%,transparent 60%);
+}
+.hero-eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;
+}
+.hero h1{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(30px,6vw,60px);
+  font-weight:900;line-height:1.12;letter-spacing:-1px;
+  margin-bottom:14px;
+}
+.hero h1 .accent{color:#8cb8d8;}
+.hero-desc{
+  max-width:520px;
+  color:rgba(245,239,227,.6);
+  font-size:13px;line-height:1.9;margin-bottom:28px;
+}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  padding:6px 14px;
+  font-family:'DM Mono',monospace;
+  font-size:11px;
+  color:rgba(245,239,227,.7);
+}
+.chip b{color:var(--gold);}
+
+/* ═══════════════════════════════════════
+   WEATHER
+═══════════════════════════════════════ */
+.weather-banner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);
+  margin-bottom:40px;overflow:hidden;
+}
+@media(max-width:560px){.weather-banner{grid-template-columns:1fr;}}
+.weather-city{background:var(--sand);padding:18px 20px;}
+.wc-label{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:5px;
+}
+.wc-name{font-size:15px;font-weight:700;margin-bottom:10px;}
+.wc-days{display:flex;gap:0;}
+.wc-day{
+  flex:1;text-align:center;padding:8px 4px;
+  border-right:1px solid var(--border);
+}
+.wc-day:last-child{border-right:none;}
+.wc-date{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:4px;}
+.wc-icon{font-size:20px;margin-bottom:3px;}
+.wc-temp{font-size:12px;font-weight:700;}
+.wc-sub{font-size:10px;color:var(--muted);margin-top:2px;}
+.wc-tip{
+  margin-top:10px;padding:7px 10px;
+  background:rgba(184,134,11,.07);
+  border-left:2px solid var(--gold);
+  font-size:11px;color:var(--muted);line-height:1.6;
+}
+
+/* ═══════════════════════════════════════
+   DAY SECTION
+═══════════════════════════════════════ */
+.day-section{margin-bottom:0;scroll-margin-top:calc(var(--nav-h) + 20px);}
+.day-sep{
+  border:none;border-top:2px solid var(--border);
+  margin:48px 0 40px;position:relative;
+}
+.day-sep::after{
+  content:attr(data-label);
+  position:absolute;left:50%;top:-11px;transform:translateX(-50%);
+  background:var(--cream);padding:0 16px;
+  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;
+  color:var(--muted);text-transform:uppercase;
+}
+
+/* Section header */
+.sec-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;}
+.sec-num{
+  font-family:'Noto Serif TC',serif;
+  font-size:52px;font-weight:900;line-height:.85;flex-shrink:0;letter-spacing:-2px;
+}
+.day1 .sec-num{color:rgba(192,98,42,.15);}
+.day2 .sec-num{color:rgba(42,100,150,.15);}
+.day3 .sec-num{color:rgba(58,125,68,.15);}
+.sec-tag{
+  font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;
+}
+.day1 .sec-tag{color:var(--d1);}
+.day2 .sec-tag{color:var(--d2);}
+.day3 .sec-tag{color:var(--d3);}
+.sec-title{font-family:'Noto Serif TC',serif;font-size:clamp(18px,3vw,24px);font-weight:600;line-height:1.25;margin-bottom:4px;}
+.sec-sub{font-size:12px;color:var(--muted);}
+
+/* Guide voice */
+.guide-voice{
+  background:var(--ink);color:var(--sand);
+  padding:16px 20px;margin-bottom:24px;
+  border-left:3px solid var(--gold);
+}
+.guide-voice::before{
+  content:'導遊說';font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;
+  color:var(--gold);display:block;margin-bottom:7px;text-transform:uppercase;
+}
+.guide-voice p{font-size:13px;line-height:1.9;color:rgba(245,239,227,.8);}
+
+/* Meal bar */
+.meal-bar{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);margin-bottom:20px;overflow:hidden;
+}
+@media(max-width:420px){.meal-bar{grid-template-columns:1fr;}}
+.meal-cell{background:var(--sand);padding:11px 12px;text-align:center;}
+.meal-type{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.meal-name{font-size:13px;font-weight:700;}
+.meal-note{font-size:11px;color:var(--muted);margin-top:2px;}
+
+/* ═══════════════════════════════════════
+   TIMELINE
+═══════════════════════════════════════ */
+.timeline{padding-left:22px;position:relative;}
+.timeline::before{
+  content:'';position:absolute;left:6px;top:12px;bottom:12px;
+  width:1px;background:var(--border);
+}
+.event{position:relative;margin-bottom:12px;}
+.event::before{
+  content:'';position:absolute;left:-18px;top:15px;
+  width:8px;height:8px;border-radius:50%;
+  border:2px solid var(--cream);background:var(--border);
+}
+.day1 .event::before{background:var(--d1);}
+.day2 .event::before{background:var(--d2);}
+.day3 .event::before{background:var(--d3);}
+
+.ev-card{
+  background:var(--white);border:1px solid var(--border);overflow:hidden;
+  transition:box-shadow .2s;
+}
+.ev-card:hover{box-shadow:0 3px 16px rgba(28,23,20,.07);}
+.ev-top{display:flex;align-items:stretch;}
+.ev-time{
+  background:var(--sand);border-right:1px solid var(--border);
+  padding:12px;font-family:'DM Mono',monospace;font-size:11px;
+  color:var(--muted);min-width:62px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;text-align:center;line-height:1.3;
+}
+.ev-body{padding:12px 16px;flex:1;min-width:0;}
+.ev-type{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.type-food{color:#b36a00;}
+.type-sight{color:var(--d2);}
+.type-transport{color:#777;}
+.type-hotel{color:#7d4e9e;}
+.type-night{color:var(--warn);}
+.type-shop{color:var(--d3);}
+
+.ev-title{font-size:14px;font-weight:700;margin-bottom:5px;line-height:1.4;}
+.ev-desc{font-size:12px;color:var(--muted);line-height:1.8;}
+.ev-desc b{color:var(--ink);font-weight:600;}
+.ev-desc em{color:var(--warn);font-style:normal;font-weight:600;}
+
+/* Transit pill between events */
+.transit-row{
+  display:flex;align-items:center;gap:10px;
+  padding:5px 0;margin-left:-22px;
+}
+.transit-line{flex:1;height:1px;border-top:1px dashed var(--border);}
+.transit-pill{
+  background:var(--sand);border:1px solid var(--border);
+  padding:4px 12px;font-size:10px;
+  font-family:'DM Mono',monospace;color:var(--muted);
+  white-space:nowrap;flex-shrink:0;
+}
+.transit-pill.train{border-color:var(--d2);color:var(--d2);}
+.transit-pill.subway{border-color:var(--tip);color:var(--tip);}
+.transit-pill.taxi{border-color:var(--d1);color:var(--d1);}
+.transit-pill.walk{border-color:#b8a88a;}
+
+/* Tags */
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;}
+.tag{font-size:10px;padding:2px 8px;border:1px solid var(--border);color:var(--muted);background:var(--sand);}
+.tag.hot{border-color:rgba(192,98,42,.35);color:var(--d1);}
+.tag.warn{border-color:rgba(179,58,26,.35);color:var(--warn);}
+.tag.tip{border-color:rgba(42,94,138,.35);color:var(--tip);}
+.tag.new{border-color:rgba(58,125,68,.35);color:var(--d3);}
+.tag.gold{border-color:rgba(184,134,11,.35);color:var(--gold);}
+.tag.train{border-color:var(--d2);color:var(--d2);}
+.tag.subway{border-color:var(--tip);color:var(--tip);}
+
+/* Flight divider */
+.flight-div{
+  text-align:center;padding:16px 0;
+  font-family:'DM Mono',monospace;font-size:10px;
+  color:var(--muted);letter-spacing:2px;
+  border-top:1px dashed var(--border);border-bottom:1px dashed var(--border);
+  margin:14px 0;background:var(--sand);
+}
+
+/* ═══════════════════════════════════════
+   TICKETS
+═══════════════════════════════════════ */
+.ticket-section{margin-top:48px;scroll-margin-top:calc(var(--nav-h) + 20px);}
+.section-h2{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:600;margin-bottom:5px;}
+.section-sub{font-size:12px;color:var(--muted);margin-bottom:20px;}
+.ticket-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+.ticket-card{background:var(--white);border:1px solid var(--border);padding:18px;position:relative;overflow:hidden;}
+.ticket-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.tk-jr::before{background:#e85b20;}
+.tk-subway::before{background:var(--d2);}
+.tk-nishitetsu::before{background:var(--d3);}
+.tk-taxi::before{background:var(--d1);}
+.tk-pass::before{background:var(--gold);}
+.tk-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+.tk-name{font-size:14px;font-weight:700;margin-bottom:8px;}
+.tk-price{font-family:'DM Mono',monospace;font-size:18px;color:var(--gold);margin-bottom:9px;}
+.tk-details{font-size:11px;color:var(--muted);line-height:1.8;}
+.tk-details b{color:var(--ink);}
+.tk-warn{margin-top:9px;padding:6px 10px;background:rgba(179,58,26,.05);border-left:2px solid var(--warn);font-size:11px;color:var(--warn);line-height:1.6;}
+
+/* ═══════════════════════════════════════
+   TIPS
+═══════════════════════════════════════ */
+.tips-section{margin-top:48px;scroll-margin-top:calc(var(--nav-h) + 20px);}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:18px;}
+.tip-card{background:var(--white);border:1px solid var(--border);padding:16px 18px;}
+.tip-card.alert{border-color:rgba(179,58,26,.25);background:rgba(179,58,26,.02);}
+.tip-card.alert .tip-title{color:var(--warn);}
+.tip-icon{font-size:18px;margin-bottom:7px;}
+.tip-title{font-size:13px;font-weight:700;margin-bottom:5px;}
+.tip-body{font-size:12px;color:var(--muted);line-height:1.8;}
+.tip-body b{color:var(--ink);}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer{
+  background:var(--ink);color:rgba(245,239,227,.35);
+  text-align:center;padding:28px 24px;
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;line-height:1.9;
+}
+@media(max-width:899px){footer{padding-bottom:calc(var(--bottom-h) + 28px + env(safe-area-inset-bottom));}}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════
+  DESKTOP TOP NAV
+════════════════════════ -->
+<header class="desktop-header">
+  <nav class="desktop-nav">
+    <div class="desktop-logo">大邱 × 福岡</div>
+    <div class="desktop-nav-links">
+      <a href="#day1" class="d1">Day 1｜大邱→福岡</a>
+      <a href="#day2" class="d2">Day 2｜門司港</a>
+      <a href="#day3" class="d3">Day 3｜太宰府→回台</a>
+      <a href="#tickets" class="info">🎫 票券攻略</a>
+      <a href="#tips" class="info">📋 注意事項</a>
+    </div>
+  </nav>
+</header>
+
+<div class="page-body">
+
+<!-- ════════════════════════
+  DESKTOP SIDEBAR
+════════════════════════ -->
+<aside class="sidebar">
+  <div class="sidebar-section">
+    <div class="sidebar-label">行程日期</div>
+    <a class="sidebar-link d1" href="#day1"><span class="dot dot-d1"></span>Day 1 · 5月16日（六）</a>
+    <a class="sidebar-link d2" href="#day2"><span class="dot dot-d2"></span>Day 2 · 5月17日（日）</a>
+    <a class="sidebar-link d3" href="#day3"><span class="dot dot-d3"></span>Day 3 · 5月18日（一）</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label">實用資訊</div>
+    <a class="sidebar-link" href="#tickets"><span class="dot dot-g"></span>交通票券攻略</a>
+    <a class="sidebar-link" href="#tips"><span class="dot dot-g"></span>注意事項</a>
+  </div>
+  <div class="sidebar-section" style="padding:0 20px;margin-top:8px;">
+    <div style="background:var(--sand);padding:14px;border:1px solid var(--border);font-size:11px;color:var(--muted);line-height:1.8;">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);margin-bottom:6px;text-transform:uppercase;">航班資訊</div>
+      <b style="color:var(--ink);">去程</b><br>TAE 18:25 → FUK 19:25<br>
+      <br><b style="color:var(--ink);">回程</b><br>FUK 16:20 → TPE 17:50
+    </div>
+  </div>
+  <div class="sidebar-section" style="padding:0 20px;">
+    <div style="background:var(--sand);padding:14px;border:1px solid var(--border);font-size:11px;color:var(--muted);line-height:1.8;margin-top:10px;">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);margin-bottom:6px;text-transform:uppercase;">天氣速查</div>
+      🇰🇷 大邱 5/16<br>🌤 22–27°C 少雨<br>
+      <br>🇯🇵 福岡 5/17–18<br>⛅ 20–26°C 偶多雲<br>
+      <br><span style="color:var(--d1);">👔 短袖+薄外套+摺疊傘</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ════════════════════════
+  MAIN CONTENT
+════════════════════════ -->
+<main class="main-content">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow">✦ 資深導遊精心規劃 · 三天兩夜私房行程</div>
+  <h1>大邱 × <span class="accent">福岡</span></h1>
+  <p class="hero-desc">
+    從韓國最後的傳統商道到日本最熱鬧的九州玄關——每一個時間點、每一段交通都是精算過的。跟著走，不踩雷。
+  </p>
+  <div class="hero-chips">
+    <div class="chip"><b>📅</b> 5月16–18日</div>
+    <div class="chip"><b>✈</b> TAE 18:25 → FUK 19:25</div>
+    <div class="chip"><b>✈</b> FUK 16:20 → TPE 17:50</div>
+    <div class="chip"><b>🌡</b> 22–27°C 短袖+薄外套</div>
+  </div>
+</div>
+
+<!-- WEATHER -->
+<div style="height:28px"></div>
+<div class="weather-banner">
+  <div class="weather-city">
+    <div class="wc-label">🇰🇷 大邱 · Day 1</div>
+    <div class="wc-name">大邱廣域市 Daegu</div>
+    <div class="wc-days">
+      <div class="wc-day">
+        <div class="wc-date">5/16 六</div>
+        <div class="wc-icon">🌤</div>
+        <div class="wc-temp">22–27°C</div>
+        <div class="wc-sub">微風少雨</div>
+      </div>
+    </div>
+    <div class="wc-tip">💡 五月大邱晴多雨少，白天微熱。建議短袖搭薄外套，備摺疊傘應對午後偶陣雨。近代文化胡同步行為主，穿舒適鞋。</div>
+  </div>
+  <div class="weather-city">
+    <div class="wc-label">🇯🇵 福岡 · Day 2–3</div>
+    <div class="wc-name">福岡博多 Fukuoka</div>
+    <div class="wc-days">
+      <div class="wc-day">
+        <div class="wc-date">5/16 六</div>
+        <div class="wc-icon">🌙</div>
+        <div class="wc-temp">19–24°C</div>
+        <div class="wc-sub">夜間涼爽</div>
+      </div>
+      <div class="wc-day">
+        <div class="wc-date">5/17 日</div>
+        <div class="wc-icon">⛅</div>
+        <div class="wc-temp">20–25°C</div>
+        <div class="wc-sub">多雲舒適</div>
+      </div>
+      <div class="wc-day">
+        <div class="wc-date">5/18 一</div>
+        <div class="wc-icon">🌤</div>
+        <div class="wc-temp">21–26°C</div>
+        <div class="wc-sub">晴時多雲</div>
+      </div>
+    </div>
+    <div class="wc-tip">💡 五月福岡梅雨前夕，降雨機率不高但建議帶傘。門司港海風較強，多帶一件薄外套。太宰府神社步道多，穿舒適走路鞋。</div>
+  </div>
+</div>
+
+<!-- ════════════════ DAY 1 ════════════════ -->
+<section id="day1" class="day-section day1">
+  <div class="sec-header">
+    <div class="sec-num">01</div>
+    <div>
+      <div class="sec-tag">Day 1 · 5月16日（六）· 大邱→福岡</div>
+      <div class="sec-title">大邱歷史胡同探索<br>傍晚飛往博多</div>
+      <div class="sec-sub">上午深度感受韓國傳統市井文化，傍晚起飛</div>
+    </div>
+  </div>
+
+  <div class="guide-voice">
+    <p>大邱這座城市常被旅人略過，但我每次帶客人走近代文化胡同都會聽到「怎麼不早點來！」。藥令市的草藥香氣、狹長的長骨目巷弄、坐在韓屋裡喝咖啡——這三小時是整趟旅程最難忘的文化衝擊。午餐吃巨松燉排骨，醬汁甜辣入骨，是大邱在地人帶朋友必去的那種店。下午悠閒逛逛東城路，美成堂的扁薄煎餃當零食，然後出發。</p>
+  </div>
+
+  <div class="meal-bar">
+    <div class="meal-cell"><div class="meal-type">早餐</div><div class="meal-name">국일따로국밥</div><div class="meal-note">韓牛骨湯飯</div></div>
+    <div class="meal-cell"><div class="meal-type">午餐</div><div class="meal-name">巨松燉排骨</div><div class="meal-note">₩26,000/2人</div></div>
+    <div class="meal-cell"><div class="meal-type">宵夜</div><div class="meal-name">一蘭拉麵</div><div class="meal-note">24H · 博多初體驗</div></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">05:25</div>
+        <div class="ev-body">
+          <div class="ev-type type-transport">✈ 抵達</div>
+          <div class="ev-title">降落大邱國際機場</div>
+          <div class="ev-desc">入境通關後，機場門口搭計程車前往市區寄行李。<b>費用約 ₩8,000–9,000</b>，10分鐘到市中心。</div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill taxi">🚕 計程車 ₩8,000 · 10分</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">06:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-food">🥣 早餐</div>
+          <div class="ev-title">국일따로국밥（國一牛骨湯飯）</div>
+          <div class="ev-desc">清晨 5:30 開門的老店，清澈牛骨湯底、湯飯分開上菜自行攪拌。<b>₩10,000 左右/人</b>，剛下飛機的最佳暖胃選擇。</div>
+          <div class="tags"><span class="tag hot">大邱在地老店</span><span class="tag">清晨即開</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill walk">🚶 步行 5分</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">08:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-sight">🏛 景點</div>
+          <div class="ev-title">近代文化胡同散步路線（約 3 小時）</div>
+          <div class="ev-desc">
+            官方推薦「2號路線」，全長 1.64km，順著走就對了：<br><br>
+            <b>① 藥令市博物館</b>——免費穿韓服 + 草藥足浴，別跳過<br>
+            <b>② 長骨目 100m 歷史小巷</b>——韓屋星巴克打卡，很好找<br>
+            <b>③ 桂山天主教堂</b>——1902 年哥德式建築，大邱最老天主堂<br>
+            <b>④ 青羅之丘</b>——大邱第一教會、李相和故居
+          </div>
+          <div class="tags"><span class="tag tip">步行 1.64km</span><span class="tag tip">約 2–3 小時</span><span class="tag hot">免費韓服體驗</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill walk">🚶 步行 10分</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">12:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-food">🍖 午餐</div>
+          <div class="ev-title">巨松燉排骨（거송갈비찜）</div>
+          <div class="ev-desc">大邱最知名排骨燉菜，甜辣醬汁燉到骨肉分離。<b>₩26,000/2人份</b>，建議早到或先排隊，這是這天的重頭戲。</div>
+          <div class="tags"><span class="tag hot">🔥 大邱必吃 No.1</span><span class="tag">₩26,000/2人</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill walk">🚶 步行 5分</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">14:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-shop">🛍 自由活動</div>
+          <div class="ev-title">東城路購物 + 咖啡廳休息</div>
+          <div class="ev-desc">大邱最繁華步行商圈，韓系服飾、美妝、咖啡廳密集。這段時間讓腳休息，準備下午出發。</div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">15:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-food">🥟 點心</div>
+          <div class="ev-title">美成堂扁餃子（미성당 납작만두）</div>
+          <div class="ev-desc">大邱獨有的超薄扁形煎餃，皮薄餡鮮，<b>₩4,000–6,000</b>。這是大邱限定小吃，到福岡吃不到的，站著吃完就出發。</div>
+          <div class="tags"><span class="tag hot">大邱唯一限定</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill taxi">🚕 計程車 ₩8,000 · 10–15分</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">16:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-transport">✈ 出發</div>
+          <div class="ev-title">前往大邱國際機場 · 辦理登機</div>
+          <div class="ev-desc">計程車直達機場，<b>建議 16:00 出發</b>，預留 2 小時辦 check-in + 出境。</div>
+          <div class="tags"><span class="tag warn">⚠️ 最晚 16:00 離開市區</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="flight-div">✈ 大邱 TAE 18:25 起飛 → 福岡 FUK 19:25 抵達 · 飛行約 1 小時</div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">19:25</div>
+        <div class="ev-body">
+          <div class="ev-type type-transport">🚇 入境</div>
+          <div class="ev-title">福岡機場 → 博多站（地鐵）</div>
+          <div class="ev-desc">日本入境後，搭地鐵至博多站，<b>¥260 · 僅 5 分鐘</b>，全日本最靠近機場的市中心之一。</div>
+          <div class="tags"><span class="tag subway">🚇 地鐵 ¥260 · 5分</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill walk">🚶 博多站步行 5分</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">20:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-hotel">🏨 入住</div>
+          <div class="ev-title">博多站周邊飯店 Check-in</div>
+          <div class="ev-desc">選博多站 10 分鐘步行圈，Day 2 早出門方便，Day 3 最後購物可直接地鐵去機場，動線完美。</div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">21:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-night">🍜 宵夜</div>
+          <div class="ev-title">一蘭拉麵（Ichiran）— 24 小時</div>
+          <div class="ev-desc">第一夜先用 24 小時的一蘭打個頭陣，感受個人包廂、自選湯頭濃淡。<b>¥980 起/碗</b>。明後天才吃真正主角牛腸鍋與水炊鍋，別吃太飽。</div>
+          <div class="tags"><span class="tag">24H 不打烊</span><span class="tag">博多豚骨入門款</span></div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="day-sep" data-label="Day 2">
+
+<!-- ════════════════ DAY 2 ════════════════ -->
+<section id="day2" class="day-section day2">
+  <div class="sec-header">
+    <div class="sec-num">02</div>
+    <div>
+      <div class="sec-tag">Day 2 · 5月17日（日）· 全天福岡</div>
+      <div class="sec-title">門司港懷舊散步<br>牛腸鍋之夜</div>
+      <div class="sec-sub">早出門吹海風，下午 Canal City，晚上主角登場</div>
+    </div>
+  </div>
+
+  <div class="guide-voice">
+    <p>門司港是我最喜歡帶旅客去的地方，很多人沒聽過，但到了會愛上。明治時代的紅磚倉庫、可以走路穿越到山口縣的海底隧道、還有只有這裡才吃得到的燒咖哩——這些都是在博多市區找不到的體驗。下午回來留給 Canal City，扭蛋、鋼彈、整點水秀；晚上的もつ鍋一藤是本趟重頭戲，一定要提前訂位。最後用雞皮串燒收尾，這才是道地的博多宵夜方式。</p>
+  </div>
+
+  <div class="meal-bar">
+    <div class="meal-cell"><div class="meal-type">早餐</div><div class="meal-name">KITTE 一番街</div><div class="meal-note">快速輕食出門</div></div>
+    <div class="meal-cell"><div class="meal-type">午餐</div><div class="meal-name">門司港燒咖哩</div><div class="meal-note">門司港限定 ¥1,200–1,500</div></div>
+    <div class="meal-cell"><div class="meal-type">晚餐+宵夜</div><div class="meal-name">牛腸鍋＋雞皮串</div><div class="meal-note">兩攤連發</div></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">08:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-food">☕ 早餐</div>
+          <div class="ev-title">KITTE B1F / 博多一番街 輕食</div>
+          <div class="ev-desc">博多站地下各式早餐，麵包、飯糰、咖啡都有。<b>08:30 前要出發</b>，才能在門司港玩得充裕。</div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill train">🚂 JR 博多→門司港 ¥1,320 · 1h20min</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">08:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-transport">🚂 出發</div>
+          <div class="ev-title">博多站 → 門司港（JR 鹿兒島本線）</div>
+          <div class="ev-desc">博多站 JR 窗口購買單程票，<b>¥1,320/人 · 直達 · 約 1 小時 20 分</b>。沿途可看北九州工業景色，窗景也是享受。<em>⚠️ 福岡 Tourist City Pass 不含這段 JR，需另外買票。</em></div>
+          <div class="tags"><span class="tag warn">⚠️ City Pass 不含，需另購</span><span class="tag train">JR ¥1,320 × 2 往返</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">10:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-sight">⚓ 景點</div>
+          <div class="ev-title">門司港懷舊地區（3 小時）</div>
+          <div class="ev-desc">
+            重要文化財車站出站即是懷舊區：<br><br>
+            <b>① 門司港駅</b>——1914 年歐式紅磚，重要文化財，必拍<br>
+            <b>② 舊大阪商船</b>——橘色八角塔樓，明治航運遺跡<br>
+            <b>③ 關門海峽步行隧道</b>——地下 60m 穿越海底走到山口縣！全程 780m，<b>免費</b><br>
+            <b>④ 九州鐵道紀念館</b>——<b>¥300</b>，可登舊蒸汽機車
+          </div>
+          <div class="tags"><span class="tag">景點多為免費</span><span class="tag hot">海底隧道穿越體驗</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill walk">🚶 步行 5分（港邊商店街）</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">13:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-food">🍛 午餐</div>
+          <div class="ev-title">門司港燒咖哩（焼きカレー）— 限定名物</div>
+          <div class="ev-desc">咖哩飯鋪在烤皿上加起司烤至焦香，是門司港 100% 獨有的在地料理，離開這裡就吃不到了。<b>¥1,200–1,500</b>，港邊多間店家可選，趁熱吃。</div>
+          <div class="tags"><span class="tag hot">🔥 門司港限定，離開吃不到</span><span class="tag">¥1,200–1,500</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill train">🚂 JR 門司港→博多 ¥1,320 · 1h20min</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">14:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-transport">🚂 返回</div>
+          <div class="ev-title">門司港 → 博多（JR 回程）</div>
+          <div class="ev-desc">約 1 小時 20 分，16:00 抵達博多。步行或計程車前往 Canal City（博多站步行約 15 分）。</div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill walk">🚶 博多站步行 15分 或計程車 5分</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">16:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-shop">🎮 購物 + 娛樂</div>
+          <div class="ev-title">Canal City 博多</div>
+          <div class="ev-desc">
+            <b>Gashapon Department Store</b>——2,000+ 台扭蛋機，密度極高<br>
+            <b>Gundam Base Fukuoka</b>——鋼彈限定款大本營<br>
+            <b>每整點水舞秀</b>——運河噴水表演<br>
+            <b>20:00 3D 光雕秀</b>——免費，視覺震撼
+          </div>
+          <div class="tags"><span class="tag new">20:00 光雕秀必看</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill walk">🚶 步行 10分 或地鐵 1站</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">19:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-food">🫕 晚餐 ⭐</div>
+          <div class="ev-title">もつ鍋一藤 博多店（牛腸鍋）</div>
+          <div class="ev-desc">Tabelog 4.4 分，開業 15 年招牌店。只用和牛牛肚，招牌味噌湯底搭大量韭菜與高麗菜，燉 15–20 分讓蔬菜軟化湯頭融合，最後加麵收尾。<b>¥3,000–4,000/人</b>，博多站步行 3 分鐘。</div>
+          <div class="tags">
+            <span class="tag warn">⚠️ 必須提前線上訂位（至少 1 週前）</span>
+            <span class="tag hot">Tabelog 4.4</span>
+            <span class="tag tip">博多站步行 3分</span>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill walk">🚶 步行 5分（KITTE B1F）</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">21:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-night">🍗 宵夜</div>
+          <div class="ev-title">とり皮大臣 KITTE B1F（雞皮串燒）</div>
+          <div class="ev-desc">
+            博多道地宵夜，雞皮串燒一串 <b>¥150–200</b>，鹽味或醬油選一種，配冰啤酒就是最正統的博多收尾。KITTE B1F 直連博多站，吃完步行回飯店。<br><br>
+            <em>⚠️ ShinShin 天神本店週日公休（5/17 是週日）！改去 KITTE B1F とり皮大臣，或確認 ShinShin 博多駅東店／PARCO 店公休日。</em>
+          </div>
+          <div class="tags">
+            <span class="tag warn">⚠️ ShinShin 天神本店週日公休</span>
+            <span class="tag hot">¥150/串超值</span>
+            <span class="tag tip">KITTE B1F</span>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="day-sep" data-label="Day 3">
+
+<!-- ════════════════ DAY 3 ════════════════ -->
+<section id="day3" class="day-section day3">
+  <div class="sec-header">
+    <div class="sec-num">03</div>
+    <div>
+      <div class="sec-tag">Day 3 · 5月18日（一）· 太宰府→天神→台灣</div>
+      <div class="sec-title">太宰府新玩法<br>水炊鍋午餐 · 天神最終掃貨</div>
+      <div class="sec-sub">FUK 16:20 起飛，最晚 15:00 離開天神，時間精算過</div>
+    </div>
+  </div>
+
+  <div class="guide-voice">
+    <p>很多人去太宰府只走參道吃梅餅、拍星巴克，但我現在都加一個新景點——天滿宮後方步行5分鐘的足湯咖啡廳，最近才慢慢被人發現。逛完神社腳很累，正好坐下來泡腳喝咖啡看風景。中午在 KITTE 9樓吃華味鳥水炊鍋，清雞湯跟昨晚的濃郁牛腸鍋形成最美麗的對比。最後天神掃貨，大丸拿護照退稅 25%，記得先逛完大丸，再去岩田屋地下室找獺祭限定款，然後準時 15:00 出發機場。</p>
+  </div>
+
+  <div class="meal-bar">
+    <div class="meal-cell"><div class="meal-type">早餐</div><div class="meal-name">KITTE / 一番街</div><div class="meal-note">快速輕食出門</div></div>
+    <div class="meal-cell"><div class="meal-type">午餐</div><div class="meal-name">博多華味鳥水炊鍋</div><div class="meal-note">KITTE 9F · ¥1,780–2,480</div></div>
+    <div class="meal-cell"><div class="meal-type">16:20</div><div class="meal-name">✈ FUK → TPE</div><div class="meal-note">17:50 落地台灣</div></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">08:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-food">☕ 早餐</div>
+          <div class="ev-title">KITTE B1F / 博多一番街 輕食</div>
+          <div class="ev-desc">快速解決，<b>09:15 前從博多出發</b>。今天行程緊湊，早餐不要拖。</div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill train">🚃 西鐵天神→二日市→太宰府 約40分（Pass含蓋）</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">09:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-transport">🚃 出發</div>
+          <div class="ev-title">博多（天神）→ 太宰府（西鐵）</div>
+          <div class="ev-desc">地鐵天神站旁搭西鐵電車，二日市轉乘太宰府線，<b>全程約 40 分鐘</b>。使用「福岡 Tourist City Pass 太宰府版 ¥1,820」，全程含蓋不用另買票。</div>
+          <div class="tags"><span class="tag gold">💴 Tourist City Pass 太宰府版 ¥1,820</span><span class="tag tip">含西鐵全線</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">10:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-sight">⛩ 景點</div>
+          <div class="ev-title">太宰府天滿宮 + 參道美食</div>
+          <div class="ev-desc">
+            學問之神菅原道真神社，每年 900 萬人參拜。參道必排：<br><br>
+            <b>梅ヶ枝餅</b>——現烤紅豆麻糬餅 ¥150，必吃趁熱<br>
+            <b>星巴克太宰府店</b>——隈研吾竹製建築，最美星巴克之一<br>
+            <b>楊子江肉包</b>——參道上的在地老店
+          </div>
+          <div class="tags"><span class="tag">年 900 萬人參拜</span><span class="tag hot">竹製星巴克必拍</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill walk">🚶 步行 5分（天滿宮後方）</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">11:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-sight">♨️ 新景點</div>
+          <div class="ev-title">太宰府「足湯咖啡廳」</div>
+          <div class="ev-desc">太宰府天滿宮步行約 <b>5 分鐘</b>，泡著溫泉腳、喝著咖啡、看山林景色，是走了一上午神社路後最完美的中場休息。最近才開始有人發現，目前尚未大量觀光化，正是最好的時機。<em>建議 11:30 前抵達，人少景好。</em></div>
+          <div class="tags"><span class="tag new">🆕 近期新發現・推薦</span><span class="tag hot">天滿宮步行 5分</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill train">🚃 西鐵太宰府→天神（Pass含）→博多 約40分</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">12:30</div>
+        <div class="ev-body">
+          <div class="ev-type type-transport">🚃 返回</div>
+          <div class="ev-title">太宰府 → 博多 KITTE（西鐵）</div>
+          <div class="ev-desc">西鐵返回天神，再步行或地鐵至博多站 KITTE 9F 午餐，<b>13:10 左右到達</b>，剛好開飯。</div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">13:10</div>
+        <div class="ev-body">
+          <div class="ev-type type-food">🍲 午餐 ⭐</div>
+          <div class="ev-title">博多華味鳥 KITTE 9F（水炊鍋）</div>
+          <div class="ev-desc">
+            博多水炊鍋代表品牌，自家培育「博多花味鳥」雞隻（海藻＋藥草飼養），<b>熬製 6 小時</b>的清澈乳白雞湯，溫潤不膩雞味濃郁。<br>
+            午餐套餐 <b>¥1,780–2,480</b>，含水炊鍋＋白飯＋小菜＋甜點，11:00–15:00 供應。<br>
+            KITTE 9F 直連博多站，吃完馬上下樓購物再去機場，動線完美。
+          </div>
+          <div class="tags">
+            <span class="tag hot">水炊鍋代表店</span>
+            <span class="tag tip">KITTE 9F 直連博多站</span>
+            <span class="tag">¥1,780 午餐套餐</span>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill subway">🚇 地鐵 博多→天神 2分 或步行 15分</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">14:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-shop">🛍 最終掃貨</div>
+          <div class="ev-title">天神地下街 · 最後決戰（1 小時）</div>
+          <div class="ev-desc">
+            照這個順序衝：<br><br>
+            <b>① 大丸福岡天神店</b>——出示護照退稅 <b>25%</b>，不需 App 不需優惠券<br>
+            <b>② 岩田屋 B2F｜獺祭 Dassai Store</b>——全日本僅 2 家，限定規格在這找<br>
+            <b>③ 天神地下街｜press butter sand</b>——<b>博多限定草莓口味</b>，台灣買不到<br>
+            <b>④ BAKE Cheese Tart</b>——現烤帶走
+          </div>
+          <div class="tags">
+            <span class="tag gold">💴 大丸 25% 退稅（護照即可）</span>
+            <span class="tag new">限定伴手禮</span>
+            <span class="tag warn">⚠️ 15:00 前必須離開</span>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="transit-row"><div class="transit-line"></div><div class="transit-pill subway">🚇 地鐵 天神/博多→機場 ¥260 · 11分</div><div class="transit-line"></div></div>
+
+    <div class="event">
+      <div class="ev-card"><div class="ev-top">
+        <div class="ev-time">15:00</div>
+        <div class="ev-body">
+          <div class="ev-type type-transport">✈ 出發</div>
+          <div class="ev-title">前往福岡機場 · 辦理登機</div>
+          <div class="ev-desc">地鐵 <b>¥260 · 11 分鐘</b>到機場，抵達國內線後再搭 5 分鐘接駁車至國際線。<em>⚠️ 最晚 15:00 離開天神，不然真的會趕。</em></div>
+          <div class="tags"><span class="tag warn">⚠️ 最晚 15:00 離開天神</span><span class="tag subway">🚇 ¥260</span></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="flight-div">✈ 福岡 FUK 16:20 起飛 → 台北 TPE 17:50 抵達 · 飛行約 1.5 小時</div>
+
+  </div>
+</section>
+
+<!-- ════════════════ TICKETS ════════════════ -->
+<section id="tickets" class="ticket-section">
+  <div class="section-h2">🎫 交通票券完整攻略</div>
+  <div class="section-sub">建議到當地再購買（避免行程異動），JR 票要特別注意不能用 Pass 刷。</div>
+
+  <div class="ticket-grid">
+
+    <div class="ticket-card tk-taxi">
+      <div class="tk-label">大邱 · Day 1</div>
+      <div class="tk-name">大邱計程車</div>
+      <div class="tk-price">₩8,000–9,000</div>
+      <div class="tk-details">
+        <b>使用：</b>機場↔市區（早上寄行李、下午去機場）<br>
+        <b>搭法：</b>機場門口計程車乘車處直接排隊，可用 T-money 或現金<br>
+        <b>T-money：</b>機場 7-11 購買 ₩4,000，地鐵每趟 ₩1,250
+      </div>
+    </div>
+
+    <div class="ticket-card tk-jr">
+      <div class="tk-label">Day 2 · 最重要</div>
+      <div class="tk-name">JR 博多↔門司港</div>
+      <div class="tk-price">¥1,320 × 2</div>
+      <div class="tk-details">
+        <b>購買：</b>博多站 JR 窗口或自動售票機<br>
+        <b>路線：</b>JR 鹿兒島本線，直達，約 1 小時 20 分<br>
+        <b>建議：</b>早上出發前在博多站一次買好往返票
+      </div>
+      <div class="tk-warn">⚠️ 福岡 Tourist City Pass 完全不含 JR！必須另外購買，別用 Pass 去刷閘門。</div>
+    </div>
+
+    <div class="ticket-card tk-subway">
+      <div class="tk-label">Day 1–3 福岡市內</div>
+      <div class="tk-name">福岡 Tourist City Pass</div>
+      <div class="tk-price">¥1,500</div>
+      <div class="tk-details">
+        <b>含蓋：</b>福岡市地鐵全線 + 西鐵巴士市內路線<br>
+        <b>購買：</b>福岡機場地鐵站、博多站地鐵窗口<br>
+        <b>建議：</b>抵達當天就買，D1 入境後即可使用<br>
+        <b>升級：</b>太宰府版 ¥1,820（加含西鐵到太宰府）
+      </div>
+    </div>
+
+    <div class="ticket-card tk-nishitetsu">
+      <div class="tk-label">Day 3 · 推薦升級</div>
+      <div class="tk-name">Tourist City Pass（太宰府版）</div>
+      <div class="tk-price">¥1,820</div>
+      <div class="tk-details">
+        <b>比普通版多含：</b>西鐵電車天神↔太宰府來回<br>
+        <b>划算嗎：</b>只多 ¥320，就含來回西鐵（否則單程約 ¥420），非常值得<br>
+        <b>購買：</b>西鐵天神站、博多站
+      </div>
+    </div>
+
+    <div class="ticket-card tk-subway">
+      <div class="tk-label">機場接駁</div>
+      <div class="tk-name">福岡機場 ↔ 博多（地鐵）</div>
+      <div class="tk-price">¥260 / 次</div>
+      <div class="tk-details">
+        <b>D1 入境：</b>機場→博多 ¥260 · 5 分鐘<br>
+        <b>D3 出境：</b>天神/博多→機場 ¥260 · 11 分鐘<br>
+        <b>注意：</b>到的是國內線航廈，再搭 5 分鐘接駁車至國際線<br>
+        <b>建議：</b>用 Suica 或 ICOCA 最方便
+      </div>
+    </div>
+
+    <div class="ticket-card tk-pass">
+      <div class="tk-label">選擇性購買</div>
+      <div class="tk-name">Suica / ICOCA 交通卡</div>
+      <div class="tk-price">¥1,000 押金起</div>
+      <div class="tk-details">
+        <b>用途：</b>地鐵、JR、便利商店付款（7-11、全家）<br>
+        <b>購買：</b>機場或博多站自動售票機，或 iPhone/Android 線上開通<br>
+        <b>替代：</b>nimoca（福岡在地交通卡），功能相同
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════ TIPS ════════════════ -->
+<section id="tips" class="tips-section">
+  <div class="section-h2">📋 導遊注意事項</div>
+  <div class="section-sub">這些是真的會搞砸行程的關鍵，每一條都確認過。</div>
+
+  <div class="tips-grid">
+
+    <div class="tip-card alert">
+      <div class="tip-icon">🚨</div>
+      <div class="tip-title">もつ鍋一藤 必訂位</div>
+      <div class="tip-body">出發前<b>至少 1 週</b>在 Tabelog 或官網線上訂位，現場沒位置機率很高。告知人數與口味偏好（味噌 or 醬油）。</div>
+    </div>
+
+    <div class="tip-card alert">
+      <div class="tip-icon">🚨</div>
+      <div class="tip-title">ShinShin 天神本店週日公休</div>
+      <div class="tip-body">5/17 是週日，<b>ShinShin 天神本店公休！</b>宵夜改去 KITTE B1F とり皮大臣，或確認博多駅東店／PARCO 店公休日。</div>
+    </div>
+
+    <div class="tip-card alert">
+      <div class="tip-icon">⏰</div>
+      <div class="tip-title">Day 3 時間很緊</div>
+      <div class="tip-body">FUK 16:20 起飛，<b>最晚 15:00 離開天神</b>。天神掃貨只有 1 小時，提前列好清單，按順序衝。</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">💴</div>
+      <div class="tip-title">大丸退稅超划算</div>
+      <div class="tip-body">大丸福岡天神店出示護照即享 <b>25% 免稅折扣</b>，不需 App，不需優惠券，結帳時自動計算。岩田屋需下載 App 享 5% 折扣。</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">🎫</div>
+      <div class="tip-title">JR 票不要忘記</div>
+      <div class="tip-body">Day 2 門司港的 JR 車票 City Pass 完全不含，<b>在博多站 JR 窗口另購 ¥1,320/人</b>，建議早上出門前就買好往返票。</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">🌡</div>
+      <div class="tip-title">穿搭建議</div>
+      <div class="tip-body">大邱、福岡 5 月白天 <b>22–27°C</b>，短袖為主，薄外套備一件（門司港海風大）。備摺疊傘，太宰府步道多，穿舒適鞋。</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">📱</div>
+      <div class="tip-title">實用 App 準備</div>
+      <div class="tip-body"><b>Google Maps</b>（離線下載大邱、福岡）、<b>Tabelog</b>（一藤訂位）、<b>MITSUKOSHI ISETAN JAPAN</b>（岩田屋折扣）、<b>NaviTime</b>（日本電車轉乘）。</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">💡</div>
+      <div class="tip-title">伴手禮採買順序</div>
+      <div class="tip-body"><b>① 大丸</b>（25% 退稅保養品）→ <b>② 岩田屋 B2F</b>（獺祭）→ <b>③ 天神地下街</b>（press butter sand 限定草莓、BAKE Cheese Tart）。買完就走機場。</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">✨</div>
+      <div class="tip-title">太宰府足湯咖啡廳</div>
+      <div class="tip-body">天滿宮後方步行 5 分鐘，最近才開始被人發現的新景點。<b>建議 11:30 前抵達</b>，人少、景好，是整趟行程最放鬆的時光。</div>
+    </div>
+
+  </div>
+</section>
+
+</main><!-- /main-content -->
+</div><!-- /page-body -->
+
+<!-- ════════════════════════
+  MOBILE BOTTOM NAV
+════════════════════════ -->
+<nav class="mobile-bottom-nav">
+  <a class="mob-tab d1" href="#day1">
+    <span class="tab-icon">🇰🇷</span>
+    <span>Day 1</span>
+  </a>
+  <a class="mob-tab d2" href="#day2">
+    <span class="tab-icon">⚓</span>
+    <span>Day 2</span>
+  </a>
+  <a class="mob-tab d3" href="#day3">
+    <span class="tab-icon">⛩</span>
+    <span>Day 3</span>
+  </a>
+  <a class="mob-tab info" href="#tickets">
+    <span class="tab-icon">🎫</span>
+    <span>票券</span>
+  </a>
+  <a class="mob-tab info" href="#tips">
+    <span class="tab-icon">📋</span>
+    <span>注意</span>
+  </a>
+</nav>
+
+<footer>
+  大邱 × 福岡 三天兩夜私房行程 · 2025.5.16–18<br>
+  資深導遊規劃版 · 每個時間點都精算過
+</footer>
+
+</body>
+</html>
