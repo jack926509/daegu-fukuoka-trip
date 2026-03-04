@@ -39,6 +39,9 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 /* ══ PROGRESS ══ */
 #prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--d1),var(--d2));transform-origin:left;transform:scaleX(0);z-index:600;will-change:transform}
 
+ .skip-link{position:absolute;left:10px;top:-44px;background:#fff;color:var(--ink);padding:8px 12px;border-radius:8px;z-index:1000;border:1px solid var(--border)}
+.skip-link:focus{top:10px}
+
 /* ══ HERO ══ */
 .hero{background:#1A1714;color:#fff;padding:52px 20px 36px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;
@@ -83,7 +86,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .wx-dt{font-size:11px;font-weight:700}
 .wx-ds{font-size:9px;color:var(--sub)}
 /* canvas mini chart */
-.wx-chart{width:100%;height:28px;margin-top:6px;display:block}
+.wx-chart{display:none}
 .wx-foot{font-size:9px;color:var(--sub);text-align:right;margin-top:3px}
 @keyframes shimmer{from{background-position:-200px 0}to{background-position:200px 0}}
 .wx-skel{height:44px;border-radius:6px;background:linear-gradient(90deg,#EDE8E2 25%,#E4DED6 50%,#EDE8E2 75%);background-size:400px;animation:shimmer 1.2s infinite}
@@ -93,6 +96,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .tab-bar::-webkit-scrollbar{display:none}
 .tab-btn{flex-shrink:0;padding:0 13px;height:var(--tab-h);display:flex;align-items:center;gap:5px;font-size:13px;font-weight:700;color:var(--sub);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;font-family:'Noto Sans TC',sans-serif}
 .tab-btn.active{color:var(--ink);border-bottom-color:var(--ink)}
+.tab-btn:focus-visible,.btn-swap:focus-visible,.cl-reset:focus-visible,.bud-input:focus-visible,.curr-input:focus-visible,.curr-select:focus-visible{outline:2px solid var(--d2);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
 
 /* ══ PANELS ══ */
 .panel{display:none;padding-bottom:24px}
@@ -167,6 +172,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .fc-price{font-size:16px;font-weight:900;color:var(--food);flex-shrink:0;margin-left:10px;padding-top:14px;font-family:'DM Mono',monospace}
 .fc-cat{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--foodbg);color:var(--food);margin-bottom:6px}
 .fc-desc{font-size:13px;color:#4A4540;line-height:1.6}
+.map-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--d2);text-decoration:none;margin-top:4px}
+.map-link:hover{text-decoration:underline}
 .fc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
 
 /* ══ SPOT CARDS ══ */
@@ -351,6 +358,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 </head>
 <body>
 <div id="prog"></div>
+<a href="#mainContent" class="skip-link">跳到主要內容</a>
 
 <!-- ═══ HERO ═══ -->
 <div class="hero">
@@ -367,6 +375,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
   </div>
 </div>
 
+<main id="mainContent">
 <!-- ═══ WEATHER ═══ -->
 <div class="wx-bar">
   <div class="wx-card">
@@ -394,16 +403,16 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 </div>
 
 <!-- ═══ TAB BAR ═══ -->
-<div class="tab-bar" id="tabBar">
-  <button class="tab-btn active" data-tab="itinerary">📅 行程</button>
-  <button class="tab-btn" data-tab="food">🍜 美食</button>
-  <button class="tab-btn" data-tab="spots">🗺 景點</button>
-  <button class="tab-btn" data-tab="transport">🚃 交通</button>
-  <button class="tab-btn" data-tab="tools">🛠 工具</button>
+<div class="tab-bar" id="tabBar" role="tablist" aria-label="旅遊面板切換">
+  <button class="tab-btn active" role="tab" aria-selected="true" id="tab-itinerary" aria-controls="panel-itinerary" data-tab="itinerary">📅 行程</button>
+  <button class="tab-btn" role="tab" aria-selected="false" id="tab-food" aria-controls="panel-food" data-tab="food">🍜 美食</button>
+  <button class="tab-btn" role="tab" aria-selected="false" id="tab-spots" aria-controls="panel-spots" data-tab="spots">🗺 景點</button>
+  <button class="tab-btn" role="tab" aria-selected="false" id="tab-transport" aria-controls="panel-transport" data-tab="transport">🚃 交通</button>
+  <button class="tab-btn" role="tab" aria-selected="false" id="tab-tools" aria-controls="panel-tools" data-tab="tools">🛠 工具</button>
 </div>
 
 <!-- ═══════════════ PANEL: 行程 ═══════════════ -->
-<div class="panel active" id="panel-itinerary">
+<div class="panel active" id="panel-itinerary" role="tabpanel" aria-labelledby="tab-itinerary">
 
   <div class="day-hd d1 rev">
     <div class="day-num dn1">01</div>
@@ -472,7 +481,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
     <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">09:30</div><div class="ev-body"><div class="ev-type et-t">🚃 出發</div><div class="ev-title">博多 → 太宰府（西鐵）</div><div class="ev-desc">天神站出發，二日市轉乘，約 <b>40 分鐘</b></div><div class="ev-tags"><span class="tag tg">Tourist Pass 太宰府版</span></div></div></div></div></div>
     <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">10:30</div><div class="ev-body"><div class="ev-type et-s">⛩ 景點</div><div class="ev-title">太宰府天滿宮 + 參道</div><div class="ev-desc">梅ヶ枝餅 ¥150・竹製星巴克（隈研吾設計）・楊子江肉包</div><div class="ev-tags"><span class="tag th">竹製星巴克必拍</span></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分（天滿宮後方）</div><div class="t-line"></div></div>
-    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">11:30</div><div class="ev-body"><div class="ev-type et-s">♨️ 新景點</div><div class="ev-title">足湯咖啡廳</div><div class="ev-desc">泡腳喝咖啡看山林，近期才被發現，11:30 前人少</div><div class="ev-tags"><span class="tag tn">🆕 近期新發現</span></div></div></div></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">11:30</div><div class="ev-body"><div class="ev-type et-s">♨️ 新景點</div><div class="ev-title">足湯咖啡廳</div><div class="ev-desc">泡腳喝咖啡看山林，近期才被發現，11:30 前人少</div><div class="ev-tags"><span class="tag tn">近期新發現</span></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚃 西鐵太宰府→博多 約40分</div><div class="t-line"></div></div>
     <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">13:10</div><div class="ev-body"><div class="ev-type et-f">🍲 午餐 ⭐</div><div class="ev-title">博多華味鳥 KITTE 9F（水炊鍋）</div><div class="ev-desc">熬製 6 小時乳白雞湯，套餐含鍋・飯・小菜・甜點，<b>¥1,780–2,480</b></div><div class="ev-tags"><span class="tag th">水炊鍋代表店</span></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚇 地鐵 博多→天神 2分</div><div class="t-line"></div></div>
@@ -484,37 +493,37 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 </div><!-- /itinerary -->
 
 <!-- ═══════════════ PANEL: 美食 ═══════════════ -->
-<div class="panel" id="panel-food">
+<div class="panel" id="panel-food" role="tabpanel" aria-labelledby="tab-food">
   <div class="sec-head"><div class="sec-h2">🍜 美食地圖</div><div class="sec-hint">9 個精選餐廳 · 按 Day 排序</div></div>
   <div class="food-grid">
-    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 早餐 · 大邱</div><div class="fc-name">국일따로국밥（韓牛骨湯飯）</div></div><div class="fc-price">₩10,000/人</div></div><div class="fc-cat">🥣 早餐</div><div class="fc-desc">清澈牛骨湯底，清晨 5:30 開門，剛下飛機最佳暖胃選擇。</div><div class="fc-tags"><span class="tag tok">清晨即開</span><span class="tag tt">在地老店</span></div></div></div>
-    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 午餐 · 大邱</div><div class="fc-name">巨松燉排骨（거송갈비찜）</div></div><div class="fc-price">₩26,000/2人</div></div><div class="fc-cat">🍖 韓式燉肉</div><div class="fc-desc">甜辣醬汁燉到骨肉分離，大邱必吃 No.1，建議早到排隊。</div><div class="fc-tags"><span class="tag th">🔥 大邱必吃 No.1</span></div></div></div>
-    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 點心 · 大邱</div><div class="fc-name">美成堂扁餃子</div></div><div class="fc-price">₩4,000–6,000</div></div><div class="fc-cat">🥟 大邱限定</div><div class="fc-desc">東城路逛街時順手買，大邱唯一限定小吃，薄皮煎餃邊走邊吃。</div><div class="fc-tags"><span class="tag th">大邱唯一限定</span></div></div></div>
-    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 宵夜 · 博多</div><div class="fc-name">一蘭拉麵</div></div><div class="fc-price">¥980 起/碗</div></div><div class="fc-cat">🍜 豚骨拉麵</div><div class="fc-desc">個人包廂、自選湯頭濃淡，24 小時不打烊，抵達當晚宵夜首選。</div><div class="fc-tags"><span class="tag tok">24H</span></div></div></div>
-    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd2">Day 2 午餐 · 門司港</div><div class="fc-name">門司港燒咖哩</div></div><div class="fc-price">¥1,200–1,500</div></div><div class="fc-cat">🍛 門司港名物</div><div class="fc-desc">咖哩加起司烤至焦香，離開門司港後就吃不到了，限定名物必吃。</div><div class="fc-tags"><span class="tag th">🔥 門司港限定，必吃</span></div></div></div>
-    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd2">Day 2 晚餐 · 博多 ⭐</div><div class="fc-name">もつ鍋一藤（牛腸鍋）</div></div><div class="fc-price">¥3,000–4,000/人</div></div><div class="fc-cat">🫕 博多鄉土料理</div><div class="fc-desc">Tabelog 4.4 高分名店，味噌湯底・大量韭菜，最後加麵收尾。</div><div class="fc-tags"><span class="tag th">Tabelog 4.4</span><span class="tag tw">⚠️ 出發前 1 週訂位</span></div></div></div>
-    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd2">Day 2 宵夜 · 博多</div><div class="fc-name">とり皮大臣 KITTE B1F</div></div><div class="fc-price">¥150–200/串</div></div><div class="fc-cat">🍗 雞皮串燒</div><div class="fc-desc">博多道地宵夜，搭配冰啤酒。ShinShin 週日公休，改來這裡。</div><div class="fc-tags"><span class="tag tw">⚠️ ShinShin 週日公休</span></div></div></div>
-    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd3">Day 3 午餐 · 博多 ⭐</div><div class="fc-name">博多華味鳥水炊鍋</div></div><div class="fc-price">¥1,780–2,480</div></div><div class="fc-cat">🍲 水炊鍋</div><div class="fc-desc">熬製 6 小時乳白雞湯，午餐套餐含鍋・飯・小菜・甜點，KITTE 9F。</div><div class="fc-tags"><span class="tag th">水炊鍋代表店</span></div></div></div>
-    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd3">Day 3 伴手 · 天神</div><div class="fc-name">press butter sand + BAKE Tart</div></div><div class="fc-price">¥200–400</div></div><div class="fc-cat">🧁 甜點伴手禮</div><div class="fc-desc">博多限定草莓口味、現烤 Cheese Tart，天神地下街各有分店。</div><div class="fc-tags"><span class="tag th">博多限定口味</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 早餐 · 大邱</div><div class="fc-name">국일따로국밥（韓牛骨湯飯）</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%EA%B5%AD%EC%9D%BC%EB%94%B0%EB%A1%9C%EA%B5%AD%EB%B0%A5+Daegu" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="fc-price">₩10,000/人</div></div><div class="fc-cat">🥣 早餐</div><div class="fc-desc">清澈牛骨湯底，清晨 5:30 開門，剛下飛機最佳暖胃選擇。</div><div class="fc-tags"><span class="tag tok">清晨即開</span><span class="tag tt">在地老店</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 午餐 · 大邱</div><div class="fc-name">巨松燉排骨（거송갈비찜）</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%EA%B1%B0%EC%86%A1%EA%B0%88%EB%B9%84%EC%B0%9C+Daegu" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="fc-price">₩26,000/2人</div></div><div class="fc-cat">🍖 韓式燉肉</div><div class="fc-desc">甜辣醬汁燉到骨肉分離，大邱必吃 No.1，建議早到排隊。</div><div class="fc-tags"><span class="tag th">🔥 大邱必吃 No.1</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 點心 · 大邱</div><div class="fc-name">美成堂扁餃子</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%EB%AF%B8%EC%84%B1%EB%8B%B9+%EB%82%A9%EC%9E%91%EB%A7%8C%EB%91%90+Daegu" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="fc-price">₩4,000–6,000</div></div><div class="fc-cat">🥟 大邱限定</div><div class="fc-desc">東城路逛街時順手買，大邱唯一限定小吃，薄皮煎餃邊走邊吃。</div><div class="fc-tags"><span class="tag th">大邱唯一限定</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 宵夜 · 博多</div><div class="fc-name">一蘭拉麵</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%80%E8%98%AD+%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="fc-price">¥980 起/碗</div></div><div class="fc-cat">🍜 豚骨拉麵</div><div class="fc-desc">個人包廂、自選湯頭濃淡，24 小時不打烊，抵達當晚宵夜首選。</div><div class="fc-tags"><span class="tag tok">24H</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd2">Day 2 午餐 · 門司港</div><div class="fc-name">門司港燒咖哩</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E9%96%80%E5%8F%B8%E6%B8%AF+%E7%87%92%E3%82%AB%E3%83%AC%E3%83%BC" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="fc-price">¥1,200–1,500</div></div><div class="fc-cat">🍛 門司港名物</div><div class="fc-desc">咖哩加起司烤至焦香，離開門司港後就吃不到了，限定名物必吃。</div><div class="fc-tags"><span class="tag th">🔥 門司港限定，必吃</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd2">Day 2 晚餐 · 博多 ⭐</div><div class="fc-name">もつ鍋一藤（牛腸鍋）</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E3%82%82%E3%81%A4%E9%8D%8B%E4%B8%80%E8%97%A4+%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="fc-price">¥3,000–4,000/人</div></div><div class="fc-cat">🫕 博多鄉土料理</div><div class="fc-desc">Tabelog 4.4 高分名店，味噌湯底・大量韭菜，最後加麵收尾。</div><div class="fc-tags"><span class="tag th">Tabelog 4.4</span><span class="tag tw">⚠️ 出發前 1 週訂位</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd2">Day 2 宵夜 · 博多</div><div class="fc-name">とり皮大臣 KITTE B1F</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%82%8A%E7%9A%AE%E5%A4%A7%E8%87%A3+KITTE+%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="fc-price">¥150–200/串</div></div><div class="fc-cat">🍗 雞皮串燒</div><div class="fc-desc">博多道地宵夜，搭配冰啤酒。ShinShin 週日公休，改來這裡。</div><div class="fc-tags"><span class="tag tw">⚠️ ShinShin 週日公休</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd3">Day 3 午餐 · 博多 ⭐</div><div class="fc-name">博多華味鳥水炊鍋</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%8D%9A%E5%A4%9A%E8%8F%AF%E5%91%B3%E9%B3%A5+KITTE+%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="fc-price">¥1,780–2,480</div></div><div class="fc-cat">🍲 水炊鍋</div><div class="fc-desc">熬製 6 小時乳白雞湯，午餐套餐含鍋・飯・小菜・甜點，KITTE 9F。</div><div class="fc-tags"><span class="tag th">水炊鍋代表店</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd3">Day 3 伴手 · 天神</div><div class="fc-name">press butter sand + BAKE Tart</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=press+butter+sand+tenjin+bake+tart" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="fc-price">¥200–400</div></div><div class="fc-cat">🧁 甜點伴手禮</div><div class="fc-desc">博多限定草莓口味、現烤 Cheese Tart，天神地下街各有分店。</div><div class="fc-tags"><span class="tag th">博多限定口味</span></div></div></div>
   </div>
 </div>
 
 <!-- ═══════════════ PANEL: 景點 ═══════════════ -->
-<div class="panel" id="panel-spots">
+<div class="panel" id="panel-spots" role="tabpanel" aria-labelledby="tab-spots">
   <div class="sec-head"><div class="sec-h2">🗺 景點 &amp; 購物</div><div class="sec-hint">7 個精選景點</div></div>
   <div class="spot-grid">
-    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd1">Day 1 · 大邱 08:00–11:00</div><div class="sc-name">近代文化胡同</div></div><div class="sc-dur">3hr</div></div><div class="sc-type">🏛 歷史街區</div><div class="sc-desc">步行 1.64km，融合日式・韓式・西式建築，全程免費。</div><div class="sc-items"><div class="sc-item">藥令市博物館 — 免費韓服・草藥足浴</div><div class="sc-item">長骨目巷 — 韓屋星巴克</div><div class="sc-item">桂山天主教堂 — 1902 年哥德式</div><div class="sc-item">青羅之丘 — 李相和故居</div></div><div class="sc-tags"><span class="tag th">免費韓服</span><span class="tag tok">全程免費</span></div></div></div>
-    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd1">Day 1 · 大邱 14:00</div><div class="sc-name">東城路商圈</div></div><div class="sc-dur">購物</div></div><div class="sc-type">🛍 購物</div><div class="sc-desc">韓系服飾、美妝平價，美成堂扁煎餃別忘了買。</div><div class="sc-tags"><span class="tag th">大邱限定扁煎餃</span></div></div></div>
-    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd2">Day 2 · 門司港 10:00–13:00</div><div class="sc-name">門司港懷舊地區</div></div><div class="sc-dur">3hr</div></div><div class="sc-type">⚓ 懷舊港口</div><div class="sc-desc">1914 年的歐式紅磚車站，可徒步走進海底隧道到山口縣。</div><div class="sc-items"><div class="sc-item">門司港駅 — 歐式紅磚（免費）</div><div class="sc-item">關門海峽海底隧道 — 780m 走入山口縣（免費）</div><div class="sc-item">九州鐵道紀念館 — ¥300</div></div><div class="sc-tags"><span class="tag th">海底隧道穿越</span></div></div></div>
-    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd2">Day 2 · 博多 16:00–20:30</div><div class="sc-name">Canal City 博多</div></div><div class="sc-dur">購物</div></div><div class="sc-type">🎮 購物中心</div><div class="sc-desc">扭蛋 2,000+ 台，Gundam Base 有福岡限定款，20:00 光雕秀免費。</div><div class="sc-tags"><span class="tag tn">20:00 光雕秀免費</span></div></div></div>
-    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd3">Day 3 · 太宰府 10:30–12:30</div><div class="sc-name">太宰府天滿宮</div></div><div class="sc-dur">2hr</div></div><div class="sc-type">⛩ 神社</div><div class="sc-desc">年 900 萬人參拜，竹製星巴克由隈研吾設計，必拍打卡點。</div><div class="sc-items"><div class="sc-item">竹製星巴克（隈研吾設計）</div><div class="sc-item">梅ヶ枝餅 ¥150 現烤紅豆麻糬</div></div><div class="sc-tags"><span class="tag th">竹製星巴克</span></div></div></div>
-    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd3">Day 3 · 太宰府 11:30</div><div class="sc-name">足湯咖啡廳</div></div><div class="sc-dur">🆕</div></div><div class="sc-type">♨️ 溫泉</div><div class="sc-desc">天滿宮後方隱密景點，泡著溫泉腳喝咖啡，11:30 前人很少。</div><div class="sc-tags"><span class="tag tn">🆕 尚未觀光化</span></div></div></div>
-    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd3">Day 3 · 天神 14:00–15:00</div><div class="sc-name">天神地下街（最終掃貨）</div></div><div class="sc-dur">1hr</div></div><div class="sc-type">🛍 購物</div><div class="sc-desc">大丸護照退稅超划算，岩田屋有全日本限定獺祭。提前列清單效率最高。</div><div class="sc-items"><div class="sc-item">大丸 — 出示護照退稅 25%</div><div class="sc-item">岩田屋 B2F — 獺祭全日本 2 家限定</div><div class="sc-item">press butter sand 博多限定口味</div></div><div class="sc-tags"><span class="tag tg">💴 大丸 25% 退稅</span><span class="tag tw">⚠️ 15:00 前離開</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd1">Day 1 · 大邱 08:00–11:00</div><div class="sc-name">近代文化胡同</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%82%B1+%E8%BF%91%E4%BB%A3%E6%96%87%E5%8C%96%E8%83%A1%E5%90%8C" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="sc-dur">3hr</div></div><div class="sc-type">🏛 歷史街區</div><div class="sc-desc">步行 1.64km，融合日式・韓式・西式建築，全程免費。</div><div class="sc-items"><div class="sc-item">藥令市博物館 — 免費韓服・草藥足浴</div><div class="sc-item">長骨目巷 — 韓屋星巴克</div><div class="sc-item">桂山天主教堂 — 1902 年哥德式</div><div class="sc-item">青羅之丘 — 李相和故居</div></div><div class="sc-tags"><span class="tag th">免費韓服</span><span class="tag tok">全程免費</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd1">Day 1 · 大邱 14:00</div><div class="sc-name">東城路商圈</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E5%9F%8E%E8%B7%AF+Daegu" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="sc-dur">購物</div></div><div class="sc-type">🛍 購物</div><div class="sc-desc">韓系服飾、美妝平價，美成堂扁煎餃別忘了買。</div><div class="sc-tags"><span class="tag th">大邱限定扁煎餃</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd2">Day 2 · 門司港 10:00–13:00</div><div class="sc-name">門司港懷舊地區</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E9%96%80%E5%8F%B8%E6%B8%AF+%E6%87%B7%E8%88%8A" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="sc-dur">3hr</div></div><div class="sc-type">⚓ 懷舊港口</div><div class="sc-desc">1914 年的歐式紅磚車站，可徒步走進海底隧道到山口縣。</div><div class="sc-items"><div class="sc-item">門司港駅 — 歐式紅磚（免費）</div><div class="sc-item">關門海峽海底隧道 — 780m 走入山口縣（免費）</div><div class="sc-item">九州鐵道紀念館 — ¥300</div></div><div class="sc-tags"><span class="tag th">海底隧道穿越</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd2">Day 2 · 博多 16:00–20:30</div><div class="sc-name">Canal City 博多</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Canal+City+Hakata" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="sc-dur">購物</div></div><div class="sc-type">🎮 購物中心</div><div class="sc-desc">扭蛋 2,000+ 台，Gundam Base 有福岡限定款，20:00 光雕秀免費。</div><div class="sc-tags"><span class="tag tn">20:00 光雕秀免費</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd3">Day 3 · 太宰府 10:30–12:30</div><div class="sc-name">太宰府天滿宮</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BB%BF%E5%AE%AE" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="sc-dur">2hr</div></div><div class="sc-type">⛩ 神社</div><div class="sc-desc">年 900 萬人參拜，竹製星巴克由隈研吾設計，必拍打卡點。</div><div class="sc-items"><div class="sc-item">竹製星巴克（隈研吾設計）</div><div class="sc-item">梅ヶ枝餅 ¥150 現烤紅豆麻糬</div></div><div class="sc-tags"><span class="tag th">竹製星巴克</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd3">Day 3 · 太宰府 11:30</div><div class="sc-name">足湯咖啡廳</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%AA%E5%AE%B0%E5%BA%9C+%E8%B6%B3%E6%B9%AF+%E3%82%AB%E3%83%95%E3%82%A7" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="sc-dur">人氣</div></div><div class="sc-type">♨️ 溫泉</div><div class="sc-desc">天滿宮後方隱密景點，泡著溫泉腳喝咖啡，11:30 前人很少。</div><div class="sc-tags"><span class="tag tn">尚未觀光化</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd3">Day 3 · 天神 14:00–15:00</div><div class="sc-name">天神地下街（最終掃貨）</div><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E7%A5%9E%E5%9C%B0%E4%B8%8B%E8%A1%97" target="_blank" rel="noopener noreferrer">🗺 Google Maps</a></div><div class="sc-dur">1hr</div></div><div class="sc-type">🛍 購物</div><div class="sc-desc">大丸護照退稅超划算，岩田屋有全日本限定獺祭。提前列清單效率最高。</div><div class="sc-items"><div class="sc-item">大丸 — 出示護照退稅 25%</div><div class="sc-item">岩田屋 B2F — 獺祭全日本 2 家限定</div><div class="sc-item">press butter sand 博多限定口味</div></div><div class="sc-tags"><span class="tag tg">💴 大丸 25% 退稅</span><span class="tag tw">⚠️ 15:00 前離開</span></div></div></div>
   </div>
 </div>
 
 <!-- ═══════════════ PANEL: 交通 ═══════════════ -->
-<div class="panel" id="panel-transport">
+<div class="panel" id="panel-transport" role="tabpanel" aria-labelledby="tab-transport">
   <div class="sec-head"><div class="sec-h2">🚃 交通票券</div><div class="sec-hint">到當地再買，避免行程異動</div></div>
   <div class="tk-grid">
     <div class="tk rev"><div class="tk-day">大邱 · Day 1</div><div class="tk-name">計程車 + T-money</div><div class="tk-price">₩8,000–9,000</div><div class="tk-detail">機場↔市區各一趟<br>T-money 機場 7-11 ₩4,000</div></div>
@@ -542,10 +551,9 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
     <div class="tip rev"><div class="tip-icon">🚂</div><div class="tip-title">JR 門司港票務</div><div class="tip-body">City Pass 不含 JR，博多站窗口一次買好往返 ¥1,320×2</div></div>
     <div class="tip rev"><div class="tip-icon">📱</div><div class="tip-title">必備 App</div><div class="tip-body"><b>Google Maps</b>（離線）・<b>Tabelog</b>（訂位）・<b>NaviTime</b>（電車）</div></div>
   </div>
-</div>
 
 <!-- ═══════════════ PANEL: 工具 ═══════════════ -->
-<div class="panel" id="panel-tools">
+<div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
   <div class="sec-head"><div class="sec-h2">🛠 旅行工具</div><div class="sec-hint">匯率換算・預算追蹤・打包清單</div></div>
   <div class="tools-grid">
 
@@ -629,6 +637,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
   </div><!-- /tools-grid -->
 </div><!-- /panel-tools -->
 
+</main>
 <footer>大邱 × 福岡 · 2025.5.16–18<br>每個時間點都精算過，跟著走不踩雷 ✦</footer>
 
 <script>
@@ -638,6 +647,19 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 /* ══ 全局狀態 ══ */
 var WX_DATA = { daegu: null, fukuoka: null };
 var FX_RATES = null;
+var STORAGE_KEY = 'daegu_fukuoka_trip_v2';
+
+function loadState(){
+  try{
+    var raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  }catch(e){ return {}; }
+}
+function saveState(partial){
+  var prev = loadState();
+  var next = Object.assign({}, prev, partial);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+}
 
 /* ══ PROGRESS BAR ══ */
 var prog = document.getElementById('prog');
@@ -662,18 +684,43 @@ observeAll();
 /* ══ TABS ══ */
 var tabs = document.querySelectorAll('.tab-btn');
 var panels = document.querySelectorAll('.panel');
-tabs.forEach(function(tab){
-  tab.addEventListener('click', function(){
-    var target = this.dataset.tab;
-    tabs.forEach(function(t){ t.classList.remove('active'); });
-    panels.forEach(function(p){ p.classList.remove('active'); });
-    this.classList.add('active');
-    document.getElementById('panel-'+target).classList.add('active');
-    this.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+
+function activateTab(tab, withScroll){
+  var target = tab.dataset.tab;
+  tabs.forEach(function(t){
+    t.classList.remove('active');
+    t.setAttribute('aria-selected','false');
+    t.setAttribute('tabindex','-1');
+  });
+  panels.forEach(function(p){ p.classList.remove('active'); });
+  tab.classList.add('active');
+  tab.setAttribute('aria-selected','true');
+  tab.removeAttribute('tabindex');
+  document.getElementById('panel-'+target).classList.add('active');
+  saveState({activeTab: target});
+  if(withScroll){
+    tab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
     window.scrollTo({top: document.getElementById('tabBar').getBoundingClientRect().top + window.scrollY - 2, behavior:'smooth'});
-    setTimeout(observeAll, 60);
+  }
+  setTimeout(observeAll, 60);
+}
+
+tabs.forEach(function(tab, idx){
+  tab.addEventListener('click', function(){ activateTab(this, true); });
+  tab.addEventListener('keydown', function(e){
+    if(e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    var next = e.key === 'ArrowRight' ? (idx+1)%tabs.length : (idx-1+tabs.length)%tabs.length;
+    tabs[next].focus();
+    activateTab(tabs[next], false);
   });
 });
+
+var initState = loadState();
+if(initState.activeTab){
+  var savedTab = document.querySelector('.tab-btn[data-tab="'+initState.activeTab+'"]');
+  if(savedTab) activateTab(savedTab, false);
+}
 
 /* ══ WEATHER + CHART ══ */
 var WMO={0:['☀️','晴天'],1:['🌤','晴時多雲'],2:['⛅','多雲'],3:['☁️','陰天'],45:['🌫','有霧'],48:['🌫','有霧'],51:['🌦','毛毛雨'],53:['🌦','毛毛雨'],55:['🌧','小雨'],61:['🌧','降雨'],63:['🌧','中雨'],65:['🌧','大雨'],80:['🌦','陣雨'],81:['🌧','陣雨'],82:['⛈','強陣雨'],95:['⛈','雷雨']};
@@ -790,6 +837,7 @@ fetchWx(33.5904,130.4017,'wx-fk-d','wx-fk-b','wx-fk-f','wx-fk-chart','Asia/Tokyo
 
 /* ══ EXCHANGE RATE ══ */
 var FX_BASE_RATES = { TWD:1, KRW:42.5, JPY:4.75, USD:0.031 }; // fallback
+var initFxState = loadState();
 function fmtNum(n,dec){
   if(dec===undefined) dec=0;
   return n.toLocaleString('zh-TW',{minimumFractionDigits:dec,maximumFractionDigits:dec});
@@ -839,14 +887,25 @@ function fetchFx(){
 }
 fetchFx();
 
-document.getElementById('fx-amount').addEventListener('input', updateFxDisplay);
-document.getElementById('fx-from').addEventListener('change', updateFxDisplay);
+if(initFxState.fxAmount!==undefined) document.getElementById('fx-amount').value = initFxState.fxAmount;
+if(initFxState.fxFrom) document.getElementById('fx-from').value = initFxState.fxFrom;
+updateFxDisplay();
+
+document.getElementById('fx-amount').addEventListener('input', function(){
+  saveState({fxAmount:this.value});
+  updateFxDisplay();
+});
+document.getElementById('fx-from').addEventListener('change', function(){
+  saveState({fxFrom:this.value});
+  updateFxDisplay();
+});
 document.getElementById('fx-swap').addEventListener('click', function(){
   var sel = document.getElementById('fx-from');
   var cur = sel.value;
   var opts = ['TWD','KRW','JPY','USD'];
   var next = opts[(opts.indexOf(cur)+1)%opts.length];
   sel.value = next;
+  saveState({fxFrom:next});
   updateFxDisplay();
 });
 
@@ -861,7 +920,7 @@ var BUD_ITEMS = [
   {label:'景點門票',est:1200,key:'spots'},
   {label:'購物・伴手禮',est:5000,key:'shop'},
 ];
-var BUD_ACTUAL = {};
+var BUD_ACTUAL = (initState.budget && typeof initState.budget==='object') ? initState.budget : {};
 
 function calcBudget(){
   var totalEst = BUD_ITEMS.reduce(function(a,b){return a+b.est;},0);
@@ -910,6 +969,7 @@ function renderBudgetTable(){
   tbody.querySelectorAll('.bud-input').forEach(function(inp){
     inp.addEventListener('input', function(){
       BUD_ACTUAL[this.dataset.key] = parseFloat(this.value)||0;
+      saveState({budget:BUD_ACTUAL});
       calcBudget();
       // update bar in same row
       var row = this.closest('tr');
@@ -959,7 +1019,7 @@ var CL_DATA = [
   ]},
 ];
 
-var CL_CHECKED = {};
+var CL_CHECKED = (initState.checklist && typeof initState.checklist==='object') ? initState.checklist : {};
 
 function renderChecklist(){
   var totalCount = 0, checkedCount = 0;
@@ -988,6 +1048,7 @@ function renderChecklist(){
     el.addEventListener('click', function(){
       var id = this.dataset.id;
       CL_CHECKED[id] = !CL_CHECKED[id];
+      saveState({checklist:CL_CHECKED});
       renderChecklist();
     });
   });
@@ -995,6 +1056,7 @@ function renderChecklist(){
 renderChecklist();
 document.getElementById('cl-reset').addEventListener('click',function(){
   CL_CHECKED = {};
+  saveState({checklist:{}});
   renderChecklist();
 });
 
