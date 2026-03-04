@@ -81,7 +81,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .wx-dt{font-size:11px;font-weight:700}
 .wx-ds{font-size:9px;color:var(--sub)}
 
-.wx-chart{display:none}
 .wx-foot{font-size:9px;color:var(--sub);text-align:right;margin-top:3px}
 @keyframes shimmer{from{background-position:-200px 0}to{background-position:200px 0}}
 .wx-skel{height:44px;border-radius:6px;background:linear-gradient(90deg,#EDE8E2 25%,#E4DED6 50%,#EDE8E2 75%);background-size:400px;animation:shimmer 1.2s infinite}
@@ -211,13 +210,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .tip-body{font-size:13px;color:#4A4540;line-height:1.6}
 .tip.alert{border-left:3px solid var(--red)}
 
-.audit-grid{display:grid;gap:10px;padding:12px 14px 0}
-.audit-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:14px;border-top:3px solid var(--d2)}
-.audit-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:8px}
-.audit-title{font-size:14px;font-weight:700}
-.audit-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--d2bg);color:var(--d2)}
-.audit-list{padding-left:18px;color:#4A4540}
-.audit-list li{font-size:12px;line-height:1.6;margin:4px 0}
 
 .tools-grid{display:grid;gap:12px;padding:12px 14px 0}
 
@@ -371,7 +363,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
     </div>
     <div class="wx-right">
       <div id="wx-dg-d"><div class="wx-skel"></div></div>
-      <canvas class="wx-chart" id="wx-dg-chart" height="28"></canvas>
+      
     </div>
   </div>
   <div class="wx-card">
@@ -382,7 +374,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
     </div>
     <div class="wx-right">
       <div id="wx-fk-d"><div class="wx-skel"></div></div>
-      <canvas class="wx-chart" id="wx-fk-chart" height="28"></canvas>
+      
     </div>
   </div>
 </div>
@@ -621,7 +613,6 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 (function(){
 'use strict';
 
-var WX_DATA = { daegu: null, fukuoka: null };
 var FX_RATES = null;
 var STORAGE_KEY = 'daegu_fukuoka_trip_v2';
 
@@ -707,47 +698,7 @@ if(initState.activeTab){
 }
 
 var WMO={0:['☀️','晴天'],1:['🌤','晴時多雲'],2:['⛅','多雲'],3:['☁️','陰天'],45:['🌫','有霧'],48:['🌫','有霧'],51:['🌦','毛毛雨'],53:['🌦','毛毛雨'],55:['🌧','小雨'],61:['🌧','降雨'],63:['🌧','中雨'],65:['🌧','大雨'],80:['🌦','陣雨'],81:['🌧','陣雨'],82:['⛈','強陣雨'],95:['⛈','雷雨']};
-function drawMiniChart(canvasId, tmaxArr, tminArr, color){
-  var canvas = document.getElementById(canvasId);
-  if(!canvas) return;
-  var dpr = window.devicePixelRatio||1;
-  var W = canvas.offsetWidth; var H = 32;
-  canvas.width = W*dpr; canvas.height = H*dpr;
-  canvas.style.width = W+'px'; canvas.style.height = H+'px';
-  var ctx = canvas.getContext('2d');
-  ctx.scale(dpr,dpr);
-  if(!tmaxArr||!tmaxArr.length) return;
-  var allT = tmaxArr.concat(tminArr);
-  var rawMn=Math.min.apply(null,allT), rawMx=Math.max.apply(null,allT);
-  var range=Math.max(rawMx-rawMn, 8); // 最小範圍 8 度，避免太扁
-  var mid=(rawMn+rawMx)/2;
-  var mn=mid-range/2-1, mx=mid+range/2+1;
-  function yp(t){ return H - (t-mn)/(mx-mn)*(H-6)-3; }
-  function xp(i,arr){ return (i/(arr.length-1))*(W-4)+2; }
-
-  // gradient fill under max line
-  var grad = ctx.createLinearGradient(0,0,0,H);
-  grad.addColorStop(0, color.replace('1)','0.15)'));
-  grad.addColorStop(1, color.replace('1)','0)'));
-  ctx.beginPath();
-  tmaxArr.forEach(function(t,i){ i===0?ctx.moveTo(xp(i,tmaxArr),yp(t)):ctx.lineTo(xp(i,tmaxArr),yp(t)); });
-  ctx.lineTo(xp(tmaxArr.length-1,tmaxArr), H);
-  ctx.lineTo(0, H); ctx.closePath();
-  ctx.fillStyle = grad; ctx.fill();
-
-  // max line
-  ctx.beginPath();
-  tmaxArr.forEach(function(t,i){ i===0?ctx.moveTo(xp(i,tmaxArr),yp(t)):ctx.lineTo(xp(i,tmaxArr),yp(t)); });
-  ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.lineJoin='round'; ctx.stroke();
-
-  // min line
-  ctx.beginPath();
-  tminArr.forEach(function(t,i){ i===0?ctx.moveTo(xp(i,tminArr),yp(t)):ctx.lineTo(xp(i,tminArr),yp(t)); });
-  ctx.strokeStyle = color.replace('1)','0.45)'); ctx.lineWidth = 1.5; ctx.setLineDash([3,3]); ctx.stroke();
-  ctx.setLineDash([]);
-}
-
-function renderWx(daysId, badgeId, ftId, miniChartId, daily, key){
+function renderWx(daysId, badgeId, ftId, daily, key){
   var c=document.getElementById(daysId), b=document.getElementById(badgeId), f=document.getElementById(ftId);
   if(!c) return;
   var len=Math.min(daily.time.length,3);
@@ -771,9 +722,6 @@ function renderWx(daysId, badgeId, ftId, miniChartId, daily, key){
   c.innerHTML='<div style="display:flex;flex-direction:row;width:100%">'+html+'</div>';
   if(b){b.textContent='即時';b.className='wx-badge live';}
   if(f){var n=new Date();f.textContent='更新 '+pad(n.getHours())+':'+pad(n.getMinutes());}
-  WX_DATA[key]={tmax:tmaxArr,tmin:tminArr,times:daily.time.slice(0,len)};
-  var col=key==='daegu'?'rgba(184,58,12,1)':'rgba(21,73,184,1)';
-  setTimeout(function(){drawMiniChart(miniChartId,tmaxArr,tminArr,col);},150);
 }
 
 function fallbackWx(daysId, badgeId, statics, key){
@@ -783,12 +731,9 @@ function fallbackWx(daysId, badgeId, statics, key){
   statics.forEach(function(x){ html+='<div class="wx-day"><div class="wx-dl">'+x.d+'</div><div class="wx-di">'+x.i+'</div><div class="wx-dt">'+x.t+'</div><div class="wx-ds">'+x.s+'</div></div>'; });
   c.innerHTML='<div style="display:flex;flex-direction:row;width:100%">'+html+'</div>';
   if(b){b.textContent='參考';b.className='wx-badge err';}
-  // dummy data for big chart
-  var dummy = {tmax:[25,24,26],tmin:[20,19,21],times:['2025-05-16','2025-05-17','2025-05-18']};
-  WX_DATA[key]=dummy;
 }
 
-function fetchWx(lat,lon,daysId,badgeId,ftId,chartId,tz,fallback,key){
+function fetchWx(lat,lon,daysId,badgeId,ftId,tz,fallback,key){
   var b=document.getElementById(badgeId);
   if(b){b.textContent='載入中';b.className='wx-badge loading';}
   var url='https://api.open-meteo.com/v1/forecast'
@@ -803,7 +748,7 @@ function fetchWx(lat,lon,daysId,badgeId,ftId,chartId,tz,fallback,key){
       try{
         var d=JSON.parse(xhr.responseText);
         if(d&&d.daily&&d.daily.time&&d.daily.time.length>0){
-          renderWx(daysId,badgeId,ftId,chartId,d.daily,key);
+          renderWx(daysId,badgeId,ftId,d.daily,key);
         } else { fallbackWx(daysId,badgeId,fallback,key); }
       }catch(e){ fallbackWx(daysId,badgeId,fallback,key); }
     } else { fallbackWx(daysId,badgeId,fallback,key); }
@@ -813,8 +758,8 @@ function fetchWx(lat,lon,daysId,badgeId,ftId,chartId,tz,fallback,key){
   xhr.send();
 }
 
-fetchWx(35.8714,128.6014,'wx-dg-d','wx-dg-b','wx-dg-f','wx-dg-chart','Asia/Seoul',[{d:'5/16',i:'🌤',t:'22–27°',s:'微風'},{d:'5/17',i:'⛅',t:'21–26°',s:'多雲'},{d:'5/18',i:'🌤',t:'22–27°',s:'晴'}],'daegu');
-fetchWx(33.5904,130.4017,'wx-fk-d','wx-fk-b','wx-fk-f','wx-fk-chart','Asia/Tokyo',[{d:'5/16',i:'🌙',t:'19–24°',s:'夜涼'},{d:'5/17',i:'⛅',t:'20–25°',s:'多雲'},{d:'5/18',i:'🌤',t:'21–26°',s:'晴'}],'fukuoka');
+fetchWx(35.8714,128.6014,'wx-dg-d','wx-dg-b','wx-dg-f','Asia/Seoul',[{d:'5/16',i:'🌤',t:'22–27°',s:'微風'},{d:'5/17',i:'⛅',t:'21–26°',s:'多雲'},{d:'5/18',i:'🌤',t:'22–27°',s:'晴'}],'daegu');
+fetchWx(33.5904,130.4017,'wx-fk-d','wx-fk-b','wx-fk-f','Asia/Tokyo',[{d:'5/16',i:'🌙',t:'19–24°',s:'夜涼'},{d:'5/17',i:'⛅',t:'20–25°',s:'多雲'},{d:'5/18',i:'🌤',t:'21–26°',s:'晴'}],'fukuoka');
 
 var FX_BASE_RATES = { TWD:1, KRW:42.5, JPY:4.75, USD:0.031 }; // fallback
 var initFxState = initState;
@@ -998,7 +943,16 @@ var CL_DATA = [
 
 var CL_CHECKED = (initState.checklist && typeof initState.checklist==='object') ? initState.checklist : {};
 
+var clEls = {
+  content: document.getElementById('cl-content'),
+  badge: document.getElementById('cl-badge'),
+  pct: document.getElementById('cl-pct'),
+  fill: document.getElementById('cl-fill'),
+  reset: document.getElementById('cl-reset')
+};
+
 function renderChecklist(){
+  if(!clEls.content || !clEls.badge || !clEls.pct || !clEls.fill) return;
   var totalCount = 0, checkedCount = 0;
   var html = '';
   CL_DATA.forEach(function(group){
@@ -1015,16 +969,15 @@ function renderChecklist(){
     });
     html += '</div></div>';
   });
-  document.getElementById('cl-content').innerHTML = html;
-  document.getElementById('cl-badge').textContent = checkedCount+' / '+totalCount;
+  clEls.content.innerHTML = html;
+  clEls.badge.textContent = checkedCount+' / '+totalCount;
   var pct = Math.round(checkedCount/totalCount*100);
-  document.getElementById('cl-pct').textContent = pct+'%';
-  document.getElementById('cl-fill').style.width = pct+'%';
+  clEls.pct.textContent = pct+'%';
+  clEls.fill.style.width = pct+'%';
 }
 
-var clContent = document.getElementById('cl-content');
-if(clContent){
-  clContent.addEventListener('click', function(e){
+if(clEls.content){
+  clEls.content.addEventListener('click', function(e){
     var item = e.target.closest('.cl-item');
     if(!item) return;
     var id = item.dataset.id;
@@ -1035,12 +988,13 @@ if(clContent){
 }
 
 renderChecklist();
-document.getElementById('cl-reset').addEventListener('click',function(){
-  CL_CHECKED = {};
-  saveState({checklist:{}});
-  renderChecklist();
-});
-
+if(clEls.reset){
+  clEls.reset.addEventListener('click',function(){
+    CL_CHECKED = {};
+    saveState({checklist:{}});
+    renderChecklist();
+  });
+}
 
 function applyMapLinks(){
   document.querySelectorAll('.fc-name, .sc-name').forEach(function(el){
@@ -1060,10 +1014,6 @@ function applyMapLinks(){
 
 applyMapLinks();
 
-window.addEventListener('resize', function(){
-  if(WX_DATA.daegu) drawMiniChart('wx-dg-chart',WX_DATA.daegu.tmax,WX_DATA.daegu.tmin,'rgba(184,58,12,1)');
-  if(WX_DATA.fukuoka) drawMiniChart('wx-fk-chart',WX_DATA.fukuoka.tmax,WX_DATA.fukuoka.tmin,'rgba(21,73,184,1)');
-}, {passive:true});
 
 })();
 </script>
