@@ -60,46 +60,33 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:5px 12px;font-size:12px;color:rgba(255,255,255,.86)}
 .chip b{color:#FFD47A}
 
-/* countdown in hero */
-.countdown{
-  margin-top:22px;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:var(--r);
-  padding:14px 16px;
-  display:flex;align-items:center;gap:16px;
-}
-.cd-label{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.5px;margin-bottom:2px;font-family:'DM Mono',monospace}
-.cd-nums{display:flex;gap:10px}
-.cd-unit{text-align:center}
-.cd-n{font-size:26px;font-weight:900;line-height:1;font-family:'DM Mono',monospace}
-.cd-n.d{color:#FF8F5C}.cd-n.h{color:#6DC0FF}.cd-n.m{color:#A78BFA}.cd-n.s{color:#6EE7B7}
-.cd-u{font-size:9px;color:rgba(255,255,255,.5);letter-spacing:.5px}
-.cd-sep{font-size:22px;font-weight:700;color:rgba(255,255,255,.3);padding-top:2px}
-.cd-title{font-size:13px;font-weight:700;color:rgba(255,255,255,.85)}
+
 
 /* ══ WEATHER ══ */
-.wx-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 14px 0}
-@media(max-width:380px){.wx-bar{grid-template-columns:1fr}}
-.wx-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:13px 14px}
-.wx-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.wx-city{font-size:13px;font-weight:700}
-.wx-badge{font-size:10px;padding:2px 8px;border-radius:100px;font-weight:700}
+.wx-bar{display:flex;flex-direction:column;gap:8px;padding:14px 14px 0}
+.wx-card{
+  background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);
+  padding:11px 14px;display:flex;align-items:center;gap:12px;
+}
+.wx-left{flex-shrink:0;width:68px}
+.wx-city{font-size:13px;font-weight:700;margin-bottom:3px}
+.wx-badge{font-size:9px;padding:2px 7px;border-radius:100px;font-weight:700;display:inline-block}
 .wx-badge.live{background:#DCFCE7;color:var(--d3)}
 .wx-badge.loading{background:#F3F4F6;color:var(--sub)}
 .wx-badge.err{background:var(--redbg);color:var(--red)}
-.wx-days{display:flex}
-.wx-day{flex:1;text-align:center;padding:4px 2px;border-right:1px solid var(--border)}
+.wx-right{flex:1;min-width:0}
+.wx-days{display:flex;flex-direction:row}
+.wx-day{flex:1;display:block;text-align:center;padding:3px 2px;border-right:1px solid var(--border)}
 .wx-day:last-child{border-right:none}
-.wx-dl{font-size:9px;color:var(--sub);margin-bottom:2px;font-family:'DM Mono',monospace}
-.wx-di{font-size:20px;margin-bottom:2px}
+.wx-dl{font-size:9px;color:var(--sub);margin-bottom:1px;font-family:'DM Mono',monospace}
+.wx-di{font-size:18px;margin-bottom:1px;line-height:1.2}
 .wx-dt{font-size:11px;font-weight:700}
 .wx-ds{font-size:9px;color:var(--sub)}
 /* canvas mini chart */
-.wx-chart{width:100%;height:32px;margin-top:8px;display:block}
-.wx-foot{font-size:9px;color:var(--sub);text-align:right;margin-top:4px}
+.wx-chart{width:100%;height:28px;margin-top:6px;display:block}
+.wx-foot{font-size:9px;color:var(--sub);text-align:right;margin-top:3px}
 @keyframes shimmer{from{background-position:-200px 0}to{background-position:200px 0}}
-.wx-skel{height:64px;border-radius:6px;background:linear-gradient(90deg,#EDE8E2 25%,#E4DED6 50%,#EDE8E2 75%);background-size:400px;animation:shimmer 1.2s infinite}
+.wx-skel{height:44px;border-radius:6px;background:linear-gradient(90deg,#EDE8E2 25%,#E4DED6 50%,#EDE8E2 75%);background-size:400px;animation:shimmer 1.2s infinite}
 
 /* ══ TAB BAR ══ */
 .tab-bar{position:sticky;top:0;z-index:200;background:rgba(247,244,239,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px}
@@ -376,38 +363,33 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
       <div class="chip">✈ FUK 16:20 → TPE 17:50</div>
       <div class="chip">🌡 <b>22–27°C</b></div>
     </div>
-    <!-- LIVE COUNTDOWN -->
-    <div class="countdown">
-      <div>
-        <div class="cd-label">距離出發</div>
-        <div class="cd-title" id="cd-title">計算中...</div>
-      </div>
-      <div class="cd-nums" id="cd-nums">
-        <div class="cd-unit"><div class="cd-n d" id="cd-d">--</div><div class="cd-u">天</div></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit"><div class="cd-n h" id="cd-h">--</div><div class="cd-u">時</div></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit"><div class="cd-n m" id="cd-m">--</div><div class="cd-u">分</div></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit"><div class="cd-n s" id="cd-s">--</div><div class="cd-u">秒</div></div>
-      </div>
-    </div>
+
   </div>
 </div>
 
 <!-- ═══ WEATHER ═══ -->
 <div class="wx-bar">
   <div class="wx-card">
-    <div class="wx-head"><div class="wx-city">🇰🇷 大邱</div><div class="wx-badge loading" id="wx-dg-b">載入中</div></div>
-    <div id="wx-dg-d"><div class="wx-skel"></div></div>
-    <canvas class="wx-chart" id="wx-dg-chart" height="32"></canvas>
-    <div class="wx-foot" id="wx-dg-f"></div>
+    <div class="wx-left">
+      <div class="wx-city">🇰🇷 大邱</div>
+      <div class="wx-badge loading" id="wx-dg-b">載入中</div>
+      <div class="wx-foot" id="wx-dg-f"></div>
+    </div>
+    <div class="wx-right">
+      <div id="wx-dg-d"><div class="wx-skel"></div></div>
+      <canvas class="wx-chart" id="wx-dg-chart" height="28"></canvas>
+    </div>
   </div>
   <div class="wx-card">
-    <div class="wx-head"><div class="wx-city">🇯🇵 福岡</div><div class="wx-badge loading" id="wx-fk-b">載入中</div></div>
-    <div id="wx-fk-d"><div class="wx-skel"></div></div>
-    <canvas class="wx-chart" id="wx-fk-chart" height="32"></canvas>
-    <div class="wx-foot" id="wx-fk-f"></div>
+    <div class="wx-left">
+      <div class="wx-city">🇯🇵 福岡</div>
+      <div class="wx-badge loading" id="wx-fk-b">載入中</div>
+      <div class="wx-foot" id="wx-fk-f"></div>
+    </div>
+    <div class="wx-right">
+      <div id="wx-fk-d"><div class="wx-skel"></div></div>
+      <canvas class="wx-chart" id="wx-fk-chart" height="28"></canvas>
+    </div>
   </div>
 </div>
 
@@ -642,25 +624,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
       </div>
     </div>
 
-    <!-- ── 溫度趨勢圖 ── -->
-    <div class="tool-card rev">
-      <div class="tool-head">
-        <div class="tool-icon">📈</div>
-        <div class="tool-title">溫度趨勢預覽</div>
-        <div class="tool-badge">3日預報</div>
-      </div>
-      <div class="tool-body" style="padding:10px 10px 14px">
-        <div style="display:flex;gap:8px;margin-bottom:10px">
-          <button class="btn-swap" id="temp-dg" style="flex:1;font-size:12px">🇰🇷 大邱</button>
-          <button class="btn-swap" id="temp-fk" style="flex:1;font-size:12px;background:var(--d2bg);color:var(--d2);border-color:var(--d2)">🇯🇵 福岡</button>
-        </div>
-        <canvas id="temp-big-canvas" style="width:100%;height:160px;display:block"></canvas>
-        <div id="temp-legend" style="display:flex;justify-content:center;gap:16px;margin-top:8px;font-size:11px;color:var(--sub)">
-          <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:3px;background:#ef4444;display:inline-block;border-radius:2px"></span>最高溫</span>
-          <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:3px;background:#3b82f6;display:inline-block;border-radius:2px"></span>最低溫</span>
-        </div>
-      </div>
-    </div>
+
 
   </div><!-- /tools-grid -->
 </div><!-- /panel-tools -->
@@ -674,7 +638,6 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 /* ══ 全局狀態 ══ */
 var WX_DATA = { daegu: null, fukuoka: null };
 var FX_RATES = null;
-var TEMP_CURRENT = 'daegu';
 
 /* ══ PROGRESS BAR ══ */
 var prog = document.getElementById('prog');
@@ -685,33 +648,7 @@ function updProg(){
 window.addEventListener('scroll', updProg, {passive:true});
 updProg();
 
-/* ══ COUNTDOWN ══ */
-var DEPART = new Date('2025-05-16T00:05:00+08:00'); // 大邱 05:25 TAE，前一天晚上台灣起飛約午夜多
-// 出發日前一天晚上飛，以 5/16 Day1 出發為主
-var DEPART2 = new Date('2025-05-16T00:00:00+08:00');
 function pad(n){ return String(n).padStart(2,'0'); }
-function updateCountdown(){
-  var now = new Date();
-  var diff = DEPART2 - now;
-  if(diff <= 0){
-    document.getElementById('cd-title').textContent = '✈ 旅程進行中！';
-    ['cd-d','cd-h','cd-m','cd-s'].forEach(function(id){
-      document.getElementById(id).textContent = '00';
-    });
-    return;
-  }
-  var d = Math.floor(diff/86400000);
-  var h = Math.floor((diff%86400000)/3600000);
-  var m = Math.floor((diff%3600000)/60000);
-  var s = Math.floor((diff%60000)/1000);
-  document.getElementById('cd-title').textContent = '出發日 5月16日';
-  document.getElementById('cd-d').textContent = pad(d);
-  document.getElementById('cd-h').textContent = pad(h);
-  document.getElementById('cd-m').textContent = pad(m);
-  document.getElementById('cd-s').textContent = pad(s);
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
 
 /* ══ REVEAL ══ */
 var io = new IntersectionObserver(function(entries){
@@ -753,7 +690,10 @@ function drawMiniChart(canvasId, tmaxArr, tminArr, color){
   ctx.scale(dpr,dpr);
   if(!tmaxArr||!tmaxArr.length) return;
   var allT = tmaxArr.concat(tminArr);
-  var mn = Math.min.apply(null,allT)-2, mx = Math.max.apply(null,allT)+2;
+  var rawMn=Math.min.apply(null,allT), rawMx=Math.max.apply(null,allT);
+  var range=Math.max(rawMx-rawMn, 8); // 最小範圍 8 度，避免太扁
+  var mid=(rawMn+rawMx)/2;
+  var mn=mid-range/2-1, mx=mid+range/2+1;
   function yp(t){ return H - (t-mn)/(mx-mn)*(H-6)-3; }
   function xp(i,arr){ return (i/(arr.length-1))*(W-4)+2; }
 
@@ -779,35 +719,33 @@ function drawMiniChart(canvasId, tmaxArr, tminArr, color){
   ctx.setLineDash([]);
 }
 
-function renderWx(daysId, badgeId, ftId, miniChartId, daily, city){
+function renderWx(daysId, badgeId, ftId, miniChartId, daily, key){
   var c=document.getElementById(daysId), b=document.getElementById(badgeId), f=document.getElementById(ftId);
   if(!c) return;
   var len=Math.min(daily.time.length,3);
   var html='', tmaxArr=[], tminArr=[];
+  var DOW_local=['日','一','二','三','四','五','六'];
   for(var i=0;i<len;i++){
-    var d=new Date(daily.time[i]+'T12:00:00');
+    var dt=new Date(daily.time[i]+'T12:00:00');
     var wmo=WMO[daily.weathercode[i]]||['🌡','混合'];
     var rain=daily.precipitation_probability_max[i]||0;
     var desc=wmo[1]+(rain>55?'・帶傘':'');
     var tmax=Math.round(daily.temperature_2m_max[i]);
     var tmin=Math.round(daily.temperature_2m_min[i]);
     tmaxArr.push(tmax); tminArr.push(tmin);
-    html+='<div class="wx-day"><div class="wx-dl">'+(d.getMonth()+1)+'/'+(d.getDate())+' '+DOW[d.getDay()]+'</div><div class="wx-di">'+wmo[0]+'</div><div class="wx-dt">'+tmin+'–'+tmax+'°</div><div class="wx-ds">'+desc+'</div></div>';
+    html+='<div class="wx-day">'
+      +'<div class="wx-dl">'+(dt.getMonth()+1)+'/'+(dt.getDate())+' '+DOW_local[dt.getDay()]+'</div>'
+      +'<div class="wx-di">'+wmo[0]+'</div>'
+      +'<div class="wx-dt">'+tmin+'–'+tmax+'°</div>'
+      +'<div class="wx-ds">'+desc+'</div>'
+      +'</div>';
   }
-  c.innerHTML=html;
+  c.innerHTML='<div style="display:flex;flex-direction:row;width:100%">'+html+'</div>';
   if(b){b.textContent='即時';b.className='wx-badge live';}
-  if(f){var n=new Date();f.textContent='更新 '+(n.getMonth()+1)+'/'+(n.getDate())+' '+pad(n.getHours())+':'+pad(n.getMinutes());}
-  
-  // store for big chart
-  var key = miniChartId.indexOf('dg')>=0?'daegu':'fukuoka';
-  WX_DATA[key] = {tmax:tmaxArr, tmin:tminArr, times:daily.time.slice(0,len)};
-  
-  // draw mini
-  var col = key==='daegu'?'rgba(184,58,12,1)':'rgba(21,73,184,1)';
-  setTimeout(function(){ drawMiniChart(miniChartId,tmaxArr,tminArr,col); },100);
-  
-  // update big chart if visible
-  if(TEMP_CURRENT===key) drawBigChart();
+  if(f){var n=new Date();f.textContent='更新 '+pad(n.getHours())+':'+pad(n.getMinutes());}
+  WX_DATA[key]={tmax:tmaxArr,tmin:tminArr,times:daily.time.slice(0,len)};
+  var col=key==='daegu'?'rgba(184,58,12,1)':'rgba(21,73,184,1)';
+  setTimeout(function(){drawMiniChart(miniChartId,tmaxArr,tminArr,col);},150);
 }
 
 function fallbackWx(daysId, badgeId, statics, key){
@@ -815,7 +753,7 @@ function fallbackWx(daysId, badgeId, statics, key){
   if(!c) return;
   var html='';
   statics.forEach(function(x){ html+='<div class="wx-day"><div class="wx-dl">'+x.d+'</div><div class="wx-di">'+x.i+'</div><div class="wx-dt">'+x.t+'</div><div class="wx-ds">'+x.s+'</div></div>'; });
-  c.innerHTML=html;
+  c.innerHTML='<div style="display:flex;flex-direction:row;width:100%">'+html+'</div>';
   if(b){b.textContent='參考';b.className='wx-badge err';}
   // dummy data for big chart
   var dummy = {tmax:[25,24,26],tmin:[20,19,21],times:['2025-05-16','2025-05-17','2025-05-18']};
@@ -823,111 +761,32 @@ function fallbackWx(daysId, badgeId, statics, key){
 }
 
 function fetchWx(lat,lon,daysId,badgeId,ftId,chartId,tz,fallback,key){
-  fetch('https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lon+'&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_probability_max&forecast_days=3&timezone='+encodeURIComponent(tz))
-    .then(function(r){return r.ok?r.json():Promise.reject();})
-    .then(function(d){renderWx(daysId,badgeId,ftId,chartId,d.daily,key);})
-    .catch(function(){fallbackWx(daysId,badgeId,fallback,key);});
+  var b=document.getElementById(badgeId);
+  if(b){b.textContent='載入中';b.className='wx-badge loading';}
+  var url='https://api.open-meteo.com/v1/forecast'
+    +'?latitude='+lat+'&longitude='+lon
+    +'&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_probability_max'
+    +'&forecast_days=3&timezone='+encodeURIComponent(tz);
+  var xhr=new XMLHttpRequest();
+  xhr.open('GET',url,true);
+  xhr.timeout=8000;
+  xhr.onload=function(){
+    if(xhr.status===200){
+      try{
+        var d=JSON.parse(xhr.responseText);
+        if(d&&d.daily&&d.daily.time&&d.daily.time.length>0){
+          renderWx(daysId,badgeId,ftId,chartId,d.daily,key);
+        } else { fallbackWx(daysId,badgeId,fallback,key); }
+      }catch(e){ fallbackWx(daysId,badgeId,fallback,key); }
+    } else { fallbackWx(daysId,badgeId,fallback,key); }
+  };
+  xhr.onerror=function(){ fallbackWx(daysId,badgeId,fallback,key); };
+  xhr.ontimeout=function(){ fallbackWx(daysId,badgeId,fallback,key); };
+  xhr.send();
 }
 
 fetchWx(35.8714,128.6014,'wx-dg-d','wx-dg-b','wx-dg-f','wx-dg-chart','Asia/Seoul',[{d:'5/16',i:'🌤',t:'22–27°',s:'微風'},{d:'5/17',i:'⛅',t:'21–26°',s:'多雲'},{d:'5/18',i:'🌤',t:'22–27°',s:'晴'}],'daegu');
 fetchWx(33.5904,130.4017,'wx-fk-d','wx-fk-b','wx-fk-f','wx-fk-chart','Asia/Tokyo',[{d:'5/16',i:'🌙',t:'19–24°',s:'夜涼'},{d:'5/17',i:'⛅',t:'20–25°',s:'多雲'},{d:'5/18',i:'🌤',t:'21–26°',s:'晴'}],'fukuoka');
-
-/* ══ BIG TEMP CHART ══ */
-function drawBigChart(){
-  var canvas = document.getElementById('temp-big-canvas');
-  if(!canvas) return;
-  var data = WX_DATA[TEMP_CURRENT];
-  if(!data) return;
-  var dpr = window.devicePixelRatio||1;
-  var W = canvas.offsetWidth||280, H = 160;
-  canvas.width = W*dpr; canvas.height = H*dpr;
-  canvas.style.width = W+'px'; canvas.style.height = H+'px';
-  var ctx = canvas.getContext('2d');
-  ctx.scale(dpr,dpr);
-  ctx.clearRect(0,0,W,H);
-
-  var tmax=data.tmax, tmin=data.tmin, times=data.times;
-  var allT=tmax.concat(tmin);
-  var mn=Math.min.apply(null,allT)-3, mx=Math.max.apply(null,allT)+3;
-  var padL=32, padR=16, padT=16, padB=36;
-  var cW=W-padL-padR, cH=H-padT-padB;
-  function yx(t){ return padT+cH-(t-mn)/(mx-mn)*cH; }
-  function xx(i){ return padL+(i/(tmax.length-1))*cW; }
-
-  // grid lines
-  ctx.strokeStyle='rgba(0,0,0,.05)'; ctx.lineWidth=1;
-  for(var g=0;g<4;g++){
-    var tv=mn+(mx-mn)*g/3;
-    var yv=yx(tv);
-    ctx.beginPath(); ctx.moveTo(padL,yv); ctx.lineTo(W-padR,yv); ctx.stroke();
-    ctx.fillStyle='rgba(0,0,0,.35)'; ctx.font='10px DM Mono,monospace'; ctx.textAlign='right';
-    ctx.fillText(Math.round(tv)+'°',padL-4,yv+4);
-  }
-  // x labels
-  DOW=['日','一','二','三','四','五','六'];
-  times.forEach(function(t,i){
-    var d=new Date(t+'T12:00:00');
-    var lbl=(d.getMonth()+1)+'/'+(d.getDate())+' ('+DOW[d.getDay()]+')';
-    ctx.fillStyle='rgba(0,0,0,.4)'; ctx.font='10px Noto Sans TC,sans-serif'; ctx.textAlign='center';
-    ctx.fillText(lbl, xx(i), H-padB+14);
-  });
-
-  // gradient under max
-  var gradMax = ctx.createLinearGradient(0,padT,0,padT+cH);
-  gradMax.addColorStop(0,'rgba(239,68,68,.2)');
-  gradMax.addColorStop(1,'rgba(239,68,68,0)');
-  ctx.beginPath();
-  tmax.forEach(function(t,i){ i===0?ctx.moveTo(xx(i),yx(t)):ctx.lineTo(xx(i),yx(t)); });
-  ctx.lineTo(xx(tmax.length-1),padT+cH); ctx.lineTo(padL,padT+cH); ctx.closePath();
-  ctx.fillStyle=gradMax; ctx.fill();
-
-  // gradient under min
-  var gradMin = ctx.createLinearGradient(0,padT,0,padT+cH);
-  gradMin.addColorStop(0,'rgba(59,130,246,.15)');
-  gradMin.addColorStop(1,'rgba(59,130,246,0)');
-  ctx.beginPath();
-  tmin.forEach(function(t,i){ i===0?ctx.moveTo(xx(i),yx(t)):ctx.lineTo(xx(i),yx(t)); });
-  ctx.lineTo(xx(tmin.length-1),padT+cH); ctx.lineTo(padL,padT+cH); ctx.closePath();
-  ctx.fillStyle=gradMin; ctx.fill();
-
-  // max line
-  ctx.beginPath();
-  tmax.forEach(function(t,i){ i===0?ctx.moveTo(xx(i),yx(t)):ctx.lineTo(xx(i),yx(t)); });
-  ctx.strokeStyle='#ef4444'; ctx.lineWidth=2.5; ctx.lineJoin='round'; ctx.lineCap='round'; ctx.stroke();
-
-  // min line
-  ctx.beginPath();
-  tmin.forEach(function(t,i){ i===0?ctx.moveTo(xx(i),yx(t)):ctx.lineTo(xx(i),yx(t)); });
-  ctx.strokeStyle='#3b82f6'; ctx.lineWidth=2; ctx.stroke();
-
-  // dots + labels
-  [tmax,tmin].forEach(function(arr,ai){
-    arr.forEach(function(t,i){
-      var cx=xx(i), cy=yx(t);
-      ctx.beginPath(); ctx.arc(cx,cy,4,0,Math.PI*2);
-      ctx.fillStyle=ai===0?'#ef4444':'#3b82f6'; ctx.fill();
-      ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(cx,cy,2,0,Math.PI*2); ctx.fill();
-      ctx.fillStyle=ai===0?'#B91C1C':'#1D4ED8';
-      ctx.font='bold 11px DM Mono,monospace'; ctx.textAlign='center';
-      ctx.fillText(t+'°', cx, ai===0?cy-8:cy+16);
-    });
-  });
-}
-
-document.getElementById('temp-dg').addEventListener('click',function(){
-  TEMP_CURRENT='daegu';
-  this.style.background='var(--d1bg)'; this.style.color='var(--d1)'; this.style.borderColor='var(--d1)';
-  var fk=document.getElementById('temp-fk');
-  fk.style.background='var(--bg)'; fk.style.color='var(--sub)'; fk.style.borderColor='var(--border)';
-  drawBigChart();
-});
-document.getElementById('temp-fk').addEventListener('click',function(){
-  TEMP_CURRENT='fukuoka';
-  this.style.background='var(--d2bg)'; this.style.color='var(--d2)'; this.style.borderColor='var(--d2)';
-  var dg=document.getElementById('temp-dg');
-  dg.style.background='var(--bg)'; dg.style.color='var(--sub)'; dg.style.borderColor='var(--border)';
-  drawBigChart();
-});
 
 /* ══ EXCHANGE RATE ══ */
 var FX_BASE_RATES = { TWD:1, KRW:42.5, JPY:4.75, USD:0.031 }; // fallback
@@ -1141,9 +1000,6 @@ document.getElementById('cl-reset').addEventListener('click',function(){
 
 /* ══ SCROLL PROGRESS ══ */
 window.addEventListener('resize', function(){
-  var key = TEMP_CURRENT;
-  if(WX_DATA[key]) drawBigChart();
-  // redraw mini charts
   if(WX_DATA.daegu) drawMiniChart('wx-dg-chart',WX_DATA.daegu.tmax,WX_DATA.daegu.tmin,'rgba(184,58,12,1)');
   if(WX_DATA.fukuoka) drawMiniChart('wx-fk-chart',WX_DATA.fukuoka.tmax,WX_DATA.fukuoka.tmin,'rgba(21,73,184,1)');
 }, {passive:true});
