@@ -3,1078 +3,1151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>大邱 × 福岡｜私房三天兩夜 2025.5.16–18</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<title>大邱 × 福岡 2025.5.16–18</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#F9F7F4;
-  --white:#FFFFFF;
-  --ink:#1A1A1A;
-  --sub:#6B7280;
-  --border:#E5E2DC;
-  --d1:#D95F2B;
-  --d1bg:#FFF4EF;
-  --d2:#1D6FD1;
-  --d2bg:#EFF6FF;
-  --d3:#1A9E52;
-  --d3bg:#F0FBF4;
-  --gold:#B07D15;
-  --goldbg:#FFFBEB;
-  --warn:#C0392B;
-  --warnbg:#FEF2F2;
-  --tab-h:62px;
+  --bg:#F7F4EF;
+  --card:#FFFFFF;
+  --ink:#1A1714;
+  --sub:#7C736A;
+  --border:#E8E2D9;
+  --d1:#B83A0C;
+  --d1bg:#FFF3EE;
+  --d2:#1549B8;
+  --d2bg:#EEF3FF;
+  --d3:#0F7A3A;
+  --d3bg:#EEFBF2;
+  --food:#9B1451;
+  --foodbg:#FFF0F6;
+  --spot:#5B21B6;
+  --spotbg:#F5F2FF;
+  --gold:#7A4A00;
+  --goldbg:#FFFAEB;
+  --red:#C41E1E;
+  --redbg:#FEF2F2;
+  --r:14px;--rs:8px;
+  --shadow:0 1px 3px rgba(0,0,0,.05),0 6px 18px rgba(0,0,0,.07);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 2px 8px rgba(0,0,0,.06);
+  --tab-h:52px;
   --safe-b:env(safe-area-inset-bottom,0px);
-  --r:14px;
-  --rs:8px;
-  --shadow:0 1px 4px rgba(0,0,0,.07),0 4px 16px rgba(0,0,0,.06);
 }
 html{font-size:16px;scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'Noto Sans TC',system-ui,sans-serif;
-  line-height:1.75;
-  -webkit-font-smoothing:antialiased;
-  padding-bottom:calc(var(--tab-h) + var(--safe-b) + 16px);
-}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--tab-h) + var(--safe-b) + 20px)}
 
-/* ── PROGRESS ── */
-#prog{position:fixed;top:0;left:0;right:0;height:3px;background:var(--d1);transform-origin:left;transform:scaleX(0);z-index:300;transition:transform .1s}
+/* ══ PROGRESS ══ */
+#prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--d1),var(--d2));transform-origin:left;transform:scaleX(0);z-index:600;will-change:transform}
 
-/* ── HERO ── */
-.hero{
-  background:linear-gradient(135deg,#1A1A1A 0%,#2D1F0E 50%,#1A2D1F 100%);
-  color:#fff;
-  padding:48px 20px 36px;
-  position:relative;
-  overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
+/* ══ HERO ══ */
+.hero{background:#1A1714;color:#fff;padding:52px 20px 36px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 70% 60% at 85% 20%,rgba(29,111,209,.35) 0%,transparent 65%),
-    radial-gradient(ellipse 60% 50% at 10% 80%,rgba(217,95,43,.3) 0%,transparent 60%);
-  pointer-events:none;
-}
-.hero-inner{position:relative;max-width:480px;margin:0 auto;}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:100px;
-  padding:5px 14px;
-  font-size:12px;color:rgba(255,255,255,.85);
-  letter-spacing:.5px;margin-bottom:20px;
-}
-.hero h1{
-  font-family:'Noto Serif TC',serif;
-  font-size:clamp(32px,9vw,52px);
-  font-weight:900;line-height:1.1;
-  margin-bottom:12px;
-}
-.hero h1 .kr{color:#FF9A6C;}
-.hero h1 .jp{color:#7EC8FF;}
-.hero-date{
-  font-size:15px;color:rgba(255,255,255,.7);
-  margin-bottom:22px;
-}
-.hero-pills{display:flex;flex-wrap:wrap;gap:8px;}
-.pill{
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:100px;
-  padding:5px 13px;font-size:13px;
-  color:rgba(255,255,255,.9);
-}
-.pill b{color:#FFD580;}
+    radial-gradient(ellipse 70% 60% at 92% 10%,rgba(21,73,184,.5) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 4% 90%,rgba(184,58,12,.4) 0%,transparent 55%),
+    radial-gradient(circle 250px at 50% 120%,rgba(91,33,182,.2) 0%,transparent 70%);
+  pointer-events:none}
+.hero::after{content:'';position:absolute;inset:0;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='white'/%3E%3C/svg%3E");
+  pointer-events:none}
+.hero-inner{position:relative;max-width:520px;margin:0 auto}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:5px 13px;font-size:11px;color:rgba(255,255,255,.75);letter-spacing:.8px;margin-bottom:20px;font-family:'DM Mono',monospace}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(38px,11vw,62px);font-weight:900;line-height:1.0;margin-bottom:10px;letter-spacing:-.5px}
+.hero h1 .kr{color:#FF8F5C}
+.hero h1 .jp{color:#6DC0FF}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:22px;letter-spacing:.3px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:5px 12px;font-size:12px;color:rgba(255,255,255,.86)}
+.chip b{color:#FFD47A}
 
-/* ── DAY TABS (TOP) ── */
-.day-tabs{
-  display:flex;gap:8px;
-  padding:16px 16px 0;
-  overflow-x:auto;scrollbar-width:none;
-}
-.day-tabs::-webkit-scrollbar{display:none}
-.day-tab{
-  flex-shrink:0;
-  padding:8px 16px;
-  border-radius:100px;
-  font-size:14px;font-weight:700;
-  border:2px solid var(--border);
-  background:var(--white);
-  color:var(--sub);
-  text-decoration:none;
-  transition:all .18s;
-  white-space:nowrap;
-}
-.day-tab.d1{border-color:var(--d1);color:var(--d1);background:var(--d1bg);}
-.day-tab.d2{border-color:var(--d2);color:var(--d2);background:var(--d2bg);}
-.day-tab.d3{border-color:var(--d3);color:var(--d3);background:var(--d3bg);}
-.day-tab.info{border-color:var(--gold);color:var(--gold);background:var(--goldbg);}
-
-/* ── WEATHER STRIP ── */
-.weather-strip{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:10px;margin:16px 16px 0;
-}
-@media(max-width:400px){.weather-strip{grid-template-columns:1fr;}}
-.wc{
-  background:var(--white);border-radius:var(--r);
-  padding:14px 16px;box-shadow:var(--shadow);
-  position:relative;
-}
-.wc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-.wc-city{font-size:14px;font-weight:700;}
-.wc-badge{
-  font-size:10px;padding:2px 8px;border-radius:100px;
-  background:rgba(26,158,82,.12);color:var(--d3);font-weight:600;
-}
-.wc-badge.loading{background:rgba(107,114,128,.1);color:var(--sub);}
-.wc-badge.err{background:var(--warnbg);color:var(--warn);}
-.wc-days{display:flex;gap:0;}
-.wc-day{flex:1;text-align:center;padding:6px 2px;border-right:1px solid var(--border);}
-.wc-day:last-child{border-right:none;}
-.wc-date{font-size:10px;color:var(--sub);margin-bottom:3px;}
-.wc-icon{font-size:20px;margin-bottom:2px;}
-.wc-temp{font-size:12px;font-weight:700;}
-.wc-sub{font-size:10px;color:var(--sub);}
-.wc-updated{font-size:10px;color:var(--sub);text-align:right;margin-top:8px;}
-@keyframes shimmer{from{background-position:-300px 0}to{background-position:300px 0}}
-.wc-skel{height:60px;border-radius:var(--rs);
-  background:linear-gradient(90deg,var(--bg) 25%,#EDE9E3 50%,var(--bg) 75%);
-  background-size:600px 100%;animation:shimmer 1.3s infinite linear;}
-
-/* ── SECTION LABEL ── */
-.sec-wrap{padding:24px 16px 0;}
-.sec-label{
-  display:flex;align-items:center;gap:10px;
-  margin-bottom:4px;
-}
-.sec-num{
-  width:32px;height:32px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:700;color:#fff;flex-shrink:0;
-}
-.num-d1{background:var(--d1);}
-.num-d2{background:var(--d2);}
-.num-d3{background:var(--d3);}
-.sec-info{}
-.sec-day{font-size:11px;color:var(--sub);font-weight:500;letter-spacing:.5px;}
-.sec-title{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:900;line-height:1.2;margin-bottom:2px;}
-.sec-sub{font-size:13px;color:var(--sub);}
-
-/* ── MEAL BAR ── */
-.meal-bar{
-  display:flex;gap:0;
-  background:var(--white);
+/* countdown in hero */
+.countdown{
+  margin-top:22px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
   border-radius:var(--r);
-  box-shadow:var(--shadow);
-  margin:14px 16px 0;
-  overflow:hidden;
-}
-.meal-cell{
-  flex:1;padding:10px 10px;
-  text-align:center;
-  border-right:1px solid var(--border);
-}
-.meal-cell:last-child{border-right:none;}
-.meal-type{font-size:10px;color:var(--sub);margin-bottom:3px;font-weight:600;letter-spacing:.5px;}
-.meal-name{font-size:13px;font-weight:700;color:var(--ink);line-height:1.3;}
-.meal-note{font-size:11px;color:var(--sub);margin-top:2px;}
-
-/* ── TIMELINE ── */
-.timeline{padding:14px 16px 0;}
-.event+.event{margin-top:10px;}
-
-/* transit pill */
-.tpill{
-  display:flex;align-items:center;gap:0;
-  margin:8px 0;
-}
-.tpill-line{flex:1;height:1px;background:var(--border);}
-.tpill-text{
-  font-size:12px;color:var(--sub);
-  padding:4px 12px;
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:100px;
-  white-space:nowrap;
-}
-
-/* event card */
-.ev{
-  background:var(--white);
-  border-radius:var(--r);
-  box-shadow:var(--shadow);
-  overflow:hidden;
-  border-left:4px solid var(--border);
-}
-.ev.d1{border-left-color:var(--d1);}
-.ev.d2{border-left-color:var(--d2);}
-.ev.d3{border-left-color:var(--d3);}
-.ev-inner{padding:14px 16px 14px 14px;}
-.ev-top{display:flex;gap:12px;align-items:flex-start;}
-.ev-time{
-  font-size:14px;font-weight:700;color:var(--sub);
-  min-width:42px;padding-top:2px;
-  font-variant-numeric:tabular-nums;flex-shrink:0;
-}
-.ev-body{flex:1;min-width:0;}
-.ev-type{
-  display:inline-block;
-  font-size:11px;font-weight:700;
-  padding:2px 8px;border-radius:100px;
-  margin-bottom:5px;letter-spacing:.3px;
-}
-.type-food{background:#FFF4EF;color:var(--d1);}
-.type-sight{background:var(--d2bg);color:var(--d2);}
-.type-transport{background:#F3F4F6;color:#374151;}
-.type-shop{background:var(--goldbg);color:var(--gold);}
-.type-night{background:#1A1A1A;color:#FFD580;}
-.type-hotel{background:#F0FBF4;color:var(--d3);}
-.ev-title{font-size:16px;font-weight:700;line-height:1.3;margin-bottom:5px;color:var(--ink);}
-.ev-desc{font-size:14px;color:#374151;line-height:1.65;}
-.ev-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
-.tag{
-  font-size:11px;padding:3px 9px;border-radius:100px;font-weight:600;
-}
-.tag-hot{background:#FEE2E2;color:#991B1B;}
-.tag-warn{background:var(--warnbg);color:var(--warn);}
-.tag-tip{background:var(--d2bg);color:var(--d2);}
-.tag-gold{background:var(--goldbg);color:var(--gold);}
-.tag-new{background:#F0FBF4;color:var(--d3);}
-.tag-ok{background:#F3F4F6;color:#374151;}
-
-/* flight divider */
-.flight-div{
-  margin:14px 0;
-  background:linear-gradient(135deg,#1A1A1A,#1D3A5F);
-  color:#fff;border-radius:var(--r);
   padding:14px 16px;
-  font-size:14px;font-weight:700;
-  display:flex;align-items:center;gap:10px;
-  line-height:1.4;
+  display:flex;align-items:center;gap:16px;
 }
-.flight-div::before{content:'✈';font-size:20px;}
+.cd-label{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.5px;margin-bottom:2px;font-family:'DM Mono',monospace}
+.cd-nums{display:flex;gap:10px}
+.cd-unit{text-align:center}
+.cd-n{font-size:26px;font-weight:900;line-height:1;font-family:'DM Mono',monospace}
+.cd-n.d{color:#FF8F5C}.cd-n.h{color:#6DC0FF}.cd-n.m{color:#A78BFA}.cd-n.s{color:#6EE7B7}
+.cd-u{font-size:9px;color:rgba(255,255,255,.5);letter-spacing:.5px}
+.cd-sep{font-size:22px;font-weight:700;color:rgba(255,255,255,.3);padding-top:2px}
+.cd-title{font-size:13px;font-weight:700;color:rgba(255,255,255,.85)}
 
-/* ── DIVIDER ── */
-.day-div{
-  margin:28px 16px 0;
-  display:flex;align-items:center;gap:12px;
-}
-.day-div-line{flex:1;height:1px;background:var(--border);}
-.day-div-label{
-  font-size:12px;font-weight:700;letter-spacing:2px;
-  color:var(--sub);text-transform:uppercase;padding:0 4px;
-}
+/* ══ WEATHER ══ */
+.wx-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 14px 0}
+@media(max-width:380px){.wx-bar{grid-template-columns:1fr}}
+.wx-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:13px 14px}
+.wx-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.wx-city{font-size:13px;font-weight:700}
+.wx-badge{font-size:10px;padding:2px 8px;border-radius:100px;font-weight:700}
+.wx-badge.live{background:#DCFCE7;color:var(--d3)}
+.wx-badge.loading{background:#F3F4F6;color:var(--sub)}
+.wx-badge.err{background:var(--redbg);color:var(--red)}
+.wx-days{display:flex}
+.wx-day{flex:1;text-align:center;padding:4px 2px;border-right:1px solid var(--border)}
+.wx-day:last-child{border-right:none}
+.wx-dl{font-size:9px;color:var(--sub);margin-bottom:2px;font-family:'DM Mono',monospace}
+.wx-di{font-size:20px;margin-bottom:2px}
+.wx-dt{font-size:11px;font-weight:700}
+.wx-ds{font-size:9px;color:var(--sub)}
+/* canvas mini chart */
+.wx-chart{width:100%;height:32px;margin-top:8px;display:block}
+.wx-foot{font-size:9px;color:var(--sub);text-align:right;margin-top:4px}
+@keyframes shimmer{from{background-position:-200px 0}to{background-position:200px 0}}
+.wx-skel{height:64px;border-radius:6px;background:linear-gradient(90deg,#EDE8E2 25%,#E4DED6 50%,#EDE8E2 75%);background-size:400px;animation:shimmer 1.2s infinite}
 
-/* ── TICKETS ── */
-.tickets-wrap{padding:24px 16px 0;}
-.section-h2{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:900;margin-bottom:4px;}
-.section-sub{font-size:13px;color:var(--sub);margin-bottom:16px;}
-.tk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-@media(max-width:400px){.tk-grid{grid-template-columns:1fr;}}
-.tk{
-  background:var(--white);border-radius:var(--r);
-  box-shadow:var(--shadow);padding:16px;
-}
-.tk-tag{font-size:10px;color:var(--sub);font-weight:700;letter-spacing:.5px;margin-bottom:6px;}
-.tk-name{font-size:16px;font-weight:700;margin-bottom:4px;line-height:1.3;}
-.tk-price{font-size:20px;font-weight:900;color:var(--d1);margin-bottom:10px;}
-.tk-detail{font-size:13px;color:#374151;line-height:1.7;}
-.tk-detail b{color:var(--ink);}
-.tk-warn{
-  margin-top:10px;padding:8px 10px;
-  background:var(--warnbg);border-radius:var(--rs);
-  font-size:12px;color:var(--warn);font-weight:600;line-height:1.5;
-}
+/* ══ TAB BAR ══ */
+.tab-bar{position:sticky;top:0;z-index:200;background:rgba(247,244,239,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;padding:0 13px;height:var(--tab-h);display:flex;align-items:center;gap:5px;font-size:13px;font-weight:700;color:var(--sub);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;font-family:'Noto Sans TC',sans-serif}
+.tab-btn.active{color:var(--ink);border-bottom-color:var(--ink)}
 
-/* ── TIPS ── */
-.tips-wrap{padding:24px 16px 0;}
-.tips-grid{display:grid;gap:10px;}
-.tip{
-  background:var(--white);border-radius:var(--r);
-  box-shadow:var(--shadow);
-  padding:16px 16px 16px 60px;
-  position:relative;min-height:72px;
-}
-.tip-icon{
-  position:absolute;left:16px;top:16px;
-  font-size:26px;line-height:1;
-}
-.tip-title{font-size:15px;font-weight:700;margin-bottom:5px;}
-.tip-body{font-size:14px;color:#374151;line-height:1.65;}
-.tip.alert{border-left:4px solid var(--warn);}
+/* ══ PANELS ══ */
+.panel{display:none;padding-bottom:24px}
+.panel.active{display:block}
+.sec-head{padding:20px 14px 0}
+.sec-h2{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:900;margin-bottom:2px}
+.sec-hint{font-size:12px;color:var(--sub)}
 
-/* ── BUDGET ── */
-.budget-wrap{padding:24px 16px 0;}
-.budget{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;}
-.budget-header{background:var(--ink);color:#fff;padding:16px 20px;}
-.budget-header-title{font-size:16px;font-weight:700;}
-.budget-header-note{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px;}
-.budget-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
-.bud-item{padding:14px 16px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
-.bud-item:nth-child(2n){border-right:none;}
-.bud-label{font-size:12px;color:var(--sub);margin-bottom:3px;}
-.bud-val{font-size:15px;font-weight:700;}
-.bud-total{grid-column:1/-1;border-right:none;background:var(--d1bg);}
-.bud-total .bud-label{color:var(--d1);}
-.bud-total .bud-val{font-size:18px;color:var(--d1);}
+/* ══ ITINERARY ══ */
+.day-hd{margin:18px 14px 0;padding:12px 14px;border-radius:var(--r);display:flex;align-items:center;gap:12px}
+.day-hd.d1{background:var(--d1bg);border-left:4px solid var(--d1)}
+.day-hd.d2{background:var(--d2bg);border-left:4px solid var(--d2)}
+.day-hd.d3{background:var(--d3bg);border-left:4px solid var(--d3)}
+.day-num{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.dn1{background:var(--d1)}.dn2{background:var(--d2)}.dn3{background:var(--d3)}
+.day-label{font-size:10px;color:var(--sub);font-weight:600;letter-spacing:.5px}
+.day-title{font-size:15px;font-weight:700;line-height:1.2}
 
-/* ── REVEAL ANIMATION ── */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .35s,transform .35s;}
-.reveal.visible{opacity:1;transform:none;}
+.meal-bar{display:flex;margin:10px 14px 0;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden}
+.mc{flex:1;padding:9px 8px;text-align:center;border-right:1px solid var(--border)}
+.mc:last-child{border-right:none}
+.mc-type{font-size:9px;color:var(--sub);font-weight:700;letter-spacing:.5px;margin-bottom:2px}
+.mc-name{font-size:12px;font-weight:700;line-height:1.3}
+.mc-note{font-size:10px;color:var(--sub);margin-top:1px}
 
-/* ── BOTTOM NAV ── */
-.bottom-nav{
-  position:fixed;bottom:0;left:0;right:0;
-  height:calc(var(--tab-h) + var(--safe-b));
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(20px) saturate(180%);
-  -webkit-backdrop-filter:blur(20px) saturate(180%);
-  border-top:1px solid var(--border);
-  display:flex;align-items:flex-start;padding-top:4px;
-  z-index:200;
-}
-.bnav-tab{
-  flex:1;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:3px;
-  text-decoration:none;color:var(--sub);
-  font-size:11px;font-weight:600;
-  padding:6px 0;
-  transition:color .15s;
-}
-.bnav-icon{font-size:22px;line-height:1;}
-.bnav-tab.active-d1{color:var(--d1);}
-.bnav-tab.active-d2{color:var(--d2);}
-.bnav-tab.active-d3{color:var(--d3);}
-.bnav-tab.active-info{color:var(--gold);}
+.tl{padding:10px 14px 0}
+.ev+.ev{margin-top:8px}
+.transit{display:flex;align-items:center;gap:0;margin:5px 0}
+.t-line{flex:1;height:1px;background:var(--border)}
+.t-pill{font-size:11px;color:var(--sub);padding:3px 10px;background:var(--card);border:1px solid var(--border);border-radius:100px;white-space:nowrap}
 
-/* ── FOOTER ── */
-footer{
-  padding:28px 20px 16px;
-  text-align:center;
-  font-size:12px;color:var(--sub);
-  line-height:1.8;
+.ev{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden;border-left:3px solid var(--border);transition:transform .15s,box-shadow .15s}
+.ev:active{transform:scale(.99)}
+.ev.d1{border-left-color:var(--d1)}.ev.d2{border-left-color:var(--d2)}.ev.d3{border-left-color:var(--d3)}
+.ev-in{padding:12px 14px 12px 12px}
+.ev-top{display:flex;gap:10px;align-items:flex-start}
+.ev-time{font-size:12px;font-weight:700;color:var(--sub);min-width:36px;padding-top:3px;font-family:'DM Mono',monospace;flex-shrink:0}
+.ev-body{flex:1;min-width:0}
+.ev-type{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:100px;margin-bottom:4px;letter-spacing:.3px}
+.et-f{background:var(--foodbg);color:var(--food)}
+.et-s{background:var(--spotbg);color:var(--spot)}
+.et-t{background:#F1F5F9;color:#334155}
+.et-sh{background:var(--goldbg);color:var(--gold)}
+.et-n{background:#1A1714;color:#FFD47A}
+.ev-title{font-size:15px;font-weight:700;line-height:1.25;margin-bottom:4px}
+.ev-desc{font-size:13px;color:#4A4540;line-height:1.6}
+.ev-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+.tag{font-size:10px;padding:2px 8px;border-radius:100px;font-weight:700}
+.th{background:#FEE2E2;color:#991B1B}
+.tw{background:var(--redbg);color:var(--red)}
+.tt{background:var(--d2bg);color:var(--d2)}
+.tg{background:var(--goldbg);color:var(--gold)}
+.tn{background:var(--d3bg);color:var(--d3)}
+.tok{background:#F3F4F6;color:#374151}
+
+.flight-banner{margin:10px 0;background:linear-gradient(135deg,#1A1714 0%,#1A2E50 100%);color:#fff;border-radius:var(--r);padding:12px 16px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px}
+.flight-banner::before{content:'✈';font-size:18px}
+
+.day-div{margin:18px 14px 0;display:flex;align-items:center;gap:10px}
+.ddl{flex:1;height:1px;background:var(--border)}
+.ddlabel{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--sub)}
+
+/* ══ FOOD CARDS ══ */
+.food-grid{display:grid;gap:10px;padding:12px 14px 0}
+.food-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden;border-top:3px solid var(--food)}
+.fc-in{padding:14px}
+.fc-meta{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.fc-head{flex:1}
+.fc-day{font-size:10px;font-weight:700;letter-spacing:.5px;margin-bottom:3px}
+.fcd1{color:var(--d1)}.fcd2{color:var(--d2)}.fcd3{color:var(--d3)}
+.fc-name{font-size:16px;font-weight:700;line-height:1.2}
+.fc-price{font-size:16px;font-weight:900;color:var(--food);flex-shrink:0;margin-left:10px;padding-top:14px;font-family:'DM Mono',monospace}
+.fc-cat{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--foodbg);color:var(--food);margin-bottom:6px}
+.fc-desc{font-size:13px;color:#4A4540;line-height:1.6}
+.fc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+
+/* ══ SPOT CARDS ══ */
+.spot-grid{display:grid;gap:10px;padding:12px 14px 0}
+.spot-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden;border-top:3px solid var(--spot)}
+.sc-in{padding:14px}
+.sc-meta{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.sc-head{flex:1}
+.sc-day{font-size:10px;font-weight:700;letter-spacing:.5px;margin-bottom:3px}
+.scd1{color:var(--d1)}.scd2{color:var(--d2)}.scd3{color:var(--d3)}
+.sc-name{font-size:16px;font-weight:700;line-height:1.2}
+.sc-dur{font-size:12px;font-weight:700;color:var(--sub);flex-shrink:0;margin-left:8px;padding-top:14px;font-family:'DM Mono',monospace}
+.sc-type{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--spotbg);color:var(--spot);margin-bottom:6px}
+.sc-desc{font-size:13px;color:#4A4540;line-height:1.6}
+.sc-items{margin-top:8px;padding:8px 10px;background:var(--bg);border-radius:var(--rs)}
+.sc-item{font-size:12px;color:#4A4540;padding:2px 0}
+.sc-item::before{content:'→ ';color:var(--spot);font-weight:700}
+.sc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+
+/* ══ TRANSPORT ══ */
+.tk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 14px 0}
+@media(max-width:380px){.tk-grid{grid-template-columns:1fr}}
+.tk{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:14px}
+.tk-day{font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--sub);margin-bottom:4px}
+.tk-name{font-size:14px;font-weight:700;line-height:1.3;margin-bottom:4px}
+.tk-price{font-size:18px;font-weight:900;color:#0369A1;margin-bottom:8px;font-family:'DM Mono',monospace}
+.tk-detail{font-size:12px;color:#4A4540;line-height:1.7}
+.tk-warn{margin-top:8px;padding:6px 9px;background:var(--redbg);border-radius:var(--rs);font-size:11px;color:var(--red);font-weight:700}
+
+.route-card{margin:10px 14px 0;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden}
+.route-head{padding:11px 14px;background:#F0F9FF;border-bottom:1px solid var(--border);font-size:13px;font-weight:700;color:#0369A1}
+.route-body{padding:8px 14px}
+.route-step{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px dashed var(--border)}
+.route-step:last-child{border-bottom:none}
+.rs-ic{font-size:15px;flex-shrink:0;margin-top:1px}
+.rs-info{flex:1}
+.rs-main{font-size:13px;font-weight:700}
+.rs-sub{font-size:11px;color:var(--sub)}
+.rs-cost{font-size:13px;font-weight:700;color:#0369A1;flex-shrink:0;font-family:'DM Mono',monospace}
+
+.tips-grid{display:grid;gap:10px;padding:12px 14px 0}
+.tip{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:14px 14px 14px 54px;position:relative;min-height:60px}
+.tip-icon{position:absolute;left:14px;top:14px;font-size:22px}
+.tip-title{font-size:14px;font-weight:700;margin-bottom:4px}
+.tip-body{font-size:13px;color:#4A4540;line-height:1.6}
+.tip.alert{border-left:3px solid var(--red)}
+
+/* ══ TOOLS PANEL (the new stuff) ══ */
+.tools-grid{display:grid;gap:12px;padding:12px 14px 0}
+
+/* -- Currency Converter -- */
+.tool-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.tool-head{padding:12px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.tool-icon{font-size:20px}
+.tool-title{font-size:15px;font-weight:700}
+.tool-badge{margin-left:auto;font-size:10px;padding:3px 9px;border-radius:100px;background:var(--d3bg);color:var(--d3);font-weight:700}
+.tool-body{padding:14px 16px}
+
+/* currency */
+.curr-input-row{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.curr-input{
+  flex:1;padding:10px 12px;border:1.5px solid var(--border);border-radius:var(--rs);
+  font-size:16px;font-weight:700;font-family:'DM Mono',monospace;
+  background:var(--bg);color:var(--ink);outline:none;
+  transition:border-color .15s;
 }
+.curr-input:focus{border-color:var(--d2)}
+.curr-select{
+  padding:10px 10px;border:1.5px solid var(--border);border-radius:var(--rs);
+  font-size:13px;font-weight:700;background:var(--bg);color:var(--ink);outline:none;
+}
+.curr-results{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cr-item{background:var(--bg);border-radius:var(--rs);padding:10px 12px;text-align:center}
+.cr-flag{font-size:18px;margin-bottom:3px}
+.cr-val{font-size:18px;font-weight:900;font-family:'DM Mono',monospace;color:var(--ink);line-height:1.2}
+.cr-label{font-size:10px;color:var(--sub);margin-top:2px}
+.cr-rate{font-size:10px;color:var(--sub);margin-top:12px;text-align:center;padding-top:10px;border-top:1px solid var(--border)}
+.curr-status{font-size:10px;color:var(--sub);text-align:right;margin-top:8px}
+.btn-swap{
+  padding:9px 12px;background:var(--d2bg);color:var(--d2);border:1.5px solid var(--d2);
+  border-radius:var(--rs);font-size:13px;font-weight:700;cursor:pointer;
+  transition:background .15s;font-family:'Noto Sans TC',sans-serif;
+  flex-shrink:0;
+}
+.btn-swap:active{background:var(--d2);color:#fff}
+
+/* budget tracker */
+.budget-table{width:100%;border-collapse:collapse}
+.budget-table th{font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--sub);padding:4px 8px 8px;text-align:left;border-bottom:2px solid var(--border)}
+.budget-table td{padding:8px;border-bottom:1px solid var(--border);vertical-align:middle;font-size:13px}
+.budget-table tr:last-child td{border-bottom:none}
+.bud-input{
+  width:100%;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;
+  font-size:13px;font-weight:700;font-family:'DM Mono',monospace;
+  background:var(--bg);color:var(--ink);outline:none;
+}
+.bud-input:focus{border-color:var(--d2)}
+.bud-est{font-size:12px;color:var(--sub);font-family:'DM Mono',monospace}
+.bud-bar-wrap{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-top:3px}
+.bud-bar{height:100%;border-radius:3px;transition:width .4s ease}
+.bud-bar.ok{background:var(--d3)}
+.bud-bar.warn{background:#F59E0B}
+.bud-bar.over{background:var(--red)}
+.bud-total-row{background:var(--bg)}
+.bud-total-row td{font-weight:700;font-size:14px;border-bottom:none}
+.bud-total-val{font-family:'DM Mono',monospace;font-size:15px;font-weight:900}
+.bud-summary{margin-top:12px;display:flex;gap:10px}
+.bud-sum-item{flex:1;text-align:center;padding:10px;background:var(--bg);border-radius:var(--rs)}
+.bud-sum-label{font-size:10px;color:var(--sub);margin-bottom:3px}
+.bud-sum-val{font-size:16px;font-weight:900;font-family:'DM Mono',monospace}
+.bud-sum-val.green{color:var(--d3)}.bud-sum-val.red{color:var(--red)}.bud-sum-val.yellow{color:#D97706}
+
+/* checklist */
+.cl-group{margin-bottom:14px}
+.cl-group-title{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--sub);margin-bottom:8px;padding:0 2px}
+.cl-items{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media(max-width:360px){.cl-items{grid-template-columns:1fr}}
+.cl-item{
+  display:flex;align-items:center;gap:8px;
+  background:var(--bg);border-radius:var(--rs);
+  padding:8px 10px;cursor:pointer;
+  border:1.5px solid transparent;
+  transition:all .15s;
+}
+.cl-item.checked{background:var(--d3bg);border-color:var(--d3)}
+.cl-item.checked .cl-text{text-decoration:line-through;color:var(--sub)}
+.cl-check{
+  width:18px;height:18px;border-radius:4px;
+  border:2px solid var(--border);background:var(--card);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:11px;transition:all .15s;
+}
+.cl-item.checked .cl-check{background:var(--d3);border-color:var(--d3);color:#fff}
+.cl-text{font-size:12px;font-weight:600}
+.cl-icon{font-size:14px;flex-shrink:0}
+.cl-progress-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:12px}
+.cl-progress-fill{height:100%;background:linear-gradient(90deg,var(--d3),var(--d2));border-radius:3px;transition:width .4s ease}
+.cl-progress-text{font-size:11px;color:var(--sub);margin-bottom:6px;display:flex;justify-content:space-between}
+.cl-reset{
+  width:100%;padding:9px;background:var(--bg);border:1.5px solid var(--border);
+  border-radius:var(--rs);font-size:12px;font-weight:700;color:var(--sub);
+  cursor:pointer;transition:all .15s;font-family:'Noto Sans TC',sans-serif;margin-top:10px;
+}
+.cl-reset:active{background:var(--border)}
+
+/* temperature chart card */
+.temp-chart-wrap{padding:0}
+canvas.temp-canvas{display:block;width:100%;height:120px}
+
+/* budget donut */
+canvas.donut-canvas{display:block}
+
+/* ══ BUDGET PANEL ══ */
+.budget-wrap{padding:12px 14px 0}
+.budget{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden}
+.bud-header{background:var(--ink);color:#fff;padding:13px 16px}
+.bud-header-title{font-size:15px;font-weight:700}
+.bud-header-note{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+.bud-grid{display:grid;grid-template-columns:1fr 1fr}
+.bi{padding:11px 14px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.bi:nth-child(2n){border-right:none}
+.bi-label{font-size:11px;color:var(--sub);margin-bottom:2px}
+.bi-val{font-size:13px;font-weight:700;font-family:'DM Mono',monospace}
+.bi-total{grid-column:1/-1;border-right:none;background:var(--d1bg)}
+.bi-total .bi-label{color:var(--d1);font-weight:700}
+.bi-total .bi-val{font-size:16px;color:var(--d1)}
+
+/* ══ REVEAL ══ */
+.rev{opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s}
+.rev.vis{opacity:1;transform:none}
+
+/* ══ STAGGER ══ */
+.rev:nth-child(1){transition-delay:.02s}
+.rev:nth-child(2){transition-delay:.05s}
+.rev:nth-child(3){transition-delay:.08s}
+.rev:nth-child(4){transition-delay:.11s}
+.rev:nth-child(5){transition-delay:.14s}
+
+/* ══ FOOTER ══ */
+footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);line-height:2}
 </style>
 </head>
 <body>
-
 <div id="prog"></div>
 
 <!-- ═══ HERO ═══ -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-tag">✦ 資深導遊精心規劃</div>
+    <div class="hero-tag">✦ 2025 · 私房三天兩夜</div>
     <h1><span class="kr">大邱</span> × <span class="jp">福岡</span></h1>
-    <div class="hero-date">2025 年 5月16日（六）—— 5月18日（一）· 三天兩夜</div>
-    <div class="hero-pills">
-      <div class="pill">✈ TAE 18:25 → FUK 19:25</div>
-      <div class="pill">✈ FUK 16:20 → TPE 17:50</div>
-      <div class="pill">🌡 <b>22–27°C</b> 短袖+薄外套</div>
-      <div class="pill">2 人同行</div>
+    <div class="hero-sub">5月16日（六）— 5月18日（一）· 2人同行</div>
+    <div class="hero-chips">
+      <div class="chip">✈ TAE 18:25 → FUK 19:25</div>
+      <div class="chip">✈ FUK 16:20 → TPE 17:50</div>
+      <div class="chip">🌡 <b>22–27°C</b></div>
+    </div>
+    <!-- LIVE COUNTDOWN -->
+    <div class="countdown">
+      <div>
+        <div class="cd-label">距離出發</div>
+        <div class="cd-title" id="cd-title">計算中...</div>
+      </div>
+      <div class="cd-nums" id="cd-nums">
+        <div class="cd-unit"><div class="cd-n d" id="cd-d">--</div><div class="cd-u">天</div></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><div class="cd-n h" id="cd-h">--</div><div class="cd-u">時</div></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><div class="cd-n m" id="cd-m">--</div><div class="cd-u">分</div></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><div class="cd-n s" id="cd-s">--</div><div class="cd-u">秒</div></div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ═══ 快速跳轉 ═══ -->
-<div class="day-tabs">
-  <a class="day-tab d1" href="#day1">🇰🇷 Day 1 大邱</a>
-  <a class="day-tab d2" href="#day2">⚓ Day 2 門司港</a>
-  <a class="day-tab d3" href="#day3">⛩ Day 3 太宰府</a>
-  <a class="day-tab info" href="#tickets">🎫 票券</a>
-  <a class="day-tab info" href="#tips">📋 注意</a>
-</div>
-
-<!-- ═══ 天氣 ═══ -->
-<div class="weather-strip">
-  <div class="wc">
-    <div class="wc-head">
-      <div class="wc-city">🇰🇷 大邱</div>
-      <div class="wc-badge loading" id="wc-daegu-badge">載入中</div>
-    </div>
-    <div class="wc-days" id="wc-daegu-days"><div class="wc-skel"></div></div>
-    <div class="wc-updated" id="wc-daegu-updated"></div>
+<!-- ═══ WEATHER ═══ -->
+<div class="wx-bar">
+  <div class="wx-card">
+    <div class="wx-head"><div class="wx-city">🇰🇷 大邱</div><div class="wx-badge loading" id="wx-dg-b">載入中</div></div>
+    <div id="wx-dg-d"><div class="wx-skel"></div></div>
+    <canvas class="wx-chart" id="wx-dg-chart" height="32"></canvas>
+    <div class="wx-foot" id="wx-dg-f"></div>
   </div>
-  <div class="wc">
-    <div class="wc-head">
-      <div class="wc-city">🇯🇵 福岡</div>
-      <div class="wc-badge loading" id="wc-fukuoka-badge">載入中</div>
-    </div>
-    <div class="wc-days" id="wc-fukuoka-days"><div class="wc-skel"></div></div>
-    <div class="wc-updated" id="wc-fukuoka-updated"></div>
+  <div class="wx-card">
+    <div class="wx-head"><div class="wx-city">🇯🇵 福岡</div><div class="wx-badge loading" id="wx-fk-b">載入中</div></div>
+    <div id="wx-fk-d"><div class="wx-skel"></div></div>
+    <canvas class="wx-chart" id="wx-fk-chart" height="32"></canvas>
+    <div class="wx-foot" id="wx-fk-f"></div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     DAY 1
-══════════════════════════════════════ -->
-<section id="day1">
-  <div class="sec-wrap">
-    <div class="sec-label">
-      <div class="sec-num num-d1">01</div>
-      <div class="sec-info">
-        <div class="sec-day">Day 1 · 5月16日（六）</div>
-        <div class="sec-title">大邱 → 福岡</div>
-        <div class="sec-sub">近代胡同散步・排骨午餐・夜宿博多</div>
-      </div>
-    </div>
+<!-- ═══ TAB BAR ═══ -->
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" data-tab="itinerary">📅 行程</button>
+  <button class="tab-btn" data-tab="food">🍜 美食</button>
+  <button class="tab-btn" data-tab="spots">🗺 景點</button>
+  <button class="tab-btn" data-tab="transport">🚃 交通</button>
+  <button class="tab-btn" data-tab="tools">🛠 工具</button>
+</div>
+
+<!-- ═══════════════ PANEL: 行程 ═══════════════ -->
+<div class="panel active" id="panel-itinerary">
+
+  <div class="day-hd d1 rev">
+    <div class="day-num dn1">01</div>
+    <div><div class="day-label">DAY 1 · 5月16日（六）</div><div class="day-title">大邱舊城散步 → 飛往博多</div></div>
+  </div>
+  <div class="meal-bar rev">
+    <div class="mc"><div class="mc-type">早餐</div><div class="mc-name">韓牛骨湯飯</div><div class="mc-note">清晨即開</div></div>
+    <div class="mc"><div class="mc-type">午餐</div><div class="mc-name">巨松燉排骨</div><div class="mc-note">₩26,000/2人</div></div>
+    <div class="mc"><div class="mc-type">宵夜</div><div class="mc-name">一蘭拉麵</div><div class="mc-note">博多・24H</div></div>
+  </div>
+  <div class="tl">
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">05:25</div><div class="ev-body"><div class="ev-type et-t">✈ 抵達</div><div class="ev-title">降落大邱國際機場</div><div class="ev-desc">計程車至市區寄行李，<b>₩8,000–9,000 · 10分</b></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚕 計程車 ₩8,000 · 10分</div><div class="t-line"></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">06:30</div><div class="ev-body"><div class="ev-type et-f">🥣 早餐</div><div class="ev-title">국일따로국밥（韓牛骨湯飯）</div><div class="ev-desc">清晨 5:30 開門，清澈牛骨湯底，<b>₩10,000/人</b></div><div class="ev-tags"><span class="tag tok">清晨即開</span><span class="tag tt">大邱老店</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分</div><div class="t-line"></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">08:00</div><div class="ev-body"><div class="ev-type et-s">🏛 景點</div><div class="ev-title">近代文化胡同（3小時）</div><div class="ev-desc">2號路線 1.64km：藥令市博物館・長骨目巷・桂山天主教堂・青羅之丘</div><div class="ev-tags"><span class="tag th">免費韓服體驗</span><span class="tag tt">步行 1.64km</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 10分</div><div class="t-line"></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">12:00</div><div class="ev-body"><div class="ev-type et-f">🍖 午餐</div><div class="ev-title">巨松燉排骨（거송갈비찜）</div><div class="ev-desc">甜辣醬汁燉到骨肉分離，<b>₩26,000/2人份</b></div><div class="ev-tags"><span class="tag th">🔥 大邱必吃 No.1</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分</div><div class="t-line"></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">14:00</div><div class="ev-body"><div class="ev-type et-sh">🛍 購物</div><div class="ev-title">東城路 + 美成堂扁餃子</div><div class="ev-desc">韓系服飾美妝，扁煎餃 <b>₩4,000–6,000</b></div><div class="ev-tags"><span class="tag th">大邱唯一限定</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚕 計程車 ₩8,000 · 15分</div><div class="t-line"></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">16:00</div><div class="ev-body"><div class="ev-type et-t">🛫 出境</div><div class="ev-title">前往大邱機場 · 辦理登機</div><div class="ev-desc">預留 2 小時辦 check-in + 出境</div><div class="ev-tags"><span class="tag tw">⚠️ 最晚 16:00 離開市區</span></div></div></div></div></div>
+    <div class="flight-banner">大邱 TAE 18:25 起飛 → 福岡 FUK 19:25 抵達（約 1 小時）</div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">19:25</div><div class="ev-body"><div class="ev-type et-t">🚇 入境</div><div class="ev-title">福岡機場 → 博多站</div><div class="ev-desc">地鐵直達，<b>¥260 · 5分鐘</b></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 博多站步行 5分</div><div class="t-line"></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">21:30</div><div class="ev-body"><div class="ev-type et-n">🍜 宵夜</div><div class="ev-title">一蘭拉麵（24小時）</div><div class="ev-desc">個人包廂博多豚骨，<b>¥980 起/碗</b></div><div class="ev-tags"><span class="tag tok">24H 不打烊</span></div></div></div></div></div>
   </div>
 
-  <div class="meal-bar reveal">
-    <div class="meal-cell"><div class="meal-type">早餐</div><div class="meal-name">국일따로국밥</div><div class="meal-note">韓牛骨湯飯</div></div>
-    <div class="meal-cell"><div class="meal-type">午餐</div><div class="meal-name">巨松燉排骨</div><div class="meal-note">₩26,000/2人</div></div>
-    <div class="meal-cell"><div class="meal-type">宵夜</div><div class="meal-name">一蘭拉麵</div><div class="meal-note">24H · 博多初體驗</div></div>
+  <div class="day-div"><div class="ddl"></div><div class="ddlabel">DAY 2</div><div class="ddl"></div></div>
+
+  <div class="day-hd d2 rev">
+    <div class="day-num dn2">02</div>
+    <div><div class="day-label">DAY 2 · 5月17日（日）</div><div class="day-title">門司港懷舊散步・牛腸鍋之夜</div></div>
+  </div>
+  <div class="meal-bar rev">
+    <div class="mc"><div class="mc-type">早餐</div><div class="mc-name">KITTE 輕食</div><div class="mc-note">快速出門</div></div>
+    <div class="mc"><div class="mc-type">午餐</div><div class="mc-name">門司港燒咖哩</div><div class="mc-note">¥1,200–1,500</div></div>
+    <div class="mc"><div class="mc-type">晚餐</div><div class="mc-name">牛腸鍋＋雞皮串</div><div class="mc-note">兩攤</div></div>
+  </div>
+  <div class="tl">
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">08:00</div><div class="ev-body"><div class="ev-type et-f">☕ 早餐</div><div class="ev-title">KITTE B1F / 博多一番街</div><div class="ev-desc">快速解決，<b>08:30 前出發</b>才能玩得充裕</div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚂 JR 博多→門司港 ¥1,320 · 1h20min</div><div class="t-line"></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">10:00</div><div class="ev-body"><div class="ev-type et-s">⚓ 景點</div><div class="ev-title">門司港懷舊地區（3小時）</div><div class="ev-desc">駅紅磚・舊大阪商船・關門海峽步行隧道（免費）・九州鐵道紀念館 ¥300</div><div class="ev-tags"><span class="tag th">海底隧道穿越</span><span class="tag tok">多為免費</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分</div><div class="t-line"></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">13:00</div><div class="ev-body"><div class="ev-type et-f">🍛 午餐</div><div class="ev-title">門司港燒咖哩（焼きカレー）</div><div class="ev-desc">咖哩加起司烤至焦香，<b>門司港限定</b>，¥1,200–1,500</div><div class="ev-tags"><span class="tag th">🔥 門司港限定，必吃</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚂 JR 門司港→博多 ¥1,320 · 1h20min</div><div class="t-line"></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">16:00</div><div class="ev-body"><div class="ev-type et-sh">🎮 娛樂</div><div class="ev-title">Canal City 博多</div><div class="ev-desc">扭蛋百貨・Gundam Base・<b>20:00 免費 3D 光雕秀</b></div><div class="ev-tags"><span class="tag tn">20:00 光雕秀</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 10分</div><div class="t-line"></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">19:00</div><div class="ev-body"><div class="ev-type et-f">🫕 晚餐 ⭐</div><div class="ev-title">もつ鍋一藤（牛腸鍋）</div><div class="ev-desc">Tabelog 4.4，味噌湯底・大量韭菜，最後加麵，<b>¥3,000–4,000/人</b></div><div class="ev-tags"><span class="tag tw">⚠️ 出發前 1 週訂位</span><span class="tag th">Tabelog 4.4</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分 → KITTE B1F</div><div class="t-line"></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">21:30</div><div class="ev-body"><div class="ev-type et-n">🍗 宵夜</div><div class="ev-title">とり皮大臣 KITTE B1F（雞皮串）</div><div class="ev-desc">一串 <b>¥150–200</b>，配冰啤酒</div><div class="ev-tags"><span class="tag tw">⚠️ ShinShin 週日公休，改此店</span></div></div></div></div></div>
   </div>
 
-  <div class="timeline">
+  <div class="day-div"><div class="ddl"></div><div class="ddlabel">DAY 3</div><div class="ddl"></div></div>
 
-    <div class="ev d1 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">05:25</div>
-        <div class="ev-body">
-          <div class="ev-type type-transport">✈ 抵達</div>
-          <div class="ev-title">降落大邱國際機場</div>
-          <div class="ev-desc">門口計程車至市區寄行李，<b>₩8,000–9,000 · 10分</b></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚕 計程車 ₩8,000 · 10分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d1 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">06:30</div>
-        <div class="ev-body">
-          <div class="ev-type type-food">🥣 早餐</div>
-          <div class="ev-title">국일따로국밥（國一牛骨湯飯）</div>
-          <div class="ev-desc">清晨 5:30 開門，清澈牛骨湯底，<b>₩10,000/人</b>，剛下飛機的最佳暖胃選擇</div>
-          <div class="ev-tags"><span class="tag tag-ok">清晨即開</span><span class="tag tag-tip">大邱在地老店</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚶 步行 5分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d1 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">08:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-sight">🏛 景點</div>
-          <div class="ev-title">近代文化胡同（約 3 小時）</div>
-          <div class="ev-desc">官方 2 號路線，全長 1.64km：<br>
-            <b>① 藥令市博物館</b> — 免費穿韓服・草藥足浴<br>
-            <b>② 長骨目巷</b> — 韓屋星巴克打卡<br>
-            <b>③ 桂山天主教堂</b> — 1902 年哥德式建築<br>
-            <b>④ 青羅之丘</b> — 大邱第一教會・李相和故居
-          </div>
-          <div class="ev-tags"><span class="tag tag-tip">步行 1.64km</span><span class="tag tag-hot">免費韓服體驗</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚶 步行 10分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d1 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">12:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-food">🍖 午餐</div>
-          <div class="ev-title">巨松燉排骨（거송갈비찜）</div>
-          <div class="ev-desc">甜辣醬汁燉到骨肉分離，<b>₩26,000/2人份</b>，建議早到排隊</div>
-          <div class="ev-tags"><span class="tag tag-hot">🔥 大邱必吃 No.1</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚶 步行 5分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d1 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">14:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-shop">🛍 購物</div>
-          <div class="ev-title">東城路 + 美成堂扁餃子</div>
-          <div class="ev-desc">韓系服飾、美妝逛逛，順手買大邱限定扁煎餃 <b>₩4,000–6,000</b> 當點心</div>
-          <div class="ev-tags"><span class="tag tag-hot">大邱唯一限定小吃</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚕 計程車 ₩8,000 · 10–15分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d1 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">16:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-transport">✈ 出發</div>
-          <div class="ev-title">前往機場 · 辦理登機</div>
-          <div class="ev-desc">預留 2 小時辦 check-in + 出境</div>
-          <div class="ev-tags"><span class="tag tag-warn">⚠️ 最晚 16:00 離開市區</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="flight-div">大邱 TAE 18:25 起飛 → 福岡 FUK 19:25 抵達（約 1 小時）</div>
-
-    <div class="ev d1 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">19:25</div>
-        <div class="ev-body">
-          <div class="ev-type type-transport">🚇 入境</div>
-          <div class="ev-title">福岡機場 → 博多站</div>
-          <div class="ev-desc">地鐵直達，<b>¥260 · 5分鐘</b>，全日本市中心最近機場</div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚶 博多站步行 5分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d1 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">21:30</div>
-        <div class="ev-body">
-          <div class="ev-type type-night">🍜 宵夜</div>
-          <div class="ev-title">一蘭拉麵 — 24 小時</div>
-          <div class="ev-desc">個人包廂、自選湯頭濃淡，<b>¥980 起/碗</b>。博多豚骨入門款，別吃太飽</div>
-          <div class="ev-tags"><span class="tag tag-ok">24H 不打烊</span></div>
-        </div>
-      </div></div>
-    </div>
-
+  <div class="day-hd d3 rev">
+    <div class="day-num dn3">03</div>
+    <div><div class="day-label">DAY 3 · 5月18日（一）</div><div class="day-title">太宰府天滿宮 · 回台灣</div></div>
   </div>
-</section>
+  <div class="meal-bar rev">
+    <div class="mc"><div class="mc-type">早餐</div><div class="mc-name">博多一番街</div><div class="mc-note">快速出門</div></div>
+    <div class="mc"><div class="mc-type">午餐</div><div class="mc-name">博多華味鳥</div><div class="mc-note">水炊鍋 ¥1,780</div></div>
+    <div class="mc"><div class="mc-type">16:20</div><div class="mc-name">✈ FUK→TPE</div><div class="mc-note">17:50 落地</div></div>
+  </div>
+  <div class="tl">
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">09:30</div><div class="ev-body"><div class="ev-type et-t">🚃 出發</div><div class="ev-title">博多 → 太宰府（西鐵）</div><div class="ev-desc">天神站出發，二日市轉乘，約 <b>40 分鐘</b></div><div class="ev-tags"><span class="tag tg">Tourist Pass 太宰府版</span></div></div></div></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">10:30</div><div class="ev-body"><div class="ev-type et-s">⛩ 景點</div><div class="ev-title">太宰府天滿宮 + 參道</div><div class="ev-desc">梅ヶ枝餅 ¥150・竹製星巴克（隈研吾設計）・楊子江肉包</div><div class="ev-tags"><span class="tag th">竹製星巴克必拍</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分（天滿宮後方）</div><div class="t-line"></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">11:30</div><div class="ev-body"><div class="ev-type et-s">♨️ 新景點</div><div class="ev-title">足湯咖啡廳</div><div class="ev-desc">泡腳喝咖啡看山林，近期才被發現，11:30 前人少</div><div class="ev-tags"><span class="tag tn">🆕 近期新發現</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚃 西鐵太宰府→博多 約40分</div><div class="t-line"></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">13:10</div><div class="ev-body"><div class="ev-type et-f">🍲 午餐 ⭐</div><div class="ev-title">博多華味鳥 KITTE 9F（水炊鍋）</div><div class="ev-desc">熬製 6 小時乳白雞湯，套餐含鍋・飯・小菜・甜點，<b>¥1,780–2,480</b></div><div class="ev-tags"><span class="tag th">水炊鍋代表店</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚇 地鐵 博多→天神 2分</div><div class="t-line"></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">14:00</div><div class="ev-body"><div class="ev-type et-sh">🛍 最終掃貨</div><div class="ev-title">天神地下街（限時 1 小時）</div><div class="ev-desc">大丸退稅 25%・岩田屋獺祭・press butter sand・BAKE Cheese Tart</div><div class="ev-tags"><span class="tag tg">💴 大丸 25% 退稅</span><span class="tag tw">⚠️ 15:00 前離開</span></div></div></div></div></div>
+    <div class="transit"><div class="t-line"></div><div class="t-pill">🚇 地鐵 天神→機場 ¥260 · 11分</div><div class="t-line"></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">15:00</div><div class="ev-body"><div class="ev-type et-t">✈ 出境</div><div class="ev-title">前往福岡機場</div><div class="ev-desc">地鐵 <b>¥260 · 11 分</b>，到國內線再接駁 5 分至國際線</div><div class="ev-tags"><span class="tag tw">⚠️ 最晚 15:00 離開天神</span></div></div></div></div></div>
+    <div class="flight-banner">福岡 FUK 16:20 起飛 → 台北 TPE 17:50 抵達（約 1.5 小時）</div>
+  </div>
+</div><!-- /itinerary -->
 
-<!-- ── DAY DIVIDER ── -->
-<div class="day-div"><div class="day-div-line"></div><div class="day-div-label">Day 2</div><div class="day-div-line"></div></div>
+<!-- ═══════════════ PANEL: 美食 ═══════════════ -->
+<div class="panel" id="panel-food">
+  <div class="sec-head"><div class="sec-h2">🍜 美食地圖</div><div class="sec-hint">9 個精選餐廳 · 按 Day 排序</div></div>
+  <div class="food-grid">
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 早餐 · 大邱</div><div class="fc-name">국일따로국밥（韓牛骨湯飯）</div></div><div class="fc-price">₩10,000/人</div></div><div class="fc-cat">🥣 早餐</div><div class="fc-desc">清澈牛骨湯底，清晨 5:30 開門，剛下飛機最佳暖胃選擇。</div><div class="fc-tags"><span class="tag tok">清晨即開</span><span class="tag tt">在地老店</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 午餐 · 大邱</div><div class="fc-name">巨松燉排骨（거송갈비찜）</div></div><div class="fc-price">₩26,000/2人</div></div><div class="fc-cat">🍖 韓式燉肉</div><div class="fc-desc">甜辣醬汁燉到骨肉分離，大邱必吃 No.1，建議早到排隊。</div><div class="fc-tags"><span class="tag th">🔥 大邱必吃 No.1</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 點心 · 大邱</div><div class="fc-name">美成堂扁餃子</div></div><div class="fc-price">₩4,000–6,000</div></div><div class="fc-cat">🥟 大邱限定</div><div class="fc-desc">東城路逛街時順手買，大邱唯一限定小吃，薄皮煎餃邊走邊吃。</div><div class="fc-tags"><span class="tag th">大邱唯一限定</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 宵夜 · 博多</div><div class="fc-name">一蘭拉麵</div></div><div class="fc-price">¥980 起/碗</div></div><div class="fc-cat">🍜 豚骨拉麵</div><div class="fc-desc">個人包廂、自選湯頭濃淡，24 小時不打烊，抵達當晚宵夜首選。</div><div class="fc-tags"><span class="tag tok">24H</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd2">Day 2 午餐 · 門司港</div><div class="fc-name">門司港燒咖哩</div></div><div class="fc-price">¥1,200–1,500</div></div><div class="fc-cat">🍛 門司港名物</div><div class="fc-desc">咖哩加起司烤至焦香，離開門司港後就吃不到了，限定名物必吃。</div><div class="fc-tags"><span class="tag th">🔥 門司港限定，必吃</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd2">Day 2 晚餐 · 博多 ⭐</div><div class="fc-name">もつ鍋一藤（牛腸鍋）</div></div><div class="fc-price">¥3,000–4,000/人</div></div><div class="fc-cat">🫕 博多鄉土料理</div><div class="fc-desc">Tabelog 4.4 高分名店，味噌湯底・大量韭菜，最後加麵收尾。</div><div class="fc-tags"><span class="tag th">Tabelog 4.4</span><span class="tag tw">⚠️ 出發前 1 週訂位</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd2">Day 2 宵夜 · 博多</div><div class="fc-name">とり皮大臣 KITTE B1F</div></div><div class="fc-price">¥150–200/串</div></div><div class="fc-cat">🍗 雞皮串燒</div><div class="fc-desc">博多道地宵夜，搭配冰啤酒。ShinShin 週日公休，改來這裡。</div><div class="fc-tags"><span class="tag tw">⚠️ ShinShin 週日公休</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd3">Day 3 午餐 · 博多 ⭐</div><div class="fc-name">博多華味鳥水炊鍋</div></div><div class="fc-price">¥1,780–2,480</div></div><div class="fc-cat">🍲 水炊鍋</div><div class="fc-desc">熬製 6 小時乳白雞湯，午餐套餐含鍋・飯・小菜・甜點，KITTE 9F。</div><div class="fc-tags"><span class="tag th">水炊鍋代表店</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd3">Day 3 伴手 · 天神</div><div class="fc-name">press butter sand + BAKE Tart</div></div><div class="fc-price">¥200–400</div></div><div class="fc-cat">🧁 甜點伴手禮</div><div class="fc-desc">博多限定草莓口味、現烤 Cheese Tart，天神地下街各有分店。</div><div class="fc-tags"><span class="tag th">博多限定口味</span></div></div></div>
+  </div>
+</div>
 
-<!-- ══════════════════════════════════════
-     DAY 2
-══════════════════════════════════════ -->
-<section id="day2">
-  <div class="sec-wrap">
-    <div class="sec-label">
-      <div class="sec-num num-d2">02</div>
-      <div class="sec-info">
-        <div class="sec-day">Day 2 · 5月17日（日）</div>
-        <div class="sec-title">門司港懷舊散步</div>
-        <div class="sec-sub">紅磚倉庫・海底隧道・牛腸鍋之夜</div>
-      </div>
+<!-- ═══════════════ PANEL: 景點 ═══════════════ -->
+<div class="panel" id="panel-spots">
+  <div class="sec-head"><div class="sec-h2">🗺 景點 &amp; 購物</div><div class="sec-hint">7 個精選景點</div></div>
+  <div class="spot-grid">
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd1">Day 1 · 大邱 08:00–11:00</div><div class="sc-name">近代文化胡同</div></div><div class="sc-dur">3hr</div></div><div class="sc-type">🏛 歷史街區</div><div class="sc-desc">步行 1.64km，融合日式・韓式・西式建築，全程免費。</div><div class="sc-items"><div class="sc-item">藥令市博物館 — 免費韓服・草藥足浴</div><div class="sc-item">長骨目巷 — 韓屋星巴克</div><div class="sc-item">桂山天主教堂 — 1902 年哥德式</div><div class="sc-item">青羅之丘 — 李相和故居</div></div><div class="sc-tags"><span class="tag th">免費韓服</span><span class="tag tok">全程免費</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd1">Day 1 · 大邱 14:00</div><div class="sc-name">東城路商圈</div></div><div class="sc-dur">購物</div></div><div class="sc-type">🛍 購物</div><div class="sc-desc">韓系服飾、美妝平價，美成堂扁煎餃別忘了買。</div><div class="sc-tags"><span class="tag th">大邱限定扁煎餃</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd2">Day 2 · 門司港 10:00–13:00</div><div class="sc-name">門司港懷舊地區</div></div><div class="sc-dur">3hr</div></div><div class="sc-type">⚓ 懷舊港口</div><div class="sc-desc">1914 年的歐式紅磚車站，可徒步走進海底隧道到山口縣。</div><div class="sc-items"><div class="sc-item">門司港駅 — 歐式紅磚（免費）</div><div class="sc-item">關門海峽海底隧道 — 780m 走入山口縣（免費）</div><div class="sc-item">九州鐵道紀念館 — ¥300</div></div><div class="sc-tags"><span class="tag th">海底隧道穿越</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd2">Day 2 · 博多 16:00–20:30</div><div class="sc-name">Canal City 博多</div></div><div class="sc-dur">購物</div></div><div class="sc-type">🎮 購物中心</div><div class="sc-desc">扭蛋 2,000+ 台，Gundam Base 有福岡限定款，20:00 光雕秀免費。</div><div class="sc-tags"><span class="tag tn">20:00 光雕秀免費</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd3">Day 3 · 太宰府 10:30–12:30</div><div class="sc-name">太宰府天滿宮</div></div><div class="sc-dur">2hr</div></div><div class="sc-type">⛩ 神社</div><div class="sc-desc">年 900 萬人參拜，竹製星巴克由隈研吾設計，必拍打卡點。</div><div class="sc-items"><div class="sc-item">竹製星巴克（隈研吾設計）</div><div class="sc-item">梅ヶ枝餅 ¥150 現烤紅豆麻糬</div></div><div class="sc-tags"><span class="tag th">竹製星巴克</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd3">Day 3 · 太宰府 11:30</div><div class="sc-name">足湯咖啡廳</div></div><div class="sc-dur">🆕</div></div><div class="sc-type">♨️ 溫泉</div><div class="sc-desc">天滿宮後方隱密景點，泡著溫泉腳喝咖啡，11:30 前人很少。</div><div class="sc-tags"><span class="tag tn">🆕 尚未觀光化</span></div></div></div>
+    <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd3">Day 3 · 天神 14:00–15:00</div><div class="sc-name">天神地下街（最終掃貨）</div></div><div class="sc-dur">1hr</div></div><div class="sc-type">🛍 購物</div><div class="sc-desc">大丸護照退稅超划算，岩田屋有全日本限定獺祭。提前列清單效率最高。</div><div class="sc-items"><div class="sc-item">大丸 — 出示護照退稅 25%</div><div class="sc-item">岩田屋 B2F — 獺祭全日本 2 家限定</div><div class="sc-item">press butter sand 博多限定口味</div></div><div class="sc-tags"><span class="tag tg">💴 大丸 25% 退稅</span><span class="tag tw">⚠️ 15:00 前離開</span></div></div></div>
+  </div>
+</div>
+
+<!-- ═══════════════ PANEL: 交通 ═══════════════ -->
+<div class="panel" id="panel-transport">
+  <div class="sec-head"><div class="sec-h2">🚃 交通票券</div><div class="sec-hint">到當地再買，避免行程異動</div></div>
+  <div class="tk-grid">
+    <div class="tk rev"><div class="tk-day">大邱 · Day 1</div><div class="tk-name">計程車 + T-money</div><div class="tk-price">₩8,000–9,000</div><div class="tk-detail">機場↔市區各一趟<br>T-money 機場 7-11 ₩4,000</div></div>
+    <div class="tk rev"><div class="tk-day">Day 2 · 最重要</div><div class="tk-name">JR 博多↔門司港</div><div class="tk-price">¥1,320×2</div><div class="tk-detail">博多站 JR 窗口購買<br>直達 1 小時 20 分</div><div class="tk-warn">⚠️ City Pass 不含 JR！</div></div>
+    <div class="tk rev"><div class="tk-day">Day 1–3 福岡市內</div><div class="tk-name">Tourist City Pass</div><div class="tk-price">¥1,500</div><div class="tk-detail">含地鐵全線 + 西鐵巴士<br>機場地鐵站購買</div></div>
+    <div class="tk rev"><div class="tk-day">Day 3 · 推薦</div><div class="tk-name">Pass 太宰府版</div><div class="tk-price">¥1,820</div><div class="tk-detail">含西鐵天神↔太宰府<br>西鐵天神站購買</div></div>
+    <div class="tk rev"><div class="tk-day">機場接駁</div><div class="tk-name">福岡機場 ↔ 博多</div><div class="tk-price">¥260/次</div><div class="tk-detail">入境 5 分 · 出境 11 分<br>Suica 刷最方便</div></div>
+    <div class="tk rev"><div class="tk-day">選擇性</div><div class="tk-name">Suica / ICOCA</div><div class="tk-price">¥1,000 起</div><div class="tk-detail">地鐵・JR・便利商店<br>iPhone 可線上開通</div></div>
+  </div>
+  <div class="route-card rev">
+    <div class="route-head">🗺 主要路線一覽</div>
+    <div class="route-body">
+      <div class="route-step"><div class="rs-ic">✈</div><div class="rs-info"><div class="rs-main">大邱機場 → 市區</div><div class="rs-sub">計程車 · 10 分</div></div><div class="rs-cost">₩8,000</div></div>
+      <div class="route-step"><div class="rs-ic">✈</div><div class="rs-info"><div class="rs-main">福岡機場 → 博多</div><div class="rs-sub">地鐵 · 5 分</div></div><div class="rs-cost">¥260</div></div>
+      <div class="route-step"><div class="rs-ic">🚂</div><div class="rs-info"><div class="rs-main">博多 → 門司港</div><div class="rs-sub">JR · 1 小時 20 分</div></div><div class="rs-cost">¥1,320</div></div>
+      <div class="route-step"><div class="rs-ic">🚃</div><div class="rs-info"><div class="rs-main">天神 → 太宰府</div><div class="rs-sub">西鐵・轉乘 · 40 分</div></div><div class="rs-cost">Pass含</div></div>
+      <div class="route-step"><div class="rs-ic">🚇</div><div class="rs-info"><div class="rs-main">天神 → 福岡機場</div><div class="rs-sub">地鐵 · 11 分</div></div><div class="rs-cost">¥260</div></div>
     </div>
   </div>
-
-  <div class="meal-bar reveal">
-    <div class="meal-cell"><div class="meal-type">早餐</div><div class="meal-name">KITTE 一番街</div><div class="meal-note">快速輕食出門</div></div>
-    <div class="meal-cell"><div class="meal-type">午餐</div><div class="meal-name">門司港燒咖哩</div><div class="meal-note">¥1,200–1,500</div></div>
-    <div class="meal-cell"><div class="meal-type">晚餐+宵夜</div><div class="meal-name">牛腸鍋＋雞皮串</div><div class="meal-note">兩攤連發</div></div>
+  <div class="sec-head" style="margin-top:18px"><div class="sec-h2">📋 注意事項</div></div>
+  <div class="tips-grid">
+    <div class="tip alert rev"><div class="tip-icon">🚨</div><div class="tip-title">もつ鍋一藤 必訂位</div><div class="tip-body">出發前<b>至少 1 週</b>在 Tabelog 或官網線上訂位</div></div>
+    <div class="tip alert rev"><div class="tip-icon">🚨</div><div class="tip-title">ShinShin 天神本店週日公休</div><div class="tip-body">5/17 週日不開！宵夜改去 KITTE B1F とり皮大臣</div></div>
+    <div class="tip alert rev"><div class="tip-icon">⏰</div><div class="tip-title">Day 3 時間緊</div><div class="tip-body">FUK 16:20 起飛，<b>最晚 15:00 離開天神</b></div></div>
+    <div class="tip rev"><div class="tip-icon">🚂</div><div class="tip-title">JR 門司港票務</div><div class="tip-body">City Pass 不含 JR，博多站窗口一次買好往返 ¥1,320×2</div></div>
+    <div class="tip rev"><div class="tip-icon">📱</div><div class="tip-title">必備 App</div><div class="tip-body"><b>Google Maps</b>（離線）・<b>Tabelog</b>（訂位）・<b>NaviTime</b>（電車）</div></div>
   </div>
+</div>
 
-  <div class="timeline">
+<!-- ═══════════════ PANEL: 工具 ═══════════════ -->
+<div class="panel" id="panel-tools">
+  <div class="sec-head"><div class="sec-h2">🛠 旅行工具</div><div class="sec-hint">匯率換算・預算追蹤・打包清單</div></div>
+  <div class="tools-grid">
 
-    <div class="ev d2 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">08:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-food">☕ 早餐</div>
-          <div class="ev-title">KITTE B1F / 博多一番街</div>
-          <div class="ev-desc">快速解決，<b>08:30 前出發</b>才能在門司港玩得充裕</div>
+    <!-- ── 匯率換算器 ── -->
+    <div class="tool-card rev">
+      <div class="tool-head">
+        <div class="tool-icon">💱</div>
+        <div class="tool-title">即時匯率換算</div>
+        <div class="tool-badge" id="fx-badge">載入中</div>
+      </div>
+      <div class="tool-body">
+        <div class="curr-input-row">
+          <select class="curr-select" id="fx-from">
+            <option value="TWD">🇹🇼 TWD</option>
+            <option value="KRW">🇰🇷 KRW</option>
+            <option value="JPY">🇯🇵 JPY</option>
+            <option value="USD">🇺🇸 USD</option>
+          </select>
+          <input class="curr-input" type="number" id="fx-amount" value="1000" inputmode="decimal" />
+          <button class="btn-swap" id="fx-swap" title="交換">⇄</button>
         </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚂 JR 博多→門司港 ¥1,320 · 1h20min</div><div class="tpill-line"></div></div>
-
-    <div class="ev d2 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">10:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-sight">⚓ 景點</div>
-          <div class="ev-title">門司港懷舊地區（3 小時）</div>
-          <div class="ev-desc">
-            <b>① 門司港駅</b> — 1914 年歐式紅磚，重要文化財<br>
-            <b>② 舊大阪商船</b> — 橘色八角塔樓<br>
-            <b>③ 關門海峽步行隧道</b> — 地下 60m 走到山口縣！780m 免費<br>
-            <b>④ 九州鐵道紀念館</b> — ¥300
-          </div>
-          <div class="ev-tags"><span class="tag tag-hot">海底隧道穿越</span><span class="tag tag-ok">景點多為免費</span></div>
+        <div class="curr-results" id="fx-results">
+          <div class="cr-item"><div class="cr-flag">🇰🇷</div><div class="cr-val" id="fx-krw">--</div><div class="cr-label">韓圜 KRW</div></div>
+          <div class="cr-item"><div class="cr-flag">🇯🇵</div><div class="cr-val" id="fx-jpy">--</div><div class="cr-label">日圓 JPY</div></div>
+          <div class="cr-item"><div class="cr-flag">🇺🇸</div><div class="cr-val" id="fx-usd">--</div><div class="cr-label">美元 USD</div></div>
+          <div class="cr-item"><div class="cr-flag">🇹🇼</div><div class="cr-val" id="fx-twd">--</div><div class="cr-label">台幣 TWD</div></div>
         </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚶 步行 5分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d2 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">13:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-food">🍛 午餐</div>
-          <div class="ev-title">門司港燒咖哩（焼きカレー）</div>
-          <div class="ev-desc">咖哩加起司烤至焦香，<b>門司港限定名物</b>，離開這裡吃不到，<b>¥1,200–1,500</b></div>
-          <div class="ev-tags"><span class="tag tag-hot">🔥 門司港限定，必吃</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚂 JR 門司港→博多 ¥1,320 · 1h20min</div><div class="tpill-line"></div></div>
-
-    <div class="ev d2 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">16:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-shop">🎮 購物・娛樂</div>
-          <div class="ev-title">Canal City 博多</div>
-          <div class="ev-desc">
-            <b>扭蛋百貨</b> 2,000+ 台・<b>Gundam Base</b> 鋼彈限定款<br>
-            整點水舞秀・<b>20:00 免費 3D 光雕秀（必看）</b>
-          </div>
-          <div class="ev-tags"><span class="tag tag-new">20:00 光雕秀必看</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚶 步行 10分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d2 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">19:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-food">🫕 晚餐 ⭐</div>
-          <div class="ev-title">もつ鍋一藤（牛腸鍋）</div>
-          <div class="ev-desc">Tabelog 4.4 分，味噌湯底・大量韭菜，最後加麵收尾。<b>¥3,000–4,000/人</b>，博多站步行 3 分</div>
-          <div class="ev-tags"><span class="tag tag-warn">⚠️ 出發前至少 1 週線上訂位</span><span class="tag tag-hot">Tabelog 4.4</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚶 步行 5分 → KITTE B1F</div><div class="tpill-line"></div></div>
-
-    <div class="ev d2 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">21:30</div>
-        <div class="ev-body">
-          <div class="ev-type type-night">🍗 宵夜</div>
-          <div class="ev-title">とり皮大臣 KITTE B1F（雞皮串燒）</div>
-          <div class="ev-desc">博多道地宵夜，一串 <b>¥150–200</b>，配冰啤酒</div>
-          <div class="ev-tags"><span class="tag tag-warn">⚠️ ShinShin 天神本店週日公休（改此店）</span></div>
-        </div>
-      </div></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── DAY DIVIDER ── -->
-<div class="day-div"><div class="day-div-line"></div><div class="day-div-label">Day 3</div><div class="day-div-line"></div></div>
-
-<!-- ══════════════════════════════════════
-     DAY 3
-══════════════════════════════════════ -->
-<section id="day3">
-  <div class="sec-wrap">
-    <div class="sec-label">
-      <div class="sec-num num-d3">03</div>
-      <div class="sec-info">
-        <div class="sec-day">Day 3 · 5月18日（一）</div>
-        <div class="sec-title">太宰府 · 回台灣</div>
-        <div class="sec-sub">天滿宮・水炊鍋・天神最終掃貨 · FUK 16:20 起飛</div>
+        <div class="cr-rate" id="fx-rate">1 TWD ≈ ... KRW · ... JPY</div>
+        <div class="curr-status" id="fx-updated"></div>
       </div>
     </div>
-  </div>
 
-  <div class="meal-bar reveal">
-    <div class="meal-cell"><div class="meal-type">早餐</div><div class="meal-name">博多一番街</div><div class="meal-note">快速出門</div></div>
-    <div class="meal-cell"><div class="meal-type">午餐</div><div class="meal-name">博多華味鳥水炊鍋</div><div class="meal-note">KITTE 9F · ¥1,780</div></div>
-    <div class="meal-cell"><div class="meal-type">16:20</div><div class="meal-name">✈ FUK → TPE</div><div class="meal-note">17:50 落地</div></div>
-  </div>
-
-  <div class="timeline">
-
-    <div class="ev d3 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">09:30</div>
-        <div class="ev-body">
-          <div class="ev-type type-transport">🚃 出發</div>
-          <div class="ev-title">博多 → 太宰府（西鐵）</div>
-          <div class="ev-desc">天神站搭西鐵，二日市轉乘，全程約 <b>40 分鐘</b>。使用太宰府版 Pass ¥1,820 全程含蓋</div>
-          <div class="ev-tags"><span class="tag tag-gold">Tourist City Pass 太宰府版 ¥1,820</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="ev d3 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">10:30</div>
-        <div class="ev-body">
-          <div class="ev-type type-sight">⛩ 景點</div>
-          <div class="ev-title">太宰府天滿宮 + 參道</div>
-          <div class="ev-desc">
-            <b>梅ヶ枝餅</b> ¥150 現烤紅豆麻糬必吃<br>
-            <b>竹製星巴克</b>（隈研吾設計）必拍<br>
-            <b>楊子江肉包</b> 參道老店
-          </div>
-          <div class="ev-tags"><span class="tag tag-hot">竹製星巴克必拍</span><span class="tag tag-ok">年 900 萬人參拜</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚶 步行 5分（天滿宮後方）</div><div class="tpill-line"></div></div>
-
-    <div class="ev d3 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">11:30</div>
-        <div class="ev-body">
-          <div class="ev-type type-sight">♨️ 新景點</div>
-          <div class="ev-title">足湯咖啡廳</div>
-          <div class="ev-desc">泡著溫泉腳、喝咖啡、看山林，近期才被發現尚未觀光化。11:30 前人少</div>
-          <div class="ev-tags"><span class="tag tag-new">🆕 近期新發現</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚃 西鐵太宰府→博多 約40分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d3 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">13:10</div>
-        <div class="ev-body">
-          <div class="ev-type type-food">🍲 午餐 ⭐</div>
-          <div class="ev-title">博多華味鳥 KITTE 9F（水炊鍋）</div>
-          <div class="ev-desc">熬製 6 小時清澈乳白雞湯，午餐套餐含鍋・飯・小菜・甜點，<b>¥1,780–2,480</b></div>
-          <div class="ev-tags"><span class="tag tag-hot">水炊鍋代表店</span><span class="tag tag-tip">KITTE 9F 直連博多站</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚇 地鐵 博多→天神 2分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d3 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">14:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-shop">🛍 最終掃貨</div>
-          <div class="ev-title">天神地下街（限時 1 小時）</div>
-          <div class="ev-desc">
-            <b>① 大丸</b> — 出示護照退稅 <b>25%</b>，不需 App<br>
-            <b>② 岩田屋 B2F</b> — 獺祭全日本 2 家限定規格<br>
-            <b>③ press butter sand</b> — 博多限定草莓口味<br>
-            <b>④ BAKE Cheese Tart</b> — 現烤帶走
-          </div>
-          <div class="ev-tags">
-            <span class="tag tag-gold">💴 大丸 25% 退稅</span>
-            <span class="tag tag-warn">⚠️ 15:00 前必須離開</span>
-          </div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="tpill"><div class="tpill-line"></div><div class="tpill-text">🚇 地鐵 天神→機場 ¥260 · 11分</div><div class="tpill-line"></div></div>
-
-    <div class="ev d3 reveal">
-      <div class="ev-inner"><div class="ev-top">
-        <div class="ev-time">15:00</div>
-        <div class="ev-body">
-          <div class="ev-type type-transport">✈ 出發</div>
-          <div class="ev-title">前往福岡機場</div>
-          <div class="ev-desc">地鐵 <b>¥260 · 11 分鐘</b>，抵達國內線再搭 5 分接駁至國際線</div>
-          <div class="ev-tags"><span class="tag tag-warn">⚠️ 最晚 15:00 離開天神</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="flight-div">福岡 FUK 16:20 起飛 → 台北 TPE 17:50 抵達（約 1.5 小時）</div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     TICKETS
-══════════════════════════════════════ -->
-<section id="tickets">
-  <div class="tickets-wrap">
-    <div class="section-h2">🎫 交通票券攻略</div>
-    <div class="section-sub">到當地再買（避免行程異動），JR 不能用 Pass 刷</div>
-
-    <div class="tk-grid">
-      <div class="tk reveal">
-        <div class="tk-tag">大邱 · Day 1</div>
-        <div class="tk-name">計程車 + T-money</div>
-        <div class="tk-price">₩8,000–9,000</div>
-        <div class="tk-detail">
-          機場↔市區兩趟<br>
-          T-money 機場 7-11 購買 ₩4,000<br>
-          地鐵每趟 ₩1,250
-        </div>
+    <!-- ── 預算追蹤器 ── -->
+    <div class="tool-card rev">
+      <div class="tool-head">
+        <div class="tool-icon">📊</div>
+        <div class="tool-title">預算追蹤器</div>
+        <div class="tool-badge" id="bud-pct">0% 已用</div>
       </div>
-
-      <div class="tk reveal">
-        <div class="tk-tag">Day 2 · 最重要</div>
-        <div class="tk-name">JR 博多↔門司港</div>
-        <div class="tk-price">¥1,320 × 2</div>
-        <div class="tk-detail">博多站 JR 窗口購買<br>直達，1 小時 20 分</div>
-        <div class="tk-warn">⚠️ City Pass 完全不含 JR！必須另購</div>
-      </div>
-
-      <div class="tk reveal">
-        <div class="tk-tag">Day 1–3 福岡市內</div>
-        <div class="tk-name">Tourist City Pass</div>
-        <div class="tk-price">¥1,500</div>
-        <div class="tk-detail">
-          含地鐵全線 + 西鐵巴士<br>
-          機場地鐵站或博多站購買<br>
-          抵達當天即買即用
+      <div class="tool-body">
+        <div style="margin-bottom:10px">
+          <div class="cl-progress-text"><span>整體花費進度</span><span id="bud-spent-total">¥0 / ¥35,880</span></div>
+          <div class="bud-bar-wrap"><div class="bud-bar ok" id="bud-progress-bar" style="width:0%"></div></div>
         </div>
-      </div>
-
-      <div class="tk reveal">
-        <div class="tk-tag">Day 3 · 推薦</div>
-        <div class="tk-name">Pass 太宰府版</div>
-        <div class="tk-price">¥1,820</div>
-        <div class="tk-detail">
-          多含西鐵天神↔太宰府來回<br>
-          只多 ¥320，含往返西鐵超值<br>
-          西鐵天神站購買
-        </div>
-      </div>
-
-      <div class="tk reveal">
-        <div class="tk-tag">機場接駁</div>
-        <div class="tk-name">福岡機場 ↔ 博多</div>
-        <div class="tk-price">¥260 / 次</div>
-        <div class="tk-detail">
-          入境：機場→博多 5 分鐘<br>
-          出境：博多/天神→機場 11 分<br>
-          用 Suica 最方便
-        </div>
-      </div>
-
-      <div class="tk reveal">
-        <div class="tk-tag">選擇性</div>
-        <div class="tk-name">Suica / ICOCA</div>
-        <div class="tk-price">¥1,000 押金起</div>
-        <div class="tk-detail">
-          地鐵・JR・便利商店均可刷<br>
-          機場自動售票機購買<br>
-          或 iPhone 線上開通
+        <table class="budget-table">
+          <thead><tr><th>項目</th><th>預估</th><th>實際</th></tr></thead>
+          <tbody id="bud-tbody"></tbody>
+          <tfoot>
+            <tr class="bud-total-row">
+              <td>合計</td>
+              <td class="bud-est" id="bud-est-total">¥35,880</td>
+              <td><span class="bud-total-val" id="bud-actual-total">¥0</span></td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="bud-summary">
+          <div class="bud-sum-item"><div class="bud-sum-label">已花費</div><div class="bud-sum-val" id="bud-sv-spent">¥0</div></div>
+          <div class="bud-sum-item"><div class="bud-sum-label">剩餘</div><div class="bud-sum-val green" id="bud-sv-remain">¥35,880</div></div>
+          <div class="bud-sum-item"><div class="bud-sum-label">節省/超支</div><div class="bud-sum-val green" id="bud-sv-diff">¥0</div></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ══════════════════════════════════════
-     TIPS
-══════════════════════════════════════ -->
-<section id="tips">
-  <div class="tips-wrap">
-    <div class="section-h2">📋 注意事項</div>
-    <div class="section-sub">這些真的會搞砸行程，每一條都確認過</div>
-
-    <div class="tips-grid">
-      <div class="tip alert reveal">
-        <div class="tip-icon">🚨</div>
-        <div class="tip-title">もつ鍋一藤 必訂位</div>
-        <div class="tip-body">出發前<b>至少 1 週</b>在 Tabelog 或官網線上訂位，告知人數與口味（味噌 or 醬油）</div>
+    <!-- ── 打包清單 ── -->
+    <div class="tool-card rev">
+      <div class="tool-head">
+        <div class="tool-icon">🎒</div>
+        <div class="tool-title">打包清單</div>
+        <div class="tool-badge" id="cl-badge">0 / 0</div>
       </div>
-
-      <div class="tip alert reveal">
-        <div class="tip-icon">🚨</div>
-        <div class="tip-title">ShinShin 天神本店週日公休</div>
-        <div class="tip-body">5/17 是週日，<b>天神本店不開！</b>宵夜改去 KITTE B1F とり皮大臣</div>
-      </div>
-
-      <div class="tip alert reveal">
-        <div class="tip-icon">⏰</div>
-        <div class="tip-title">Day 3 時間緊</div>
-        <div class="tip-body">FUK 16:20 起飛，<b>最晚 15:00 離開天神</b>，天神掃貨只有 1 小時，提前列好清單</div>
-      </div>
-
-      <div class="tip reveal">
-        <div class="tip-icon">💴</div>
-        <div class="tip-title">大丸退稅超划算</div>
-        <div class="tip-body">出示護照即享 <b>25% 免稅折扣</b>，不需 App、不需優惠券，結帳自動計算</div>
-      </div>
-
-      <div class="tip reveal">
-        <div class="tip-icon">🚂</div>
-        <div class="tip-title">JR 門司港票務</div>
-        <div class="tip-body">City Pass 不含 JR，博多站窗口一次買好往返 ¥1,320 × 2，別被閘門刷退</div>
-      </div>
-
-      <div class="tip reveal">
-        <div class="tip-icon">📱</div>
-        <div class="tip-title">必備 App</div>
-        <div class="tip-body"><b>Google Maps</b>（離線下載大邱・福岡）・<b>Tabelog</b>（一藤訂位）・<b>NaviTime</b>（電車轉乘）</div>
+      <div class="tool-body">
+        <div class="cl-progress-text"><span>完成進度</span><span id="cl-pct">0%</span></div>
+        <div class="cl-progress-bar"><div class="cl-progress-fill" id="cl-fill" style="width:0%"></div></div>
+        <div id="cl-content"></div>
+        <button class="cl-reset" id="cl-reset">↺ 重置清單</button>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ══════════════════════════════════════
-     BUDGET
-══════════════════════════════════════ -->
-<section>
-  <div class="budget-wrap">
-    <div class="budget reveal">
-      <div class="budget-header">
-        <div class="budget-header-title">💰 預估費用快覽（2人）</div>
-        <div class="budget-header-note">不含住宿 · 僅供參考</div>
+    <!-- ── 溫度趨勢圖 ── -->
+    <div class="tool-card rev">
+      <div class="tool-head">
+        <div class="tool-icon">📈</div>
+        <div class="tool-title">溫度趨勢預覽</div>
+        <div class="tool-badge">3日預報</div>
       </div>
-      <div class="budget-grid">
-        <div class="bud-item"><div class="bud-label">大邱交通</div><div class="bud-val">₩17,000–18,000</div></div>
-        <div class="bud-item"><div class="bud-label">JR 門司港往返</div><div class="bud-val">¥5,280（2人）</div></div>
-        <div class="bud-item"><div class="bud-label">福岡票券</div><div class="bud-val">¥4,900–5,540</div></div>
-        <div class="bud-item"><div class="bud-label">3日餐飲</div><div class="bud-val">¥20,000–28,000</div></div>
-        <div class="bud-item bud-total">
-          <div class="bud-label">日幣合計（2人）</div>
-          <div class="bud-val">¥30,000–39,000 + ₩17,000</div>
+      <div class="tool-body" style="padding:10px 10px 14px">
+        <div style="display:flex;gap:8px;margin-bottom:10px">
+          <button class="btn-swap" id="temp-dg" style="flex:1;font-size:12px">🇰🇷 大邱</button>
+          <button class="btn-swap" id="temp-fk" style="flex:1;font-size:12px;background:var(--d2bg);color:var(--d2);border-color:var(--d2)">🇯🇵 福岡</button>
+        </div>
+        <canvas id="temp-big-canvas" style="width:100%;height:160px;display:block"></canvas>
+        <div id="temp-legend" style="display:flex;justify-content:center;gap:16px;margin-top:8px;font-size:11px;color:var(--sub)">
+          <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:3px;background:#ef4444;display:inline-block;border-radius:2px"></span>最高溫</span>
+          <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:3px;background:#3b82f6;display:inline-block;border-radius:2px"></span>最低溫</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<footer>
-  大邱 × 福岡 三天兩夜私房行程 · 2025.5.16–18<br>
-  每個時間點都精算過，跟著走不踩雷
-</footer>
+  </div><!-- /tools-grid -->
+</div><!-- /panel-tools -->
 
-<!-- ══════════════════════════════════════
-     BOTTOM NAV
-══════════════════════════════════════ -->
-<nav class="bottom-nav">
-  <a class="bnav-tab" href="#day1" id="bnav-d1"><span class="bnav-icon">🇰🇷</span>Day 1</a>
-  <a class="bnav-tab" href="#day2" id="bnav-d2"><span class="bnav-icon">⚓</span>Day 2</a>
-  <a class="bnav-tab" href="#day3" id="bnav-d3"><span class="bnav-icon">⛩</span>Day 3</a>
-  <a class="bnav-tab" href="#tickets" id="bnav-tickets"><span class="bnav-icon">🎫</span>票券</a>
-  <a class="bnav-tab" href="#tips" id="bnav-tips"><span class="bnav-icon">📋</span>注意</a>
-</nav>
+<footer>大邱 × 福岡 · 2025.5.16–18<br>每個時間點都精算過，跟著走不踩雷 ✦</footer>
 
 <script>
 (function(){
-  /* ── Progress bar ── */
-  var prog = document.getElementById('prog');
-  function updProg(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    prog.style.transform = h > 0 ? 'scaleX('+(window.scrollY/h)+')' : 'scaleX(0)';
+'use strict';
+
+/* ══ 全局狀態 ══ */
+var WX_DATA = { daegu: null, fukuoka: null };
+var FX_RATES = null;
+var TEMP_CURRENT = 'daegu';
+
+/* ══ PROGRESS BAR ══ */
+var prog = document.getElementById('prog');
+function updProg(){
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  prog.style.transform = h>0 ? 'scaleX('+(window.scrollY/h)+')' : 'scaleX(0)';
+}
+window.addEventListener('scroll', updProg, {passive:true});
+updProg();
+
+/* ══ COUNTDOWN ══ */
+var DEPART = new Date('2025-05-16T00:05:00+08:00'); // 大邱 05:25 TAE，前一天晚上台灣起飛約午夜多
+// 出發日前一天晚上飛，以 5/16 Day1 出發為主
+var DEPART2 = new Date('2025-05-16T00:00:00+08:00');
+function pad(n){ return String(n).padStart(2,'0'); }
+function updateCountdown(){
+  var now = new Date();
+  var diff = DEPART2 - now;
+  if(diff <= 0){
+    document.getElementById('cd-title').textContent = '✈ 旅程進行中！';
+    ['cd-d','cd-h','cd-m','cd-s'].forEach(function(id){
+      document.getElementById(id).textContent = '00';
+    });
+    return;
   }
+  var d = Math.floor(diff/86400000);
+  var h = Math.floor((diff%86400000)/3600000);
+  var m = Math.floor((diff%3600000)/60000);
+  var s = Math.floor((diff%60000)/1000);
+  document.getElementById('cd-title').textContent = '出發日 5月16日';
+  document.getElementById('cd-d').textContent = pad(d);
+  document.getElementById('cd-h').textContent = pad(h);
+  document.getElementById('cd-m').textContent = pad(m);
+  document.getElementById('cd-s').textContent = pad(s);
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
-  /* ── Reveal on scroll ── */
-  var ioReveal = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('visible'); ioReveal.unobserve(e.target); }
-    });
-  },{threshold:0.05});
-  document.querySelectorAll('.reveal').forEach(function(el){ ioReveal.observe(el); });
+/* ══ REVEAL ══ */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); }
+  });
+},{threshold:0.04});
+function observeAll(){ document.querySelectorAll('.rev:not(.vis)').forEach(function(el){ io.observe(el); }); }
+observeAll();
 
-  /* ── Active bottom nav ── */
-  var navMap = {
-    day1:'bnav-d1', day2:'bnav-d2', day3:'bnav-d3',
-    tickets:'bnav-tickets', tips:'bnav-tips'
-  };
-  var activeClass = {
-    'bnav-d1':'active-d1','bnav-d2':'active-d2','bnav-d3':'active-d3',
-    'bnav-tickets':'active-info','bnav-tips':'active-info'
-  };
-  var ioNav = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var navId = navMap[e.target.id];
-      if(!navId) return;
-      Object.keys(navMap).forEach(function(k){
-        var el = document.getElementById(navMap[k]);
-        if(!el) return;
-        el.className = 'bnav-tab';
-        if(navMap[k] === navId) el.className = 'bnav-tab ' + activeClass[navId];
-      });
-    });
-  },{rootMargin:'-15% 0px -60% 0px'});
-  ['day1','day2','day3','tickets','tips'].forEach(function(id){
-    var el = document.getElementById(id); if(el) ioNav.observe(el);
+/* ══ TABS ══ */
+var tabs = document.querySelectorAll('.tab-btn');
+var panels = document.querySelectorAll('.panel');
+tabs.forEach(function(tab){
+  tab.addEventListener('click', function(){
+    var target = this.dataset.tab;
+    tabs.forEach(function(t){ t.classList.remove('active'); });
+    panels.forEach(function(p){ p.classList.remove('active'); });
+    this.classList.add('active');
+    document.getElementById('panel-'+target).classList.add('active');
+    this.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+    window.scrollTo({top: document.getElementById('tabBar').getBoundingClientRect().top + window.scrollY - 2, behavior:'smooth'});
+    setTimeout(observeAll, 60);
+  });
+});
+
+/* ══ WEATHER + CHART ══ */
+var WMO={0:['☀️','晴天'],1:['🌤','晴時多雲'],2:['⛅','多雲'],3:['☁️','陰天'],45:['🌫','有霧'],48:['🌫','有霧'],51:['🌦','毛毛雨'],53:['🌦','毛毛雨'],55:['🌧','小雨'],61:['🌧','降雨'],63:['🌧','中雨'],65:['🌧','大雨'],80:['🌦','陣雨'],81:['🌧','陣雨'],82:['⛈','強陣雨'],95:['⛈','雷雨']};
+var DOW=['日','一','二','三','四','五','六'];
+
+function drawMiniChart(canvasId, tmaxArr, tminArr, color){
+  var canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+  var dpr = window.devicePixelRatio||1;
+  var W = canvas.offsetWidth; var H = 32;
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  canvas.style.width = W+'px'; canvas.style.height = H+'px';
+  var ctx = canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+  if(!tmaxArr||!tmaxArr.length) return;
+  var allT = tmaxArr.concat(tminArr);
+  var mn = Math.min.apply(null,allT)-2, mx = Math.max.apply(null,allT)+2;
+  function yp(t){ return H - (t-mn)/(mx-mn)*(H-6)-3; }
+  function xp(i,arr){ return (i/(arr.length-1))*(W-4)+2; }
+
+  // gradient fill under max line
+  var grad = ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0, color.replace('1)','0.15)'));
+  grad.addColorStop(1, color.replace('1)','0)'));
+  ctx.beginPath();
+  tmaxArr.forEach(function(t,i){ i===0?ctx.moveTo(xp(i,tmaxArr),yp(t)):ctx.lineTo(xp(i,tmaxArr),yp(t)); });
+  ctx.lineTo(xp(tmaxArr.length-1,tmaxArr), H);
+  ctx.lineTo(0, H); ctx.closePath();
+  ctx.fillStyle = grad; ctx.fill();
+
+  // max line
+  ctx.beginPath();
+  tmaxArr.forEach(function(t,i){ i===0?ctx.moveTo(xp(i,tmaxArr),yp(t)):ctx.lineTo(xp(i,tmaxArr),yp(t)); });
+  ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.lineJoin='round'; ctx.stroke();
+
+  // min line
+  ctx.beginPath();
+  tminArr.forEach(function(t,i){ i===0?ctx.moveTo(xp(i,tminArr),yp(t)):ctx.lineTo(xp(i,tminArr),yp(t)); });
+  ctx.strokeStyle = color.replace('1)','0.45)'); ctx.lineWidth = 1.5; ctx.setLineDash([3,3]); ctx.stroke();
+  ctx.setLineDash([]);
+}
+
+function renderWx(daysId, badgeId, ftId, miniChartId, daily, city){
+  var c=document.getElementById(daysId), b=document.getElementById(badgeId), f=document.getElementById(ftId);
+  if(!c) return;
+  var len=Math.min(daily.time.length,3);
+  var html='', tmaxArr=[], tminArr=[];
+  for(var i=0;i<len;i++){
+    var d=new Date(daily.time[i]+'T12:00:00');
+    var wmo=WMO[daily.weathercode[i]]||['🌡','混合'];
+    var rain=daily.precipitation_probability_max[i]||0;
+    var desc=wmo[1]+(rain>55?'・帶傘':'');
+    var tmax=Math.round(daily.temperature_2m_max[i]);
+    var tmin=Math.round(daily.temperature_2m_min[i]);
+    tmaxArr.push(tmax); tminArr.push(tmin);
+    html+='<div class="wx-day"><div class="wx-dl">'+(d.getMonth()+1)+'/'+(d.getDate())+' '+DOW[d.getDay()]+'</div><div class="wx-di">'+wmo[0]+'</div><div class="wx-dt">'+tmin+'–'+tmax+'°</div><div class="wx-ds">'+desc+'</div></div>';
+  }
+  c.innerHTML=html;
+  if(b){b.textContent='即時';b.className='wx-badge live';}
+  if(f){var n=new Date();f.textContent='更新 '+(n.getMonth()+1)+'/'+(n.getDate())+' '+pad(n.getHours())+':'+pad(n.getMinutes());}
+  
+  // store for big chart
+  var key = miniChartId.indexOf('dg')>=0?'daegu':'fukuoka';
+  WX_DATA[key] = {tmax:tmaxArr, tmin:tminArr, times:daily.time.slice(0,len)};
+  
+  // draw mini
+  var col = key==='daegu'?'rgba(184,58,12,1)':'rgba(21,73,184,1)';
+  setTimeout(function(){ drawMiniChart(miniChartId,tmaxArr,tminArr,col); },100);
+  
+  // update big chart if visible
+  if(TEMP_CURRENT===key) drawBigChart();
+}
+
+function fallbackWx(daysId, badgeId, statics, key){
+  var c=document.getElementById(daysId), b=document.getElementById(badgeId);
+  if(!c) return;
+  var html='';
+  statics.forEach(function(x){ html+='<div class="wx-day"><div class="wx-dl">'+x.d+'</div><div class="wx-di">'+x.i+'</div><div class="wx-dt">'+x.t+'</div><div class="wx-ds">'+x.s+'</div></div>'; });
+  c.innerHTML=html;
+  if(b){b.textContent='參考';b.className='wx-badge err';}
+  // dummy data for big chart
+  var dummy = {tmax:[25,24,26],tmin:[20,19,21],times:['2025-05-16','2025-05-17','2025-05-18']};
+  WX_DATA[key]=dummy;
+}
+
+function fetchWx(lat,lon,daysId,badgeId,ftId,chartId,tz,fallback,key){
+  fetch('https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lon+'&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_probability_max&forecast_days=3&timezone='+encodeURIComponent(tz))
+    .then(function(r){return r.ok?r.json():Promise.reject();})
+    .then(function(d){renderWx(daysId,badgeId,ftId,chartId,d.daily,key);})
+    .catch(function(){fallbackWx(daysId,badgeId,fallback,key);});
+}
+
+fetchWx(35.8714,128.6014,'wx-dg-d','wx-dg-b','wx-dg-f','wx-dg-chart','Asia/Seoul',[{d:'5/16',i:'🌤',t:'22–27°',s:'微風'},{d:'5/17',i:'⛅',t:'21–26°',s:'多雲'},{d:'5/18',i:'🌤',t:'22–27°',s:'晴'}],'daegu');
+fetchWx(33.5904,130.4017,'wx-fk-d','wx-fk-b','wx-fk-f','wx-fk-chart','Asia/Tokyo',[{d:'5/16',i:'🌙',t:'19–24°',s:'夜涼'},{d:'5/17',i:'⛅',t:'20–25°',s:'多雲'},{d:'5/18',i:'🌤',t:'21–26°',s:'晴'}],'fukuoka');
+
+/* ══ BIG TEMP CHART ══ */
+function drawBigChart(){
+  var canvas = document.getElementById('temp-big-canvas');
+  if(!canvas) return;
+  var data = WX_DATA[TEMP_CURRENT];
+  if(!data) return;
+  var dpr = window.devicePixelRatio||1;
+  var W = canvas.offsetWidth||280, H = 160;
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  canvas.style.width = W+'px'; canvas.style.height = H+'px';
+  var ctx = canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+  ctx.clearRect(0,0,W,H);
+
+  var tmax=data.tmax, tmin=data.tmin, times=data.times;
+  var allT=tmax.concat(tmin);
+  var mn=Math.min.apply(null,allT)-3, mx=Math.max.apply(null,allT)+3;
+  var padL=32, padR=16, padT=16, padB=36;
+  var cW=W-padL-padR, cH=H-padT-padB;
+  function yx(t){ return padT+cH-(t-mn)/(mx-mn)*cH; }
+  function xx(i){ return padL+(i/(tmax.length-1))*cW; }
+
+  // grid lines
+  ctx.strokeStyle='rgba(0,0,0,.05)'; ctx.lineWidth=1;
+  for(var g=0;g<4;g++){
+    var tv=mn+(mx-mn)*g/3;
+    var yv=yx(tv);
+    ctx.beginPath(); ctx.moveTo(padL,yv); ctx.lineTo(W-padR,yv); ctx.stroke();
+    ctx.fillStyle='rgba(0,0,0,.35)'; ctx.font='10px DM Mono,monospace'; ctx.textAlign='right';
+    ctx.fillText(Math.round(tv)+'°',padL-4,yv+4);
+  }
+  // x labels
+  DOW=['日','一','二','三','四','五','六'];
+  times.forEach(function(t,i){
+    var d=new Date(t+'T12:00:00');
+    var lbl=(d.getMonth()+1)+'/'+(d.getDate())+' ('+DOW[d.getDay()]+')';
+    ctx.fillStyle='rgba(0,0,0,.4)'; ctx.font='10px Noto Sans TC,sans-serif'; ctx.textAlign='center';
+    ctx.fillText(lbl, xx(i), H-padB+14);
   });
 
-  window.addEventListener('scroll', updProg, {passive:true});
-  updProg();
+  // gradient under max
+  var gradMax = ctx.createLinearGradient(0,padT,0,padT+cH);
+  gradMax.addColorStop(0,'rgba(239,68,68,.2)');
+  gradMax.addColorStop(1,'rgba(239,68,68,0)');
+  ctx.beginPath();
+  tmax.forEach(function(t,i){ i===0?ctx.moveTo(xx(i),yx(t)):ctx.lineTo(xx(i),yx(t)); });
+  ctx.lineTo(xx(tmax.length-1),padT+cH); ctx.lineTo(padL,padT+cH); ctx.closePath();
+  ctx.fillStyle=gradMax; ctx.fill();
 
-  /* ── Live Weather (Open-Meteo) ── */
-  var WMO = {
-    0:['☀️','晴天'], 1:['🌤','晴時多雲'], 2:['⛅','多雲'], 3:['☁️','陰天'],
-    45:['🌫','有霧'], 48:['🌫','有霧'], 51:['🌦','毛毛雨'], 53:['🌦','毛毛雨'],
-    55:['🌧','小雨'], 61:['🌧','降雨'], 63:['🌧','中雨'], 65:['🌧','大雨'],
-    71:['❄️','小雪'], 73:['❄️','降雪'], 75:['❄️','大雪'],
-    80:['🌦','陣雨'], 81:['🌧','陣雨'], 82:['⛈','強陣雨'],
-    95:['⛈','雷雨'], 96:['⛈','雷雨'], 99:['⛈','強雷雨']
-  };
-  var DOW = ['日','一','二','三','四','五','六'];
+  // gradient under min
+  var gradMin = ctx.createLinearGradient(0,padT,0,padT+cH);
+  gradMin.addColorStop(0,'rgba(59,130,246,.15)');
+  gradMin.addColorStop(1,'rgba(59,130,246,0)');
+  ctx.beginPath();
+  tmin.forEach(function(t,i){ i===0?ctx.moveTo(xx(i),yx(t)):ctx.lineTo(xx(i),yx(t)); });
+  ctx.lineTo(xx(tmin.length-1),padT+cH); ctx.lineTo(padL,padT+cH); ctx.closePath();
+  ctx.fillStyle=gradMin; ctx.fill();
 
-  function wmoInfo(code, rain){
-    var info = WMO[code] || ['🌡','混合'];
-    var desc = info[1];
-    if(rain > 60) desc += '・高降雨';
-    else if(rain > 35) desc += '・帶傘';
-    return {icon:info[0], desc:desc};
-  }
+  // max line
+  ctx.beginPath();
+  tmax.forEach(function(t,i){ i===0?ctx.moveTo(xx(i),yx(t)):ctx.lineTo(xx(i),yx(t)); });
+  ctx.strokeStyle='#ef4444'; ctx.lineWidth=2.5; ctx.lineJoin='round'; ctx.lineCap='round'; ctx.stroke();
 
-  function renderWeather(daysId, badgeId, updId, daily){
-    var c = document.getElementById(daysId);
-    var b = document.getElementById(badgeId);
-    var u = document.getElementById(updId);
-    if(!c) return;
-    var html = '';
-    var len = Math.min(daily.time.length, 3);
-    for(var i=0; i<len; i++){
-      var d = new Date(daily.time[i]+'T12:00:00');
-      var info = wmoInfo(daily.weathercode[i], daily.precipitation_probability_max[i]||0);
-      var tmax = Math.round(daily.temperature_2m_max[i]);
-      var tmin = Math.round(daily.temperature_2m_min[i]);
-      var mo = d.getMonth()+1, dt = d.getDate(), dow = DOW[d.getDay()];
-      html += '<div class="wc-day">'+
-        '<div class="wc-date">'+mo+'/'+dt+' '+dow+'</div>'+
-        '<div class="wc-icon">'+info.icon+'</div>'+
-        '<div class="wc-temp">'+tmin+'–'+tmax+'°</div>'+
-        '<div class="wc-sub">'+info.desc+'</div>'+
-        '</div>';
-    }
-    c.innerHTML = html;
-    if(b){ b.textContent='即時'; b.className='wc-badge'; }
-    if(u){
-      var now = new Date();
-      u.textContent = '更新 '+(now.getMonth()+1)+'/'+now.getDate()+' '+
-        String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-    }
-  }
+  // min line
+  ctx.beginPath();
+  tmin.forEach(function(t,i){ i===0?ctx.moveTo(xx(i),yx(t)):ctx.lineTo(xx(i),yx(t)); });
+  ctx.strokeStyle='#3b82f6'; ctx.lineWidth=2; ctx.stroke();
 
-  function weatherFallback(daysId, badgeId, statics){
-    var c = document.getElementById(daysId);
-    var b = document.getElementById(badgeId);
-    if(!c) return;
-    var html = '';
-    statics.forEach(function(s){
-      html += '<div class="wc-day"><div class="wc-date">'+s.date+'</div>'+
-        '<div class="wc-icon">'+s.icon+'</div>'+
-        '<div class="wc-temp">'+s.temp+'</div>'+
-        '<div class="wc-sub">'+s.sub+'</div></div>';
+  // dots + labels
+  [tmax,tmin].forEach(function(arr,ai){
+    arr.forEach(function(t,i){
+      var cx=xx(i), cy=yx(t);
+      ctx.beginPath(); ctx.arc(cx,cy,4,0,Math.PI*2);
+      ctx.fillStyle=ai===0?'#ef4444':'#3b82f6'; ctx.fill();
+      ctx.fillStyle='#fff'; ctx.beginPath(); ctx.arc(cx,cy,2,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle=ai===0?'#B91C1C':'#1D4ED8';
+      ctx.font='bold 11px DM Mono,monospace'; ctx.textAlign='center';
+      ctx.fillText(t+'°', cx, ai===0?cy-8:cy+16);
     });
-    c.innerHTML = html;
-    if(b){ b.textContent='參考'; b.className='wc-badge err'; }
-  }
+  });
+}
 
-  function fetchW(lat, lon, daysId, badgeId, updId, tz, fallback){
-    fetch('https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lon+
-      '&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_probability_max'+
-      '&forecast_days=3&timezone='+encodeURIComponent(tz))
-      .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
-      .then(function(d){ renderWeather(daysId, badgeId, updId, d.daily); })
-      .catch(function(){ weatherFallback(daysId, badgeId, fallback); });
-  }
+document.getElementById('temp-dg').addEventListener('click',function(){
+  TEMP_CURRENT='daegu';
+  this.style.background='var(--d1bg)'; this.style.color='var(--d1)'; this.style.borderColor='var(--d1)';
+  var fk=document.getElementById('temp-fk');
+  fk.style.background='var(--bg)'; fk.style.color='var(--sub)'; fk.style.borderColor='var(--border)';
+  drawBigChart();
+});
+document.getElementById('temp-fk').addEventListener('click',function(){
+  TEMP_CURRENT='fukuoka';
+  this.style.background='var(--d2bg)'; this.style.color='var(--d2)'; this.style.borderColor='var(--d2)';
+  var dg=document.getElementById('temp-dg');
+  dg.style.background='var(--bg)'; dg.style.color='var(--sub)'; dg.style.borderColor='var(--border)';
+  drawBigChart();
+});
 
-  fetchW(35.8714, 128.6014, 'wc-daegu-days', 'wc-daegu-badge', 'wc-daegu-updated', 'Asia/Seoul',
-    [{date:'5/16 六',icon:'🌤',temp:'22–27°',sub:'微風少雨'}]);
-  fetchW(33.5904, 130.4017, 'wc-fukuoka-days', 'wc-fukuoka-badge', 'wc-fukuoka-updated', 'Asia/Tokyo',
-    [{date:'5/16 六',icon:'🌙',temp:'19–24°',sub:'夜間涼爽'},
-     {date:'5/17 日',icon:'⛅',temp:'20–25°',sub:'多雲舒適'},
-     {date:'5/18 一',icon:'🌤',temp:'21–26°',sub:'晴時多雲'}]);
+/* ══ EXCHANGE RATE ══ */
+var FX_BASE_RATES = { TWD:1, KRW:42.5, JPY:4.75, USD:0.031 }; // fallback
+function fmtNum(n,dec){
+  if(dec===undefined) dec=0;
+  return n.toLocaleString('zh-TW',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+}
+function updateFxDisplay(){
+  var amt = parseFloat(document.getElementById('fx-amount').value)||0;
+  var from = document.getElementById('fx-from').value;
+  var rates = FX_RATES || FX_BASE_RATES;
+  var toBase = amt / rates[from];
+  var krw = toBase * rates.KRW;
+  var jpy = toBase * rates.JPY;
+  var usd = toBase * rates.USD;
+  var twd = toBase * rates.TWD;
+  document.getElementById('fx-krw').textContent = fmtNum(krw);
+  document.getElementById('fx-jpy').textContent = fmtNum(jpy);
+  document.getElementById('fx-usd').textContent = fmtNum(usd,2);
+  document.getElementById('fx-twd').textContent = fmtNum(twd,1);
+  // rate line
+  var r1twd = rates.TWD / rates[from];
+  var rKrw = rates.KRW / rates[from];
+  var rJpy = rates.JPY / rates[from];
+  document.getElementById('fx-rate').textContent =
+    '1 '+from+' ≈ '+fmtNum(rKrw,1)+' KRW · '+fmtNum(rJpy,2)+' JPY';
+}
+
+function fetchFx(){
+  fetch('https://open.er-api.com/v6/latest/TWD')
+    .then(function(r){return r.ok?r.json():Promise.reject();})
+    .then(function(d){
+      if(d.rates){
+        FX_RATES = {TWD:1, KRW:d.rates.KRW, JPY:d.rates.JPY, USD:d.rates.USD};
+        document.getElementById('fx-badge').textContent='即時';
+        document.getElementById('fx-badge').style.background='#DCFCE7';
+        document.getElementById('fx-badge').style.color='var(--d3)';
+        var n=new Date();
+        document.getElementById('fx-updated').textContent='匯率更新：'+n.toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
+        updateFxDisplay();
+      }
+    })
+    .catch(function(){
+      document.getElementById('fx-badge').textContent='參考匯率';
+      document.getElementById('fx-badge').style.background='var(--goldbg)';
+      document.getElementById('fx-badge').style.color='var(--gold)';
+      document.getElementById('fx-updated').textContent='使用參考匯率，實際請查銀行';
+      updateFxDisplay();
+    });
+}
+fetchFx();
+
+document.getElementById('fx-amount').addEventListener('input', updateFxDisplay);
+document.getElementById('fx-from').addEventListener('change', updateFxDisplay);
+document.getElementById('fx-swap').addEventListener('click', function(){
+  var sel = document.getElementById('fx-from');
+  var cur = sel.value;
+  var opts = ['TWD','KRW','JPY','USD'];
+  var next = opts[(opts.indexOf(cur)+1)%opts.length];
+  sel.value = next;
+  updateFxDisplay();
+});
+
+/* ══ BUDGET TRACKER ══ */
+var BUD_ITEMS = [
+  {label:'機場交通',est:1800,key:'transport'},
+  {label:'JR 門司港往返(2人)',est:5280,key:'jr'},
+  {label:'福岡票券(2人)',est:4800,key:'pass'},
+  {label:'早餐 × 3天',est:2000,key:'bfst'},
+  {label:'午餐 × 3天',est:7000,key:'lunch'},
+  {label:'晚餐・宵夜',est:9000,key:'dinner'},
+  {label:'景點門票',est:1200,key:'spots'},
+  {label:'購物・伴手禮',est:5000,key:'shop'},
+];
+var BUD_ACTUAL = {};
+
+function calcBudget(){
+  var totalEst = BUD_ITEMS.reduce(function(a,b){return a+b.est;},0);
+  var totalAct = 0;
+  BUD_ITEMS.forEach(function(item){
+    var v = parseFloat(BUD_ACTUAL[item.key])||0;
+    totalAct += v;
+  });
+  var pct = Math.round(totalAct/totalEst*100);
+  var pctCap = Math.min(pct,120);
+  var bar = document.getElementById('bud-progress-bar');
+  bar.style.width = pctCap+'%';
+  bar.className = 'bud-bar '+(pct<80?'ok':pct<100?'warn':'over');
+  document.getElementById('bud-pct').textContent = pct+'% 已用';
+  document.getElementById('bud-spent-total').textContent = '¥'+fmtNum(totalAct)+' / ¥'+fmtNum(totalEst);
+  document.getElementById('bud-actual-total').textContent = '¥'+fmtNum(totalAct);
+  document.getElementById('bud-est-total').textContent = '¥'+fmtNum(totalEst);
+  document.getElementById('bud-sv-spent').textContent = '¥'+fmtNum(totalAct);
+  var remain = totalEst - totalAct;
+  var remEl = document.getElementById('bud-sv-remain');
+  remEl.textContent = '¥'+fmtNum(Math.abs(remain));
+  remEl.className = 'bud-sum-val '+(remain>=0?'green':'red');
+  var diff = totalEst - totalAct;
+  var diffEl = document.getElementById('bud-sv-diff');
+  diffEl.textContent = (diff>=0?'+':'')+fmtNum(diff);
+  diffEl.className = 'bud-sum-val '+(diff>0?'green':diff<0?'red':'yellow');
+}
+
+function renderBudgetTable(){
+  var tbody = document.getElementById('bud-tbody');
+  if(!tbody) return;
+  var html = '';
+  BUD_ITEMS.forEach(function(item){
+    var act = parseFloat(BUD_ACTUAL[item.key])||0;
+    var pct = Math.min(Math.round(act/item.est*100),120);
+    var barCls = pct<80?'ok':pct<100?'warn':'over';
+    html += '<tr>'+
+      '<td style="font-size:12px;font-weight:600">'+item.label+'</td>'+
+      '<td><div class="bud-est">¥'+fmtNum(item.est)+'</div></td>'+
+      '<td><input class="bud-input" type="number" data-key="'+item.key+'" value="'+(act||'')+'" placeholder="0" inputmode="decimal" style="width:80px">'+
+        '<div class="bud-bar-wrap" style="margin-top:3px"><div class="bud-bar '+barCls+'" style="width:'+pct+'%"></div></div>'+
+      '</td>'+
+      '</tr>';
+  });
+  tbody.innerHTML = html;
+  tbody.querySelectorAll('.bud-input').forEach(function(inp){
+    inp.addEventListener('input', function(){
+      BUD_ACTUAL[this.dataset.key] = parseFloat(this.value)||0;
+      calcBudget();
+      // update bar in same row
+      var row = this.closest('tr');
+      var key = this.dataset.key;
+      var item = BUD_ITEMS.find(function(x){return x.key===key;});
+      var pct = item ? Math.min(Math.round((parseFloat(this.value)||0)/item.est*100),120):0;
+      var barCls = pct<80?'ok':pct<100?'warn':'over';
+      var bar = row.querySelector('.bud-bar');
+      bar.style.width=pct+'%'; bar.className='bud-bar '+barCls;
+    });
+  });
+}
+renderBudgetTable();
+calcBudget();
+
+/* ══ CHECKLIST ══ */
+var CL_DATA = [
+  {group:'📄 證件・金融',items:[
+    {id:'passport',icon:'🛂',text:'護照（有效期 >6 個月）'},
+    {id:'visa',icon:'📋',text:'確認免簽資格'},
+    {id:'insurance',icon:'🏥',text:'旅遊保險'},
+    {id:'cc',icon:'💳',text:'信用卡（海外刷卡）'},
+    {id:'cash_krw',icon:'💰',text:'韓圜現金'},
+    {id:'cash_jpy',icon:'💴',text:'日圓現金'},
+  ]},
+  {group:'🧳 行李',items:[
+    {id:'clothes',icon:'👕',text:'薄外套（22–27°C）'},
+    {id:'shoes',icon:'👟',text:'舒適走路鞋'},
+    {id:'charger',icon:'🔌',text:'充電器・行動電源'},
+    {id:'adapter',icon:'🔌',text:'轉接頭（韓日不同）'},
+    {id:'umbrella',icon:'☂️',text:'折疊傘（以防下雨）'},
+    {id:'sunscreen',icon:'🌞',text:'防曬乳'},
+  ]},
+  {group:'📱 App・訂位',items:[
+    {id:'googlemaps',icon:'🗺',text:'Google Maps 離線下載'},
+    {id:'tabelog',icon:'📖',text:'Tabelog 訂位（一藤）'},
+    {id:'navitime',icon:'🚃',text:'NaviTime 安裝'},
+    {id:'notify',icon:'✈️',text:'確認航班時刻'},
+    {id:'hotel',icon:'🏨',text:'確認訂房資訊'},
+    {id:'suica',icon:'💳',text:'Suica/iPhone 開通'},
+  ]},
+  {group:'🎒 旅行中提醒',items:[
+    {id:'jr',icon:'🚂',text:'買 JR 門司港票（博多站窗口）'},
+    {id:'booking',icon:'🫕',text:'一藤牛腸鍋訂位再確認'},
+    {id:'tax',icon:'💹',text:'大丸帶護照退稅'},
+    {id:'time',icon:'⏰',text:'天神 15:00 前離開'},
+  ]},
+];
+
+var CL_CHECKED = {};
+
+function renderChecklist(){
+  var totalCount = 0, checkedCount = 0;
+  var html = '';
+  CL_DATA.forEach(function(group){
+    html += '<div class="cl-group"><div class="cl-group-title">'+group.group+'</div><div class="cl-items">';
+    group.items.forEach(function(item){
+      totalCount++;
+      var checked = CL_CHECKED[item.id];
+      if(checked) checkedCount++;
+      html += '<div class="cl-item'+(checked?' checked':'')+'" data-id="'+item.id+'">'+
+        '<div class="cl-check">'+(checked?'✓':'')+'</div>'+
+        '<span class="cl-icon">'+item.icon+'</span>'+
+        '<span class="cl-text">'+item.text+'</span>'+
+        '</div>';
+    });
+    html += '</div></div>';
+  });
+  document.getElementById('cl-content').innerHTML = html;
+  document.getElementById('cl-badge').textContent = checkedCount+' / '+totalCount;
+  var pct = Math.round(checkedCount/totalCount*100);
+  document.getElementById('cl-pct').textContent = pct+'%';
+  document.getElementById('cl-fill').style.width = pct+'%';
+  // events
+  document.querySelectorAll('.cl-item').forEach(function(el){
+    el.addEventListener('click', function(){
+      var id = this.dataset.id;
+      CL_CHECKED[id] = !CL_CHECKED[id];
+      renderChecklist();
+    });
+  });
+}
+renderChecklist();
+document.getElementById('cl-reset').addEventListener('click',function(){
+  CL_CHECKED = {};
+  renderChecklist();
+});
+
+/* ══ SCROLL PROGRESS ══ */
+window.addEventListener('resize', function(){
+  var key = TEMP_CURRENT;
+  if(WX_DATA[key]) drawBigChart();
+  // redraw mini charts
+  if(WX_DATA.daegu) drawMiniChart('wx-dg-chart',WX_DATA.daegu.tmax,WX_DATA.daegu.tmin,'rgba(184,58,12,1)');
+  if(WX_DATA.fukuoka) drawMiniChart('wx-fk-chart',WX_DATA.fukuoka.tmax,WX_DATA.fukuoka.tmin,'rgba(21,73,184,1)');
+}, {passive:true});
+
 })();
 </script>
 </body>
