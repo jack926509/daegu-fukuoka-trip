@@ -239,6 +239,7 @@ body{
   background:var(--white);padding:18px 20px;
   border-radius:var(--radius-card);
   box-shadow:var(--shadow-card);
+  position:relative;
 }
 .wc-label{
   font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;
@@ -262,6 +263,26 @@ body{
   border-left:3px solid var(--gold);
   border-radius:0 var(--radius-sm) var(--radius-sm) 0;
   font-size:12px;color:var(--muted);line-height:1.7;
+}
+.wc-badge{
+  position:absolute;top:14px;right:14px;
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:1px;padding:2px 7px;
+  border-radius:var(--radius-pill);
+  background:rgba(40,167,74,.12);color:#28A74A;
+  text-transform:uppercase;font-weight:500;
+}
+.wc-badge.wc-badge-loading{background:rgba(134,134,139,.1);color:var(--muted);}
+.wc-badge.wc-badge-err{background:rgba(214,43,43,.1);color:var(--warn);}
+.wc-updated{font-size:10px;color:var(--muted);margin-top:8px;text-align:right;
+  font-family:'DM Mono',monospace;letter-spacing:.5px;}
+/* skeleton shimmer while loading */
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+.wc-skeleton{
+  height:56px;border-radius:var(--radius-sm);
+  background:linear-gradient(90deg,var(--sand) 25%,#F0ECE5 50%,var(--sand) 75%);
+  background-size:800px 100%;
+  animation:shimmer 1.4s infinite linear;
 }
 
 /* ═══════════════════════════════════════
@@ -870,43 +891,21 @@ footer{
 <!-- WEATHER -->
 <div style="height:28px"></div>
 <div class="weather-banner">
-  <div class="weather-city">
+  <div class="weather-city" id="wc-daegu">
+    <div class="wc-badge wc-badge-loading" id="wc-daegu-badge">載入中</div>
     <div class="wc-label">🇰🇷 大邱 · Day 1</div>
     <div class="wc-name">大邱廣域市 Daegu</div>
-    <div class="wc-days">
-      <div class="wc-day">
-        <div class="wc-date">5/16 六</div>
-        <div class="wc-icon">🌤</div>
-        <div class="wc-temp">22–27°C</div>
-        <div class="wc-sub">微風少雨</div>
-      </div>
-    </div>
+    <div class="wc-days" id="wc-daegu-days"><div class="wc-skeleton"></div></div>
     <div class="wc-tip">💡 五月大邱晴多雨少，白天微熱。建議短袖搭薄外套，備摺疊傘應對午後偶陣雨。近代文化胡同步行為主，穿舒適鞋。</div>
+    <div class="wc-updated" id="wc-daegu-updated"></div>
   </div>
-  <div class="weather-city">
+  <div class="weather-city" id="wc-fukuoka">
+    <div class="wc-badge wc-badge-loading" id="wc-fukuoka-badge">載入中</div>
     <div class="wc-label">🇯🇵 福岡 · Day 2–3</div>
     <div class="wc-name">福岡博多 Fukuoka</div>
-    <div class="wc-days">
-      <div class="wc-day">
-        <div class="wc-date">5/16 六</div>
-        <div class="wc-icon">🌙</div>
-        <div class="wc-temp">19–24°C</div>
-        <div class="wc-sub">夜間涼爽</div>
-      </div>
-      <div class="wc-day">
-        <div class="wc-date">5/17 日</div>
-        <div class="wc-icon">⛅</div>
-        <div class="wc-temp">20–25°C</div>
-        <div class="wc-sub">多雲舒適</div>
-      </div>
-      <div class="wc-day">
-        <div class="wc-date">5/18 一</div>
-        <div class="wc-icon">🌤</div>
-        <div class="wc-temp">21–26°C</div>
-        <div class="wc-sub">晴時多雲</div>
-      </div>
-    </div>
+    <div class="wc-days" id="wc-fukuoka-days"><div class="wc-skeleton"></div></div>
     <div class="wc-tip">💡 五月福岡梅雨前夕，降雨機率不高但建議帶傘。門司港海風較強，多帶一件薄外套。太宰府神社步道多，穿舒適走路鞋。</div>
+    <div class="wc-updated" id="wc-fukuoka-updated"></div>
   </div>
 </div>
 
@@ -1687,6 +1686,110 @@ footer{
       });
     }
   });
+
+  /* ─── Live Weather via Open-Meteo ────────────────────── */
+  // WMO weather code → emoji + Chinese description
+  function wmoInfo(code, rain) {
+    var icon, desc;
+    if (code === 0)                         { icon = '☀️';  desc = '晴天'; }
+    else if (code <= 2)                     { icon = '🌤';  desc = '晴時多雲'; }
+    else if (code === 3)                    { icon = '☁️';  desc = '陰天'; }
+    else if (code >= 45 && code <= 48)      { icon = '🌫';  desc = '有霧'; }
+    else if (code >= 51 && code <= 55)      { icon = '🌦';  desc = '毛毛雨'; }
+    else if (code >= 61 && code <= 65)      { icon = '🌧';  desc = '降雨'; }
+    else if (code >= 71 && code <= 77)      { icon = '❄️';  desc = '降雪'; }
+    else if (code >= 80 && code <= 82)      { icon = '🌦';  desc = '陣雨'; }
+    else if (code >= 95 && code <= 99)      { icon = '⛈';  desc = '雷雨'; }
+    else                                    { icon = '🌡';  desc = '混合天氣'; }
+    if (rain !== undefined && rain > 60)    { desc += '・高降雨'; }
+    else if (rain !== undefined && rain > 30) { desc += '・帶傘'; }
+    return { icon: icon, desc: desc };
+  }
+
+  var DAY_NAMES = ['日','一','二','三','四','五','六'];
+
+  function renderDays(containerId, badgeId, updatedId, daily, timezone) {
+    var container = document.getElementById(containerId);
+    var badge     = document.getElementById(badgeId);
+    var updEl     = document.getElementById(updatedId);
+    if (!container) return;
+
+    var html = '';
+    var len  = Math.min(daily.time.length, 3);
+    for (var i = 0; i < len; i++) {
+      var d    = new Date(daily.time[i] + 'T12:00:00');
+      var dow  = DAY_NAMES[d.getDay()];
+      var mo   = d.getMonth() + 1;
+      var dt   = d.getDate();
+      var info = wmoInfo(daily.weathercode[i], daily.precipitation_probability_max[i]);
+      var tmax = Math.round(daily.temperature_2m_max[i]);
+      var tmin = Math.round(daily.temperature_2m_min[i]);
+      html +=
+        '<div class="wc-day">' +
+          '<div class="wc-date">' + mo + '/' + dt + ' ' + dow + '</div>' +
+          '<div class="wc-icon">' + info.icon + '</div>' +
+          '<div class="wc-temp">' + tmin + '–' + tmax + '°C</div>' +
+          '<div class="wc-sub">' + info.desc + '</div>' +
+        '</div>';
+    }
+    container.innerHTML = html;
+
+    if (badge) {
+      badge.textContent = '即時天氣';
+      badge.className   = 'wc-badge';
+    }
+    if (updEl) {
+      var now = new Date();
+      updEl.textContent = '更新：' + (now.getMonth()+1) + '/' + now.getDate() + ' ' +
+        String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+    }
+  }
+
+  function weatherError(containerId, badgeId) {
+    var container = document.getElementById(containerId);
+    var badge     = document.getElementById(badgeId);
+    if (!container) return;
+    // Fallback static data
+    var statics = {
+      'wc-daegu-days': [
+        { date:'5/16 六', icon:'🌤', temp:'22–27°C', sub:'微風少雨' }
+      ],
+      'wc-fukuoka-days': [
+        { date:'5/16 六', icon:'🌙', temp:'19–24°C', sub:'夜間涼爽' },
+        { date:'5/17 日', icon:'⛅', temp:'20–25°C', sub:'多雲舒適' },
+        { date:'5/18 一', icon:'🌤', temp:'21–26°C', sub:'晴時多雲' }
+      ]
+    };
+    var fallback = statics[containerId] || [];
+    var html = '';
+    fallback.forEach(function(d) {
+      html += '<div class="wc-day">' +
+        '<div class="wc-date">' + d.date + '</div>' +
+        '<div class="wc-icon">' + d.icon + '</div>' +
+        '<div class="wc-temp">' + d.temp + '</div>' +
+        '<div class="wc-sub">' + d.sub + '</div>' +
+        '</div>';
+    });
+    container.innerHTML = html || '<div class="wc-day" style="flex:1"><div class="wc-icon">🌡</div><div class="wc-sub">資料暫不可用</div></div>';
+    if (badge) { badge.textContent = '歷史參考'; badge.className = 'wc-badge wc-badge-err'; }
+  }
+
+  function fetchWeather(lat, lon, containerId, badgeId, updatedId, tzId) {
+    var tz  = encodeURIComponent(tzId);
+    var url = 'https://api.open-meteo.com/v1/forecast' +
+      '?latitude=' + lat + '&longitude=' + lon +
+      '&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_probability_max' +
+      '&forecast_days=3&timezone=' + tz;
+
+    fetch(url)
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function(data) { renderDays(containerId, badgeId, updatedId, data.daily, tzId); })
+      .catch(function()   { weatherError(containerId, badgeId); });
+  }
+
+  // Daegu: 35.8714, 128.6014  |  Fukuoka: 33.5904, 130.4017
+  fetchWeather(35.8714, 128.6014, 'wc-daegu-days',   'wc-daegu-badge',   'wc-daegu-updated',   'Asia/Seoul');
+  fetchWeather(33.5904, 130.4017, 'wc-fukuoka-days', 'wc-fukuoka-badge', 'wc-fukuoka-updated', 'Asia/Tokyo');
 
   /* ─── Event type filter bar ───────────────────────────── */
   var allEvents   = document.querySelectorAll('.event');
