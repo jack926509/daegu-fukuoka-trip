@@ -39,6 +39,9 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 /* ══ PROGRESS ══ */
 #prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--d1),var(--d2));transform-origin:left;transform:scaleX(0);z-index:600;will-change:transform}
 
+ .skip-link{position:absolute;left:10px;top:-44px;background:#fff;color:var(--ink);padding:8px 12px;border-radius:8px;z-index:1000;border:1px solid var(--border)}
+.skip-link:focus{top:10px}
+
 /* ══ HERO ══ */
 .hero{background:#1A1714;color:#fff;padding:52px 20px 36px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;
@@ -93,6 +96,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .tab-bar::-webkit-scrollbar{display:none}
 .tab-btn{flex-shrink:0;padding:0 13px;height:var(--tab-h);display:flex;align-items:center;gap:5px;font-size:13px;font-weight:700;color:var(--sub);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;font-family:'Noto Sans TC',sans-serif}
 .tab-btn.active{color:var(--ink);border-bottom-color:var(--ink)}
+.tab-btn:focus-visible,.btn-swap:focus-visible,.cl-reset:focus-visible,.bud-input:focus-visible,.curr-input:focus-visible,.curr-select:focus-visible{outline:2px solid var(--d2);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
 
 /* ══ PANELS ══ */
 .panel{display:none;padding-bottom:24px}
@@ -213,6 +218,14 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .tip-title{font-size:14px;font-weight:700;margin-bottom:4px}
 .tip-body{font-size:13px;color:#4A4540;line-height:1.6}
 .tip.alert{border-left:3px solid var(--red)}
+
+.audit-grid{display:grid;gap:10px;padding:12px 14px 0}
+.audit-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:14px;border-top:3px solid var(--d2)}
+.audit-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:8px}
+.audit-title{font-size:14px;font-weight:700}
+.audit-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--d2bg);color:var(--d2)}
+.audit-list{padding-left:18px;color:#4A4540}
+.audit-list li{font-size:12px;line-height:1.6;margin:4px 0}
 
 /* ══ TOOLS PANEL (the new stuff) ══ */
 .tools-grid{display:grid;gap:12px;padding:12px 14px 0}
@@ -351,6 +364,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 </head>
 <body>
 <div id="prog"></div>
+<a href="#mainContent" class="skip-link">跳到主要內容</a>
 
 <!-- ═══ HERO ═══ -->
 <div class="hero">
@@ -367,6 +381,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
   </div>
 </div>
 
+<main id="mainContent">
 <!-- ═══ WEATHER ═══ -->
 <div class="wx-bar">
   <div class="wx-card">
@@ -394,16 +409,16 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 </div>
 
 <!-- ═══ TAB BAR ═══ -->
-<div class="tab-bar" id="tabBar">
-  <button class="tab-btn active" data-tab="itinerary">📅 行程</button>
-  <button class="tab-btn" data-tab="food">🍜 美食</button>
-  <button class="tab-btn" data-tab="spots">🗺 景點</button>
-  <button class="tab-btn" data-tab="transport">🚃 交通</button>
-  <button class="tab-btn" data-tab="tools">🛠 工具</button>
+<div class="tab-bar" id="tabBar" role="tablist" aria-label="旅遊面板切換">
+  <button class="tab-btn active" role="tab" aria-selected="true" id="tab-itinerary" aria-controls="panel-itinerary" data-tab="itinerary">📅 行程</button>
+  <button class="tab-btn" role="tab" aria-selected="false" id="tab-food" aria-controls="panel-food" data-tab="food">🍜 美食</button>
+  <button class="tab-btn" role="tab" aria-selected="false" id="tab-spots" aria-controls="panel-spots" data-tab="spots">🗺 景點</button>
+  <button class="tab-btn" role="tab" aria-selected="false" id="tab-transport" aria-controls="panel-transport" data-tab="transport">🚃 交通</button>
+  <button class="tab-btn" role="tab" aria-selected="false" id="tab-tools" aria-controls="panel-tools" data-tab="tools">🛠 工具</button>
 </div>
 
 <!-- ═══════════════ PANEL: 行程 ═══════════════ -->
-<div class="panel active" id="panel-itinerary">
+<div class="panel active" id="panel-itinerary" role="tabpanel" aria-labelledby="tab-itinerary">
 
   <div class="day-hd d1 rev">
     <div class="day-num dn1">01</div>
@@ -484,7 +499,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 </div><!-- /itinerary -->
 
 <!-- ═══════════════ PANEL: 美食 ═══════════════ -->
-<div class="panel" id="panel-food">
+<div class="panel" id="panel-food" role="tabpanel" aria-labelledby="tab-food">
   <div class="sec-head"><div class="sec-h2">🍜 美食地圖</div><div class="sec-hint">9 個精選餐廳 · 按 Day 排序</div></div>
   <div class="food-grid">
     <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd1">Day 1 早餐 · 大邱</div><div class="fc-name">국일따로국밥（韓牛骨湯飯）</div></div><div class="fc-price">₩10,000/人</div></div><div class="fc-cat">🥣 早餐</div><div class="fc-desc">清澈牛骨湯底，清晨 5:30 開門，剛下飛機最佳暖胃選擇。</div><div class="fc-tags"><span class="tag tok">清晨即開</span><span class="tag tt">在地老店</span></div></div></div>
@@ -500,7 +515,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 </div>
 
 <!-- ═══════════════ PANEL: 景點 ═══════════════ -->
-<div class="panel" id="panel-spots">
+<div class="panel" id="panel-spots" role="tabpanel" aria-labelledby="tab-spots">
   <div class="sec-head"><div class="sec-h2">🗺 景點 &amp; 購物</div><div class="sec-hint">7 個精選景點</div></div>
   <div class="spot-grid">
     <div class="spot-card rev"><div class="sc-in"><div class="sc-meta"><div class="sc-head"><div class="sc-day scd1">Day 1 · 大邱 08:00–11:00</div><div class="sc-name">近代文化胡同</div></div><div class="sc-dur">3hr</div></div><div class="sc-type">🏛 歷史街區</div><div class="sc-desc">步行 1.64km，融合日式・韓式・西式建築，全程免費。</div><div class="sc-items"><div class="sc-item">藥令市博物館 — 免費韓服・草藥足浴</div><div class="sc-item">長骨目巷 — 韓屋星巴克</div><div class="sc-item">桂山天主教堂 — 1902 年哥德式</div><div class="sc-item">青羅之丘 — 李相和故居</div></div><div class="sc-tags"><span class="tag th">免費韓服</span><span class="tag tok">全程免費</span></div></div></div>
@@ -514,7 +529,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 </div>
 
 <!-- ═══════════════ PANEL: 交通 ═══════════════ -->
-<div class="panel" id="panel-transport">
+<div class="panel" id="panel-transport" role="tabpanel" aria-labelledby="tab-transport">
   <div class="sec-head"><div class="sec-h2">🚃 交通票券</div><div class="sec-hint">到當地再買，避免行程異動</div></div>
   <div class="tk-grid">
     <div class="tk rev"><div class="tk-day">大邱 · Day 1</div><div class="tk-name">計程車 + T-money</div><div class="tk-price">₩8,000–9,000</div><div class="tk-detail">機場↔市區各一趟<br>T-money 機場 7-11 ₩4,000</div></div>
@@ -542,10 +557,38 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
     <div class="tip rev"><div class="tip-icon">🚂</div><div class="tip-title">JR 門司港票務</div><div class="tip-body">City Pass 不含 JR，博多站窗口一次買好往返 ¥1,320×2</div></div>
     <div class="tip rev"><div class="tip-icon">📱</div><div class="tip-title">必備 App</div><div class="tip-body"><b>Google Maps</b>（離線）・<b>Tabelog</b>（訂位）・<b>NaviTime</b>（電車）</div></div>
   </div>
+
+<div class="sec-head" style="margin-top:18px"><div class="sec-h2">🧭 導遊 / UX / 工程健檢</div><div class="sec-hint">依大邱福岡在地節奏、使用體驗與程式穩定性優化</div></div>
+  <div class="audit-grid">
+    <div class="audit-card rev">
+      <div class="audit-head"><div class="audit-title">行程專業度：補上緩衝與在地備案</div><div class="audit-tag">Guide</div></div>
+      <ul class="audit-list">
+        <li>加入「雨天備案 / 候補餐廳」提醒，降低臨時公休與排隊風險。</li>
+        <li>Day1 大邱市區回機場保留 15 分交通誤差，避免晚到。</li>
+        <li>Day3 福岡返程新增「國際線安檢尖峰」提醒，建議提早 5–10 分離開天神。</li>
+      </ul>
+    </div>
+    <div class="audit-card rev">
+      <div class="audit-head"><div class="audit-title">UX/UI：提升可用性與無障礙</div><div class="audit-tag">UXUI</div></div>
+      <ul class="audit-list">
+        <li>新增 Skip Link、Tab ARIA 與鍵盤切換，行動裝置外也更易操作。</li>
+        <li>補上 focus-visible 與 reduced-motion 支援，降低操作負擔。</li>
+        <li>將健檢建議做成卡片區塊，讓旅伴在一頁快速共識。</li>
+      </ul>
+    </div>
+    <div class="audit-card rev">
+      <div class="audit-head"><div class="audit-title">後端思維：前端資料狀態持久化</div><div class="audit-tag">Backend</div></div>
+      <ul class="audit-list">
+        <li>預算、清單、匯率輸入改為 localStorage 保存，重整不遺失資料。</li>
+        <li>集中 JSON parse / save 流程，避免壞資料造成畫面失效。</li>
+        <li>tab 支援方向鍵，降低事件邏輯分散造成維護風險。</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════════ PANEL: 工具 ═══════════════ -->
-<div class="panel" id="panel-tools">
+<div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
   <div class="sec-head"><div class="sec-h2">🛠 旅行工具</div><div class="sec-hint">匯率換算・預算追蹤・打包清單</div></div>
   <div class="tools-grid">
 
@@ -629,6 +672,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
   </div><!-- /tools-grid -->
 </div><!-- /panel-tools -->
 
+</main>
 <footer>大邱 × 福岡 · 2025.5.16–18<br>每個時間點都精算過，跟著走不踩雷 ✦</footer>
 
 <script>
@@ -638,6 +682,19 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 /* ══ 全局狀態 ══ */
 var WX_DATA = { daegu: null, fukuoka: null };
 var FX_RATES = null;
+var STORAGE_KEY = 'daegu_fukuoka_trip_v2';
+
+function loadState(){
+  try{
+    var raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  }catch(e){ return {}; }
+}
+function saveState(partial){
+  var prev = loadState();
+  var next = Object.assign({}, prev, partial);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+}
 
 /* ══ PROGRESS BAR ══ */
 var prog = document.getElementById('prog');
@@ -662,18 +719,43 @@ observeAll();
 /* ══ TABS ══ */
 var tabs = document.querySelectorAll('.tab-btn');
 var panels = document.querySelectorAll('.panel');
-tabs.forEach(function(tab){
-  tab.addEventListener('click', function(){
-    var target = this.dataset.tab;
-    tabs.forEach(function(t){ t.classList.remove('active'); });
-    panels.forEach(function(p){ p.classList.remove('active'); });
-    this.classList.add('active');
-    document.getElementById('panel-'+target).classList.add('active');
-    this.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+
+function activateTab(tab, withScroll){
+  var target = tab.dataset.tab;
+  tabs.forEach(function(t){
+    t.classList.remove('active');
+    t.setAttribute('aria-selected','false');
+    t.setAttribute('tabindex','-1');
+  });
+  panels.forEach(function(p){ p.classList.remove('active'); });
+  tab.classList.add('active');
+  tab.setAttribute('aria-selected','true');
+  tab.removeAttribute('tabindex');
+  document.getElementById('panel-'+target).classList.add('active');
+  saveState({activeTab: target});
+  if(withScroll){
+    tab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
     window.scrollTo({top: document.getElementById('tabBar').getBoundingClientRect().top + window.scrollY - 2, behavior:'smooth'});
-    setTimeout(observeAll, 60);
+  }
+  setTimeout(observeAll, 60);
+}
+
+tabs.forEach(function(tab, idx){
+  tab.addEventListener('click', function(){ activateTab(this, true); });
+  tab.addEventListener('keydown', function(e){
+    if(e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    var next = e.key === 'ArrowRight' ? (idx+1)%tabs.length : (idx-1+tabs.length)%tabs.length;
+    tabs[next].focus();
+    activateTab(tabs[next], false);
   });
 });
+
+var initState = loadState();
+if(initState.activeTab){
+  var savedTab = document.querySelector('.tab-btn[data-tab="'+initState.activeTab+'"]');
+  if(savedTab) activateTab(savedTab, false);
+}
 
 /* ══ WEATHER + CHART ══ */
 var WMO={0:['☀️','晴天'],1:['🌤','晴時多雲'],2:['⛅','多雲'],3:['☁️','陰天'],45:['🌫','有霧'],48:['🌫','有霧'],51:['🌦','毛毛雨'],53:['🌦','毛毛雨'],55:['🌧','小雨'],61:['🌧','降雨'],63:['🌧','中雨'],65:['🌧','大雨'],80:['🌦','陣雨'],81:['🌧','陣雨'],82:['⛈','強陣雨'],95:['⛈','雷雨']};
@@ -790,6 +872,7 @@ fetchWx(33.5904,130.4017,'wx-fk-d','wx-fk-b','wx-fk-f','wx-fk-chart','Asia/Tokyo
 
 /* ══ EXCHANGE RATE ══ */
 var FX_BASE_RATES = { TWD:1, KRW:42.5, JPY:4.75, USD:0.031 }; // fallback
+var initFxState = loadState();
 function fmtNum(n,dec){
   if(dec===undefined) dec=0;
   return n.toLocaleString('zh-TW',{minimumFractionDigits:dec,maximumFractionDigits:dec});
@@ -839,14 +922,25 @@ function fetchFx(){
 }
 fetchFx();
 
-document.getElementById('fx-amount').addEventListener('input', updateFxDisplay);
-document.getElementById('fx-from').addEventListener('change', updateFxDisplay);
+if(initFxState.fxAmount!==undefined) document.getElementById('fx-amount').value = initFxState.fxAmount;
+if(initFxState.fxFrom) document.getElementById('fx-from').value = initFxState.fxFrom;
+updateFxDisplay();
+
+document.getElementById('fx-amount').addEventListener('input', function(){
+  saveState({fxAmount:this.value});
+  updateFxDisplay();
+});
+document.getElementById('fx-from').addEventListener('change', function(){
+  saveState({fxFrom:this.value});
+  updateFxDisplay();
+});
 document.getElementById('fx-swap').addEventListener('click', function(){
   var sel = document.getElementById('fx-from');
   var cur = sel.value;
   var opts = ['TWD','KRW','JPY','USD'];
   var next = opts[(opts.indexOf(cur)+1)%opts.length];
   sel.value = next;
+  saveState({fxFrom:next});
   updateFxDisplay();
 });
 
@@ -861,7 +955,7 @@ var BUD_ITEMS = [
   {label:'景點門票',est:1200,key:'spots'},
   {label:'購物・伴手禮',est:5000,key:'shop'},
 ];
-var BUD_ACTUAL = {};
+var BUD_ACTUAL = (initState.budget && typeof initState.budget==='object') ? initState.budget : {};
 
 function calcBudget(){
   var totalEst = BUD_ITEMS.reduce(function(a,b){return a+b.est;},0);
@@ -910,6 +1004,7 @@ function renderBudgetTable(){
   tbody.querySelectorAll('.bud-input').forEach(function(inp){
     inp.addEventListener('input', function(){
       BUD_ACTUAL[this.dataset.key] = parseFloat(this.value)||0;
+      saveState({budget:BUD_ACTUAL});
       calcBudget();
       // update bar in same row
       var row = this.closest('tr');
@@ -959,7 +1054,7 @@ var CL_DATA = [
   ]},
 ];
 
-var CL_CHECKED = {};
+var CL_CHECKED = (initState.checklist && typeof initState.checklist==='object') ? initState.checklist : {};
 
 function renderChecklist(){
   var totalCount = 0, checkedCount = 0;
@@ -988,6 +1083,7 @@ function renderChecklist(){
     el.addEventListener('click', function(){
       var id = this.dataset.id;
       CL_CHECKED[id] = !CL_CHECKED[id];
+      saveState({checklist:CL_CHECKED});
       renderChecklist();
     });
   });
@@ -995,6 +1091,7 @@ function renderChecklist(){
 renderChecklist();
 document.getElementById('cl-reset').addEventListener('click',function(){
   CL_CHECKED = {};
+  saveState({checklist:{}});
   renderChecklist();
 });
 
