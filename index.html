@@ -36,13 +36,11 @@
 html{font-size:16px;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--tab-h) + var(--safe-b) + 20px)}
 
-/* ══ PROGRESS ══ */
 #prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--d1),var(--d2));transform-origin:left;transform:scaleX(0);z-index:600;will-change:transform}
 
  .skip-link{position:absolute;left:10px;top:-44px;background:#fff;color:var(--ink);padding:8px 12px;border-radius:8px;z-index:1000;border:1px solid var(--border)}
 .skip-link:focus{top:10px}
 
-/* ══ HERO ══ */
 .hero{background:#1A1714;color:#fff;padding:52px 20px 36px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;
   background:
@@ -63,9 +61,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:5px 12px;font-size:12px;color:rgba(255,255,255,.86)}
 .chip b{color:#FFD47A}
 
-
-
-/* ══ WEATHER ══ */
 .wx-bar{display:flex;flex-direction:column;gap:8px;padding:14px 14px 0}
 .wx-card{
   background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);
@@ -85,13 +80,12 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .wx-di{font-size:18px;margin-bottom:1px;line-height:1.2}
 .wx-dt{font-size:11px;font-weight:700}
 .wx-ds{font-size:9px;color:var(--sub)}
-/* canvas mini chart */
+
 .wx-chart{width:100%;height:28px;margin-top:6px;display:block}
 .wx-foot{font-size:9px;color:var(--sub);text-align:right;margin-top:3px}
 @keyframes shimmer{from{background-position:-200px 0}to{background-position:200px 0}}
 .wx-skel{height:44px;border-radius:6px;background:linear-gradient(90deg,#EDE8E2 25%,#E4DED6 50%,#EDE8E2 75%);background-size:400px;animation:shimmer 1.2s infinite}
 
-/* ══ TAB BAR ══ */
 .tab-bar{position:sticky;top:0;z-index:200;background:rgba(247,244,239,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px}
 .tab-bar::-webkit-scrollbar{display:none}
 .tab-btn{flex-shrink:0;padding:0 13px;height:var(--tab-h);display:flex;align-items:center;gap:5px;font-size:13px;font-weight:700;color:var(--sub);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;font-family:'Noto Sans TC',sans-serif}
@@ -99,14 +93,12 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .tab-btn:focus-visible,.btn-swap:focus-visible,.cl-reset:focus-visible,.bud-input:focus-visible,.curr-input:focus-visible,.curr-select:focus-visible{outline:2px solid var(--d2);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
 
-/* ══ PANELS ══ */
 .panel{display:none;padding-bottom:24px}
 .panel.active{display:block}
 .sec-head{padding:20px 14px 0}
 .sec-h2{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:900;margin-bottom:2px}
 .sec-hint{font-size:12px;color:var(--sub)}
 
-/* ══ ITINERARY ══ */
 .day-hd{margin:18px 14px 0;padding:12px 14px;border-radius:var(--r);display:flex;align-items:center;gap:12px}
 .day-hd.d1{background:var(--d1bg);border-left:4px solid var(--d1)}
 .day-hd.d2{background:var(--d2bg);border-left:4px solid var(--d2)}
@@ -160,7 +152,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .ddl{flex:1;height:1px;background:var(--border)}
 .ddlabel{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--sub)}
 
-/* ══ FOOD CARDS ══ */
 .food-grid{display:grid;gap:10px;padding:12px 14px 0}
 .food-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden;border-top:3px solid var(--food)}
 .fc-in{padding:14px}
@@ -174,7 +165,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .fc-desc{font-size:13px;color:#4A4540;line-height:1.6}
 .fc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
 
-/* ══ SPOT CARDS ══ */
 .spot-grid{display:grid;gap:10px;padding:12px 14px 0}
 .spot-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden;border-top:3px solid var(--spot)}
 .sc-in{padding:14px}
@@ -191,7 +181,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .sc-item::before{content:'→ ';color:var(--spot);font-weight:700}
 .sc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
 
-/* ══ TRANSPORT ══ */
 .tk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 14px 0}
 @media(max-width:380px){.tk-grid{grid-template-columns:1fr}}
 .tk{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:14px}
@@ -227,10 +216,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .audit-list{padding-left:18px;color:#4A4540}
 .audit-list li{font-size:12px;line-height:1.6;margin:4px 0}
 
-/* ══ TOOLS PANEL (the new stuff) ══ */
 .tools-grid{display:grid;gap:12px;padding:12px 14px 0}
 
-/* -- Currency Converter -- */
 .tool-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
 .tool-head{padding:12px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
 .tool-icon{font-size:20px}
@@ -238,7 +225,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .tool-badge{margin-left:auto;font-size:10px;padding:3px 9px;border-radius:100px;background:var(--d3bg);color:var(--d3);font-weight:700}
 .tool-body{padding:14px 16px}
 
-/* currency */
 .curr-input-row{display:flex;gap:8px;align-items:center;margin-bottom:12px}
 .curr-input{
   flex:1;padding:10px 12px;border:1.5px solid var(--border);border-radius:var(--rs);
@@ -266,7 +252,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 }
 .btn-swap:active{background:var(--d2);color:#fff}
 
-/* budget tracker */
 .budget-table{width:100%;border-collapse:collapse}
 .budget-table th{font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--sub);padding:4px 8px 8px;text-align:left;border-bottom:2px solid var(--border)}
 .budget-table td{padding:8px;border-bottom:1px solid var(--border);vertical-align:middle;font-size:13px}
@@ -292,7 +277,6 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .bud-sum-val{font-size:16px;font-weight:900;font-family:'DM Mono',monospace}
 .bud-sum-val.green{color:var(--d3)}.bud-sum-val.red{color:var(--red)}.bud-sum-val.yellow{color:#D97706}
 
-/* checklist */
 .cl-group{margin-bottom:14px}
 .cl-group-title{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--sub);margin-bottom:8px;padding:0 2px}
 .cl-items{display:grid;grid-template-columns:1fr 1fr;gap:6px}
@@ -325,14 +309,11 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 }
 .cl-reset:active{background:var(--border)}
 
-/* temperature chart card */
 .temp-chart-wrap{padding:0}
 canvas.temp-canvas{display:block;width:100%;height:120px}
 
-/* budget donut */
 canvas.donut-canvas{display:block}
 
-/* ══ BUDGET PANEL ══ */
 .budget-wrap{padding:12px 14px 0}
 .budget{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden}
 .bud-header{background:var(--ink);color:#fff;padding:13px 16px}
@@ -347,18 +328,15 @@ canvas.donut-canvas{display:block}
 .bi-total .bi-label{color:var(--d1);font-weight:700}
 .bi-total .bi-val{font-size:16px;color:var(--d1)}
 
-/* ══ REVEAL ══ */
 .rev{opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s}
 .rev.vis{opacity:1;transform:none}
 
-/* ══ STAGGER ══ */
 .rev:nth-child(1){transition-delay:.02s}
 .rev:nth-child(2){transition-delay:.05s}
 .rev:nth-child(3){transition-delay:.08s}
 .rev:nth-child(4){transition-delay:.11s}
 .rev:nth-child(5){transition-delay:.14s}
 
-/* ══ FOOTER ══ */
 footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);line-height:2}
 </style>
 </head>
@@ -366,7 +344,6 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 <div id="prog"></div>
 <a href="#mainContent" class="skip-link">跳到主要內容</a>
 
-<!-- ═══ HERO ═══ -->
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-tag">✦ 2025 · 私房三天兩夜</div>
@@ -382,7 +359,6 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 </div>
 
 <main id="mainContent">
-<!-- ═══ WEATHER ═══ -->
 <div class="wx-bar">
   <div class="wx-card">
     <div class="wx-left">
@@ -408,7 +384,6 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
   </div>
 </div>
 
-<!-- ═══ TAB BAR ═══ -->
 <div class="tab-bar" id="tabBar" role="tablist" aria-label="旅遊面板切換">
   <button class="tab-btn active" role="tab" aria-selected="true" id="tab-itinerary" aria-controls="panel-itinerary" data-tab="itinerary">📅 行程</button>
   <button class="tab-btn" role="tab" aria-selected="false" id="tab-food" aria-controls="panel-food" data-tab="food">🍜 美食</button>
@@ -417,7 +392,6 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
   <button class="tab-btn" role="tab" aria-selected="false" id="tab-tools" aria-controls="panel-tools" data-tab="tools">🛠 工具</button>
 </div>
 
-<!-- ═══════════════ PANEL: 行程 ═══════════════ -->
 <div class="panel active" id="panel-itinerary" role="tabpanel" aria-labelledby="tab-itinerary">
 
   <div class="day-hd d1 rev">
@@ -496,9 +470,8 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
     <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">15:00</div><div class="ev-body"><div class="ev-type et-t">✈ 出境</div><div class="ev-title">前往福岡機場</div><div class="ev-desc">地鐵 <b>¥260 · 11 分</b>，到國內線再接駁 5 分至國際線</div><div class="ev-tags"><span class="tag tw">⚠️ 最晚 15:00 離開天神</span></div></div></div></div></div>
     <div class="flight-banner">福岡 FUK 16:20 起飛 → 台北 TPE 17:50 抵達（約 1.5 小時）</div>
   </div>
-</div><!-- /itinerary -->
+</div>
 
-<!-- ═══════════════ PANEL: 美食 ═══════════════ -->
 <div class="panel" id="panel-food" role="tabpanel" aria-labelledby="tab-food">
   <div class="sec-head"><div class="sec-h2">🍜 美食地圖</div><div class="sec-hint">9 個精選餐廳 · 按 Day 排序</div></div>
   <div class="food-grid">
@@ -514,7 +487,6 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
   </div>
 </div>
 
-<!-- ═══════════════ PANEL: 景點 ═══════════════ -->
 <div class="panel" id="panel-spots" role="tabpanel" aria-labelledby="tab-spots">
   <div class="sec-head"><div class="sec-h2">🗺 景點 &amp; 購物</div><div class="sec-hint">7 個精選景點</div></div>
   <div class="spot-grid">
@@ -528,7 +500,6 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
   </div>
 </div>
 
-<!-- ═══════════════ PANEL: 交通 ═══════════════ -->
 <div class="panel" id="panel-transport" role="tabpanel" aria-labelledby="tab-transport">
   <div class="sec-head"><div class="sec-h2">🚃 交通票券</div><div class="sec-hint">到當地再買，避免行程異動</div></div>
   <div class="tk-grid">
@@ -587,12 +558,11 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
   </div>
 </div>
 
-<!-- ═══════════════ PANEL: 工具 ═══════════════ -->
 <div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
   <div class="sec-head"><div class="sec-h2">🛠 旅行工具</div><div class="sec-hint">匯率換算・預算追蹤・打包清單</div></div>
   <div class="tools-grid">
 
-    <!-- ── 匯率換算器 ── -->
+    
     <div class="tool-card rev">
       <div class="tool-head">
         <div class="tool-icon">💱</div>
@@ -621,7 +591,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
       </div>
     </div>
 
-    <!-- ── 預算追蹤器 ── -->
+    
     <div class="tool-card rev">
       <div class="tool-head">
         <div class="tool-icon">📊</div>
@@ -652,7 +622,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
       </div>
     </div>
 
-    <!-- ── 打包清單 ── -->
+    
     <div class="tool-card rev">
       <div class="tool-head">
         <div class="tool-icon">🎒</div>
@@ -667,10 +637,8 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
       </div>
     </div>
 
-
-
-  </div><!-- /tools-grid -->
-</div><!-- /panel-tools -->
+  </div>
+</div>
 
 </main>
 <footer>大邱 × 福岡 · 2025.5.16–18<br>每個時間點都精算過，跟著走不踩雷 ✦</footer>
@@ -679,7 +647,6 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 (function(){
 'use strict';
 
-/* ══ 全局狀態 ══ */
 var WX_DATA = { daegu: null, fukuoka: null };
 var FX_RATES = null;
 var STORAGE_KEY = 'daegu_fukuoka_trip_v2';
@@ -690,24 +657,33 @@ function loadState(){
     return raw ? JSON.parse(raw) : {};
   }catch(e){ return {}; }
 }
+
 function saveState(partial){
   var prev = loadState();
   var next = Object.assign({}, prev, partial);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
 }
 
-/* ══ PROGRESS BAR ══ */
 var prog = document.getElementById('prog');
+var progTicking = false;
 function updProg(){
+  if(!prog) return;
   var h = document.documentElement.scrollHeight - window.innerHeight;
   prog.style.transform = h>0 ? 'scaleX('+(window.scrollY/h)+')' : 'scaleX(0)';
 }
-window.addEventListener('scroll', updProg, {passive:true});
+function reqUpdProg(){
+  if(progTicking) return;
+  progTicking = true;
+  requestAnimationFrame(function(){
+    updProg();
+    progTicking = false;
+  });
+}
+window.addEventListener('scroll', reqUpdProg, {passive:true});
 updProg();
 
 function pad(n){ return String(n).padStart(2,'0'); }
 
-/* ══ REVEAL ══ */
 var io = new IntersectionObserver(function(entries){
   entries.forEach(function(e){
     if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); }
@@ -716,7 +692,6 @@ var io = new IntersectionObserver(function(entries){
 function observeAll(){ document.querySelectorAll('.rev:not(.vis)').forEach(function(el){ io.observe(el); }); }
 observeAll();
 
-/* ══ TABS ══ */
 var tabs = document.querySelectorAll('.tab-btn');
 var panels = document.querySelectorAll('.panel');
 
@@ -757,10 +732,7 @@ if(initState.activeTab){
   if(savedTab) activateTab(savedTab, false);
 }
 
-/* ══ WEATHER + CHART ══ */
 var WMO={0:['☀️','晴天'],1:['🌤','晴時多雲'],2:['⛅','多雲'],3:['☁️','陰天'],45:['🌫','有霧'],48:['🌫','有霧'],51:['🌦','毛毛雨'],53:['🌦','毛毛雨'],55:['🌧','小雨'],61:['🌧','降雨'],63:['🌧','中雨'],65:['🌧','大雨'],80:['🌦','陣雨'],81:['🌧','陣雨'],82:['⛈','強陣雨'],95:['⛈','雷雨']};
-var DOW=['日','一','二','三','四','五','六'];
-
 function drawMiniChart(canvasId, tmaxArr, tminArr, color){
   var canvas = document.getElementById(canvasId);
   if(!canvas) return;
@@ -870,9 +842,8 @@ function fetchWx(lat,lon,daysId,badgeId,ftId,chartId,tz,fallback,key){
 fetchWx(35.8714,128.6014,'wx-dg-d','wx-dg-b','wx-dg-f','wx-dg-chart','Asia/Seoul',[{d:'5/16',i:'🌤',t:'22–27°',s:'微風'},{d:'5/17',i:'⛅',t:'21–26°',s:'多雲'},{d:'5/18',i:'🌤',t:'22–27°',s:'晴'}],'daegu');
 fetchWx(33.5904,130.4017,'wx-fk-d','wx-fk-b','wx-fk-f','wx-fk-chart','Asia/Tokyo',[{d:'5/16',i:'🌙',t:'19–24°',s:'夜涼'},{d:'5/17',i:'⛅',t:'20–25°',s:'多雲'},{d:'5/18',i:'🌤',t:'21–26°',s:'晴'}],'fukuoka');
 
-/* ══ EXCHANGE RATE ══ */
 var FX_BASE_RATES = { TWD:1, KRW:42.5, JPY:4.75, USD:0.031 }; // fallback
-var initFxState = loadState();
+var initFxState = initState;
 function fmtNum(n,dec){
   if(dec===undefined) dec=0;
   return n.toLocaleString('zh-TW',{minimumFractionDigits:dec,maximumFractionDigits:dec});
@@ -891,7 +862,6 @@ function updateFxDisplay(){
   document.getElementById('fx-usd').textContent = fmtNum(usd,2);
   document.getElementById('fx-twd').textContent = fmtNum(twd,1);
   // rate line
-  var r1twd = rates.TWD / rates[from];
   var rKrw = rates.KRW / rates[from];
   var rJpy = rates.JPY / rates[from];
   document.getElementById('fx-rate').textContent =
@@ -944,7 +914,6 @@ document.getElementById('fx-swap').addEventListener('click', function(){
   updateFxDisplay();
 });
 
-/* ══ BUDGET TRACKER ══ */
 var BUD_ITEMS = [
   {label:'機場交通',est:1800,key:'transport'},
   {label:'JR 門司港往返(2人)',est:5280,key:'jr'},
@@ -1020,7 +989,6 @@ function renderBudgetTable(){
 renderBudgetTable();
 calcBudget();
 
-/* ══ CHECKLIST ══ */
 var CL_DATA = [
   {group:'📄 證件・金融',items:[
     {id:'passport',icon:'🛂',text:'護照（有效期 >6 個月）'},
@@ -1078,16 +1046,20 @@ function renderChecklist(){
   var pct = Math.round(checkedCount/totalCount*100);
   document.getElementById('cl-pct').textContent = pct+'%';
   document.getElementById('cl-fill').style.width = pct+'%';
-  // events
-  document.querySelectorAll('.cl-item').forEach(function(el){
-    el.addEventListener('click', function(){
-      var id = this.dataset.id;
-      CL_CHECKED[id] = !CL_CHECKED[id];
-      saveState({checklist:CL_CHECKED});
-      renderChecklist();
-    });
+}
+
+var clContent = document.getElementById('cl-content');
+if(clContent){
+  clContent.addEventListener('click', function(e){
+    var item = e.target.closest('.cl-item');
+    if(!item) return;
+    var id = item.dataset.id;
+    CL_CHECKED[id] = !CL_CHECKED[id];
+    saveState({checklist:CL_CHECKED});
+    renderChecklist();
   });
 }
+
 renderChecklist();
 document.getElementById('cl-reset').addEventListener('click',function(){
   CL_CHECKED = {};
@@ -1095,7 +1067,6 @@ document.getElementById('cl-reset').addEventListener('click',function(){
   renderChecklist();
 });
 
-/* ══ SCROLL PROGRESS ══ */
 window.addEventListener('resize', function(){
   if(WX_DATA.daegu) drawMiniChart('wx-dg-chart',WX_DATA.daegu.tmax,WX_DATA.daegu.tmin,'rgba(184,58,12,1)');
   if(WX_DATA.fukuoka) drawMiniChart('wx-fk-chart',WX_DATA.fukuoka.tmax,WX_DATA.fukuoka.tmin,'rgba(21,73,184,1)');
