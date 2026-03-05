@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>大邱 × 福岡 2025.5.16–18</title>
+<meta name="description" content="大邱×福岡私房三天兩夜行程，路線・美食・交通全規劃好了。">
+<meta name="theme-color" content="#1A1714">
+<title>大邱 × 福岡 2025.5.16–18 私房三天兩夜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.open-meteo.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -81,7 +86,13 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .wx-dt{font-size:11px;font-weight:700}
 .wx-ds{font-size:9px;color:var(--sub)}
 
+.wx-city-wrap{display:flex;align-items:baseline;gap:5px;margin-bottom:3px}
+.wx-iata{font-size:16px;font-weight:900;font-family:'DM Mono',monospace;letter-spacing:.5px;line-height:1}
+.wx-city{font-size:10px;font-weight:700;color:var(--sub)}
 .wx-foot{font-size:9px;color:var(--sub);text-align:right;margin-top:3px}
+/* Itinerary inline map link */
+.ev-map{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;color:var(--d2);text-decoration:none;background:var(--d2bg);padding:2px 7px;border-radius:100px;margin-top:6px;transition:background .15s;white-space:nowrap}
+.ev-map:hover{background:#C7D7FF;text-decoration:none}
 @keyframes shimmer{from{background-position:-200px 0}to{background-position:200px 0}}
 .wx-skel{height:44px;border-radius:6px;background:linear-gradient(90deg,#EDE8E2 25%,#E4DED6 50%,#EDE8E2 75%);background-size:400px;animation:shimmer 1.2s infinite}
 
@@ -366,7 +377,8 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .rev:nth-child(4){transition-delay:.11s}
 .rev:nth-child(5){transition-delay:.14s}
 
-footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);line-height:2}
+footer{padding:24px 20px 16px;text-align:center;font-size:11px;color:var(--sub);line-height:2.2;border-top:1px solid var(--border);margin-top:8px}
+footer span.ft-hi{color:var(--d1);font-weight:700}
 </style>
 </head>
 <body>
@@ -391,7 +403,10 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 <div class="wx-bar">
   <div class="wx-card">
     <div class="wx-left">
-      <div class="wx-city">🇰🇷 大邱</div>
+      <div class="wx-city-wrap">
+        <span class="wx-iata" style="color:var(--d1)">DAE</span>
+        <span class="wx-city">🇰🇷 大邱</span>
+      </div>
       <div class="wx-badge loading" id="wx-dg-b">載入中</div>
       <div class="wx-foot" id="wx-dg-f"></div>
     </div>
@@ -402,7 +417,10 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
   </div>
   <div class="wx-card">
     <div class="wx-left">
-      <div class="wx-city">🇯🇵 福岡</div>
+      <div class="wx-city-wrap">
+        <span class="wx-iata" style="color:var(--d2)">FUK</span>
+        <span class="wx-city">🇯🇵 福岡</span>
+      </div>
       <div class="wx-badge loading" id="wx-fk-b">載入中</div>
       <div class="wx-foot" id="wx-fk-f"></div>
     </div>
@@ -433,21 +451,21 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
     <div class="mc"><div class="mc-type">宵夜</div><div class="mc-name">一蘭拉麵</div><div class="mc-note">博多・24H</div></div>
   </div>
   <div class="tl">
-    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">05:25</div><div class="ev-body"><div class="ev-type et-t">✈ 抵達</div><div class="ev-title">降落大邱國際機場</div><div class="ev-desc">計程車至市區寄行李，<b>₩8,000–9,000 · 10分</b></div></div></div></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">05:25</div><div class="ev-body"><div class="ev-type et-t">✈ 抵達</div><div class="ev-title">降落大邱國際機場</div><div class="ev-desc">計程車至市區寄行李，<b>₩8,000–9,000 · 10分</b></div><div class="ev-tags"><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%EB%8C%80%EA%B5%AC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚕 計程車 ₩8,000 · 10分</div><div class="t-line"></div></div>
-    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">06:30</div><div class="ev-body"><div class="ev-type et-f">🥣 早餐</div><div class="ev-title">국일따로국밥（韓牛骨湯飯）</div><div class="ev-desc">清晨 5:30 開門，清澈牛骨湯底，<b>₩10,000/人</b></div><div class="ev-tags"><span class="tag tok">清晨即開</span><span class="tag tt">大邱老店</span></div></div></div></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">06:30</div><div class="ev-body"><div class="ev-type et-f">🥣 早餐</div><div class="ev-title">국일따로국밥（韓牛骨湯飯）</div><div class="ev-desc">清晨 5:30 開門，清澈牛骨湯底，<b>₩10,000/人</b></div><div class="ev-tags"><span class="tag tok">清晨即開</span><span class="tag tt">大邱老店</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%EA%B5%AD%EC%9D%BC%EB%94%B0%EB%A1%9C%EA%B5%AD%EB%B0%A5+%EB%8C%80%EA%B5%AC" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分</div><div class="t-line"></div></div>
-    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">08:00</div><div class="ev-body"><div class="ev-type et-s">🏛 景點</div><div class="ev-title">近代文化胡同（3小時）</div><div class="ev-desc">2號路線 1.64km：藥令市博物館・長骨目巷・桂山天主教堂・青羅之丘</div><div class="ev-tags"><span class="tag th">免費韓服體驗</span><span class="tag tt">步行 1.64km</span></div></div></div></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">08:00</div><div class="ev-body"><div class="ev-type et-s">🏛 景點</div><div class="ev-title">近代文化胡同（3小時）</div><div class="ev-desc">2號路線 1.64km：藥令市博物館・長骨目巷・桂山天主教堂・青羅之丘</div><div class="ev-tags"><span class="tag th">免費韓服體驗</span><span class="tag tt">步行 1.64km</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%EB%8C%80%EA%B5%AC+%EA%B7%BC%EB%8C%80%EB%AC%B8%ED%99%94%EA%B3%A8%EB%AA%A9" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 10分</div><div class="t-line"></div></div>
-    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">12:00</div><div class="ev-body"><div class="ev-type et-f">🍖 午餐</div><div class="ev-title">巨松燉排骨（거송갈비찜）</div><div class="ev-desc">甜辣醬汁燉到骨肉分離，<b>₩26,000/2人份</b></div><div class="ev-tags"><span class="tag th">🔥 大邱必吃 No.1</span></div></div></div></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">12:00</div><div class="ev-body"><div class="ev-type et-f">🍖 午餐</div><div class="ev-title">巨松燉排骨（거송갈비찜）</div><div class="ev-desc">甜辣醬汁燉到骨肉分離，<b>₩26,000/2人份</b></div><div class="ev-tags"><span class="tag th">🔥 大邱必吃 No.1</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%EA%B1%B0%EC%86%A1%EA%B0%88%EB%B9%84%EC%B0%9C+%EB%8C%80%EA%B5%AC" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分</div><div class="t-line"></div></div>
-    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">14:00</div><div class="ev-body"><div class="ev-type et-sh">🛍 購物</div><div class="ev-title">東城路 + 美成堂扁餃子</div><div class="ev-desc">韓系服飾美妝，扁煎餃 <b>₩4,000–6,000</b></div><div class="ev-tags"><span class="tag th">大邱唯一限定</span></div></div></div></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">14:00</div><div class="ev-body"><div class="ev-type et-sh">🛍 購物</div><div class="ev-title">東城路 + 美成堂扁餃子</div><div class="ev-desc">韓系服飾美妝，扁煎餃 <b>₩4,000–6,000</b></div><div class="ev-tags"><span class="tag th">大邱唯一限定</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%EB%8F%99%EC%84%B1%EB%A1%9C+%EB%8C%80%EA%B5%AC" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚕 計程車 ₩8,000 · 15分</div><div class="t-line"></div></div>
-    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">16:00</div><div class="ev-body"><div class="ev-type et-t">🛫 出境</div><div class="ev-title">前往大邱機場 · 辦理登機</div><div class="ev-desc">預留 2 小時辦 check-in + 出境</div><div class="ev-tags"><span class="tag tw">⚠️ 最晚 16:00 離開市區</span></div></div></div></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">16:00</div><div class="ev-body"><div class="ev-type et-t">🛫 出境</div><div class="ev-title">前往大邱機場 · 辦理登機</div><div class="ev-desc">預留 2 小時辦 check-in + 出境</div><div class="ev-tags"><span class="tag tw">⚠️ 最晚 16:00 離開市區</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%EB%8C%80%EA%B5%AC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="flight-banner">大邱 TAE 18:25 起飛 → 福岡 FUK 19:25 抵達（約 1 小時）</div>
-    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">19:25</div><div class="ev-body"><div class="ev-type et-t">🚇 入境</div><div class="ev-title">福岡機場 → 博多站</div><div class="ev-desc">地鐵直達，<b>¥260 · 5分鐘</b></div></div></div></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">19:25</div><div class="ev-body"><div class="ev-type et-t">🚇 入境</div><div class="ev-title">福岡機場 → 博多站</div><div class="ev-desc">地鐵直達，<b>¥260 · 5分鐘</b></div><div class="ev-tags"><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E7%A9%BA%E6%B8%AF%E5%9B%BD%E9%9A%9B%E7%B7%9A%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 博多站步行 5分</div><div class="t-line"></div></div>
-    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">21:30</div><div class="ev-body"><div class="ev-type et-n">🍜 宵夜</div><div class="ev-title">一蘭拉麵（24小時）</div><div class="ev-desc">個人包廂博多豚骨，<b>¥980 起/碗</b></div><div class="ev-tags"><span class="tag tok">24H 不打烊</span></div></div></div></div></div>
+    <div class="ev d1 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">21:30</div><div class="ev-body"><div class="ev-type et-n">🍜 宵夜</div><div class="ev-title">一蘭拉麵（24小時）</div><div class="ev-desc">個人包廂博多豚骨，<b>¥980 起/碗</b></div><div class="ev-tags"><span class="tag tok">24H 不打烊</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%80%E8%98%AD+%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
   </div>
 
   <div class="day-div"><div class="ddl"></div><div class="ddlabel">DAY 2</div><div class="ddl"></div></div>
@@ -462,17 +480,17 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
     <div class="mc"><div class="mc-type">晚餐</div><div class="mc-name">牛腸鍋＋雞皮串</div><div class="mc-note">兩攤</div></div>
   </div>
   <div class="tl">
-    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">08:00</div><div class="ev-body"><div class="ev-type et-f">☕ 早餐</div><div class="ev-title">KITTE B1F / 博多一番街</div><div class="ev-desc">快速解決，<b>08:30 前出發</b>才能玩得充裕</div></div></div></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">08:00</div><div class="ev-body"><div class="ev-type et-f">☕ 早餐</div><div class="ev-title">KITTE B1F / 博多一番街</div><div class="ev-desc">快速解決，<b>08:30 前出發</b>才能玩得充裕</div><div class="ev-tags"><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=KITTE%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚂 JR 博多→門司港 ¥1,320 · 1h20min</div><div class="t-line"></div></div>
-    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">10:00</div><div class="ev-body"><div class="ev-type et-s">⚓ 景點</div><div class="ev-title">門司港懷舊地區（3小時）</div><div class="ev-desc">駅紅磚・舊大阪商船・關門海峽步行隧道（免費）・九州鐵道紀念館 ¥300</div><div class="ev-tags"><span class="tag th">海底隧道穿越</span><span class="tag tok">多為免費</span></div></div></div></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">10:00</div><div class="ev-body"><div class="ev-type et-s">⚓ 景點</div><div class="ev-title">門司港懷舊地區（3小時）</div><div class="ev-desc">駅紅磚・舊大阪商船・關門海峽步行隧道（免費）・九州鐵道紀念館 ¥300</div><div class="ev-tags"><span class="tag th">海底隧道穿越</span><span class="tag tok">多為免費</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E9%96%80%E5%8F%B8%E6%B8%AF%E3%83%AC%E3%83%88%E3%83%AD%E5%9C%B0%E5%8C%BA" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分</div><div class="t-line"></div></div>
-    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">13:00</div><div class="ev-body"><div class="ev-type et-f">🍛 午餐</div><div class="ev-title">門司港燒咖哩（焼きカレー）</div><div class="ev-desc">咖哩加起司烤至焦香，<b>門司港限定</b>，¥1,200–1,500</div><div class="ev-tags"><span class="tag th">🔥 門司港限定，必吃</span></div></div></div></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">13:00</div><div class="ev-body"><div class="ev-type et-f">🍛 午餐</div><div class="ev-title">門司港燒咖哩（焼きカレー）</div><div class="ev-desc">咖哩加起司烤至焦香，<b>門司港限定</b>，¥1,200–1,500</div><div class="ev-tags"><span class="tag th">🔥 門司港限定，必吃</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E9%96%80%E5%8F%B8%E6%B8%AF+%E7%84%BC%E3%81%8D%E3%82%AB%E3%83%AC%E3%83%BC" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚂 JR 門司港→博多 ¥1,320 · 1h20min</div><div class="t-line"></div></div>
-    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">16:00</div><div class="ev-body"><div class="ev-type et-sh">🎮 娛樂</div><div class="ev-title">Canal City 博多</div><div class="ev-desc">扭蛋百貨・Gundam Base・<b>20:00 免費 3D 光雕秀</b></div><div class="ev-tags"><span class="tag tn">20:00 光雕秀</span></div></div></div></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">16:00</div><div class="ev-body"><div class="ev-type et-sh">🎮 娛樂</div><div class="ev-title">Canal City 博多</div><div class="ev-desc">扭蛋百貨・Gundam Base・<b>20:00 免費 3D 光雕秀</b></div><div class="ev-tags"><span class="tag tn">20:00 光雕秀</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=Canal+City+Hakata" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 10分</div><div class="t-line"></div></div>
-    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">19:00</div><div class="ev-body"><div class="ev-type et-f">🫕 晚餐 ⭐</div><div class="ev-title">もつ鍋一藤（牛腸鍋）</div><div class="ev-desc">Tabelog 4.4，味噌湯底・大量韭菜，最後加麵，<b>¥3,000–4,000/人</b></div><div class="ev-tags"><span class="tag tw">⚠️ 出發前 1 週訂位</span><span class="tag th">Tabelog 4.4</span></div></div></div></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">19:00</div><div class="ev-body"><div class="ev-type et-f">🫕 晚餐 ⭐</div><div class="ev-title">もつ鍋一藤（牛腸鍋）</div><div class="ev-desc">Tabelog 4.4，味噌湯底・大量韭菜，最後加麵，<b>¥3,000–4,000/人</b></div><div class="ev-tags"><span class="tag tw">⚠️ 出發前 1 週訂位</span><span class="tag th">Tabelog 4.4</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E3%82%82%E3%81%A4%E9%8D%8B%E4%B8%80%E8%97%A4+%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分 → KITTE B1F</div><div class="t-line"></div></div>
-    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">21:30</div><div class="ev-body"><div class="ev-type et-n">🍗 宵夜</div><div class="ev-title">とり皮大臣 KITTE B1F（雞皮串）</div><div class="ev-desc">一串 <b>¥150–200</b>，配冰啤酒</div><div class="ev-tags"><span class="tag tw">⚠️ ShinShin 週日公休，改此店</span></div></div></div></div></div>
+    <div class="ev d2 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">21:30</div><div class="ev-body"><div class="ev-type et-n">🍗 宵夜</div><div class="ev-title">とり皮大臣 KITTE B1F（雞皮串）</div><div class="ev-desc">一串 <b>¥150–200</b>，配冰啤酒</div><div class="ev-tags"><span class="tag tw">⚠️ ShinShin 週日公休，改此店</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%82%8A%E7%9A%AE%E5%A4%A7%E8%87%A3+KITTE%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
   </div>
 
   <div class="day-div"><div class="ddl"></div><div class="ddlabel">DAY 3</div><div class="ddl"></div></div>
@@ -487,16 +505,16 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
     <div class="mc"><div class="mc-type">16:20</div><div class="mc-name">✈ FUK→TPE</div><div class="mc-note">17:50 落地</div></div>
   </div>
   <div class="tl">
-    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">09:30</div><div class="ev-body"><div class="ev-type et-t">🚃 出發</div><div class="ev-title">博多 → 太宰府（西鐵）</div><div class="ev-desc">天神站出發，二日市轉乘，約 <b>40 分鐘</b></div><div class="ev-tags"><span class="tag tg">Tourist Pass 太宰府版</span></div></div></div></div></div>
-    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">10:30</div><div class="ev-body"><div class="ev-type et-s">⛩ 景點</div><div class="ev-title">太宰府天滿宮 + 參道</div><div class="ev-desc">梅ヶ枝餅 ¥150・竹製星巴克（隈研吾設計）・楊子江肉包</div><div class="ev-tags"><span class="tag th">竹製星巴克必拍</span></div></div></div></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">09:30</div><div class="ev-body"><div class="ev-type et-t">🚃 出發</div><div class="ev-title">博多 → 太宰府（西鐵）</div><div class="ev-desc">天神站出發，二日市轉乘，約 <b>40 分鐘</b></div><div class="ev-tags"><span class="tag tg">Tourist Pass 太宰府版</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E9%89%84%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E%E9%A7%85" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">10:30</div><div class="ev-body"><div class="ev-type et-s">⛩ 景點</div><div class="ev-title">太宰府天滿宮 + 參道</div><div class="ev-desc">梅ヶ枝餅 ¥150・竹製星巴克（隈研吾設計）・楊子江肉包</div><div class="ev-tags"><span class="tag th">竹製星巴克必拍</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BB%BF%E5%AE%AE" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚶 步行 5分（天滿宮後方）</div><div class="t-line"></div></div>
-    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">11:30</div><div class="ev-body"><div class="ev-type et-s">♨️ 新景點</div><div class="ev-title">足湯咖啡廳</div><div class="ev-desc">泡腳喝咖啡看山林，近期才被發現，11:30 前人少</div></div></div></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">11:30</div><div class="ev-body"><div class="ev-type et-s">♨️ 新景點</div><div class="ev-title">足湯咖啡廳</div><div class="ev-desc">泡腳喝咖啡看山林，近期才被發現，11:30 前人少</div><div class="ev-tags"><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%AA%E5%AE%B0%E5%BA%9C+%E8%B6%B3%E6%B9%AF+%E3%82%AB%E3%83%95%E3%82%A7" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚃 西鐵太宰府→博多 約40分</div><div class="t-line"></div></div>
-    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">13:10</div><div class="ev-body"><div class="ev-type et-f">🍲 午餐 ⭐</div><div class="ev-title">博多華味鳥 KITTE 9F（水炊鍋）</div><div class="ev-desc">熬製 6 小時乳白雞湯，套餐含鍋・飯・小菜・甜點，<b>¥1,780–2,480</b></div><div class="ev-tags"><span class="tag th">水炊鍋代表店</span></div></div></div></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">13:10</div><div class="ev-body"><div class="ev-type et-f">🍲 午餐 ⭐</div><div class="ev-title">博多華味鳥 KITTE 9F（水炊鍋）</div><div class="ev-desc">熬製 6 小時乳白雞湯，套餐含鍋・飯・小菜・甜點，<b>¥1,780–2,480</b></div><div class="ev-tags"><span class="tag th">水炊鍋代表店</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E5%8D%9A%E5%A4%9A%E8%8F%AF%E5%91%B3%E9%B3%A5+KITTE%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚇 地鐵 博多→天神 2分</div><div class="t-line"></div></div>
-    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">14:00</div><div class="ev-body"><div class="ev-type et-sh">🛍 最終掃貨</div><div class="ev-title">天神地下街（限時 1 小時）</div><div class="ev-desc">大丸退稅 25%・岩田屋獺祭・press butter sand・BAKE Cheese Tart</div><div class="ev-tags"><span class="tag tg">💴 大丸 25% 退稅</span><span class="tag tw">⚠️ 15:00 前離開</span></div></div></div></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">14:00</div><div class="ev-body"><div class="ev-type et-sh">🛍 最終掃貨</div><div class="ev-title">天神地下街（限時 1 小時）</div><div class="ev-desc">大丸退稅 25%・岩田屋獺祭・press butter sand・BAKE Cheese Tart</div><div class="ev-tags"><span class="tag tg">💴 大丸 25% 退稅</span><span class="tag tw">⚠️ 15:00 前離開</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A9%E7%A5%9E%E5%9C%B0%E4%B8%8B%E8%A1%97" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="transit"><div class="t-line"></div><div class="t-pill">🚇 地鐵 天神→機場 ¥260 · 11分</div><div class="t-line"></div></div>
-    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">15:00</div><div class="ev-body"><div class="ev-type et-t">✈ 出境</div><div class="ev-title">前往福岡機場</div><div class="ev-desc">地鐵 <b>¥260 · 11 分</b>，到國內線再接駁 5 分至國際線</div><div class="ev-tags"><span class="tag tw">⚠️ 最晚 15:00 離開天神</span></div></div></div></div></div>
+    <div class="ev d3 rev"><div class="ev-in"><div class="ev-top"><div class="ev-time">15:00</div><div class="ev-body"><div class="ev-type et-t">✈ 出境</div><div class="ev-title">前往福岡機場</div><div class="ev-desc">地鐵 <b>¥260 · 11 分</b>，到國內線再接駁 5 分至國際線</div><div class="ev-tags"><span class="tag tw">⚠️ 最晚 15:00 離開天神</span><a class="ev-map" href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E7%A9%BA%E6%B8%AF" target="_blank" rel="noopener noreferrer">🗺 地圖</a></div></div></div></div></div>
     <div class="flight-banner">福岡 FUK 16:20 起飛 → 台北 TPE 17:50 抵達（約 1.5 小時）</div>
   </div>
 </div>
@@ -686,7 +704,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 </div>
 
 </main>
-<footer>大邱 × 福岡 · 2025.5.16–18<br>每個時間點都精算過，跟著走不踩雷 ✦</footer>
+<footer><span class="ft-hi">大邱 × 福岡</span> · 2025.5.16–18 · 私房三天兩夜<br>路線・美食・時間全都規劃好了，放心出發 ✦</footer>
 
 <script>
 (function(){
