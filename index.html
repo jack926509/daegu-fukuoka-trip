@@ -319,6 +319,44 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .bi-total .bi-label{color:var(--d1);font-weight:700}
 .bi-total .bi-val{font-size:16px;color:var(--d1)}
 
+/* Guide card styles */
+.guide-section{margin-bottom:16px}
+.guide-section:last-child{margin-bottom:0}
+.guide-label{font-size:11px;font-weight:700;letter-spacing:.6px;color:var(--sub);margin-bottom:8px;text-transform:uppercase}
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.guide-item{background:var(--bg);border-radius:var(--rs);padding:10px 12px}
+.guide-country{font-size:12px;font-weight:700;margin-bottom:6px}
+.guide-rows{display:flex;flex-direction:column;gap:3px}
+.guide-row{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#4A4540}
+.guide-row b{font-family:'DM Mono',monospace;font-size:12px;color:var(--ink)}
+.guide-phrases{display:flex;flex-direction:column;gap:4px}
+.phrase-row{display:grid;grid-template-columns:1fr 1.4fr 1.4fr;gap:6px;align-items:center;padding:6px 10px;background:var(--bg);border-radius:var(--rs);font-size:11px}
+.ph-tw{color:var(--sub);font-weight:600}
+.ph-kr{color:var(--d1);font-weight:700}
+.ph-jp{color:var(--d2);font-weight:700}
+.guide-tips{display:flex;flex-direction:column;gap:5px}
+.guide-tip{font-size:12px;padding:7px 10px;border-radius:var(--rs);line-height:1.5}
+.guide-tip.ok{background:var(--d3bg);color:#0F6030}
+.guide-tip.warn{background:var(--goldbg);color:var(--gold)}
+.guide-tip.info{background:var(--d2bg);color:#1044A0}
+
+/* Hover & interaction improvements */
+.food-card{transition:box-shadow .2s,transform .15s}
+.food-card:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
+.spot-card{transition:box-shadow .2s,transform .15s}
+.spot-card:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
+.ev{transition:transform .15s,box-shadow .15s}
+.ev:hover{box-shadow:var(--shadow)}
+.tk{transition:box-shadow .2s}
+.tk:hover{box-shadow:var(--shadow)}
+
+/* Better active tab indicator */
+.tab-btn.active{color:var(--ink);border-bottom-color:var(--d2)}
+
+/* Map link styling */
+.map-link{background:var(--d2bg);padding:3px 8px;border-radius:100px;transition:background .15s}
+.map-link:hover{background:#D1DCFF;text-decoration:none}
+
 .rev{opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s}
 .rev.vis{opacity:1;transform:none}
 
@@ -519,8 +557,7 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
     <div class="tip rev"><div class="tip-icon">🚂</div><div class="tip-title">JR 門司港票務</div><div class="tip-body">City Pass 不含 JR，博多站窗口一次買好往返 ¥1,320×2</div></div>
     <div class="tip rev"><div class="tip-icon">📱</div><div class="tip-title">必備 App</div><div class="tip-body"><b>Google Maps</b>（離線）・<b>Tabelog</b>（訂位）・<b>NaviTime</b>（電車）</div></div>
   </div>
-
-
+</div>
 
 <div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools">
   <div class="sec-head"><div class="sec-h2">🛠 旅行工具</div><div class="sec-hint">匯率換算・預算追蹤・打包清單</div></div>
@@ -601,6 +638,50 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
       </div>
     </div>
 
+    <!-- 導遊手冊 -->
+    <div class="tool-card rev">
+      <div class="tool-head">
+        <div class="tool-icon">🧳</div>
+        <div class="tool-title">導遊手冊</div>
+        <div class="tool-badge">快查</div>
+      </div>
+      <div class="tool-body">
+        <div class="guide-section">
+          <div class="guide-label">🚨 緊急電話</div>
+          <div class="guide-grid">
+            <div class="guide-item"><div class="guide-country">🇰🇷 韓國</div><div class="guide-rows"><div class="guide-row"><span>警察</span><b>112</b></div><div class="guide-row"><span>火警・救護</span><b>119</b></div><div class="guide-row"><span>外國人諮詢</span><b>1330</b></div></div></div>
+            <div class="guide-item"><div class="guide-country">🇯🇵 日本</div><div class="guide-rows"><div class="guide-row"><span>警察</span><b>110</b></div><div class="guide-row"><span>火警・救護</span><b>119</b></div><div class="guide-row"><span>觀光諮詢</span><b>050-3816-2787</b></div></div></div>
+          </div>
+        </div>
+        <div class="guide-section">
+          <div class="guide-label">💬 實用會話</div>
+          <div class="guide-phrases">
+            <div class="phrase-row"><span class="ph-tw">謝謝</span><span class="ph-kr">감사합니다</span><span class="ph-jp">ありがとう</span></div>
+            <div class="phrase-row"><span class="ph-tw">多少錢?</span><span class="ph-kr">얼마예요?</span><span class="ph-jp">いくらですか?</span></div>
+            <div class="phrase-row"><span class="ph-tw">在哪裡?</span><span class="ph-kr">어디예요?</span><span class="ph-jp">どこですか?</span></div>
+            <div class="phrase-row"><span class="ph-tw">不好意思</span><span class="ph-kr">죄송합니다</span><span class="ph-jp">すみません</span></div>
+          </div>
+        </div>
+        <div class="guide-section">
+          <div class="guide-label">🗺 導遊叮嚀</div>
+          <div class="guide-tips">
+            <div class="guide-tip ok">✅ 大邱→東城路步行可達，不需計程車</div>
+            <div class="guide-tip warn">⚠️ Day 2 最晚 08:30 出發，否則門司港時間不夠</div>
+            <div class="guide-tip warn">⚠️ 巨松燉排骨建議 11:30 前到，下午常賣完</div>
+            <div class="guide-tip warn">⚠️ 太宰府小店多為現金，建議備日幣零錢</div>
+            <div class="guide-tip ok">✅ Suica 可在福岡機場入境大廳直接申辦</div>
+          </div>
+        </div>
+        <div class="guide-section">
+          <div class="guide-label">📶 上網建議</div>
+          <div class="guide-tips">
+            <div class="guide-tip info">🇰🇷 韓國：KT 或 SKT SIM，仁川/金海機場入境後購買</div>
+            <div class="guide-tip info">🇯🇵 日本：IIJmio eSIM 或 Softbank SIM，福岡機場有售</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -613,7 +694,19 @@ footer{padding:24px 20px 12px;text-align:center;font-size:11px;color:var(--sub);
 
 var FX_RATES = null;
 var STORAGE_KEY = 'daegu_fukuoka_trip_v2';
+var FX_SESSION_KEY = 'dftrip_fx_cache';
 
+/* ── 防抖：避免高頻操作（如輸入）狂寫 localStorage ── */
+function debounce(fn, ms){
+  var t;
+  return function(){
+    var args = arguments, ctx = this;
+    clearTimeout(t);
+    t = setTimeout(function(){ fn.apply(ctx, args); }, ms);
+  };
+}
+
+/* ── localStorage：帶容量保護的存取 ── */
 function loadState(){
   try{
     var raw = localStorage.getItem(STORAGE_KEY);
@@ -622,9 +715,13 @@ function loadState(){
 }
 
 function saveState(partial){
-  var prev = loadState();
-  var next = Object.assign({}, prev, partial);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+  try{
+    var prev = loadState();
+    var next = Object.assign({}, prev, partial);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+  }catch(e){
+    /* QuotaExceededError：靜默失敗，不影響使用者操作 */
+  }
 }
 
 var prog = document.getElementById('prog');
@@ -730,7 +827,8 @@ function fallbackWx(daysId, badgeId, statics){
   if(b){b.textContent='參考';b.className='wx-badge err';}
 }
 
-function fetchWx(lat,lon,daysId,badgeId,ftId,tz,fallback){
+function fetchWx(lat,lon,daysId,badgeId,ftId,tz,fallback,attempt){
+  attempt = attempt || 1;
   var b=document.getElementById(badgeId);
   if(b){b.textContent='載入中';b.className='wx-badge loading';}
   var url='https://api.open-meteo.com/v1/forecast'
@@ -748,9 +846,14 @@ function fetchWx(lat,lon,daysId,badgeId,ftId,tz,fallback){
           renderWx(daysId,badgeId,ftId,d.daily);
         } else { fallbackWx(daysId,badgeId,fallback); }
       }catch(e){ fallbackWx(daysId,badgeId,fallback); }
+    } else if(attempt < 3){
+      setTimeout(function(){ fetchWx(lat,lon,daysId,badgeId,ftId,tz,fallback,attempt+1); }, attempt*2000);
     } else { fallbackWx(daysId,badgeId,fallback); }
   };
-  xhr.onerror=function(){ fallbackWx(daysId,badgeId,fallback); };
+  xhr.onerror=function(){
+    if(attempt < 3){ setTimeout(function(){ fetchWx(lat,lon,daysId,badgeId,ftId,tz,fallback,attempt+1); }, attempt*2000); }
+    else { fallbackWx(daysId,badgeId,fallback); }
+  };
   xhr.ontimeout=function(){ fallbackWx(daysId,badgeId,fallback); };
   xhr.send();
 }
@@ -784,25 +887,48 @@ function updateFxDisplay(){
     '1 '+from+' ≈ '+fmtNum(rKrw,1)+' KRW · '+fmtNum(rJpy,2)+' JPY';
 }
 
-function fetchFx(){
+function applyFxRates(rates, fromCache){
+  FX_RATES = {TWD:1, KRW:rates.KRW, JPY:rates.JPY, USD:rates.USD};
+  var badge = document.getElementById('fx-badge');
+  badge.textContent = fromCache ? '快取' : '即時';
+  badge.style.background = '#DCFCE7';
+  badge.style.color = 'var(--d3)';
+  var n = new Date();
+  document.getElementById('fx-updated').textContent =
+    (fromCache ? '今日快取 · ' : '更新：') +
+    n.toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
+  updateFxDisplay();
+}
+
+function fetchFx(attempt){
+  attempt = attempt || 1;
+  /* 優先使用 sessionStorage 快取，避免重複呼叫 API */
+  try{
+    var cached = sessionStorage.getItem(FX_SESSION_KEY);
+    if(cached){
+      var c = JSON.parse(cached);
+      if(c && c.KRW){ applyFxRates(c, true); return; }
+    }
+  }catch(e){}
+
   fetch('https://open.er-api.com/v6/latest/TWD')
-    .then(function(r){return r.ok?r.json():Promise.reject();})
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
     .then(function(d){
-      if(d.rates){
-        FX_RATES = {TWD:1, KRW:d.rates.KRW, JPY:d.rates.JPY, USD:d.rates.USD};
-        document.getElementById('fx-badge').textContent='即時';
-        document.getElementById('fx-badge').style.background='#DCFCE7';
-        document.getElementById('fx-badge').style.color='var(--d3)';
-        var n=new Date();
-        document.getElementById('fx-updated').textContent='匯率更新：'+n.toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
-        updateFxDisplay();
-      }
+      if(d && d.rates){
+        try{ sessionStorage.setItem(FX_SESSION_KEY, JSON.stringify(d.rates)); }catch(e){}
+        applyFxRates(d.rates, false);
+      } else { throw new Error('bad data'); }
     })
     .catch(function(){
-      document.getElementById('fx-badge').textContent='參考匯率';
-      document.getElementById('fx-badge').style.background='var(--goldbg)';
-      document.getElementById('fx-badge').style.color='var(--gold)';
-      document.getElementById('fx-updated').textContent='使用參考匯率，實際請查銀行';
+      if(attempt < 3){
+        setTimeout(function(){ fetchFx(attempt + 1); }, attempt * 2000);
+        return;
+      }
+      var badge = document.getElementById('fx-badge');
+      badge.textContent = '參考匯率';
+      badge.style.background = 'var(--goldbg)';
+      badge.style.color = 'var(--gold)';
+      document.getElementById('fx-updated').textContent = '使用參考匯率，實際請查銀行';
       updateFxDisplay();
     });
 }
@@ -812,10 +938,10 @@ if(initFxState.fxAmount!==undefined) document.getElementById('fx-amount').value 
 if(initFxState.fxFrom) document.getElementById('fx-from').value = initFxState.fxFrom;
 updateFxDisplay();
 
-document.getElementById('fx-amount').addEventListener('input', function(){
+document.getElementById('fx-amount').addEventListener('input', debounce(function(){
   saveState({fxAmount:this.value});
   updateFxDisplay();
-});
+}, 300));
 document.getElementById('fx-from').addEventListener('change', function(){
   saveState({fxFrom:this.value});
   updateFxDisplay();
@@ -887,7 +1013,7 @@ function renderBudgetTable(){
   });
   tbody.innerHTML = html;
   tbody.querySelectorAll('.bud-input').forEach(function(inp){
-    inp.addEventListener('input', function(){
+    inp.addEventListener('input', debounce(function(){
       BUD_ACTUAL[this.dataset.key] = parseFloat(this.value)||0;
       saveState({budget:BUD_ACTUAL});
       calcBudget();
@@ -899,7 +1025,7 @@ function renderBudgetTable(){
       var barCls = pct<80?'ok':pct<100?'warn':'over';
       var bar = row.querySelector('.bud-bar');
       bar.style.width=pct+'%'; bar.className='bud-bar '+barCls;
-    });
+    }, 250));
   });
 }
 renderBudgetTable();
