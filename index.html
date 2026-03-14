@@ -9,58 +9,58 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.open-meteo.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#F4F1ED;
+  --bg:#F5F1EA;
   --card:#FFFFFF;
-  --ink:#1A1714;
-  --sub:#7C736A;
-  --border:#E8E2D9;
-  --d1:#B83A0C;
-  --d1bg:#FFF3EE;
-  --d2:#1549B8;
-  --d2bg:#EEF3FF;
-  --d3:#0F7A3A;
-  --d3bg:#EEFBF2;
-  --food:#9B1451;
-  --foodbg:#FFF0F6;
-  --spot:#5B21B6;
-  --spotbg:#F5F2FF;
-  --gold:#7A4A00;
-  --goldbg:#FFFAEB;
-  --red:#C41E1E;
+  --ink:#1B1A17;
+  --sub:#6F665C;
+  --border:#E5DED3;
+  --d1:#D6452C;      /* vermillion (Japan) */
+  --d1bg:#FFF1EC;
+  --d2:#1F4E79;      /* indigo blue (Korea) */
+  --d2bg:#EEF4FA;
+  --d3:#2F7D5D;      /* jade green (Korea) */
+  --d3bg:#EAF6F0;
+  --food:#7A2E4D;    /* plum */
+  --foodbg:#FFF0F5;
+  --spot:#4B3F72;    /* indigo */
+  --spotbg:#F3F1FA;
+  --gold:#B47E3C;
+  --goldbg:#FFF7E6;
+  --red:#C53030;
   --redbg:#FEF2F2;
   --r:14px;--rs:8px;
-  --shadow:0 1px 3px rgba(0,0,0,.05),0 6px 18px rgba(0,0,0,.07);
-  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 2px 8px rgba(0,0,0,.06);
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 8px 20px rgba(0,0,0,.08);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 3px 10px rgba(0,0,0,.07);
   --tab-h:52px;
   --safe-b:env(safe-area-inset-bottom,0px);
 }
 html{font-size:16.5px;scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;padding-bottom:calc(70px + var(--safe-b) + 20px)}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans JP','Noto Sans KR',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;padding-bottom:calc(70px + var(--safe-b) + 20px);background-image:radial-gradient(circle at 18% 12%,rgba(214,69,44,.06),transparent 35%),radial-gradient(circle at 82% 18%,rgba(31,78,121,.06),transparent 35%),radial-gradient(circle at 50% 88%,rgba(47,125,93,.05),transparent 40%);}
 
 #prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--d1),var(--d2));transform-origin:left;transform:scaleX(0);z-index:600;will-change:transform}
 
  .skip-link{position:absolute;left:10px;top:-44px;background:#fff;color:var(--ink);padding:8px 12px;border-radius:8px;z-index:1000;border:1px solid var(--border)}
 .skip-link:focus{top:10px}
 
-.hero{background:#1A1714;color:#fff;padding:52px 20px 36px;position:relative;overflow:hidden}
+.hero{background:var(--ink);color:#fff;padding:52px 20px 36px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 70% 60% at 92% 10%,rgba(21,73,184,.5) 0%,transparent 60%),
-    radial-gradient(ellipse 60% 50% at 4% 90%,rgba(184,58,12,.4) 0%,transparent 55%),
-    radial-gradient(circle 250px at 50% 120%,rgba(91,33,182,.2) 0%,transparent 70%);
+    radial-gradient(ellipse 70% 60% at 92% 10%,rgba(31,78,121,.55) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 4% 90%,rgba(214,69,44,.45) 0%,transparent 55%),
+    radial-gradient(circle 260px at 50% 120%,rgba(47,125,93,.25) 0%,transparent 70%);
   pointer-events:none}
 .hero::after{content:'';position:absolute;inset:0;opacity:.04;
   background-image:url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='white'/%3E%3C/svg%3E");
   pointer-events:none}
 .hero-inner{position:relative;max-width:520px;margin:0 auto}
 .hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:5px 13px;font-size:11px;color:rgba(255,255,255,.75);letter-spacing:.8px;margin-bottom:20px;font-family:'DM Mono',monospace}
-.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(38px,11vw,62px);font-weight:900;line-height:1.0;margin-bottom:10px;letter-spacing:-.5px}
-.hero h1 .kr{color:#FF8F5C}
-.hero h1 .jp{color:#6DC0FF}
+.hero h1{font-family:'Noto Serif JP',serif;font-size:clamp(38px,11vw,62px);font-weight:900;line-height:1.0;margin-bottom:10px;letter-spacing:-.5px}
+.hero h1 .kr{color:var(--d2)}
+.hero h1 .jp{color:var(--d1)}
 .hero-sub{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:22px;letter-spacing:.3px}
 .hero-chips{display:flex;flex-wrap:wrap;gap:7px}
 .chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:5px 12px;font-size:12px;color:rgba(255,255,255,.86)}
@@ -96,12 +96,12 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 @keyframes shimmer{from{background-position:-200px 0}to{background-position:200px 0}}
 .wx-skel{height:44px;border-radius:6px;background:linear-gradient(90deg,#EDE8E2 25%,#E4DED6 50%,#EDE8E2 75%);background-size:400px;animation:shimmer 1.2s infinite}
 
-.tab-bar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);border-bottom:none;display:flex;justify-content:space-around;padding:8px 8px calc(env(safe-area-inset-bottom) + 8px);box-shadow:0 -2px 10px rgba(0,0,0,.04);overflow:visible}
+.tab-bar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);border-bottom:none;display:flex;justify-content:flex-start;gap:6px;padding:8px 8px calc(env(safe-area-inset-bottom) + 8px);box-shadow:0 -2px 10px rgba(0,0,0,.04);overflow-x:auto;scroll-snap-type:x mandatory}
 #tabBar::-webkit-scrollbar{display:none}
-.tab-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:700;color:var(--sub);cursor:pointer;border:none;background:none;padding:6px 0;transition:color .2s;font-family:'Noto Sans TC',sans-serif;height:auto; white-space:nowrap}
+.tab-btn{flex:0 0 auto;min-width:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:700;color:var(--sub);cursor:pointer;border:none;background:none;padding:6px 10px;transition:color .2s;font-family:'Noto Sans JP','Noto Sans KR',sans-serif;height:auto;white-space:nowrap;position:relative;scroll-snap-align:center}
 .tab-btn::before { content: attr(data-icon); font-size: 20px; margin-bottom: 2px; }
 .tab-btn.active{color:var(--d2); border-bottom: none;}
-.tab-btn.active::after{content:'';position:absolute;top:0;width:30px;height:3px;background:var(--d2);border-radius:0 0 3px 3px;}
+.tab-btn.active::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:30px;height:3px;background:var(--d2);border-radius:0 0 3px 3px;}
 
 .tab-btn:focus-visible,.btn-swap:focus-visible,.cl-reset:focus-visible,.bud-input:focus-visible,.curr-input:focus-visible,.curr-select:focus-visible{outline:2px solid var(--d2);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
@@ -364,12 +364,10 @@ body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif
 .tk{transition:box-shadow .2s}
 .tk:hover{box-shadow:var(--shadow)}
 
-/* Better active tab indicator */
-.tab-btn.active{color:var(--ink);border-bottom-color:var(--d2)}
 
 /* Map link styling */
 .map-link{background:var(--d2bg);padding:3px 8px;border-radius:100px;transition:background .15s}
-.map-link:hover{background:#D1DCFF;text-decoration:none}
+.map-link:hover{background:#DDE7F6;text-decoration:none}
 
 .rev{opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s}
 .rev.vis{opacity:1;transform:none}
@@ -593,14 +591,14 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
       </div>
       <div class="tool-body">
         <div class="curr-input-row">
-          <select class="curr-select" id="fx-from">
+          <select class="curr-select" id="fx-from" aria-label="匯率來源幣別">
             <option value="TWD">🇹🇼 TWD</option>
             <option value="KRW">🇰🇷 KRW</option>
             <option value="JPY">🇯🇵 JPY</option>
             <option value="USD">🇺🇸 USD</option>
           </select>
-          <input class="curr-input" type="number" id="fx-amount" value="1000" inputmode="decimal" />
-          <button class="btn-swap" id="fx-swap" title="交換">⇄</button>
+          <input class="curr-input" type="number" id="fx-amount" value="1000" inputmode="decimal" aria-label="匯率金額" />
+          <button class="btn-swap" id="fx-swap" title="交換" aria-label="交換幣別">⇄</button>
         </div>
         <div class="curr-results" id="fx-results">
           <div class="cr-item"><div class="cr-flag">🇰🇷</div><div class="cr-val" id="fx-krw">--</div><div class="cr-label">韓圜 KRW</div></div>
@@ -716,6 +714,7 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
 var FX_RATES = null;
 var STORAGE_KEY = 'daegu_fukuoka_trip_v2';
 var FX_SESSION_KEY = 'dftrip_fx_cache';
+var FX_CACHE_TTL = 12 * 60 * 60 * 1000; // 12h
 
 /* ── 防抖：避免高頻操作（如輸入）狂寫 localStorage ── */
 function debounce(fn, ms){
@@ -925,7 +924,9 @@ function fetchFx(attempt){
     var cached = sessionStorage.getItem(FX_SESSION_KEY);
     if(cached){
       var c = JSON.parse(cached);
-      if(c && c.KRW){ applyFxRates(c, true); return; }
+      if(c && c.rates && c.ts && (Date.now()-c.ts) < FX_CACHE_TTL && c.rates.KRW){
+        applyFxRates(c.rates, true); return;
+      }
     }
   }catch(e){}
 
@@ -933,7 +934,7 @@ function fetchFx(attempt){
     .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
     .then(function(d){
       if(d && d.rates){
-        try{ sessionStorage.setItem(FX_SESSION_KEY, JSON.stringify(d.rates)); }catch(e){}
+        try{ sessionStorage.setItem(FX_SESSION_KEY, JSON.stringify({ts: Date.now(), rates: d.rates})); }catch(e){}
         applyFxRates(d.rates, false);
       } else { throw new Error('bad data'); }
     })
@@ -1024,7 +1025,7 @@ function renderBudgetTable(){
     html += '<tr>'+
       '<td style="font-size:12px;font-weight:600">'+item.label+'</td>'+
       '<td><div class="bud-est">¥'+fmtNum(item.est)+'</div></td>'+
-      '<td><input class="bud-input" type="number" data-key="'+item.key+'" value="'+(act||'')+'" placeholder="0" inputmode="decimal" style="width:80px">'+
+      '<td><input class=\"bud-input\" type=\"number\" data-key=\"'+item.key+'\" value=\"'+(act||'')+'\" placeholder=\"0\" inputmode=\"decimal\" aria-label=\"實際金額 '+item.label+'\" style=\"width:80px\">'+
         '<div class="bud-bar-wrap" style="margin-top:3px"><div class="bud-bar '+barCls+'" style="width:'+pct+'%"></div></div>'+
       '</td>'+
       '</tr>';
