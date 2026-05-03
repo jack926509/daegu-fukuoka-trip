@@ -14,7 +14,15 @@
 <meta property="og:title" content="大邱 × 福岡 2026.5.16–18 私房三天兩夜">
 <meta property="og:description" content="路線・美食・交通・預算全規劃，一頁帶著走。">
 <meta property="og:locale" content="zh_TW">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="https://jack926509.github.io/daegu-fukuoka-trip/">
+<meta property="og:image" content="https://jack926509.github.io/daegu-fukuoka-trip/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="大邱 × 福岡 三天兩夜旅遊行程封面">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="大邱 × 福岡 2026.5.16–18 私房三天兩夜">
+<meta name="twitter:description" content="路線・美食・交通・預算全規劃，一頁帶著走。">
+<meta name="twitter:image" content="https://jack926509.github.io/daegu-fukuoka-trip/og.png">
 <title>大邱 × 福岡 2026.5.16–18 私房三天兩夜</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE8C9'/%3E%3Ctext x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='34' font-weight='900' fill='%23C44312'%3E大%3C/text%3E%3Ctext x='50%25' y='80%25' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='14' font-weight='700' fill='%231853A8'%3E×%E7%A6%8F%3C/text%3E%3C/svg%3E">
@@ -454,7 +462,7 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
   <button class="ts-cta" id="ts-ics" type="button">⬇ 加進日曆</button>
 </div>
 
-<div class="wx-bar">
+<div class="wx-bar" aria-live="polite" aria-label="當地天氣資訊">
   <div class="wx-card">
     <div class="wx-left">
       <div class="wx-city-wrap">
@@ -466,7 +474,6 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
     </div>
     <div class="wx-right">
       <div id="wx-dg-d"><div class="wx-skel"></div></div>
-      
     </div>
   </div>
   <div class="wx-card">
@@ -480,7 +487,6 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
     </div>
     <div class="wx-right">
       <div id="wx-fk-d"><div class="wx-skel"></div></div>
-      
     </div>
   </div>
 </div>
@@ -667,7 +673,7 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
           <div class="cr-item"><div class="cr-flag">🇹🇼</div><div class="cr-val" id="fx-twd">--</div><div class="cr-label">台幣 TWD</div></div>
         </div>
         <div class="cr-rate" id="fx-rate">1 TWD ≈ ... KRW · ... JPY</div>
-        <div class="curr-status" id="fx-updated"></div>
+        <div class="curr-status" id="fx-updated" aria-live="polite"></div>
       </div>
     </div>
 
@@ -679,9 +685,9 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
         <div class="tool-badge" id="bud-pct">0% 已用</div>
       </div>
       <div class="tool-body">
-        <div style="margin-bottom:10px">
+        <div style="margin-bottom:10px" aria-live="polite">
           <div class="cl-progress-text"><span>整體花費進度（換 TWD）</span><span id="bud-spent-total">NT$— / NT$—</span></div>
-          <div class="bud-bar-wrap"><div class="bud-bar ok" id="bud-progress-bar" style="width:0%"></div></div>
+          <div class="bud-bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bud-bar ok" id="bud-progress-bar" style="width:0%"></div></div>
           <div id="bud-breakdown" style="font-size:10px;color:var(--sub);margin-top:6px;font-family:var(--font-mono);text-align:right">—</div>
         </div>
         <table class="budget-table">
@@ -775,7 +781,10 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
 
 var FX_RATES = null;
 var STORAGE_KEY = 'daegu_fukuoka_trip_v2';
-var FX_SESSION_KEY = 'dftrip_fx_cache';
+var FX_SESSION_KEY = 'dftrip_fx_cache_v2';
+var WX_SESSION_KEY = 'dftrip_wx_cache';
+var FX_TTL_MS = 6 * 60 * 60 * 1000;   /* 匯率 6 小時 */
+var WX_TTL_MS = 3 * 60 * 60 * 1000;   /* 天氣 3 小時 */
 
 /* ── 防抖：避免高頻操作（如輸入）狂寫 localStorage ── */
 function debounce(fn, ms){
@@ -906,7 +915,7 @@ if(initState.activeTab){
 })();
 
 var WMO={0:['☀️','晴天'],1:['🌤','晴時多雲'],2:['⛅','多雲'],3:['☁️','陰天'],45:['🌫','有霧'],48:['🌫','有霧'],51:['🌦','毛毛雨'],53:['🌦','毛毛雨'],55:['🌧','小雨'],61:['🌧','降雨'],63:['🌧','中雨'],65:['🌧','大雨'],80:['🌦','陣雨'],81:['🌧','陣雨'],82:['⛈','強陣雨'],95:['⛈','雷雨']};
-function renderWx(daysId, badgeId, ftId, daily){
+function renderWx(daysId, badgeId, ftId, daily, fromCache){
   var c=document.getElementById(daysId), b=document.getElementById(badgeId), f=document.getElementById(ftId);
   if(!c) return;
   var len=Math.min(daily.time.length,3);
@@ -927,7 +936,10 @@ function renderWx(daysId, badgeId, ftId, daily){
       +'</div>';
   }
   c.innerHTML='<div style="display:flex;flex-direction:row;width:100%">'+html+'</div>';
-  if(b){b.textContent='即時';b.className='wx-badge live';}
+  if(b){
+    b.textContent = fromCache ? '快取' : '即時';
+    b.className = 'wx-badge live';
+  }
   if(f){var n=new Date();f.textContent='更新 '+pad(n.getHours())+':'+pad(n.getMinutes());}
 }
 
@@ -940,22 +952,50 @@ function fallbackWx(daysId, badgeId, statics){
   if(b){b.textContent='參考';b.className='wx-badge err';}
 }
 
-async function fetchWx(lat, lon, daysId, badgeId, ftId, tz, fallback, attempt = 1) {
+/* sessionStorage 通用 TTL 讀寫，靜默失敗 */
+function cacheGet(key, ttl){
+  try{
+    var raw = sessionStorage.getItem(key);
+    if(!raw) return null;
+    var rec = JSON.parse(raw);
+    if(!rec || typeof rec.t !== 'number') return null;
+    if(Date.now() - rec.t > ttl) return null;
+    return rec.v;
+  }catch(e){ return null; }
+}
+function cacheSet(key, value){
+  try{ sessionStorage.setItem(key, JSON.stringify({t:Date.now(), v:value})); }catch(e){}
+}
+
+async function fetchWx(lat, lon, daysId, badgeId, ftId, tz, fallback, attempt) {
+  attempt = attempt || 1;
   const b = document.getElementById(badgeId);
+  const cacheKey = WX_SESSION_KEY + ':' + daysId;
+
+  /* 先試快取 */
+  if(attempt === 1){
+    const cached = cacheGet(cacheKey, WX_TTL_MS);
+    if(cached){
+      renderWx(daysId, badgeId, ftId, cached, true);
+      return;
+    }
+  }
+
   if (b) { b.textContent = '載入中'; b.className = 'wx-badge loading'; }
   const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_probability_max&forecast_days=3&timezone=${encodeURIComponent(tz)}`;
-  
+
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 8000);
     const response = await fetch(url, { signal: controller.signal });
     clearTimeout(timeoutId);
-    
+
     if (!response.ok) throw new Error('Network response err');
     const d = await response.json();
-    
+
     if (d?.daily?.time?.length > 0) {
-      renderWx(daysId, badgeId, ftId, d.daily);
+      cacheSet(cacheKey, d.daily);
+      renderWx(daysId, badgeId, ftId, d.daily, false);
     } else {
       throw new Error('Data format err');
     }
@@ -972,7 +1012,6 @@ fetchWx(35.8714,128.6014,'wx-dg-d','wx-dg-b','wx-dg-f','Asia/Seoul',[{d:'5/16',i
 fetchWx(33.5904,130.4017,'wx-fk-d','wx-fk-b','wx-fk-f','Asia/Tokyo',[{d:'5/16',i:'🌙',t:'19–24°',s:'夜涼'},{d:'5/17',i:'⛅',t:'20–25°',s:'多雲'},{d:'5/18',i:'🌤',t:'21–26°',s:'晴'}]);
 
 var FX_BASE_RATES = { TWD:1, KRW:42.5, JPY:4.75, USD:0.031 }; // fallback
-var initFxState = initState;
 function fmtNum(n,dec){
   if(dec===undefined) dec=0;
   return n.toLocaleString('zh-TW',{minimumFractionDigits:dec,maximumFractionDigits:dec});
@@ -1012,42 +1051,47 @@ function applyFxRates(rates, fromCache){
   if(typeof calcBudget === 'function') calcBudget();
 }
 
-function fetchFx(attempt){
+async function fetchFx(attempt){
   attempt = attempt || 1;
-  /* 優先使用 sessionStorage 快取，避免重複呼叫 API */
-  try{
-    var cached = sessionStorage.getItem(FX_SESSION_KEY);
-    if(cached){
-      var c = JSON.parse(cached);
-      if(c && c.KRW){ applyFxRates(c, true); return; }
+
+  /* 第一次先查 sessionStorage 快取（6 小時 TTL） */
+  if(attempt === 1){
+    const cached = cacheGet(FX_SESSION_KEY, FX_TTL_MS);
+    if(cached && cached.KRW){
+      applyFxRates(cached, true);
+      return;
     }
-  }catch(e){}
+  }
 
-  fetch('https://open.er-api.com/v6/latest/TWD')
-    .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
-    .then(function(d){
-      if(d && d.rates){
-        try{ sessionStorage.setItem(FX_SESSION_KEY, JSON.stringify(d.rates)); }catch(e){}
-        applyFxRates(d.rates, false);
-      } else { throw new Error('bad data'); }
-    })
-    .catch(function(){
-      if(attempt < 3){
-        setTimeout(function(){ fetchFx(attempt + 1); }, attempt * 2000);
-        return;
-      }
-      var badge = document.getElementById('fx-badge');
-      badge.textContent = '參考匯率';
-      badge.style.background = 'var(--goldbg)';
-      badge.style.color = 'var(--gold)';
-      document.getElementById('fx-updated').textContent = '使用參考匯率，實際請查銀行';
-      updateFxDisplay();
-    });
+  try{
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
+    const r = await fetch('https://open.er-api.com/v6/latest/TWD', { signal: controller.signal });
+    clearTimeout(timeoutId);
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d = await r.json();
+    if(!d || !d.rates || !d.rates.KRW) throw new Error('bad schema');
+
+    cacheSet(FX_SESSION_KEY, d.rates);
+    applyFxRates(d.rates, false);
+  }catch(err){
+    if(attempt < 3){
+      setTimeout(() => fetchFx(attempt + 1), attempt * 2000);
+      return;
+    }
+    const badge = document.getElementById('fx-badge');
+    badge.textContent = '參考匯率';
+    badge.style.background = 'var(--goldbg)';
+    badge.style.color = 'var(--gold)';
+    document.getElementById('fx-updated').textContent = '使用參考匯率，實際請查銀行';
+    updateFxDisplay();
+  }
 }
-fetchFx();
+/* 注意：fetchFx() 在 BUD_ITEMS 與 renderBudgetTable 之後才呼叫，
+   因為 cache-hit 走同步 applyFxRates → calcBudget，需要 BUD_ITEMS 已就緒。 */
 
-if(initFxState.fxAmount!==undefined) document.getElementById('fx-amount').value = initFxState.fxAmount;
-if(initFxState.fxFrom) document.getElementById('fx-from').value = initFxState.fxFrom;
+if(initState.fxAmount!==undefined) document.getElementById('fx-amount').value = initState.fxAmount;
+if(initState.fxFrom) document.getElementById('fx-from').value = initState.fxFrom;
 updateFxDisplay();
 
 document.getElementById('fx-amount').addEventListener('input', debounce(function(){
@@ -1092,11 +1136,17 @@ function ccyToTwd(amt, ccy){
   return amt / r; // rates[ccy] is units of ccy per 1 TWD, so amt/r → TWD
 }
 
+/* 預算輸入正規化：濾掉負數、Infinity、NaN */
+function safeNum(v){
+  var n = parseFloat(v);
+  if(!isFinite(n) || n < 0) return 0;
+  return n;
+}
 function calcBudget(){
   var byCcy = {KRW:{est:0,act:0}, JPY:{est:0,act:0}, TWD:{est:0,act:0}};
   var totalEstTwd = 0, totalActTwd = 0;
   BUD_ITEMS.forEach(function(item){
-    var act = parseFloat(BUD_ACTUAL[item.key]) || 0;
+    var act = safeNum(BUD_ACTUAL[item.key]);
     var ccy = item.currency || 'TWD';
     if(byCcy[ccy]){ byCcy[ccy].est += item.est; byCcy[ccy].act += act; }
     totalEstTwd += ccyToTwd(item.est, ccy);
@@ -1107,6 +1157,8 @@ function calcBudget(){
   var bar = document.getElementById('bud-progress-bar');
   bar.style.width = pctCap+'%';
   bar.className = 'bud-bar '+(pct<80?'ok':pct<100?'warn':'over');
+  var barWrap = bar.parentElement;
+  if(barWrap && barWrap.setAttribute) barWrap.setAttribute('aria-valuenow', String(Math.min(pct,100)));
   document.getElementById('bud-pct').textContent = pct+'% 已用';
   var actT = Math.round(totalActTwd), estT = Math.round(totalEstTwd);
   document.getElementById('bud-spent-total').textContent = 'NT$'+fmtNum(actT)+' / NT$'+fmtNum(estT);
@@ -1134,7 +1186,7 @@ function renderBudgetTable(){
   if(!tbody) return;
   var html = '';
   BUD_ITEMS.forEach(function(item){
-    var act = parseFloat(BUD_ACTUAL[item.key])||0;
+    var act = safeNum(BUD_ACTUAL[item.key]);
     var pct = Math.min(Math.round(act/item.est*100),120);
     var barCls = pct<80?'ok':pct<100?'warn':'over';
     var ccy = item.currency || 'TWD';
@@ -1144,7 +1196,7 @@ function renderBudgetTable(){
         '<div style="font-size:9px;color:var(--sub);font-weight:700;letter-spacing:.5px;font-family:var(--font-mono);margin-top:2px">'+ccy+'</div>'+
       '</td>'+
       '<td><div class="bud-est">'+sym+fmtNum(item.est)+'</div></td>'+
-      '<td><input class="bud-input" type="number" data-key="'+item.key+'" data-ccy="'+ccy+'" value="'+(act||'')+'" placeholder="0" inputmode="decimal" style="width:80px">'+
+      '<td><input class="bud-input" type="number" min="0" step="1" data-key="'+item.key+'" data-ccy="'+ccy+'" value="'+(act||'')+'" placeholder="0" inputmode="decimal" style="width:80px">'+
         '<div class="bud-bar-wrap" style="margin-top:3px"><div class="bud-bar '+barCls+'" style="width:'+pct+'%"></div></div>'+
       '</td>'+
       '</tr>';
@@ -1152,13 +1204,14 @@ function renderBudgetTable(){
   tbody.innerHTML = html;
   tbody.querySelectorAll('.bud-input').forEach(function(inp){
     inp.addEventListener('input', debounce(function(){
-      BUD_ACTUAL[this.dataset.key] = parseFloat(this.value)||0;
+      var clean = safeNum(this.value);
+      BUD_ACTUAL[this.dataset.key] = clean;
       saveState({budget:BUD_ACTUAL});
       calcBudget();
       var row = this.closest('tr');
       var key = this.dataset.key;
       var item = BUD_ITEMS.find(function(x){return x.key===key;});
-      var pct = item ? Math.min(Math.round((parseFloat(this.value)||0)/item.est*100),120):0;
+      var pct = item ? Math.min(Math.round(clean/item.est*100),120) : 0;
       var barCls = pct<80?'ok':pct<100?'warn':'over';
       var bar = row.querySelector('.bud-bar');
       bar.style.width=pct+'%'; bar.className='bud-bar '+barCls;
@@ -1167,6 +1220,7 @@ function renderBudgetTable(){
 }
 renderBudgetTable();
 calcBudget();
+fetchFx();
 
 var CL_DATA = [
   {group:'📄 證件・金融',items:[

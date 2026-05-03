@@ -4,12 +4,13 @@
  *  - 字型 / 圖片 / 同源資源：cache-first
  *  - 天氣 / 匯率 API：stale-while-revalidate（先給快取再背景更新）
  */
-const BUILD = '20260503-3';
+const BUILD = '20260503-142256';
 const CACHE_VERSION = 'dftrip-' + BUILD;
 const CORE = [
   './',
   './index.html',
-  './manifest.json'
+  './manifest.json',
+  './og.png'
 ];
 const RUNTIME = 'dftrip-runtime-' + BUILD;
 const API_CACHE = 'dftrip-api-v1';
