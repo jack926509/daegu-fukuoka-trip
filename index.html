@@ -394,16 +394,6 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 .rev:nth-child(5){transition-delay:.14s}
 
 /* Trip status banner */
-.trip-status{margin:14px 14px 0;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:12px 14px;display:flex;align-items:center;gap:12px;border-left:3px solid var(--d2)}
-.trip-status.archived{border-left-color:var(--sub)}
-.trip-status.imminent{border-left-color:var(--d1)}
-.trip-status.live{border-left-color:var(--d3)}
-.ts-icon{font-size:22px;flex-shrink:0;line-height:1}
-.ts-body{flex:1;min-width:0}
-.ts-title{font-size:13px;font-weight:700;line-height:1.3;letter-spacing:.2px}
-.ts-sub{font-size:11px;color:var(--sub);margin-top:2px}
-.ts-cta{flex-shrink:0;font-size:11px;font-weight:700;background:var(--d2bg);color:var(--d2);border:1px solid transparent;border-radius:100px;padding:7px 11px;cursor:pointer;font-family:var(--font-body);transition:background .15s}
-.ts-cta:active{background:var(--d2);color:var(--card)}
 
 footer{padding:24px 20px 16px;text-align:center;font-size:11px;color:var(--sub);line-height:2.2;border-top:1px solid var(--border);margin-top:8px}
 footer span.ft-hi{color:var(--d1);font-weight:700}
@@ -422,14 +412,6 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
 
 <main id="mainContent">
 
-<div class="trip-status" id="trip-status" hidden>
-  <div class="ts-icon" id="ts-icon">🗓</div>
-  <div class="ts-body">
-    <div class="ts-title" id="ts-title">—</div>
-    <div class="ts-sub" id="ts-sub">—</div>
-  </div>
-  <button class="ts-cta" id="ts-ics" type="button">⬇ 加進日曆</button>
-</div>
 
 <div class="wx-bar" aria-live="polite" aria-label="當地天氣資訊">
   <div class="wx-card">
@@ -1209,116 +1191,6 @@ document.getElementById('cl-reset').addEventListener('click',function(){
   renderChecklist();
 });
 
-
-/* ── 旅程狀態橫幅：倒數 / 進行中 / 已結束 ── */
-var TRIP_START = new Date('2026-05-16T00:00:00+08:00');
-var TRIP_END = new Date('2026-05-19T00:00:00+09:00');
-function updateTripStatus(){
-  var el = document.getElementById('trip-status'); if(!el) return;
-  var icon = document.getElementById('ts-icon');
-  var title = document.getElementById('ts-title');
-  var sub = document.getElementById('ts-sub');
-  var now = new Date();
-  var msPerDay = 86400000;
-  el.classList.remove('archived','imminent','live');
-  if(now > TRIP_END){
-    el.classList.add('archived');
-    icon.textContent = '📷';
-    title.textContent = '旅程已結束 · 回顧模式';
-    sub.textContent = '行程・美食・伴手紀錄保留下來，隨時翻閱';
-  } else if(now >= TRIP_START){
-    el.classList.add('live');
-    var dayIdx = Math.min(3, Math.floor((now - TRIP_START)/msPerDay) + 1);
-    icon.textContent = '🛫';
-    title.textContent = '旅程進行中 · Day '+dayIdx;
-    sub.textContent = '玩得開心，Day 3 記得 14:45 前離開博多駅';
-  } else {
-    var days = Math.ceil((TRIP_START - now)/msPerDay);
-    icon.textContent = days <= 7 ? '🔥' : '🗓';
-    title.textContent = '再 '+days+' 天出發';
-    sub.textContent = '5 月 16 日 05:25 落地大邱國際機場';
-    if(days <= 14) el.classList.add('imminent');
-  }
-  el.hidden = false;
-}
-updateTripStatus();
-/* 跨日重新計算（使用者長時間掛在頁面） */
-setInterval(updateTripStatus, 60*60*1000);
-
-/* ── ICS：將 21 個行程匯出 .ics，丟進 Google/Apple 行事曆 ── */
-var TRIP_EVENTS = [
-  {date:'2026-05-16',start:'05:25',end:'06:00',tz:'Asia/Seoul',title:'抵達大邱機場 (TAE)',loc:'대구국제공항'},
-  {date:'2026-05-16',start:'06:30',end:'07:30',tz:'Asia/Seoul',title:'早餐 · 국일따로국밥',loc:'대구 국일따로국밥'},
-  {date:'2026-05-16',start:'08:00',end:'11:00',tz:'Asia/Seoul',title:'近代文化胡同（步行 1.64km）',loc:'대구 근대문화골목'},
-  {date:'2026-05-16',start:'11:30',end:'13:00',tz:'Asia/Seoul',title:'午餐 · 巨松燉排骨 ⭐（11:30 前到）',loc:'대구 거송갈비찜'},
-  {date:'2026-05-16',start:'14:00',end:'15:00',tz:'Asia/Seoul',title:'東城路 + 美成堂扁餃子',loc:'대구 동성로'},
-  {date:'2026-05-16',start:'15:00',end:'16:15',tz:'Asia/Seoul',title:'玩具反斗城（신세계 동대구 B1F）',loc:'토이저러스 신세계 동대구'},
-  {date:'2026-05-16',start:'16:30',end:'18:25',tz:'Asia/Seoul',title:'前往大邱機場 · 出境',loc:'TAE'},
-  {date:'2026-05-16',start:'18:25',end:'19:25',tz:'Asia/Seoul',title:'✈ TAE 18:25 → FUK 19:25',loc:'TAE → FUK'},
-  {date:'2026-05-16',start:'19:25',end:'20:30',tz:'Asia/Tokyo',title:'入境福岡 · 機場→博多站（地鐵 ¥260）',loc:'福岡空港'},
-  {date:'2026-05-16',start:'20:30',end:'21:30',tz:'Asia/Tokyo',title:'博多飯店 check-in · 放行李',loc:'博多駅 ホテル'},
-  {date:'2026-05-16',start:'22:00',end:'23:30',tz:'Asia/Tokyo',title:'晚餐 ⭐ · 藥院燒肉（提前訂位）',loc:'藥院 焼肉'},
-  {date:'2026-05-17',start:'07:45',end:'08:30',tz:'Asia/Tokyo',title:'早餐 · KITTE B1F（08:30 上 JR）',loc:'博多 KITTE'},
-  {date:'2026-05-17',start:'10:00',end:'12:00',tz:'Asia/Tokyo',title:'門司港懷舊地區（含海底隧道）',loc:'門司港レトロ'},
-  {date:'2026-05-17',start:'12:00',end:'13:30',tz:'Asia/Tokyo',title:'午餐 · 門司港燒咖哩',loc:'門司港'},
-  {date:'2026-05-17',start:'14:45',end:'16:15',tz:'Asia/Tokyo',title:'Canal City 博多 + 3COINS B1F',loc:'Canal City Hakata'},
-  {date:'2026-05-17',start:'16:30',end:'17:30',tz:'Asia/Tokyo',title:'ABC Mart Grand Stage 天神（ON / HOKA）',loc:'天神 ABC Mart Grand Stage'},
-  {date:'2026-05-17',start:'17:30',end:'18:30',tz:'Asia/Tokyo',title:'Sierra 福岡 PARCO 6F（戶外）',loc:'天神 PARCO Sierra'},
-  {date:'2026-05-17',start:'19:00',end:'20:30',tz:'Asia/Tokyo',title:'晚餐 · もつ鍋一藤 ⭐（需訂位）',loc:'博多 もつ鍋一藤'},
-  {date:'2026-05-17',start:'20:30',end:'21:45',tz:'Asia/Tokyo',title:'中洲屋台街（生啤＋串燒）',loc:'中洲屋台'},
-  {date:'2026-05-17',start:'22:00',end:'22:45',tz:'Asia/Tokyo',title:'宵夜 ⭐ · ShinShin 拉麵（博多デイトス）',loc:'博多デイトス ShinShin'},
-  {date:'2026-05-18',start:'09:30',end:'10:30',tz:'Asia/Tokyo',title:'博多 → 太宰府（西鐵）',loc:'西鐵'},
-  {date:'2026-05-18',start:'10:30',end:'12:30',tz:'Asia/Tokyo',title:'太宰府天滿宮 + 足湯咖啡',loc:'太宰府'},
-  {date:'2026-05-18',start:'13:10',end:'13:45',tz:'Asia/Tokyo',title:'午餐 · 博多華味鳥水炊鍋 ⭐',loc:'KITTE 9F'},
-  {date:'2026-05-18',start:'13:45',end:'14:30',tz:'Asia/Tokyo',title:'博多マルイ · ポケセン 2F + トイザらス 5F 🆕',loc:'博多マルイ'},
-  {date:'2026-05-18',start:'14:30',end:'14:45',tz:'Asia/Tokyo',title:'博多駅 マイング/デイトス 伴手禮收尾',loc:'博多駅 マイング'},
-  {date:'2026-05-18',start:'14:45',end:'16:20',tz:'Asia/Tokyo',title:'前往福岡機場 · 國際線 90 分前報到',loc:'福岡空港'},
-  {date:'2026-05-18',start:'16:20',end:'17:50',tz:'Asia/Taipei',title:'✈ FUK 16:20 → TPE 17:50',loc:'FUK → TPE'}
-];
-function escIcs(s){return String(s).replace(/[\\,;]/g,'\\$&').replace(/\n/g,'\\n');}
-function buildIcs(){
-  var n = new Date();
-  function p2(x){return String(x).padStart(2,'0');}
-  var stamp = n.getUTCFullYear()+p2(n.getUTCMonth()+1)+p2(n.getUTCDate())+'T'+p2(n.getUTCHours())+p2(n.getUTCMinutes())+p2(n.getUTCSeconds())+'Z';
-  var lines = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Daegu-Fukuoka//Mobile//ZH-TW',
-    'CALSCALE:GREGORIAN',
-    'METHOD:PUBLISH',
-    'X-WR-CALNAME:大邱×福岡 2026.5.16-18',
-    'X-WR-TIMEZONE:Asia/Taipei'
-  ];
-  TRIP_EVENTS.forEach(function(ev,i){
-    var d = ev.date.replace(/-/g,'');
-    var s = ev.start.replace(':','')+'00';
-    var e = ev.end.replace(':','')+'00';
-    lines.push('BEGIN:VEVENT');
-    lines.push('UID:dftrip-'+i+'@local');
-    lines.push('DTSTAMP:'+stamp);
-    lines.push('DTSTART;TZID='+ev.tz+':'+d+'T'+s);
-    lines.push('DTEND;TZID='+ev.tz+':'+d+'T'+e);
-    lines.push('SUMMARY:'+escIcs(ev.title));
-    if(ev.loc) lines.push('LOCATION:'+escIcs(ev.loc));
-    lines.push('END:VEVENT');
-  });
-  lines.push('END:VCALENDAR');
-  return lines.join('\r\n');
-}
-function downloadIcs(){
-  try{
-    var blob = new Blob([buildIcs()],{type:'text/calendar;charset=utf-8'});
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url; a.download = 'daegu-fukuoka-2026-05-16.ics';
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(function(){URL.revokeObjectURL(url);},1500);
-  }catch(e){
-    alert('下載失敗，請改用較新版 Safari/Chrome');
-  }
-}
-var icsBtn = document.getElementById('ts-ics');
-if(icsBtn) icsBtn.addEventListener('click', downloadIcs);
 
 /* ── PWA：註冊 Service Worker（離線時仍可看行程） ── */
 if('serviceWorker' in navigator && location.protocol !== 'file:'){
