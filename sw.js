@@ -4,7 +4,7 @@
  *  - 字型 / 圖片 / 同源資源：cache-first
  *  - 天氣 / 匯率 API：stale-while-revalidate（先給快取再背景更新）
  */
-const BUILD = '20260504-055603';
+const BUILD = '20260504-061134';
 const CACHE_VERSION = 'dftrip-' + BUILD;
 const CORE = [
   './',
