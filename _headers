@@ -1,0 +1,29 @@
+# Cloudflare Pages 自訂 HTTP headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# Service Worker：絕不快取（每次都要拿新版確保 BUILD 號生效）
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Service-Worker-Allowed: /
+
+# manifest 短快取（PWA install 用）
+/manifest.json
+  Cache-Control: public, max-age=300
+
+# HTML 短快取（5 分鐘，方便更新傳遞）
+/index.html
+  Cache-Control: public, max-age=300, must-revalidate
+/
+  Cache-Control: public, max-age=300, must-revalidate
+
+# 靜態圖片長快取（檔名變更才會 bust）
+/*.png
+  Cache-Control: public, max-age=2592000, immutable
+/*.svg
+  Cache-Control: public, max-age=2592000, immutable
+
+# 全站基本安全 header
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
