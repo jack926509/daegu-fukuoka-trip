@@ -57,7 +57,8 @@
   --goldbg:#FFF6D6;
   --red:#D72A2A;
   --redbg:#FFEFEF;
-  --table-stripe:#FFF9ED;
+  --neutral:#334155;
+  --neutralbg:#F1F5F9;
   --r:14px;--rs:10px;
   --shadow:0 1px 3px rgba(220,140,60,.06),0 6px 18px rgba(220,140,60,.10);
   --shadow-sm:0 1px 2px rgba(220,140,60,.05),0 2px 8px rgba(220,140,60,.07);
@@ -70,7 +71,7 @@
 html{font-size:16.5px;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-weight:400;line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;padding-bottom:calc(70px + var(--safe-b) + 20px)}
 
-#prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--d1),var(--d2));transform-origin:left;transform:scaleX(0);z-index:600;will-change:transform}
+#prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--d1),var(--d2));transform-origin:left;transform:scaleX(0);z-index:600}
 
  .skip-link{position:absolute;left:10px;top:-44px;background:#fff;color:var(--ink);padding:8px 12px;border-radius:8px;z-index:1000;border:1px solid var(--border)}
 .skip-link:focus{top:10px}
@@ -121,8 +122,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 @keyframes shimmer{from{background-position:-200px 0}to{background-position:200px 0}}
 .wx-skel{height:44px;border-radius:6px;background:linear-gradient(90deg,#F8F2E5 25%,#EDE5D2 50%,#F8F2E5 75%);background-size:400px;animation:shimmer 1.2s infinite}
 
-.tab-bar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:rgba(var(--card-rgb),.94);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-top:1px solid var(--border);border-bottom:none;display:flex;justify-content:space-around;padding:6px 4px calc(env(safe-area-inset-bottom) + 6px);box-shadow:0 -2px 12px rgba(220,140,60,.10);overflow:visible}
-#tabBar::-webkit-scrollbar{display:none}
+.tab-bar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:rgba(var(--card-rgb),.94);backdrop-filter:blur(12px) saturate(1.4);-webkit-backdrop-filter:blur(12px) saturate(1.4);border-top:1px solid var(--border);border-bottom:none;display:flex;justify-content:space-around;padding:6px 4px calc(env(safe-area-inset-bottom) + 6px);box-shadow:0 -2px 12px rgba(220,140,60,.10);overflow:visible}
 .tab-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10.5px;font-weight:700;color:var(--sub);cursor:pointer;border:none;background:none;padding:5px 0;transition:color .2s;font-family:var(--font-body);height:auto; white-space:nowrap}
 .tab-btn::before { content: attr(data-icon); font-size: 18px; margin-bottom: 1px; }
 .tab-btn.active{color:var(--d2); border-bottom: none;}
@@ -169,9 +169,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 .ev-type{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:100px;margin-bottom:4px;letter-spacing:.3px}
 .et-f{background:var(--foodbg);color:var(--food)}
 .et-s{background:var(--spotbg);color:var(--spot)}
-.et-t{background:#F1F5F9;color:#334155}
-.et-sh{background:var(--goldbg);color:var(--gold)}
-.et-n{background:var(--goldbg);color:var(--gold)}
+.et-t{background:var(--neutralbg);color:var(--neutral)}
+.et-sh,.et-n{background:var(--goldbg);color:var(--gold)}
 .ev-title{font-size:15px;font-weight:700;line-height:1.25;margin-bottom:4px}
 .ev-desc{font-size:13px;color:var(--soft);line-height:1.6}
 .ev-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
@@ -181,7 +180,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 .tt{background:var(--d2bg);color:var(--d2)}
 .tg{background:var(--goldbg);color:var(--gold)}
 .tn{background:var(--d3bg);color:var(--d3)}
-.tok{background:#F3F4F6;color:#374151}
+.tok{background:var(--neutralbg);color:var(--neutral)}
 
 .flight-banner{margin:10px 0;background:linear-gradient(135deg,#FFF4DC 0%,#FFE0DA 60%,#FFE6EC 100%);color:var(--ink);border-radius:var(--r);padding:12px 16px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;border:1px solid rgba(220,140,60,.12);box-shadow:var(--shadow-sm)}
 .flight-banner::before{content:'✈';font-size:18px}
@@ -215,8 +214,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 .fc-head{min-width:0}
 .fc-day{font-size:10px;font-weight:700;letter-spacing:.5px;margin-bottom:3px}
 .fcd1{color:var(--d1)}.fcd2{color:var(--d2)}.fcd3{color:var(--d3)}
-.fcd-sv1{color:#D946EF}.fcd-sv2{color:#EF4444}.fcd-sv3{color:#A16207}
-.fcd-sv4{color:#0EA5E9}.fcd-sv5{color:#7C3AED}.fcd-sv6{color:#15803D}
+.fcd-sv1{color:#A21CAF}.fcd-sv2{color:#B91C1C}.fcd-sv3{color:#854D0E}
+.fcd-sv4{color:#0369A1}.fcd-sv5{color:#5B21B6}.fcd-sv6{color:#166534}
 .fc-name{font-size:16px;font-weight:700;line-height:1.25;word-break:break-word}
 .fc-price{align-self:start;justify-self:end;font-size:13px;font-weight:900;color:var(--food);background:var(--foodbg);padding:4px 10px;border-radius:100px;font-family:var(--font-mono);margin-top:14px;white-space:nowrap}
 .fc-cat{display:inline-block;font-size:11px;font-weight:700;color:var(--food);margin-bottom:6px;letter-spacing:.3px}
@@ -233,7 +232,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 .sc-head{flex:1}
 .sc-day{font-size:10px;font-weight:700;letter-spacing:.5px;margin-bottom:3px}
 .scd1{color:var(--d1)}.scd2{color:var(--d2)}.scd3{color:var(--d3)}
-.sc-name{font-size:16px;font-weight:700;line-height:1.2}
+.sc-name{font-size:16px;font-weight:700;line-height:1.25}
 .sc-dur{font-size:12px;font-weight:700;color:var(--sub);flex-shrink:0;margin-left:8px;padding-top:14px;font-family:var(--font-mono)}
 .sc-type{display:inline-block;font-size:11px;font-weight:700;color:var(--spot);margin-bottom:6px;letter-spacing:.3px}
 .sc-desc{font-size:13px;color:var(--soft);line-height:1.6}
@@ -372,9 +371,6 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 .tk{transition:box-shadow .2s}
 .tk:hover{box-shadow:var(--shadow)}
 
-/* Better active tab indicator */
-.tab-btn.active{color:var(--ink);border-bottom-color:var(--d2)}
-
 /* Map link styling */
 .map-link{background:var(--d2bg);padding:3px 8px;border-radius:100px;transition:background .15s}
 .map-link:hover{background:#D1DCFF;text-decoration:none}
@@ -392,8 +388,6 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 .rev:nth-child(3){transition-delay:.08s}
 .rev:nth-child(4){transition-delay:.11s}
 .rev:nth-child(5){transition-delay:.14s}
-
-/* Trip status banner */
 
 footer{padding:24px 20px 16px;text-align:center;font-size:11px;color:var(--sub);line-height:2.2;border-top:1px solid var(--border);margin-top:8px}
 footer span.ft-hi{color:var(--d1);font-weight:700}
