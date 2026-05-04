@@ -12,7 +12,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta property="og:type" content="website">
 <meta property="og:title" content="大邱 × 福岡 2026.5.16–18 私房三天兩夜">
-<meta property="og:description" content="路線・美食・交通・預算全規劃，一頁帶著走。">
+<meta property="og:description" content="路線・美食・交通・伴手禮全規劃，一頁帶著走。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:url" content="https://jack926509.github.io/daegu-fukuoka-trip/">
 <meta property="og:image" content="https://jack926509.github.io/daegu-fukuoka-trip/og.png">
@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="大邱 × 福岡 三天兩夜旅遊行程封面">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="大邱 × 福岡 2026.5.16–18 私房三天兩夜">
-<meta name="twitter:description" content="路線・美食・交通・預算全規劃，一頁帶著走。">
+<meta name="twitter:description" content="路線・美食・交通・伴手禮全規劃，一頁帶著走。">
 <meta name="twitter:image" content="https://jack926509.github.io/daegu-fukuoka-trip/og.png">
 <title>大邱 × 福岡 2026.5.16–18 私房三天兩夜</title>
 <link rel="manifest" href="manifest.json">
@@ -121,14 +121,14 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 @keyframes shimmer{from{background-position:-200px 0}to{background-position:200px 0}}
 .wx-skel{height:44px;border-radius:6px;background:linear-gradient(90deg,#F8F2E5 25%,#EDE5D2 50%,#F8F2E5 75%);background-size:400px;animation:shimmer 1.2s infinite}
 
-.tab-bar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:rgba(var(--card-rgb),.94);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-top:1px solid var(--border);border-bottom:none;display:flex;justify-content:space-around;padding:8px 8px calc(env(safe-area-inset-bottom) + 8px);box-shadow:0 -2px 12px rgba(220,140,60,.10);overflow:visible}
+.tab-bar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:rgba(var(--card-rgb),.94);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-top:1px solid var(--border);border-bottom:none;display:flex;justify-content:space-around;padding:6px 4px calc(env(safe-area-inset-bottom) + 6px);box-shadow:0 -2px 12px rgba(220,140,60,.10);overflow:visible}
 #tabBar::-webkit-scrollbar{display:none}
-.tab-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:700;color:var(--sub);cursor:pointer;border:none;background:none;padding:6px 0;transition:color .2s;font-family:var(--font-body);height:auto; white-space:nowrap}
-.tab-btn::before { content: attr(data-icon); font-size: 20px; margin-bottom: 2px; }
+.tab-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10.5px;font-weight:700;color:var(--sub);cursor:pointer;border:none;background:none;padding:5px 0;transition:color .2s;font-family:var(--font-body);height:auto; white-space:nowrap}
+.tab-btn::before { content: attr(data-icon); font-size: 18px; margin-bottom: 1px; }
 .tab-btn.active{color:var(--d2); border-bottom: none;}
 .tab-btn.active::after{content:'';position:absolute;top:0;width:30px;height:3px;background:var(--d2);border-radius:0 0 3px 3px;}
 
-.tab-btn:focus-visible,.btn-swap:focus-visible,.cl-reset:focus-visible,.bud-input:focus-visible,.curr-input:focus-visible,.curr-select:focus-visible{outline:2px solid var(--d2);outline-offset:2px}
+.tab-btn:focus-visible,.btn-swap:focus-visible,.cl-reset:focus-visible,.curr-input:focus-visible,.curr-select:focus-visible{outline:2px solid var(--d2);outline-offset:2px}
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
 
 .panel{display:none;padding-bottom:24px}
@@ -199,15 +199,24 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 .food-divider:first-child{margin-top:0}
 .fd-day{font-size:11px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:100px;color:#fff}
 .fd-day.fcd1{background:var(--d1)}.fd-day.fcd2{background:var(--d2)}.fd-day.fcd3{background:var(--d3)}
+.fd-day.fcd-sv1{background:#D946EF}
+.fd-day.fcd-sv2{background:#EF4444}
+.fd-day.fcd-sv3{background:#A16207}
+.fd-day.fcd-sv4{background:#0EA5E9}
+.fd-day.fcd-sv5{background:#7C3AED}
+.fd-day.fcd-sv6{background:#15803D}
+.fd-day.fcd-sv7{background:#F59E0B}
 .fd-text{font-size:12px;font-weight:700;color:var(--soft);letter-spacing:.3px}
 .food-card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden;border-top:3px solid var(--food)}
 .fc-in{padding:14px}
-.fc-meta{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
-.fc-head{flex:1}
+.fc-meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.fc-head{flex:1 1 60%;min-width:0}
 .fc-day{font-size:10px;font-weight:700;letter-spacing:.5px;margin-bottom:3px}
 .fcd1{color:var(--d1)}.fcd2{color:var(--d2)}.fcd3{color:var(--d3)}
-.fc-name{font-size:16px;font-weight:700;line-height:1.2}
-.fc-price{font-size:16px;font-weight:900;color:var(--food);flex-shrink:0;margin-left:10px;padding-top:14px;font-family:var(--font-mono)}
+.fcd-sv1{color:#D946EF}.fcd-sv2{color:#EF4444}.fcd-sv3{color:#A16207}
+.fcd-sv4{color:#0EA5E9}.fcd-sv5{color:#7C3AED}.fcd-sv6{color:#15803D}.fcd-sv7{color:#F59E0B}
+.fc-name{font-size:16px;font-weight:700;line-height:1.25;word-break:break-word}
+.fc-price{flex:0 0 auto;align-self:flex-start;font-size:14px;font-weight:900;color:var(--food);background:var(--foodbg);padding:4px 10px;border-radius:100px;font-family:var(--font-mono);margin-top:14px;white-space:nowrap}
 .fc-cat{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--foodbg);color:var(--food);margin-bottom:6px}
 .fc-desc{font-size:13px;color:var(--soft);line-height:1.6}
 .fc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
@@ -295,31 +304,6 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 }
 .btn-swap:active{background:var(--d2);color:#fff}
 
-.budget-table{width:100%;border-collapse:collapse}
-.budget-table th{font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--sub);padding:4px 8px 8px;text-align:left;border-bottom:2px solid var(--border)}
-.budget-table td{padding:8px;border-bottom:1px solid var(--border);vertical-align:middle;font-size:13px}
-.budget-table tr:last-child td{border-bottom:none}
-.bud-input{
-  width:100%;padding:5px 7px;border:1.5px solid var(--border);border-radius:6px;
-  font-size:13px;font-weight:700;font-family:var(--font-mono);
-  background:var(--bg);color:var(--ink);outline:none;
-}
-.bud-input:focus{border-color:var(--d2)}
-.bud-est{font-size:12px;color:var(--sub);font-family:var(--font-mono)}
-.bud-bar-wrap{height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-top:3px}
-.bud-bar{height:100%;border-radius:3px;transition:width .4s ease}
-.bud-bar.ok{background:var(--d3)}
-.bud-bar.warn{background:#F59E0B}
-.bud-bar.over{background:var(--red)}
-.bud-total-row{background:var(--bg)}
-.bud-total-row td{font-weight:700;font-size:14px;border-bottom:none}
-.bud-total-val{font-family:var(--font-mono);font-size:15px;font-weight:900}
-.bud-summary{margin-top:12px;display:flex;gap:10px}
-.bud-sum-item{flex:1;text-align:center;padding:10px;background:var(--bg);border-radius:var(--rs)}
-.bud-sum-label{font-size:10px;color:var(--sub);margin-bottom:3px}
-.bud-sum-val{font-size:16px;font-weight:900;font-family:var(--font-mono)}
-.bud-sum-val.green{color:var(--d3)}.bud-sum-val.red{color:var(--red)}.bud-sum-val.yellow{color:#D97706}
-
 .cl-group{margin-bottom:14px}
 .cl-group-title{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--sub);margin-bottom:8px;padding:0 2px}
 .cl-items{display:grid;grid-template-columns:1fr 1fr;gap:6px}
@@ -354,20 +338,6 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 }
 .cl-reset:active{background:var(--border)}
 
-
-.budget-wrap{padding:12px 14px 0}
-.budget{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow-sm);overflow:hidden}
-.bud-header{background:linear-gradient(135deg,#FFFAEB 0%,#FFEFD0 50%,#FFE2DA 100%);color:var(--ink);padding:13px 16px;border-bottom:1px solid rgba(220,140,60,.12)}
-.bud-header-title{font-size:15px;font-weight:700}
-.bud-header-note{font-size:11px;color:var(--soft);margin-top:2px}
-.bud-grid{display:grid;grid-template-columns:1fr 1fr}
-.bi{padding:11px 14px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-.bi:nth-child(2n){border-right:none}
-.bi-label{font-size:11px;color:var(--sub);margin-bottom:2px}
-.bi-val{font-size:13px;font-weight:700;font-family:var(--font-mono)}
-.bi-total{grid-column:1/-1;border-right:none;background:var(--d1bg)}
-.bi-total .bi-label{color:var(--d1);font-weight:700}
-.bi-total .bi-val{font-size:16px;color:var(--d1)}
 
 /* Guide card styles */
 .guide-section{margin-bottom:16px}
@@ -433,9 +403,6 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-wei
 .ts-cta{flex-shrink:0;font-size:11px;font-weight:700;background:var(--d2bg);color:var(--d2);border:1px solid transparent;border-radius:100px;padding:7px 11px;cursor:pointer;font-family:var(--font-body);transition:background .15s}
 .ts-cta:active{background:var(--d2);color:var(--card)}
 
-/* Light table stripe for readability */
-.budget-table tbody tr:nth-child(2n){background:var(--table-stripe)}
-
 footer{padding:24px 20px 16px;text-align:center;font-size:11px;color:var(--sub);line-height:2.2;border-top:1px solid var(--border);margin-top:8px}
 footer span.ft-hi{color:var(--d1);font-weight:700}
 </style>
@@ -494,6 +461,7 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
 <div class="tab-bar" id="tabBar" role="tablist" aria-label="旅遊面板切換">
   <button class="tab-btn active" role="tab" aria-selected="true" id="tab-itinerary" aria-controls="panel-itinerary" data-tab="itinerary" data-icon="📅">行程</button>
   <button class="tab-btn" role="tab" aria-selected="false" id="tab-food" aria-controls="panel-food" data-tab="food" data-icon="🍜">美食</button>
+  <button class="tab-btn" role="tab" aria-selected="false" id="tab-souvenir" aria-controls="panel-souvenir" data-tab="souvenir" data-icon="🎁">伴手</button>
   <button class="tab-btn" role="tab" aria-selected="false" id="tab-spots" aria-controls="panel-spots" data-tab="spots" data-icon="🗺">景點</button>
   <button class="tab-btn" role="tab" aria-selected="false" id="tab-transport" aria-controls="panel-transport" data-tab="transport" data-icon="🚃">交通</button>
   <button class="tab-btn" role="tab" aria-selected="false" id="tab-tools" aria-controls="panel-tools" data-tab="tools" data-icon="🛠">工具</button>
@@ -633,6 +601,59 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
   </div>
 </div>
 
+<div class="panel" id="panel-souvenir" role="tabpanel" aria-labelledby="tab-souvenir" tabindex="0">
+  <div class="sec-head"><div class="sec-h2">🎁 伴手禮推薦</div><div class="sec-hint">7 大類 · 32 件 · 福岡市區・大邱限定</div></div>
+  <div class="food-summary rev">
+    <div class="fs-row"><span class="fs-k">📍 一站買齊</span><span class="fs-v">博多駅 マイング・デイトス・阪急 B1F（站內 90+ 店）</span></div>
+    <div class="fs-row"><span class="fs-k">✈️ 機場補貨</span><span class="fs-v">福岡空港國際線 2F：明太子・通りもん最齊全（不怕忘記）</span></div>
+    <div class="fs-row"><span class="fs-k">💴 退稅小撇步</span><span class="fs-v">同店單日 ¥5,000 起免稅 10%，護照 + 信用卡同名</span></div>
+    <div class="fs-row"><span class="fs-k">⚠️ 注意</span><span class="fs-v">明太子・甜點要冷藏；炸雞・仙貝可常溫；獺祭等酒類限 3L 內入境</span></div>
+  </div>
+  <div class="food-grid">
+
+    <div class="food-divider rev"><span class="fd-day fcd-sv1">類別 1</span><span class="fd-text">🥮 經典甜點・和菓子（5 件）</span></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv1">⭐ 24 連霸金獎</div><div class="fc-name">博多通りもん（明月堂）</div></div><div class="fc-price">¥1,080/8入</div></div><div class="fc-cat">🥮 福岡 No.1</div><div class="fc-desc">奶油白豆沙入口即化，連續 24 年 Monde Selection 金賞。8/12/16 入禮盒。<b>分送同事最體面</b>。</div><div class="fc-tags"><span class="tag th">送禮首選</span><span class="tag tok">常溫 30 日</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv1">老舗代表</div><div class="fc-name">如水庵 筑紫餅</div></div><div class="fc-price">¥1,080/8入</div></div><div class="fc-cat">🍡 連 7 年金獎</div><div class="fc-desc">麻糬包黃豆粉裹紅豆內餡，柔軟有嚼勁。長輩、和菓子愛好者首選。</div><div class="fc-tags"><span class="tag tok">常溫 14 日</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv1">九州限定</div><div class="fc-name">SUGAR BUTTER TREE 甘王草莓</div></div><div class="fc-price">¥1,000–1,500</div></div><div class="fc-cat">🍓 福岡限定口味</div><div class="fc-desc">使用福岡名物甘王草莓做的奶油夾心餅，<b>九州限定不在台灣販售</b>。博多阪急 B1F、博多駅 Amu Plaza 1F。</div><div class="fc-tags"><span class="tag tn">🆕 限定</span><span class="tag tw">⏰ 30 日</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv1">博多限定</div><div class="fc-name">press butter sand 草莓夾心</div></div><div class="fc-price">¥200–400/個</div></div><div class="fc-cat">🧁 高人氣甜點</div><div class="fc-desc">博多限定<b>草莓奶油</b>口味，外香脆內柔潤。博多阪急 B1F「博多 SWEETS POCKET」。</div><div class="fc-tags"><span class="tag th">博多限定</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv1">秒搶現烤</div><div class="fc-name">BAKE Cheese Tart</div></div><div class="fc-price">¥250/個</div></div><div class="fc-cat">🧀 起司塔</div><div class="fc-desc">博多阪急 B1F 現烤，三層起司餡。<b>當下吃最讚</b>，冷藏帶回 1 日內食用。</div><div class="fc-tags"><span class="tag tw">⏰ 限時取貨</span></div></div></div>
+
+    <div class="food-divider rev"><span class="fd-day fcd-sv2">類別 2</span><span class="fd-text">🌶 明太子・拌飯料（3 件）</span></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv2">⭐ 始祖</div><div class="fc-name">ふくや 軟管 tubu tube 系列</div></div><div class="fc-price">¥1,500–3,000</div></div><div class="fc-cat">🌶 福岡象徵</div><div class="fc-desc">1949 年福岡明太子始祖。<b>軟管包裝不怕壓壞</b>，口味多元（辣／不辣／柚子／和風高湯／山藥泥）。<b>機場現買現提</b>避開行李壓壞。</div><div class="fc-tags"><span class="tag th">福岡象徵</span><span class="tag tg">機場 OK</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv2">熱賣百萬</div><div class="fc-name">YAMAYA 軟管明太子醬</div></div><div class="fc-price">¥600–1,200</div></div><div class="fc-cat">🌶 牙膏型軟管</div><div class="fc-desc">熱銷超過<b>百萬隻</b>的軟管明太子，方便擠壓料理。粉色包裝「辛子明太子」最夯，搭配法國麵包、義大利麵、白飯。</div><div class="fc-tags"><span class="tag th">高人氣</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv2">分送神器</div><div class="fc-name">福太郎 めんべい 仙貝</div></div><div class="fc-price">¥756/16入</div></div><div class="fc-cat">🍘 仙貝零食王</div><div class="fc-desc">明太子＋花枝＋章魚壓成酥脆仙貝，<b>8 種口味</b>：原味／美乃滋／蔥香／九州醬油／玉蔥／辣口／柚子胡椒／玄米。<b>分送辦公室最划算</b>。</div><div class="fc-tags"><span class="tag tok">常溫 OK</span></div></div></div>
+
+    <div class="food-divider rev"><span class="fd-day fcd-sv3">類別 3</span><span class="fd-text">🍗 鹹食・酒友（2 件）</span></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv3">配酒精選</div><div class="fc-name">努努雞（冷吃炸雞）</div></div><div class="fc-price">¥1,080/盒</div></div><div class="fc-cat">🍗 福岡發祥</div><div class="fc-desc">「冰涼吃」炸雞，甜辣口味涮嘴。博多駅マイング或 Amu Plaza。<b>真空包裝可帶上飛機</b>，配冰啤酒最讚。賞味期 5 日內。</div><div class="fc-tags"><span class="tag th">福岡特產</span><span class="tag tok">真空包裝</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv3">名店帶回家</div><div class="fc-name">一風堂・一蘭 拉麵禮盒</div></div><div class="fc-price">¥1,500–2,500</div></div><div class="fc-cat">🍜 拉麵伴手禮</div><div class="fc-desc">一風堂博多駅店、一蘭機場店都有<b>泡麵版禮盒</b>，附湯包＋細麵＋醬料。常溫保存 90 日，回家直接還原拉麵店風味。</div><div class="fc-tags"><span class="tag tok">常溫 90 日</span></div></div></div>
+
+    <div class="food-divider rev"><span class="fd-day fcd-sv4">類別 4</span><span class="fd-text">🍶 酒類・飲料（2 件）</span></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv4">日本 2 家限定</div><div class="fc-name">獺祭 純米大吟釀（岩田屋限定）</div></div><div class="fc-price">¥3,000–10,000</div></div><div class="fc-cat">🍶 全日本限定點</div><div class="fc-desc">岩田屋 B2F 是全日本僅 2 家獺祭專櫃之一，<b>「磨きその先へ」「23」「39」「45」</b>全系列齊全。<b>3L 以下可入境台灣</b>。</div><div class="fc-tags"><span class="tag tn">🆕 限定點</span><span class="tag tw">⚠️ 限 3L</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv4">女性指名</div><div class="fc-name">甘王草莓酒・果汁</div></div><div class="fc-price">¥1,200–2,500</div></div><div class="fc-cat">🍓 福岡名物</div><div class="fc-desc">福岡甘王草莓做的<b>利口酒</b>（酒精 8%）或<b>無酒精果汁</b>。博多阪急 B1F、機場販售。粉色瓶身送禮可愛。</div><div class="fc-tags"><span class="tag th">福岡限定</span></div></div></div>
+
+    <div class="food-divider rev"><span class="fd-day fcd-sv5">類別 5</span><span class="fd-text">🛍 3COINS 雜貨（Canal City B1F · 6 件）</span></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv5">旅行神器</div><div class="fc-name">衣類圧縮收納袋</div></div><div class="fc-price">¥550–1,100</div></div><div class="fc-cat">🧳 行李整理</div><div class="fc-desc">壓縮 30% 體積，回程多買也能塞行李箱。S/M/L 三尺寸。</div><div class="fc-tags"><span class="tag th">回程必備</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv5">機能包</div><div class="fc-name">3WAY パッカブル ショルダー</div></div><div class="fc-price">¥1,650</div></div><div class="fc-cat">🎒 收納包</div><div class="fc-desc">收納成手掌大小，可肩背／斜背／腰包三種背法。回程裝戰利品超實用。</div><div class="fc-tags"><span class="tag tg">CP 值高</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv5">防盜</div><div class="fc-name">スキミング防止 護照夾</div></div><div class="fc-price">¥550</div></div><div class="fc-cat">🛂 旅行配件</div><div class="fc-desc">內建 RFID 防盜層，旅行/出差防止信用卡感應被盜。多色可選。</div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv5">飛機必備</div><div class="fc-name">充氣ネックピロー</div></div><div class="fc-price">¥550</div></div><div class="fc-cat">😴 頸枕</div><div class="fc-desc">折疊充氣式頸枕，回程 FUK→TPE 1.5 小時也夠用。¥550 取代 ¥3,000 的記憶棉款。</div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv5">行李配件</div><div class="fc-name">キャリー固定ゴムバンド</div></div><div class="fc-price">¥330</div></div><div class="fc-cat">🧳 行李配件</div><div class="fc-desc">把外套、購物袋固定在行李箱拉桿上的彈性帶。Day 3 戰利品多時超實用。</div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv5">收納</div><div class="fc-name">2D マスク・キルティングポーチ</div></div><div class="fc-price">¥330–550</div></div><div class="fc-cat">💄 小物收納</div><div class="fc-desc">日本 2D マスク（立體口罩）粉色系最夯，配 3COINS 限定鋪棉小袋裝藥粧最可愛。</div></div></div>
+
+    <div class="food-divider rev"><span class="fd-day fcd-sv6">類別 6</span><span class="fd-text">🏕 Sierra Designs 戶外（PARCO 6F · 5 件）</span></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv6">⭐ 招牌</div><div class="fc-name">60/40 Mountain Parka</div></div><div class="fc-price">¥40,000–55,000</div></div><div class="fc-cat">🧥 經典款</div><div class="fc-desc">Sierra Designs 招牌，60% 棉 40% 尼龍混紡，防潑水耐磨。<b>免稅 10% + 日台價差</b>，比台灣便宜近 ¥15,000。</div><div class="fc-tags"><span class="tag tg">免稅 10%</span><span class="tag th">必買</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv6">日常包</div><div class="fc-name">Day Pack（後背包）</div></div><div class="fc-price">¥10,000–14,000</div></div><div class="fc-cat">🎒 後背包</div><div class="fc-desc">20–25L 容量，戶外品牌中重量輕、耐操。日常通勤、輕度爬山都適合。</div><div class="fc-tags"><span class="tag tg">免稅 10%</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv6">輕量</div><div class="fc-name">Field Tote</div></div><div class="fc-price">¥6,000</div></div><div class="fc-cat">👜 托特包</div><div class="fc-desc">尼龍材質可摺疊，附拉鍊內袋。露營、購物、日常皆宜。</div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv6">基本款</div><div class="fc-name">Logo T-shirt / Hoodie</div></div><div class="fc-price">¥4,500–9,000</div></div><div class="fc-cat">👕 服飾</div><div class="fc-desc">經典 Sierra Designs logo，純棉重磅。多色可選，男女通用。</div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv6">配件</div><div class="fc-name">Cap / Bucket Hat</div></div><div class="fc-price">¥4,000–5,500</div></div><div class="fc-cat">🧢 帽子</div><div class="fc-desc">尼龍漁夫帽或棉質棒球帽，旅行戶外必備防曬。</div></div></div>
+
+    <div class="food-divider rev"><span class="fd-day fcd-sv7">類別 7</span><span class="fd-text">🎮 玩具・卡牌（博多マルイ・大邱 신세계 · 4 件）</span></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv7">⭐ 福岡限定</div><div class="fc-name">ポケモンセンター フクオカ 限定</div></div><div class="fc-price">¥800–6,000</div></div><div class="fc-cat">🎮 博多マルイ 2F</div><div class="fc-desc">2025 年新裝旗艦。<b>博多限定マスコット</b>（明太子皮卡丘等）、寶可夢卡牌、Tシャツ、絨毛娃娃。<b>免稅 10%</b>。</div><div class="fc-tags"><span class="tag tn">🆕 福岡限定</span><span class="tag tg">免稅 10%</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv7">日本玩具</div><div class="fc-name">トイザらス 博多マルイ店 🆕</div></div><div class="fc-price">¥500–20,000</div></div><div class="fc-cat">🧸 博多マルイ 5F</div><div class="fc-desc">2026/4 全新開幕。<b>POP MART 日本限定盲盒</b>、タカラトミー（變形金剛、Tomica 小汽車）、シルバニアファミリー森林家族。</div><div class="fc-tags"><span class="tag tn">🆕 2026 新店</span><span class="tag tg">免稅 10%</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv7">韓限玩具</div><div class="fc-name">신세계 동대구 토이저러스</div></div><div class="fc-price">₩10,000–80,000</div></div><div class="fc-cat">🇰🇷 大邱 B1F</div><div class="fc-desc">韓限樂高、韓限 Sonny Angel、Pinky Pop、TOKIDOKI 等。<b>大邱旅遊主要採買時段</b>，回家前一站。</div><div class="fc-tags"><span class="tag th">韓限</span></div></div></div>
+    <div class="food-card rev"><div class="fc-in"><div class="fc-meta"><div class="fc-head"><div class="fc-day fcd-sv7">扭蛋</div><div class="fc-name">Canal City 扭蛋區</div></div><div class="fc-price">¥300–500/次</div></div><div class="fc-cat">🎰 2,000+ 台機台</div><div class="fc-desc">日本最大規模之一的扭蛋區（B1F），<b>2,000+ 台</b>常見限定 IP（鬼滅、咒術、寶可夢、三麗鷗）。建議帶 ¥100 硬幣。</div><div class="fc-tags"><span class="tag tw">💴 帶零錢</span></div></div></div>
+  </div>
+</div>
+
 <div class="panel" id="panel-spots" role="tabpanel" aria-labelledby="tab-spots" tabindex="0">
   <div class="sec-head"><div class="sec-h2">🗺 景點 &amp; 購物</div><div class="sec-hint">8 個精選景點</div></div>
   <div class="spot-grid">
@@ -681,7 +702,7 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
 </div>
 
 <div class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools" tabindex="0">
-  <div class="sec-head"><div class="sec-h2">🛠 旅行工具</div><div class="sec-hint">匯率換算・預算追蹤・打包清單</div></div>
+  <div class="sec-head"><div class="sec-h2">🛠 旅行工具</div><div class="sec-hint">匯率換算・打包清單・導遊手冊</div></div>
   <div class="tools-grid">
 
     
@@ -713,39 +734,7 @@ footer span.ft-hi{color:var(--d1);font-weight:700}
       </div>
     </div>
 
-    
-    <div class="tool-card rev">
-      <div class="tool-head">
-        <div class="tool-icon">📊</div>
-        <div class="tool-title">預算追蹤器</div>
-        <div class="tool-badge" id="bud-pct">0% 已用</div>
-      </div>
-      <div class="tool-body">
-        <div style="margin-bottom:10px" aria-live="polite">
-          <div class="cl-progress-text"><span>整體花費進度（換 TWD）</span><span id="bud-spent-total">NT$— / NT$—</span></div>
-          <div class="bud-bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bud-bar ok" id="bud-progress-bar" style="width:0%"></div></div>
-          <div id="bud-breakdown" style="font-size:10px;color:var(--sub);margin-top:6px;font-family:var(--font-mono);text-align:right">—</div>
-        </div>
-        <table class="budget-table">
-          <thead><tr><th>項目</th><th>預估</th><th>實際 (原幣別)</th></tr></thead>
-          <tbody id="bud-tbody"></tbody>
-          <tfoot>
-            <tr class="bud-total-row">
-              <td>合計（TWD）</td>
-              <td class="bud-est" id="bud-est-total">NT$—</td>
-              <td><span class="bud-total-val" id="bud-actual-total">NT$—</span></td>
-            </tr>
-          </tfoot>
-        </table>
-        <div class="bud-summary">
-          <div class="bud-sum-item"><div class="bud-sum-label">已花費 TWD</div><div class="bud-sum-val" id="bud-sv-spent">NT$—</div></div>
-          <div class="bud-sum-item"><div class="bud-sum-label">剩餘 TWD</div><div class="bud-sum-val green" id="bud-sv-remain">NT$—</div></div>
-          <div class="bud-sum-item"><div class="bud-sum-label">節省/超支</div><div class="bud-sum-val green" id="bud-sv-diff">—</div></div>
-        </div>
-      </div>
-    </div>
 
-    
     <div class="tool-card rev">
       <div class="tool-head">
         <div class="tool-icon">🎒</div>
@@ -1084,7 +1073,6 @@ function applyFxRates(rates, fromCache){
     (fromCache ? '今日快取 · ' : '更新：') +
     n.toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'});
   updateFxDisplay();
-  if(typeof calcBudget === 'function') calcBudget();
 }
 
 async function fetchFx(attempt){
@@ -1123,9 +1111,6 @@ async function fetchFx(attempt){
     updateFxDisplay();
   }
 }
-/* 注意：fetchFx() 在 BUD_ITEMS 與 renderBudgetTable 之後才呼叫，
-   因為 cache-hit 走同步 applyFxRates → calcBudget，需要 BUD_ITEMS 已就緒。 */
-
 if(initState.fxAmount!==undefined) document.getElementById('fx-amount').value = initState.fxAmount;
 if(initState.fxFrom) document.getElementById('fx-from').value = initState.fxFrom;
 updateFxDisplay();
@@ -1148,114 +1133,6 @@ document.getElementById('fx-swap').addEventListener('click', function(){
   updateFxDisplay();
 });
 
-var CCY_SYM = {KRW:'₩', JPY:'¥', TWD:'NT$', USD:'US$'};
-var BUD_ITEMS = [
-  {label:'博多飯店（2 晚 / 2 人）',est:24000,currency:'JPY',key:'hotel_jp'},
-  {label:'韓 SIM + 日 eSIM（2 人）',est:1800,currency:'TWD',key:'sim'},
-  {label:'大邱機場計程車（往返）',est:16000,currency:'KRW',key:'tax_kr'},
-  {label:'大邱餐食（早+午+小吃）',est:60000,currency:'KRW',key:'food_kr'},
-  {label:'東城路購物',est:30000,currency:'KRW',key:'shop_kr'},
-  {label:'福岡機場↔博多地鐵',est:520,currency:'JPY',key:'sub_jp'},
-  {label:'JR 博多↔門司港（2人）',est:6000,currency:'JPY',key:'jr'},
-  {label:'福岡 City Pass（2人）',est:3000,currency:'JPY',key:'pass'},
-  {label:'西鐵太宰府（2人）',est:3640,currency:'JPY',key:'dazaifu'},
-  {label:'福岡早餐 × 2',est:1500,currency:'JPY',key:'bfst_jp'},
-  {label:'福岡午晚餐・宵夜・屋台',est:22000,currency:'JPY',key:'meals_jp'},
-  {label:'景點門票',est:600,currency:'JPY',key:'spots'},
-  {label:'博多マルイ・玩具・伴手禮',est:18000,currency:'JPY',key:'shop_jp'},
-];
-var BUD_ACTUAL = (initState.budget && typeof initState.budget==='object') ? initState.budget : {};
-
-function ccyToTwd(amt, ccy){
-  var rates = FX_RATES || FX_BASE_RATES;
-  var r = rates[ccy] || 1;
-  return amt / r; // rates[ccy] is units of ccy per 1 TWD, so amt/r → TWD
-}
-
-/* 預算輸入正規化：濾掉負數、Infinity、NaN */
-function safeNum(v){
-  var n = parseFloat(v);
-  if(!isFinite(n) || n < 0) return 0;
-  return n;
-}
-function calcBudget(){
-  var byCcy = {KRW:{est:0,act:0}, JPY:{est:0,act:0}, TWD:{est:0,act:0}};
-  var totalEstTwd = 0, totalActTwd = 0;
-  BUD_ITEMS.forEach(function(item){
-    var act = safeNum(BUD_ACTUAL[item.key]);
-    var ccy = item.currency || 'TWD';
-    if(byCcy[ccy]){ byCcy[ccy].est += item.est; byCcy[ccy].act += act; }
-    totalEstTwd += ccyToTwd(item.est, ccy);
-    totalActTwd += ccyToTwd(act, ccy);
-  });
-  var pct = totalEstTwd > 0 ? Math.round(totalActTwd/totalEstTwd*100) : 0;
-  var pctCap = Math.min(pct, 120);
-  var bar = document.getElementById('bud-progress-bar');
-  bar.style.width = pctCap+'%';
-  bar.className = 'bud-bar '+(pct<80?'ok':pct<100?'warn':'over');
-  var barWrap = bar.parentElement;
-  if(barWrap && barWrap.setAttribute) barWrap.setAttribute('aria-valuenow', String(Math.min(pct,100)));
-  document.getElementById('bud-pct').textContent = pct+'% 已用';
-  var actT = Math.round(totalActTwd), estT = Math.round(totalEstTwd);
-  document.getElementById('bud-spent-total').textContent = 'NT$'+fmtNum(actT)+' / NT$'+fmtNum(estT);
-  document.getElementById('bud-actual-total').textContent = 'NT$'+fmtNum(actT);
-  document.getElementById('bud-est-total').textContent = 'NT$'+fmtNum(estT);
-  document.getElementById('bud-sv-spent').textContent = 'NT$'+fmtNum(actT);
-  var remain = estT - actT;
-  var remEl = document.getElementById('bud-sv-remain');
-  remEl.textContent = 'NT$'+fmtNum(Math.abs(remain));
-  remEl.className = 'bud-sum-val '+(remain>=0?'green':'red');
-  var diffEl = document.getElementById('bud-sv-diff');
-  diffEl.textContent = (remain>=0?'+':'')+fmtNum(remain);
-  diffEl.className = 'bud-sum-val '+(remain>0?'green':remain<0?'red':'yellow');
-  var bd = document.getElementById('bud-breakdown');
-  if(bd){
-    var parts = [];
-    if(byCcy.KRW.est>0) parts.push('₩'+fmtNum(byCcy.KRW.act)+' / ₩'+fmtNum(byCcy.KRW.est));
-    if(byCcy.JPY.est>0) parts.push('¥'+fmtNum(byCcy.JPY.act)+' / ¥'+fmtNum(byCcy.JPY.est));
-    bd.textContent = parts.join('  ·  ');
-  }
-}
-
-function renderBudgetTable(){
-  var tbody = document.getElementById('bud-tbody');
-  if(!tbody) return;
-  var html = '';
-  BUD_ITEMS.forEach(function(item){
-    var act = safeNum(BUD_ACTUAL[item.key]);
-    var pct = Math.min(Math.round(act/item.est*100),120);
-    var barCls = pct<80?'ok':pct<100?'warn':'over';
-    var ccy = item.currency || 'TWD';
-    var sym = CCY_SYM[ccy];
-    html += '<tr>'+
-      '<td style="font-size:12px;font-weight:600">'+item.label+
-        '<div style="font-size:9px;color:var(--sub);font-weight:700;letter-spacing:.5px;font-family:var(--font-mono);margin-top:2px">'+ccy+'</div>'+
-      '</td>'+
-      '<td><div class="bud-est">'+sym+fmtNum(item.est)+'</div></td>'+
-      '<td><input class="bud-input" type="number" min="0" step="1" data-key="'+item.key+'" data-ccy="'+ccy+'" value="'+(act||'')+'" placeholder="0" inputmode="decimal" style="width:80px">'+
-        '<div class="bud-bar-wrap" style="margin-top:3px"><div class="bud-bar '+barCls+'" style="width:'+pct+'%"></div></div>'+
-      '</td>'+
-      '</tr>';
-  });
-  tbody.innerHTML = html;
-  tbody.querySelectorAll('.bud-input').forEach(function(inp){
-    inp.addEventListener('input', debounce(function(){
-      var clean = safeNum(this.value);
-      BUD_ACTUAL[this.dataset.key] = clean;
-      saveState({budget:BUD_ACTUAL});
-      calcBudget();
-      var row = this.closest('tr');
-      var key = this.dataset.key;
-      var item = BUD_ITEMS.find(function(x){return x.key===key;});
-      var pct = item ? Math.min(Math.round(clean/item.est*100),120) : 0;
-      var barCls = pct<80?'ok':pct<100?'warn':'over';
-      var bar = row.querySelector('.bud-bar');
-      bar.style.width=pct+'%'; bar.className='bud-bar '+barCls;
-    }, 250));
-  });
-}
-renderBudgetTable();
-calcBudget();
 fetchFx();
 
 var CL_DATA = [
@@ -1352,7 +1229,7 @@ function updateTripStatus(){
     el.classList.add('archived');
     icon.textContent = '📷';
     title.textContent = '旅程已結束 · 回顧模式';
-    sub.textContent = '行程・美食・預算紀錄保留下來，隨時翻閱';
+    sub.textContent = '行程・美食・伴手紀錄保留下來，隨時翻閱';
   } else if(now >= TRIP_START){
     el.classList.add('live');
     var dayIdx = Math.min(3, Math.floor((now - TRIP_START)/msPerDay) + 1);
