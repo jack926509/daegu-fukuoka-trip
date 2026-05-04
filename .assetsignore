@@ -1,0 +1,16 @@
+src/
+node_modules/
+.git/
+.github/
+.wrangler/
+.vscode/
+.idea/
+*.md
+*.sh
+*.log
+.gitignore
+.assetsignore
+.env*
+package*.json
+wrangler.jsonc
+wrangler.toml
